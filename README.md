@@ -1,11 +1,11 @@
-[![efrderick](https://raw.githubusercontent.com/pepeyen/efrederick/master/.github/images/project-thumbnail.png)](https://efrederick.dev)
+[![efrderick](https://raw.githubusercontent.com/ericodess/efrederick/master/.github/images/project-thumbnail.png)](https://efrederick.dev)
 
 # efrederick
 
 ### tl;dr
 
  ```
-git clone https://github.com/pepeyen/efrederick.git
+git clone https://github.com/ericodess/efrederick.git
 cd efrederick/
 npm install
 npm start
@@ -15,7 +15,7 @@ Then open [http://localhost:3000/](http://localhost:3000/) to see your app. The 
 
 ### Adding environment variables
 
-Most instances will need an back-end source in order to work a great way to provide it is to get started with [portfolio-api](https://github.com/pepeyen/portfolio-api), after creating this resources add these environment variables:
+Most instances will need an back-end source in order to work a great way to provide it is to get started with [portfolio-api](https://github.com/ericodess/portfolio-api), after creating this resources add these environment variables:
 
 ```
 REACT_APP_BACK_END_HOST={YOUR-BACK-END-ADDRESS}

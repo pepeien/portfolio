@@ -26,7 +26,7 @@ function Footer() {
                     <div className="footer__social-link --spaced-from-top">
                         <a 
                             className="footer__outside-link" 
-                            href="https://github.com/pepeyen" 
+                            href="https://github.com/ericodess" 
                             target="_blank" rel="noopener noreferrer"
                         >
                             Github
