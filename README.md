@@ -1,12 +1,12 @@
-[![efrderick](https://raw.githubusercontent.com/ericodess/efrederick/master/.github/images/project-thumbnail.png)](https://efrederick.dev)
+[![portfolio](https://raw.githubusercontent.com/ericodess/portfolio/v1/.github/images/project-thumbnail.png)](https://efrederick.dev)
 
-# efrederick
+# portfolio
 
 ### tl;dr
 
  ```
-git clone https://github.com/ericodess/efrederick.git
-cd efrederick/
+git clone https://github.com/ericodess/portfolio.git
+cd portfolio/
 npm install
 npm start
 ```
