@@ -3,12 +3,15 @@
 @import 'base/fonts';
 
 //Components Import
+@import 'components/contact-form';
+@import 'components/modal';
 
 //Pages Import
 @import 'pages/home';
 
 //Themes Import
-@import 'themes/default';
+@import 'themes/colors';
 
 //Layout Import
 @import 'layout/animations';
+@import 'layout/common';
