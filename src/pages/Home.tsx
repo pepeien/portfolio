@@ -13,9 +13,13 @@ const Home = () => {
 	return (
 		<div className='home'>
 			<div className='home__title'>
-				<span>Coming </span>
+				<div>
+					<span>Coming </span>
+				</div>
 				<div />
-				<span>Soon</span>
+				<div>
+					<span>Soon</span>
+				</div>
 			</div>
 			<div className='home__footer'>
 				<button className='home__footer-button' is-upward={new String(isModalVisible)} onClick={modalHandler}>

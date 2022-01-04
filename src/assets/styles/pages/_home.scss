@@ -14,6 +14,7 @@
 		align-items: center;
 		justify-content: center;
 		color: white;
+		margin: 0 auto 0 auto;
 		height: 100%;
 		transform-origin: 50% 50%;
 		font-size: 3rem;
@@ -24,14 +25,33 @@
     	-o-animation: 	   zoom-in 0.5s ease-in-out;
     	animation: 		   zoom-in 0.5s ease-in-out;
 
-		& span:first-of-type {
-			font-family: 'Ubuntu-Mono-Regular';
-			margin: 0 0 0 -5rem;
+		& div:first-of-type	, div:last-of-type {
+			width: 50%;
+			overflow: hidden;
 		}
 
-		& div:first-of-type {
+		& div:first-of-type span , div:last-of-type span {
+			display: flex;
+			align-items: center;
+			overflow: hidden;
+			height: 10vh;
+			width: 100%;
+		}
+
+		& div:first-of-type span {
+			font-family: 'Ubuntu-Mono-Regular';
+			transform: translateX(40vw);
+			justify-content: flex-end;
+
+			-webkit-animation: title-slide-in 0.5s ease-in-out 0.5s forwards;
+			-moz-animation:    title-slide-in 0.5s ease-in-out 0.5s forwards;
+			-o-animation: 	   title-slide-in 0.5s ease-in-out 0.5s forwards;
+			animation: 		   title-slide-in 0.5s ease-in-out 0.5s forwards;
+		}
+
+		& div:nth-of-type(2){
 			background-color: white;
-			width: 0.6rem;
+			width: 0.3rem;
 			height: 4rem;
 
 			-webkit-animation: blink 0.8s ease-in-out infinite 0.5s;
@@ -40,14 +60,15 @@
     		animation: 		   blink 0.8s ease-in-out infinite 0.5s;
 		}
 
-		& span:last-of-type  {
+		& div:last-of-type span {
 			font-family: 'Shizuru-Regular';
-			width: 10vw;
+			transform: translateX(-40vw);
+			justify-content: flex-start;
 
-			-webkit-animation: art-fonts 1.2s linear infinite 0.5s;
-    		-moz-animation:    art-fonts 1.2s linear infinite 0.5s;
-    		-o-animation: 	   art-fonts 1.2s linear infinite 0.5s;
-    		animation: 		   art-fonts 1.2s linear infinite 0.5s;
+			-webkit-animation: art-fonts 1.2s linear infinite 1s, title-slide-in-reverse 0.5s ease-in-out 0.5s forwards;
+    		-moz-animation:    art-fonts 1.2s linear infinite 1s, title-slide-in-reverse 0.5s ease-in-out 0.5s forwards;
+    		-o-animation: 	   art-fonts 1.2s linear infinite 1s, title-slide-in-reverse 0.5s ease-in-out 0.5s forwards;
+    		animation: 		   art-fonts 1.2s linear infinite 1s, title-slide-in-reverse 0.5s ease-in-out 0.5s forwards;
 		}
 	}
 
@@ -71,9 +92,13 @@
 			outline: 0;
 			border: 0;
 			border-radius: 50%;
-			transition: background-color 0.2s ease-in-out;
 			width: 3.6rem;
 			height: 3.6rem;
+
+			-webkit-transition:  background-color 0.2s ease-in-out;
+			-moz-transition:     background-color 0.2s ease-in-out;
+			-o-transition:       background-color 0.2s ease-in-out;
+			transition:          background-color 0.2s ease-in-out;
 
 			-webkit-animation: up-in 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) 1;
     		-moz-animation:    up-in 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) 1;
@@ -88,12 +113,16 @@
 			}
 
 			& svg {
-				transition: transform 0.2s ease-in-out, margin 0.2s ease-in-out;
 				transform: rotateX(0deg);
 				fill: white;
 				width: 55%;
 				height: 55%;
 				z-index: 3;
+
+				-webkit-transition:  transform 0.2s ease-in-out, margin 0.2s ease-in-out;
+				-moz-transition:     transform 0.2s ease-in-out, margin 0.2s ease-in-out;
+				-o-transition:       transform 0.2s ease-in-out, margin 0.2s ease-in-out;
+				transition:          transform 0.2s ease-in-out, margin 0.2s ease-in-out;
 			}
 
 			& div:last-of-type {
@@ -102,9 +131,13 @@
 				transform-origin: bottom left;
 				background-color: rgba(29, 29, 29, 0);
 				border-radius: 50%;
-				transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 				width: 3.6rem;
 				height: 3.6rem;
+
+				-webkit-transition:  transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+				-moz-transition:     transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+				-o-transition:       transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+				transition:          transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 			}
 
 			&[is-upward="false"] {
@@ -123,17 +156,9 @@
 			gap: 0 1vw;
 			font-size: 8vh;
 
-			& span:first-of-type {
-				margin: 0;
-			}
-
-			& div:first-of-type {
-				width: 0.6vw;
+			& div:nth-of-type(2) {
+				width: 0.3vw;
 				height: 8vh;
-			}
-	
-			& span:last-of-type  {
-				width: 10vw;
 			}
 		}
 	

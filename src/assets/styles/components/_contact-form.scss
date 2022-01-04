@@ -36,7 +36,11 @@
 			min-height: 3rem;
 			max-height: 12rem;
 			border: white solid 0.01rem;
-			transition: border-color ease-in-out 0.2s;
+
+			-webkit-transition:  border-color ease-in-out 0.2s;
+    		-moz-transition:     border-color ease-in-out 0.2s;
+    		-o-transition:       border-color ease-in-out 0.2s;
+			transition:          border-color ease-in-out 0.2s;
 
 			&:focus {
 				border-color: #743C21;
@@ -78,7 +82,11 @@
 			pointer-events: none;
 			width: 0%;
 			height: 100%;
-			transition: width ease-in-out 0.2s;
+
+			-webkit-transition:  width ease-in-out 0.2s;
+    		-moz-transition:     width ease-in-out 0.2s;
+    		-o-transition:       width ease-in-out 0.2s;
+			transition:          width ease-in-out 0.2s;
 		}
 
 		& span {

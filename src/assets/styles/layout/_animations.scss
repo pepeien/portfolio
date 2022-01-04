@@ -431,6 +431,96 @@
 	}
 }
 
+@-webkit-keyframes title-slide-in {
+	from {
+		-webkit-transform: translateX(40vw);
+	}
+	to {
+		-webkit-transform: translateX(0);
+	}
+}
+
+@-moz-keyframes title-slide-in {
+	from {
+		-moz-transform: translateX(40vw);
+	}
+	to {
+		-moz-transform: translateX(0);
+	}
+}
+
+@-ms-keyframes title-slide-in {
+	from {
+		-ms-transform: translateX(40vw);
+	}
+	to {
+		-ms-transform: translateX(0);
+	}
+}
+
+@-o-keyframes title-slide-in {
+	from {
+		-o-transform: translateX(40vw);
+	}
+	to {
+		-o-transform: translateX(0);
+	}
+}
+
+@keyframes title-slide-in {
+	from {
+		transform: translateX(40vw);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
+@-webkit-keyframes title-slide-in-reverse {
+	from {
+		-webkit-transform: translateX(-40vw);
+	}
+	to {
+		-webkit-transform: translateX(0);
+	}
+}
+
+@-moz-keyframes title-slide-in-reverse {
+	from {
+		-moz-transform: translateX(-40vw);
+	}
+	to {
+		-moz-transform: translateX(0);
+	}
+}
+
+@-ms-keyframes title-slide-in-reverse {
+	from {
+		-ms-transform: translateX(-40vw);
+	}
+	to {
+		-ms-transform: translateX(0);
+	}
+}
+
+@-o-keyframes title-slide-in {
+	from {
+		-o-transform: translateX(-40vw);
+	}
+	to {
+		-o-transform: translateX(0);
+	}
+}
+
+@keyframes title-slide-in-reverse {
+	from {
+		transform: translateX(-40vw);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
 @media (min-width: 801px) {
 	@-webkit-keyframes up-in {
 		0% {

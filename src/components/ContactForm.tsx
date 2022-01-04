@@ -54,9 +54,9 @@ const ContactForm = ({ isVisible = false }: ContactFormProps) => {
 				</div>
 				<div className='contact__form-input'>
 					<label htmlFor='message'>Message</label>
-					<textarea ref={textInputRef} name='message' className='contact__form-message --box-shadowed' />
+					<textarea ref={textInputRef} name='message' className='contact__form-message' />
 				</div>
-				<button className='contact__form-button --box-shadowed'>
+				<button className='contact__form-button'>
 					<span>Send</span>
 					<div></div>
 				</button>
