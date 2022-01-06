@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 //Pages
 import { StatusPage, HomePage } from './pages';
@@ -14,13 +14,13 @@ import './assets/styles/main.scss';
 ReactDOM.render(
 	<React.StrictMode>
 		<main>
-			<BrowserRouter>
+			<Router basename={process.env.PUBLIC_URL}>
 				<Routes>
 					<Route index element={<HomePage />} />
 					<Route path='status/:httpStatusCode' element={<StatusPage />} />
 					<Route path='*' element={<StatusPage httpStatusCode={HttpStatusCode.NOT_FOUND} />} />
 				</Routes>
-			</BrowserRouter>
+			</Router>
 		</main>
 	</React.StrictMode>,
 	document.getElementById('root'),
