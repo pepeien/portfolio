@@ -11,18 +11,22 @@ const Home = () => {
 	};
 
 	return (
-		<div className='home'>
-			<div className='home__title'>
+		<div className='home --fade-in'>
+			<div className='home__title --zoom-in'>
 				<div>
-					<span>Coming </span>
+					<span className='--slide-in'>Coming</span>
 				</div>
-				<div />
+				<div className='--blink --infinite-animation' />
 				<div>
 					<span>Soon</span>
 				</div>
 			</div>
 			<div className='home__footer'>
-				<button className='home__footer-button' is-upward={new String(isModalVisible)} onClick={modalHandler}>
+				<button
+					className='home__footer-button --up-in'
+					is-upward={new String(isModalVisible)}
+					onClick={modalHandler}
+				>
 					<svg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 330 330'>
 						<path
 							d='M325.606,229.393l-150.004-150C172.79,76.58,168.974,75,164.996,75c-3.979,0-7.794,1.581-10.607,4.394
