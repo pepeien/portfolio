@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 //Pages
-import { ErrorPage, HomePage } from './pages';
+import { StatusPage, HomePage } from './pages';
 
 //Utils
 import { HttpStatusCode } from './utils/enums';
@@ -17,7 +17,8 @@ ReactDOM.render(
 			<BrowserRouter>
 				<Routes>
 					<Route index element={<HomePage />} />
-					<Route path='*' element={<ErrorPage httpError={HttpStatusCode.NOT_FOUND} />} />
+					<Route path='status/:httpStatusCode' element={<StatusPage />} />
+					<Route path='*' element={<StatusPage httpStatusCode={HttpStatusCode.NOT_FOUND} />} />
 				</Routes>
 			</BrowserRouter>
 		</main>
