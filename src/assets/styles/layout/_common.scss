@@ -1,3 +1,64 @@
 #root {
 	background-color: #0f0f0f;
 }
+
+.--fade-in {
+	opacity: 0;
+
+	-webkit-animation: fade-in 0.2s ease-in-out 1 0s forwards;
+	-moz-animation:    fade-in 0.2s ease-in-out 1 0s forwards;
+	-o-animation: 	   fade-in 0.2s ease-in-out 1 0s forwards;
+	animation: 		   fade-in 0.2s ease-in-out 1 0s forwards;
+}
+
+.--up-in {
+	-webkit-animation: up-in 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) 1;
+    -moz-animation:    up-in 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) 1;
+    -o-animation: 	   up-in 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) 1;
+    animation: 		   up-in 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) 1;
+}
+
+.--blink {
+	-webkit-animation: blink 0.8s ease-in-out 1 0s forwards;
+	-moz-animation:    blink 0.8s ease-in-out 1 0s forwards;
+	-o-animation: 	   blink 0.8s ease-in-out 1 0s forwards;
+	animation: 		   blink 0.8s ease-in-out 1 0s forwards;
+}
+
+.--slide-in {
+	-webkit-transform: translateX(100vw);
+	-moz-transform:    translateX(100vw);
+	-o-transform:      translateX(100vw);
+	transform:		   translateX(100vw);
+
+	-webkit-animation: title-slide-in 0.5s ease-in-out 1 0s forwards;
+	-moz-animation:    title-slide-in 0.5s ease-in-out 1 0s forwards;
+	-o-animation: 	   title-slide-in 0.5s ease-in-out 1 0s forwards;
+	animation: 		   title-slide-in 0.5s ease-in-out 1 0s forwards;
+}
+
+.--slide-in-reverse {
+	-webkit-transform: translateX(-100vw);
+	-moz-transform:    translateX(-100vw);
+	-o-transform:      translateX(-100vw);
+	transform:		   translateX(-100vw);
+
+	-webkit-animation: title-slide-in-reverse 0.5s ease-in-out 1 0s forwards;
+	-moz-animation:    title-slide-in-reverse 0.5s ease-in-out 1 0s forwards;
+	-o-animation: 	   title-slide-in-reverse 0.5s ease-in-out 1 0s forwards;
+	animation: 		   title-slide-in-reverse 0.5s ease-in-out 1 0s forwards;
+}
+
+.--zoom-in {
+	-webkit-animation: zoom-in 0.5s ease-in-out 1 0s forwards;
+    -moz-animation:    zoom-in 0.5s ease-in-out 1 0s forwards;
+    -o-animation: 	   zoom-in 0.5s ease-in-out 1 0s forwards;
+    animation: 		   zoom-in 0.5s ease-in-out 1 0s forwards;
+}
+
+.--infinite-animation {
+	-webkit-animation-iteration-count: infinite !important;
+    -moz-animation-iteration-counte:   infinite !important;
+    -o-animation-iteration-count:	   infinite !important;
+    animation-iteration-count:		   infinite !important;
+}
