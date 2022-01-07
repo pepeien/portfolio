@@ -2,17 +2,21 @@
 @import 'base/reset';
 @import 'base/fonts';
 
-//Components Import
-@import 'components/contact-form';
-@import 'components/modal';
-
-//Pages Import
-@import 'pages/status';
-@import 'pages/home';
+//Layout Import
+@import 'layout/animations';
+@import 'layout/common';
 
 //Themes Import
 @import 'themes/colors';
 
-//Layout Import
-@import 'layout/animations';
-@import 'layout/common';
+//Components Import
+@import 'components/button';
+@import 'components/contact-form';
+@import 'components/divisor';
+@import 'components/modal';
+@import 'components/preview-redirector';
+
+//Pages Import
+@import 'pages/home';
+@import 'pages/place-holder';
+@import 'pages/status';

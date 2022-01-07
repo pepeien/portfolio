@@ -1,0 +1,56 @@
+.button {
+	overflow: hidden;
+	position:relative;
+	padding: 0.5rem 1rem;
+
+	&__content {
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	&__background {
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+
+		-webkit-transform: translateX(-105%) skew(-20deg);
+		-moz-transform:    translateX(-105%) skew(-20deg);
+		-o-transform:      translateX(-105%) skew(-20deg);
+		transform:		   translateX(-105%) skew(-20deg);
+		
+		-webkit-transition-timing-function: ease-out;
+		-moz-transition-timing-function: 	ease-out;
+		-o-transition-timing-function: 		ease-out;
+		transition-timing-function: 		ease-out;
+
+		-webkit-transition-duration: 0.3s;
+		-moz-transition-duration: 	 0.3s;
+		-o-transition-duration: 	 0.3s;
+		transition-duration:		 0.3s;
+	}
+
+	&:active {
+		& .button__background {
+			-webkit-transform: translateX(0);
+			-moz-transform:    translateX(0);
+			-o-transform:      translateX(0);
+			transform:		   translateX(0);
+		}
+	}
+}
+
+@media (min-width: 801px) {
+	.button {
+		&:hover {
+			cursor: pointer;
+
+			& .button__background {
+				-webkit-transform: translateX(0);
+				-moz-transform:    translateX(0);
+				-o-transform:      translateX(0);
+				transform:		   translateX(0);
+			}
+		}
+	}
+}

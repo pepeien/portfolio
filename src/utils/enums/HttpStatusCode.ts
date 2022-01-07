@@ -1,5 +1,8 @@
 /**
- * Props to the user scokmen at the https://gist.github.com/scokmen/f813c904ef79022e84ab2409574d1b45 for creating this file
+ * Props to the user scokmen for creating this file.
+ *
+ * Hypertext Transfer Protocol (HTTP) response status codes.
+ * @see {@link https://en.wikipedia.org/wiki/List_of_HTTP_status_codes}
  */
 
 enum HttpStatusCode {

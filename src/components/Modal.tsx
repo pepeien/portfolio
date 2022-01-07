@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
-//Externals Types
+//Types
 import { ComponentAsProp } from '../utils/types';
 
-//Internal Types
+//Services
+import { extractPropComponent } from '../utils/services';
+
 export type ModalStatus = 'waiting' | 'success' | 'error';
 
 export type ModalBackgroundStyle = 'solid' | 'faded' | 'transparent';
@@ -27,22 +29,12 @@ const Modal = ({
 }: ModalProps) => {
 	const isStatusValid: boolean = hasStatus && modalStatus && modalStatus.length > 0;
 
-	useEffect(() => {
+	React.useEffect(() => {
 		if (isVisible && onShow) {
 			onShow();
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [isVisible]);
-
-	const getContentComponent = (ContentComponent: ComponentAsProp): React.ReactNode => {
-		if (typeof ContentComponent === 'function') {
-			// eslint-disable-next-line @typescript-eslint/no-unsafe-call
-			return ContentComponent() as React.ReactNode;
-		}
-
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-return
-		return ContentComponent;
-	};
 
 	return (
 		<div
@@ -51,7 +43,7 @@ const Modal = ({
 			form-status={isStatusValid ? modalStatus : undefined}
 			background-style={backgroundStyle}
 		>
-			<div className='modal__content'>{ContentComponent ? getContentComponent(ContentComponent) : null}</div>
+			<div className='modal__content'>{extractPropComponent(ContentComponent)}</div>
 			{isStatusValid ? <div className='modal__footer' /> : null}
 		</div>
 	);
