@@ -62,3 +62,37 @@
     -o-animation-iteration-count:	   infinite !important;
     animation-iteration-count:		   infinite !important;
 }
+
+.--rasterized-button {
+	background-color: transparent;
+	outline: none;
+	border: transparent;
+	padding: 0;
+}
+
+.--bg-color-ease-in {
+	-webkit-transition: background-color ease-in-out 0.2s;
+    -moz-transition:    background-color ease-in-out 0.2s;
+    -o-transition:      background-color ease-in-out 0.2s;
+	transition:         background-color ease-in-out 0.2s;
+}
+
+.--opacity-ease-in {
+	-webkit-transition: opacity ease-in-out 0.2s;
+    -moz-transition:    opacity ease-in-out 0.2s;
+    -o-transition:      opacity ease-in-out 0.2s;
+	transition:         opacity ease-in-out 0.2s;
+}
+
+.--tranform-ease-in {
+	-webkit-transition: transform ease-in-out 0.2s;
+    -moz-transition:    transform ease-in-out 0.2s;
+    -o-transition:      transform ease-in-out 0.2s;
+	transition:         transform ease-in-out 0.2s;
+}
+
+.--flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
