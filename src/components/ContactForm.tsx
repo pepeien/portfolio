@@ -1,4 +1,4 @@
-import React, { useState, useRef, FormEvent } from 'react';
+import React from 'react';
 
 //Components
 import { Modal } from '.';
@@ -9,11 +9,11 @@ export interface ContactFormProps {
 }
 
 const ContactForm = ({ isVisible = false }: ContactFormProps) => {
-	const [formStatus, setFormStatus] = useState<ModalStatus>('waiting');
-	const emailInputRef = useRef<HTMLInputElement>(null);
-	const textInputRef = useRef<HTMLTextAreaElement>(null);
+	const [formStatus, setFormStatus] = React.useState<ModalStatus>('waiting');
+	const emailInputRef = React.useRef<HTMLInputElement>(null);
+	const textInputRef = React.useRef<HTMLTextAreaElement>(null);
 
-	const submitContactForm = (ev: FormEvent) => {
+	const submitContactForm = (ev: React.FormEvent) => {
 		ev.preventDefault();
 
 		const form = ev.target as HTMLFormElement;
