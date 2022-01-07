@@ -1,19 +1,35 @@
 import React from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, useHref, useNavigate } from 'react-router-dom';
 
 //Enums
 import { HttpStatusCode } from '../utils/enums';
 
-export interface ErrorPageProps {
+//Components
+import { Button } from '../components';
+
+//Services
+import { isStringValid, isURLValid, validateInitialValue } from '../utils/services';
+
+export interface StatusPageProps {
 	httpStatusCode?: HttpStatusCode;
 	httpStatusCause?: string;
+	redirectUrl?: string;
+	willRedirectOutside?: boolean;
 }
 
-const Status = ({ httpStatusCode, httpStatusCause }: ErrorPageProps) => {
-	const params = useParams() as ErrorPageProps;
+const Status = ({
+	httpStatusCode,
+	httpStatusCause,
+	redirectUrl = '/',
+	willRedirectOutside = false,
+}: StatusPageProps) => {
+	const params: StatusPageProps = useParams() as StatusPageProps;
 	const location = useLocation();
+	const href = useHref(redirectUrl);
+	const navigate = useNavigate();
 	const statusCode = httpStatusCode ? httpStatusCode : params.httpStatusCode ?? HttpStatusCode.NOT_FOUND;
 	const statusCause = httpStatusCause && httpStatusCause.length > 0 ? httpStatusCause : location.pathname;
+	const isValidated = validateInitialValue(location.pathname);
 
 	const isHttpStatusCodeValid = (statusCode: number): boolean => {
 		const statusCodeList = Object.keys(HttpStatusCode);
@@ -25,28 +41,51 @@ const Status = ({ httpStatusCode, httpStatusCause }: ErrorPageProps) => {
 	const getStatusCode = (code: number) => (isHttpStatusCodeValid(code) ? code : 404);
 
 	const getStatusInfo = (code: number) => {
-		const validErrorCode = getStatusCode(code);
+		const validatedCode = getStatusCode(code);
 
-		return HttpStatusCode[validErrorCode];
+		return HttpStatusCode[validatedCode];
+	};
+
+	const redirectHandler = () => {
+		if (willRedirectOutside && isURLValid(redirectUrl)) {
+			window.location.href = redirectUrl;
+
+			return;
+		}
+
+		if (!isStringValid(href)) return;
+
+		navigate(href, { replace: false });
 	};
 
 	return (
-		<div className='error --fade-in'>
-			<div className='error__number --zoom-in'>
-				{getStatusCode(statusCode).toString() === HttpStatusCode.I_AM_A_TEAPOT.toString() ? (
-					<div />
-				) : (
-					<span>{getStatusCode(statusCode)}</span>
-				)}
+		<div className='status --fade-in'>
+			<div className='status__number --zoom-in'>
+				{isValidated ? <div /> : <span>{getStatusCode(statusCode)}</span>}
 			</div>
-			<div className='error__info'>
-				<div className='error__info__title --primary'>
+			<div className='status__info'>
+				<div className='status__info__title --primary'>
 					<span className='--slide-in'>{statusCause}</span>
 				</div>
-				<div className='error__info__title'>
-					<span className='--slide-in'>{getStatusInfo(statusCode)}</span>
+				<div className='status__info__title'>
+					<span className='--slide-in'>
+						{getStatusInfo(isValidated ? 69.66666666666667 * 6 : statusCode)}
+					</span>
 					<div className='--blink --infinite-animation' />
 				</div>
+				<Button
+					wrapperComponentStyle={{
+						color: '#C89C38',
+						fontFamily: 'Arcane-Nine-Regular',
+						fontSize: '2rem',
+						margin: '0 0 2rem 0',
+					}}
+					fillComponentStyle={{
+						backgroundColor: 'rgba(2, 70, 64, 1)',
+					}}
+					onClick={redirectHandler}
+					ContentComponent={<span>Head somehwere {willRedirectOutside ? 'outside' : 'safe'}</span>}
+				/>
 			</div>
 		</div>
 	);
