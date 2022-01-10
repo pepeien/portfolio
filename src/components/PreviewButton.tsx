@@ -6,13 +6,14 @@ import { ComponentAsProp } from '../utils/types';
 import { extractPropComponent } from '../utils/services';
 
 export interface PreviewRedirectorProps {
+	path?: string;
 	ContentComponent?: ComponentAsProp;
 	onHover?: React.MouseEventHandler<HTMLAnchorElement>;
 }
 
-const PreviewRedirector = ({ ContentComponent, onHover }: PreviewRedirectorProps) => {
+const PreviewRedirector = ({ path = '/', ContentComponent, onHover }: PreviewRedirectorProps) => {
 	return (
-		<Link to='/' className='preview-redirector' onMouseEnter={onHover}>
+		<Link to={path} className='preview-redirector' onMouseEnter={onHover}>
 			<div className='preview-redirector__film --opacity-ease-in' />
 			{extractPropComponent(ContentComponent)}
 		</Link>
