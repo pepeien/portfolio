@@ -1,4 +1,6 @@
 .divisor {
+	z-index: 3;
+
 	&[data-orientation='vertical'] {
 		width: 1px;
 		height: 100%;
