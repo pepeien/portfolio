@@ -36,14 +36,19 @@ const Button = ({
 }: ButtonProps) => {
 	return (
 		<button
-			className='button --rasterized-button --bg-color-ease-in --flex-center'
+			className='button --rasterized-button --flex-center'
 			onClick={onClick}
 			style={wrapperComponentStyle}
 			data-fill-design={fillDesign}
 			data-hover-animation={fillHoverAnimationType}
 		>
 			<div className='button__content'>{extractPropComponent(ContentComponent)}</div>
-			<div className='button__background --tranform-ease-in' style={fillComponentStyle} />
+			<div
+				className='button__background --opacity-ease-in'
+				style={fillComponentStyle}
+				data-fill-design={fillDesign}
+				data-hover-animation={fillHoverAnimationType}
+			/>
 		</button>
 	);
 };
