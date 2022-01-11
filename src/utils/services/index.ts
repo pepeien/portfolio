@@ -4,7 +4,6 @@ import { AES, enc } from 'crypto-js';
 
 //Internals
 import { ComponentAsProp } from '../types';
-import { DivisorOrientation } from '../../components/Divisor';
 
 /**
  * @param [str]
@@ -72,15 +71,7 @@ export const isURLValid = (url: string): boolean => {
  * @returns boolean
  */
 export const isMobileDevice = (deviceWidth: number): boolean => {
-	const mobileWidthTreshold = 801;
+	const mobileWidthTreshold = 480;
 
 	return deviceWidth < mobileWidthTreshold;
-};
-
-/**
- * @param innerWidth
- * @returns DivisorOrientation
- */
-export const getDeviceOrientation = (innerWidth: number): DivisorOrientation => {
-	return isMobileDevice(innerWidth) ? 'horizontal' : 'vertical';
 };

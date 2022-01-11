@@ -1,8 +1,6 @@
 import React from 'react';
 import { CSSProperties } from 'react';
-
-//Utils
-import { getDeviceOrientation } from '../utils/services';
+import { isMobileDevice } from '../utils/services';
 
 export type DivisorOrientation = 'vertical' | 'horizontal';
 
@@ -18,31 +16,25 @@ const Divisor = ({
 	orientation = 'horizontal',
 	backgroundColor = 'white',
 }: DivisorProps) => {
-	const [deviceOrientation, setDeviceOrientation] = React.useState<DivisorOrientation>(
-		isOrientationAutomatic ? getDeviceOrientation(window.innerWidth) : orientation,
-	);
+	const [deviceWidth, setDeviceWidth] = React.useState<number>(window.innerWidth);
 
 	React.useEffect(() => {
-		window.addEventListener('resize', () => setDeviceOrientation(deviceOrientationHandler(window.innerWidth)));
+		window.addEventListener('resize', () => setDeviceWidth(window.innerHeight));
 
 		return () => {
-			window.removeEventListener('resize', () =>
-				setDeviceOrientation(deviceOrientationHandler(window.innerWidth)),
-			);
+			window.removeEventListener('resize', () => setDeviceWidth(window.innerHeight));
 		};
-
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
-	const deviceOrientationHandler = (innerWidth: number): DivisorOrientation => {
-		if (isOrientationAutomatic) {
-			return getDeviceOrientation(innerWidth);
-		}
+	const getDeviceOrientation = (): DivisorOrientation => {
+		if (isOrientationAutomatic) return isMobileDevice(deviceWidth) ? 'horizontal' : 'vertical';
 
 		return orientation;
 	};
 
-	return <div className='divisor' style={{ backgroundColor, width, height }} data-orientation={deviceOrientation} />;
+	return (
+		<div className='divisor' style={{ backgroundColor, width, height }} data-orientation={getDeviceOrientation()} />
+	);
 };
 
 export default Divisor;

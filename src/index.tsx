@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 //Pages
-import { HomePage, StatusPage } from './pages';
+import { StatusPage, PlaceHolderPage } from './pages';
 
 //Utils
 import { HttpStatusCode } from './utils/enums';
@@ -16,8 +16,8 @@ ReactDOM.render(
 		<main>
 			<Router>
 				<Routes>
-					<Route index element={<HomePage />} />
-					<Route path='*' element={<StatusPage httpStatusCode={HttpStatusCode.NOT_FOUND} />} />
+					<Route index element={<PlaceHolderPage />} />
+					<Route path='*' element={<StatusPage httpStatusCode={HttpStatusCode.NOT_FOUND} redirectUrl='' />} />
 				</Routes>
 			</Router>
 		</main>
