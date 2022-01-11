@@ -5,6 +5,7 @@
 	overflow: hidden;
 
 	& .preview-redirector {
+		width: 100%;
 		height: 100%;
 	}
 }
@@ -15,6 +16,10 @@
 
 		& .preview-redirector {
 			width: 50%;
+
+			&:hover {
+				width: 80%;
+			}
 		}
 	}
 }
