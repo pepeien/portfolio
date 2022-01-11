@@ -89,6 +89,8 @@ const Status = ({
 					}}
 					onClick={redirectHandler}
 					ContentComponent={<span>Head somehwere {willRedirectOutside ? 'outside' : 'safe'}</span>}
+					fillDesign='diagonal-down'
+					fillHoverAnimationType='slide-right'
 				/>
 			</div>
 		</div>
