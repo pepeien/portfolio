@@ -1,22 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 //Utils
 import { ComponentAsProp } from '../utils/types';
 import { extractPropComponent } from '../utils/services';
 
 export interface PreviewRedirectorProps {
-	path?: string;
 	ContentComponent?: ComponentAsProp;
-	onHover?: React.MouseEventHandler<HTMLAnchorElement>;
+	onHover?: React.MouseEventHandler<HTMLButtonElement>;
+	onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const PreviewRedirector = ({ path = '/', ContentComponent, onHover }: PreviewRedirectorProps) => {
+const PreviewRedirector = ({ ContentComponent, onHover, onClick }: PreviewRedirectorProps) => {
 	return (
-		<Link to={path} className='preview-redirector' onMouseEnter={onHover}>
+		<button className='preview-redirector --rasterized-button' onMouseEnter={onHover} onClick={onClick}>
 			<div className='preview-redirector__film --opacity-ease-in' />
 			{extractPropComponent(ContentComponent)}
-		</Link>
+		</button>
 	);
 };
 

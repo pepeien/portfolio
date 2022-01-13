@@ -15,15 +15,9 @@ const Home = () => {
 
 	return (
 		<div className='home --flex-center --zoom-in'>
-			<PreviewButton
-				path='dev'
-				ContentComponent={() => getPreviewComponent('https://wallpapercave.com/wp/wp2729921.gif')}
-			/>
+			<PreviewButton ContentComponent={() => getPreviewComponent('https://wallpapercave.com/wp/wp2729921.gif')} />
 			<Divisor backgroundColor='#404040' />
-			<PreviewButton
-				path='art'
-				ContentComponent={() => getPreviewComponent('https://wallpapercave.com/wp/wp2729921.gif')}
-			/>
+			<PreviewButton ContentComponent={() => getPreviewComponent('https://wallpapercave.com/wp/wp2729921.gif')} />
 		</div>
 	);
 };
