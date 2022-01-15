@@ -1,7 +1,5 @@
 .home {
 	flex-direction: column;
-	width: 100vw;
-	height: 100vh;
 	overflow: hidden;
 
 	& .preview-redirector {
@@ -22,11 +20,5 @@
 @media (min-width: 801px) {
 	.home {
 		flex-direction: row;
-
-		& .preview-redirector {
-			&:hover {
-				flex: 5;
-			}
-		}
 	}
 }

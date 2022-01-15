@@ -11,7 +11,7 @@ const PlaceHolder = () => {
 	};
 
 	return (
-		<div className='place-holder --fade-in'>
+		<div className='place-holder --page --fade-in'>
 			<div className='place-holder__title --zoom-in'>
 				<div>
 					<span className='--slide-in'>Coming</span>
@@ -23,7 +23,7 @@ const PlaceHolder = () => {
 			</div>
 			<div className='place-holder__footer'>
 				<button
-					className='place-holder__footer-button --up-in'
+					className='place-holder__footer-button --bounce-in'
 					is-upward={new String(isModalVisible)}
 					onClick={modalHandler}
 				>

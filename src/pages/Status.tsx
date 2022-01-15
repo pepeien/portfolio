@@ -63,7 +63,7 @@ const Status = ({
 	};
 
 	return (
-		<div className='status --fade-in'>
+		<div className='status --page --fade-in'>
 			<div className='status__number --zoom-in'>
 				{isValidated ? <div /> : <span>{getStatusCode(statusCode)}</span>}
 			</div>
