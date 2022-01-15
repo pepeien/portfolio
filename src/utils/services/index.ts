@@ -84,3 +84,15 @@ export const isMobileDevice = (deviceWidth: number): boolean => {
 export const getDeviceOrientation = (innerWidth: number): DivisorOrientation => {
 	return isMobileDevice(innerWidth) ? 'horizontal' : 'vertical';
 };
+
+/**
+ *
+ * @param onDelayEnd
+ * @param [delayInMs]
+ * @param void
+ */
+export const emulateDelay = (onDelayEnd: () => void, delayInMs = 100): void => {
+	setTimeout(() => {
+		onDelayEnd();
+	}, delayInMs);
+};
