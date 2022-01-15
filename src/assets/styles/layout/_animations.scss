@@ -53,7 +53,7 @@
 	}
 }
 
-@-webkit-keyframes up-in {
+@-webkit-keyframes bounce-in {
 	0% {
 		margin-bottom: -50rem;
 	}
@@ -89,7 +89,7 @@
 	}
 }
 
-@-moz-keyframes up-in {
+@-moz-keyframes bounce-in {
 	0% {
 		margin-bottom: -50rem;
 	}
@@ -125,7 +125,7 @@
 	}
 }
 
-@-ms-keyframes up-in {
+@-ms-keyframes bounce-in {
 	0% {
 		margin-bottom: -50rem;
 	}
@@ -161,7 +161,7 @@
 	}
 }
 
-@-o-keyframes up-in {
+@-o-keyframes bounce-in {
 	0% {
 		margin-bottom: -50rem;
 	}
@@ -197,7 +197,7 @@
 	}
 }
 
-@keyframes up-in {
+@keyframes bounce-in {
 	0% {
 		margin-bottom: -50rem;
 	}
@@ -431,96 +431,185 @@
 	}
 }
 
-@-webkit-keyframes title-slide-in {
+@-webkit-keyframes slide-in {
 	from {
-		-webkit-transform: translateX(40vw);
+		-webkit-transform: translateX(100vw);
 	}
 	to {
 		-webkit-transform: translateX(0);
 	}
 }
 
-@-moz-keyframes title-slide-in {
+@-moz-keyframes slide-in {
 	from {
-		-moz-transform: translateX(40vw);
+		-moz-transform: translateX(100vw);
 	}
 	to {
 		-moz-transform: translateX(0);
 	}
 }
 
-@-ms-keyframes title-slide-in {
+@-ms-keyframes slide-in {
 	from {
-		-ms-transform: translateX(40vw);
+		-ms-transform: translateX(100vw);
 	}
 	to {
 		-ms-transform: translateX(0);
 	}
 }
 
-@-o-keyframes title-slide-in {
+@-o-keyframes slide-in {
 	from {
-		-o-transform: translateX(40vw);
+		-o-transform: translateX(100vw);
 	}
 	to {
 		-o-transform: translateX(0);
 	}
 }
 
-@keyframes title-slide-in {
+@keyframes slide-in {
 	from {
-		transform: translateX(40vw);
+		transform: translateX(100vw);
 	}
 	to {
 		transform: translateX(0);
 	}
 }
 
-@-webkit-keyframes title-slide-in-reverse {
+@-webkit-keyframes slide-in-reverse {
 	from {
-		-webkit-transform: translateX(-40vw);
+		-webkit-transform: translateX(-100vw);
 	}
 	to {
 		-webkit-transform: translateX(0);
 	}
 }
 
-@-moz-keyframes title-slide-in-reverse {
+@-moz-keyframes slide-in-reverse {
 	from {
-		-moz-transform: translateX(-40vw);
+		-moz-transform: translateX(-100vw);
 	}
 	to {
 		-moz-transform: translateX(0);
 	}
 }
 
-@-ms-keyframes title-slide-in-reverse {
+@-ms-keyframes slide-in-reverse {
 	from {
-		-ms-transform: translateX(-40vw);
+		-ms-transform: translateX(-100vw);
 	}
 	to {
 		-ms-transform: translateX(0);
 	}
 }
 
-@-o-keyframes title-slide-in {
+@-o-keyframes slide-in-reverse {
 	from {
-		-o-transform: translateX(-40vw);
+		-o-transform: translateX(-100vw);
 	}
 	to {
 		-o-transform: translateX(0);
 	}
 }
 
-@keyframes title-slide-in-reverse {
+@keyframes slide-in-reverse {
 	from {
-		transform: translateX(-40vw);
+		transform: translateX(-100vw);
 	}
 	to {
 		transform: translateX(0);
 	}
 }
 
+@-webkit-keyframes descend-in-reverse {
+	from {
+		-webkit-transform: translateY(100vh);
+	}
+	to {
+		-webkit-transform: translateY(0);
+	}
+}
+
+@-moz-keyframes descend-in-reverse {
+	from {
+		-moz-transform: translateY(100vh);
+	}
+	to {
+		-moz-transform: translateY(0);
+	}
+}
+
+@-ms-keyframes descend-in-reverse {
+	from {
+		-ms-transform: translateY(100vh);
+	}
+	to {
+		-ms-transform: translateY(0);
+	}
+}
+
+@-o-keyframes descend-in-reverse {
+	from {
+		-o-transform: translateY(100vh);
+	}
+	to {
+		-o-transform: translateY(0);
+	}
+}
+
+@keyframes descend-in-reverse {
+	from {
+		transform: translateY(100vh);
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+
+@-webkit-keyframes descend-in {
+	from {
+		-webkit-transform: translateY(-100vh);
+	}
+	to {
+		-webkit-transform: translateY(0);
+	}
+}
+
+@-moz-keyframes descend-in {
+	from {
+		-moz-transform: translateY(-100vh);
+	}
+	to {
+		-moz-transform: translateY(0);
+	}
+}
+
+@-ms-keyframes descend-in {
+	from {
+		-ms-transform: translateY(-100vh);
+	}
+	to {
+		-ms-transform: translateY(0);
+	}
+}
+
+@-o-keyframes descend-in {
+	from {
+		-o-transform: translateY(-100vh);
+	}
+	to {
+		-o-transform: translateY(0);
+	}
+}
+
+@keyframes descend-in {
+	from {
+		transform: translateY(-100vh);
+	}
+	to {
+		transform: translateY(0);
+	}
+}
 
 @-webkit-keyframes t-potto {
 	from {
@@ -568,7 +657,7 @@
 }
 
 @media (min-width: 801px) {
-	@-webkit-keyframes up-in {
+	@-webkit-keyframes bounce-in {
 		0% {
 			margin-bottom: -100vh;
 		}
@@ -604,7 +693,7 @@
 		}
 	}
 	
-	@-moz-keyframes up-in {
+	@-moz-keyframes bounce-in {
 		0% {
 			margin-bottom: -100vh;
 		}
@@ -640,7 +729,7 @@
 		}
 	}
 	
-	@-ms-keyframes up-in {
+	@-ms-keyframes bounce-in {
 		0% {
 			margin-bottom: -100vh;
 		}
@@ -676,7 +765,7 @@
 		}
 	}
 	
-	@-o-keyframes up-in {
+	@-o-keyframes bounce-in {
 		0% {
 			margin-bottom: -100vh;
 		}
@@ -712,7 +801,7 @@
 		}
 	}
 	
-	@keyframes up-in {
+	@keyframes bounce-in {
 		0% {
 			margin-bottom: -100vh;
 		}
