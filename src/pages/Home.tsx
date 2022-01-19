@@ -18,7 +18,7 @@ const Home = () => {
 	};
 
 	return (
-		<div className='home --page --flex-center --zoom-in'>
+		<main className='home --page --flex-center --zoom-in'>
 			<PreviewButton
 				ContentComponent={() => getPreviewComponent('https://wallpapercave.com/wp/wp2729921.gif')}
 				onClick={() => emulateDelay(() => navigate('dev', { replace: false, state: location.pathname }), 200)}
@@ -28,7 +28,7 @@ const Home = () => {
 				ContentComponent={() => getPreviewComponent('https://wallpapercave.com/wp/wp2729921.gif')}
 				onClick={() => emulateDelay(() => navigate('art', { replace: false, state: location.pathname }), 200)}
 			/>
-		</div>
+		</main>
 	);
 };
 

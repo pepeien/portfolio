@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 //Pages
-import { HomePage, StatusPage } from './pages';
+import { ArtPage, DevelopmentPage, HomePage, StatusPage } from './pages';
 
 //Utils
 import { HttpStatusCode } from './utils/enums';
@@ -13,14 +13,14 @@ import './assets/styles/main.scss';
 
 ReactDOM.render(
 	<React.StrictMode>
-		<main>
-			<Router>
-				<Routes>
-					<Route index element={<HomePage />} />
-					<Route path='*' element={<StatusPage httpStatusCode={HttpStatusCode.NOT_FOUND} />} />
-				</Routes>
-			</Router>
-		</main>
+		<Router>
+			<Routes>
+				<Route index element={<HomePage />} />
+				<Route path='art' element={<ArtPage />} />
+				<Route path='dev' element={<DevelopmentPage />} />
+				<Route path='*' element={<StatusPage httpStatusCode={HttpStatusCode.NOT_FOUND} />} />
+			</Routes>
+		</Router>
 	</React.StrictMode>,
 	document.getElementById('root'),
 );

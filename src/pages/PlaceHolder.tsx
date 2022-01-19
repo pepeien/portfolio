@@ -11,7 +11,7 @@ const PlaceHolder = () => {
 	};
 
 	return (
-		<div className='place-holder --page --fade-in'>
+		<main className='place-holder --page --fade-in'>
 			<div className='place-holder__title --zoom-in'>
 				<div>
 					<span className='--slide-in'>Coming</span>
@@ -38,7 +38,7 @@ const PlaceHolder = () => {
 				</button>
 			</div>
 			<ContactForm isVisible={isModalVisible} />
-		</div>
+		</main>
 	);
 };
 

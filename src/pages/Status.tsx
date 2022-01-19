@@ -63,7 +63,7 @@ const Status = ({
 	};
 
 	return (
-		<div className='status --page --fade-in'>
+		<main className='status --page --fade-in'>
 			<div className='status__number --zoom-in'>
 				{isValidated ? <div /> : <span>{getStatusCode(statusCode)}</span>}
 			</div>
@@ -93,7 +93,7 @@ const Status = ({
 					fillHoverAnimationType='slide-right'
 				/>
 			</div>
-		</div>
+		</main>
 	);
 };
 
