@@ -1,6 +1,7 @@
 //Externals
 import React from 'react';
 import { AES, enc } from 'crypto-js';
+import { v4 as uuidV4 } from 'uuid';
 
 //Internals
 import { ComponentAsProp } from '../types';
@@ -95,4 +96,14 @@ export const emulateDelay = (onDelayEnd: () => void, delayInMs = 100): void => {
 	setTimeout(() => {
 		onDelayEnd();
 	}, delayInMs);
+};
+
+/**
+ *
+ * @returns string
+ */
+export const getUniqueKey = (): string => {
+	const uniqueKey = uuidV4();
+
+	return uniqueKey;
 };
