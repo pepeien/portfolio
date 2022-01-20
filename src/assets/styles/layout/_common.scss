@@ -122,7 +122,19 @@
 }
 
 .--page {
-	height: 100vh;
+	min-height: 100vh;
 	width: 100vw;
 	overflow: hidden;
+}
+
+.--hidden-overflow-all {
+	overflow: hidden;
+}
+
+.--hidden-overflow-x {
+	overflow-x: hidden;
+}
+
+.--hidden-overflow-y {
+	overflow-y: hidden;
 }
