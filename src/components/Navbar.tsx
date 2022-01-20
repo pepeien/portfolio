@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+//Components
+import { RectButton } from '.';
+
 //Services
 import { getUniqueKey, isMobileView, isStringValid, isURLValid } from '../utils/services';
-
-//Components
-import { OpacityButton } from '.';
 
 export interface NavbarItem {
 	title: string;
@@ -40,6 +40,15 @@ const Navbar = ({ className, items }: NavbarProps) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	});
 
+	const getPlusIcon = () => {
+		return (
+			<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' data-is-rotated={isListVisible}>
+				<line x1='12' x2='12' y1='5' y2='19' />
+				<line x1='5' x2='19' y1='12' y2='12' />
+			</svg>
+		);
+	};
+
 	return (
 		<nav
 			className={className && isStringValid(className) ? `navbar ${className}` : 'navbar'}
@@ -63,7 +72,15 @@ const Navbar = ({ className, items }: NavbarProps) => {
 					);
 				})}
 			</ul>
-			{isMobile ? <OpacityButton ContentComponent={<span>Hambargar</span>}></OpacityButton> : null}
+			{isMobile ? (
+				<div className='navbar__bar --flex-center'>
+					<RectButton
+						className='navbar__button --flex-center'
+						ContentComponent={getPlusIcon}
+						onClick={() => setIsListVisible(!isListVisible)}
+					/>
+				</div>
+			) : null}
 		</nav>
 	);
 };
