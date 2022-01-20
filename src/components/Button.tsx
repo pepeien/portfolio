@@ -1,5 +1,4 @@
 import React from 'react';
-import { CSSProperties } from 'react';
 
 //Types
 import { ComponentClickEvent, ComponentAsProp } from '../utils/types';
@@ -18,9 +17,9 @@ export type ButtonFillDesign = 'default' | 'diagonal-down' | 'diagonal-up';
 export type ButtonHoverAnimation = 'default' | 'slide-right' | 'slide-left' | 'slide-down' | 'slide-up';
 
 export interface ButtonProps {
-	wrapperComponentStyle?: CSSProperties;
+	wrapperComponentStyle?: React.CSSProperties;
 	fillDesign?: ButtonFillDesign;
-	fillComponentStyle?: CSSProperties;
+	fillComponentStyle?: React.CSSProperties;
 	fillHoverAnimationType?: ButtonHoverAnimation;
 	ContentComponent?: ComponentAsProp;
 	onClick?: ComponentClickEvent;
