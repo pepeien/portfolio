@@ -72,10 +72,10 @@ export const isURLValid = (url: string): boolean => {
  * @param deviceWidth
  * @returns boolean
  */
-export const isMobileDevice = (deviceWidth: number): boolean => {
+export const isMobileView = (deviceWidth: number): boolean => {
 	const mobileWidthTreshold = 801;
 
-	return deviceWidth < mobileWidthTreshold;
+	return deviceWidth <= mobileWidthTreshold;
 };
 
 /**
@@ -83,7 +83,7 @@ export const isMobileDevice = (deviceWidth: number): boolean => {
  * @returns DivisorOrientation
  */
 export const getDeviceOrientation = (innerWidth: number): DivisorOrientation => {
-	return isMobileDevice(innerWidth) ? 'horizontal' : 'vertical';
+	return isMobileView(innerWidth) ? 'horizontal' : 'vertical';
 };
 
 /**
