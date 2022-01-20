@@ -1,12 +1,13 @@
 import React from 'react';
-import { CSSProperties } from 'react';
 
 //Utils
-import { getDeviceOrientation } from '../utils/services';
+import { getDeviceOrientation, isStringValid } from '../utils/services';
 
 export type DivisorOrientation = 'vertical' | 'horizontal';
 
-export interface DivisorProps extends Pick<CSSProperties, 'backgroundColor' | 'width' | 'height'> {
+export interface DivisorProps
+	extends Pick<React.CSSProperties, 'backgroundColor' | 'width' | 'height'>,
+		Pick<React.HTMLAttributes<HTMLDivElement>, 'className'> {
 	orientation?: DivisorOrientation;
 	isOrientationAutomatic?: boolean;
 }
@@ -14,6 +15,7 @@ export interface DivisorProps extends Pick<CSSProperties, 'backgroundColor' | 'w
 const Divisor = ({
 	width,
 	height,
+	className,
 	isOrientationAutomatic = true,
 	orientation = 'horizontal',
 	backgroundColor = 'white',
@@ -42,7 +44,13 @@ const Divisor = ({
 		return orientation;
 	};
 
-	return <div className='divisor' style={{ backgroundColor, width, height }} data-orientation={deviceOrientation} />;
+	return (
+		<div
+			className={className && isStringValid(className) ? `divisor ${className}` : 'divisor'}
+			style={{ backgroundColor, width, height }}
+			data-orientation={deviceOrientation}
+		/>
+	);
 };
 
 export default Divisor;
