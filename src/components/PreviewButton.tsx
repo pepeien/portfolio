@@ -1,18 +1,28 @@
 import React from 'react';
 
-//Utils
+//Types
 import { ComponentAsProp } from '../utils/types';
-import { extractPropComponent } from '../utils/services';
 
-export interface PreviewRedirectorProps {
+//Services
+import { extractPropComponent, isStringValid } from '../utils/services';
+
+export interface PreviewRedirectorProps extends Pick<React.HTMLAttributes<HTMLButtonElement>, 'className'> {
 	ContentComponent?: ComponentAsProp;
 	onHover?: React.MouseEventHandler<HTMLButtonElement>;
 	onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const PreviewRedirector = ({ ContentComponent, onHover, onClick }: PreviewRedirectorProps) => {
+const PreviewRedirector = ({ className, ContentComponent, onHover, onClick }: PreviewRedirectorProps) => {
 	return (
-		<button className='preview-redirector --rasterized-button' onMouseEnter={onHover} onClick={onClick}>
+		<button
+			className={
+				className && isStringValid(className)
+					? `preview-redirector --rasterized-button ${className}`
+					: 'preview-redirector --rasterized-button'
+			}
+			onMouseEnter={onHover}
+			onClick={onClick}
+		>
 			<div className='preview-redirector__film --opacity-ease-in' />
 			{extractPropComponent(ContentComponent)}
 		</button>
