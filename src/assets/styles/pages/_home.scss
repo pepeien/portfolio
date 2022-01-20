@@ -1,6 +1,7 @@
 .home {
 	flex-direction: column;
 	overflow: hidden;
+	height: 100vh;
 
 	& .preview-redirector {
 		height: 100%;
@@ -10,15 +11,32 @@
 		-moz-transition:    flex ease-in-out 0.2s;
 		-o-transition:      flex ease-in-out 0.2s;
 		transition:         flex ease-in-out 0.2s;
-	
+
+		& img {
+			-webkit-animation-delay: 0.5s;
+			-moz-animation-delay:    0.5s;
+			-o-animation-delay: 	 0.5s;
+			animation-delay: 		 0.5s;
+		}
+
 		&:focus {
 			flex: 5;
 		}
+	}
+
+	& .divisor {
+		height: 0.05rem;
+		width: 100%;
 	}
 }
 
 @media (min-width: 801px) {
 	.home {
 		flex-direction: row;
+
+		& .divisor {
+			height: 100%;
+			width: 0.05vw;
+		}
 	}
 }
