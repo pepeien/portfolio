@@ -1,7 +1,7 @@
 import React from 'react';
 
 //Components
-import { ContactForm, OpacityButton } from '../components';
+import { ContactForm, RectButton } from '../components';
 
 const PlaceHolder = () => {
 	const [isModalVisible, setIsModalVisible] = React.useState<boolean>(false);
@@ -34,7 +34,7 @@ const PlaceHolder = () => {
 				</div>
 			</div>
 			<div className='place-holder__footer' data-is-upward={isModalVisible}>
-				<OpacityButton
+				<RectButton
 					className='--flex-center --bounce-in'
 					onClick={modalHandler}
 					ContentComponent={getButtonSVG}

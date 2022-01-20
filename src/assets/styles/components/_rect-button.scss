@@ -1,4 +1,4 @@
-.opacity-button {
+.rect-button {
 	display: flex;
 	position: relative;
 	background-color: #131313;
@@ -15,14 +15,14 @@
 		width: 100%;
 		height: 100%;
 
-		-webkit-transition:  transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
-		-moz-transition:     transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
-		-o-transition:       transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
-		transition:          transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+		-webkit-transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+		-moz-transition:    transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+		-o-transition:      transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+		transition:         transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 	}
 
 	&:active {
-		& .opacity-button__background {
+		& .rect-button__background {
 			background-color: rgba(29, 29, 29, 1);
 			transform: scale(1);
 		}
@@ -30,7 +30,7 @@
 }
 
 @media (min-width: 801px) {
-	.opacity-button {
+	.rect-button {
 		&:hover {
 			cursor: pointer;
 
