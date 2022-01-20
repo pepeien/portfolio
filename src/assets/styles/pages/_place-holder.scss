@@ -1,12 +1,9 @@
 .place-holder {
 	&__title {
-		display: flex;
 		flex-direction: row;
-		align-items: center;
-		justify-content: center;
 		color: white;
-		margin: 0 auto 0 auto;
 		height: 100%;
+		width: 100%;
 		transform-origin: 50% 50%;
 		font-size: 3rem;
 		gap: 0 1rem;
@@ -60,38 +57,20 @@
 		position: absolute;
 		bottom: 0;
 		width: 100%;
-		padding: 1rem 0;
+		padding: 1.5rem 0;
 
-		&-button {
-			display: flex;
-			margin: 0 auto 2rem auto;
-			align-items: center;
-			justify-content: center;
-			background-color: #131313;
-			outline: 0;
-			border: 0;
+		& button {
+			margin: 0 auto 0 auto;
 			border-radius: 50%;
 			width: 3.6rem;
 			height: 3.6rem;
-
-			-webkit-transition:  background-color 0.2s ease-in-out;
-			-moz-transition:     background-color 0.2s ease-in-out;
-			-o-transition:       background-color 0.2s ease-in-out;
-			transition:          background-color 0.2s ease-in-out;
-
-			&:active {
-				& div:last-of-type {
-					background-color: rgba(29, 29, 29, 1);
-					transform: scale(1);
-				}
-			}
+			z-index: 3;
 
 			& svg {
-				transform: rotateX(0deg);
 				fill: white;
 				width: 55%;
 				height: 55%;
-				z-index: 3;
+				transform: rotateX(0deg);
 
 				-webkit-transition:  transform 0.2s ease-in-out, margin 0.2s ease-in-out;
 				-moz-transition:     transform 0.2s ease-in-out, margin 0.2s ease-in-out;
@@ -99,22 +78,13 @@
 				transition:          transform 0.2s ease-in-out, margin 0.2s ease-in-out;
 			}
 
-			& div:last-of-type {
-				position: absolute;
-				transform: scale(0);
-				transform-origin: bottom left;
-				background-color: rgba(29, 29, 29, 0);
+			& div {
 				border-radius: 50%;
-				width: 3.6rem;
-				height: 3.6rem;
-
-				-webkit-transition:  transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
-				-moz-transition:     transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
-				-o-transition:       transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
-				transition:          transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 			}
+		}
 
-			&[is-upward="false"] {
+		&[data-is-upward='false'] {
+			& button {
 				& svg {
 					margin: 1vh 0 0 0;
 					transform: rotateX(-180deg);
@@ -139,28 +109,13 @@
 		&__footer {
 			padding: 2vh 0;
 	
-			&-button {
-				margin: 0 auto 0 auto;
+			& button {
 				width: 5.4vh;
 				height: 5.4vh;
-
-				&:hover {
-					cursor: pointer;
-	
-					& div:last-of-type {
-						background-color: rgba(29, 29, 29, 0.4);
-						transform: scale(1);
-					}
-				}
 
 				& svg {
 					width: 55%;
 					height: 55%;
-				}
-	
-				& div:last-of-type {
-					width: 5.4vh;
-					height: 5.4vh;
 				}
 			}
 		}
