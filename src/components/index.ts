@@ -3,5 +3,6 @@ export { default as ContactForm } from './ContactForm';
 export { default as Divisor } from './Divisor';
 export { default as Modal } from './Modal';
 export { default as Navbar } from './Navbar';
+export { default as PathBar } from './PathBar';
 export { default as PreviewButton } from './PreviewButton';
 export { default as RectButton } from './RectButton';

@@ -53,6 +53,61 @@
 	}
 }
 
+@-webkit-keyframes zoom-in-reverse {
+	from {
+		opacity: 1;
+		transform: scale(1);
+	}
+	to {
+		transform: scale(0);
+		opacity: 0;
+	}
+}
+
+@-moz-keyframes zoom-in-reverse {
+	from {
+		opacity: 1;
+		transform: scale(1);
+	}
+	to {
+		transform: scale(0);
+		opacity: 0;
+	}
+}
+
+@-ms-keyframes zoom-in-reverse {
+	from {
+		opacity: 1;
+		transform: scale(1);
+	}
+	to {
+		transform: scale(0);
+		opacity: 0;
+	}
+}
+
+@-o-keyframes zoom-in-reverse {
+	from {
+		opacity: 1;
+		transform: scale(1);
+	}
+	to {
+		transform: scale(0);
+		opacity: 0;
+	}
+}
+
+@keyframes zoom-in-reverse {
+	from {
+		opacity: 1;
+		transform: scale(1);
+	}
+	to {
+		transform: scale(0);
+		opacity: 0;
+	}
+}
+
 @-webkit-keyframes bounce-in {
 	0% {
 		margin-bottom: -50rem;
@@ -521,6 +576,51 @@
 	}
 }
 
+@-webkit-keyframes slide-out {
+	from {
+		-webkit-transform: translateX(0);
+	}
+	to {
+		-webkit-transform: translateX(-100vw);
+	}
+}
+
+@-moz-keyframes slide-out {
+	from {
+		-moz-transform: translateX(0);
+	}
+	to {
+		-moz-transform: translateX(-100vw);
+	}
+}
+
+@-ms-keyframes slide-out {
+	from {
+		-ms-transform: translateX(0);
+	}
+	to {
+		-ms-transform: translateX(-100vw);
+	}
+}
+
+@-o-keyframes slide-out{
+	from {
+		-o-transform: translateX(0);
+	}
+	to {
+		-o-transform: translateX(-100vw);
+	}
+}
+
+@keyframes slide-out {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-100vw);
+	}
+}
+
 @-webkit-keyframes slide-out-reverse {
 	from {
 		-webkit-transform: translateX(0);
@@ -611,6 +711,51 @@
 	}
 }
 
+@-webkit-keyframes descend-out-reverse {
+	from {
+		-webkit-transform: translateY(0);
+	}
+	to {
+		-webkit-transform: translateY(100vh);
+	}
+}
+
+@-moz-keyframes descend-out-reverse {
+	from {
+		-moz-transform: translateY(0);
+	}
+	to {
+		-moz-transform: translateY(100vh);
+	}
+}
+
+@-ms-keyframes descend-out-reverse {
+	from {
+		-ms-transform: translateY(0);
+	}
+	to {
+		-ms-transform: translateY(100vh);
+	}
+}
+
+@-o-keyframes descend-out-reverse {
+	from {
+		-o-transform: translateY(0);
+	}
+	to {
+		-o-transform: translateY(100vh);
+	}
+}
+
+@keyframes descend-out-reverse {
+	from {
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(100vh);
+	}
+}
+
 @-webkit-keyframes descend-in {
 	from {
 		-webkit-transform: translateY(-100vh);
@@ -656,6 +801,51 @@
 	}
 }
 
+@-webkit-keyframes descend-out {
+	from {
+		-webkit-transform: translateY(0);
+	}
+	to {
+		-webkit-transform: translateY(-100vh);
+	}
+}
+
+@-moz-keyframes descend-out {
+	from {
+		-moz-transform: translateY(0);
+	}
+	to {
+		-moz-transform: translateY(-100vh);
+	}
+}
+
+@-ms-keyframes descend-out {
+	from {
+		-ms-transform: translateY(0);
+	}
+	to {
+		-ms-transform: translateY(-100vh);
+	}
+}
+
+@-o-keyframes descend-out {
+	from {
+		-o-transform: translateY(0);
+	}
+	to {
+		-o-transform: translateY(-100vh);
+	}
+}
+
+@keyframes descend-out {
+	from {
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(-100vh);
+	}
+}
+
 @-webkit-keyframes t-potto {
 	from {
 		-webkit-transform: rotate(0);
@@ -698,6 +888,96 @@
 	}
 	to {
 		transform: rotate(-25deg);
+	}
+}
+
+@-webkit-keyframes explode {
+	from {
+		border-radius: 100%;
+	}
+	to {
+		border-radius: inherit;
+	}
+}
+
+@-moz-keyframes explode {
+	from {
+		border-radius: 100%;
+	}
+	to {
+		border-radius:inherit;
+	}
+}
+
+@-ms-keyframes explode {
+	from {
+		border-radius: 100%;
+	}
+	to {
+		border-radius: inherit;
+	}
+}
+
+@-o-keyframes explode {
+	from {
+		border-radius: 100%;
+	}
+	to {
+		border-radius: inherit;
+	}
+}
+
+@keyframes explode {
+	from {
+		border-radius: 100%;
+	}
+	to {
+		border-radius: inherit;
+	}
+}
+
+@-webkit-keyframes implode {
+	from {
+		border-radius: inherit;
+	}
+	to {
+		border-radius: 100%;
+	}
+}
+
+@-moz-keyframes implode {
+	from {
+		border-radius: inherit;
+	}
+	to {
+		border-radius: 100%;
+	}
+}
+
+@-ms-keyframes implode {
+	from {
+		border-radius: inherit;
+	}
+	to {
+		border-radius: 100%;
+	}
+}
+
+@-o-keyframes implode {
+	from {
+		border-radius: inherit;
+	}
+	to {
+		border-radius: 100%;
+	}
+}
+
+@keyframes implode {
+	from {
+		border-radius: inherit;
+	}
+	to {
+		border-radius: 100%;
 	}
 }
 

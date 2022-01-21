@@ -37,6 +37,18 @@
 	animation: 		   slide-in 0.5s ease-in-out 1 0s forwards;
 }
 
+.--slide-out {
+	-webkit-transform: translateX(0);
+	-moz-transform:    translateX(0);
+	-o-transform:      translateX(0);
+	transform:		   translateX(0);
+
+	-webkit-animation: slide-out 0.5s ease-in-out 1 0s forwards;
+	-moz-animation:    slide-out 0.5s ease-in-out 1 0s forwards;
+	-o-animation: 	   slide-out 0.5s ease-in-out 1 0s forwards;
+	animation: 		   slide-out 0.5s ease-in-out 1 0s forwards;
+}
+
 .--slide-in-reverse {
 	-webkit-transform: translateX(-100vw);
 	-moz-transform:    translateX(-100vw);
@@ -73,6 +85,18 @@
 	animation: 		   descend-in 0.5s ease-in-out 1 0s forwards;
 }
 
+.--descend-out {
+	-webkit-transform: translateY(0);
+	-moz-transform:    translateY(0);
+	-o-transform:      translateY(0);
+	transform:		   translateY(0);
+
+	-webkit-animation: descend-out 0.5s ease-in-out 1 0s forwards;
+	-moz-animation:    descend-out 0.5s ease-in-out 1 0s forwards;
+	-o-animation: 	   descend-out 0.5s ease-in-out 1 0s forwards;
+	animation: 		   descend-out 0.5s ease-in-out 1 0s forwards;
+}
+
 .--descend-in-reverse {
 	-webkit-transform: translateY(100vh);
 	-moz-transform:    translateY(100vh);
@@ -85,11 +109,44 @@
 	animation: 		   descend-in-reverse 0.5s ease-in-out 1 0s forwards;
 }
 
+.--descend-out-reverse {
+	-webkit-transform: translateY(0);
+	-moz-transform:    translateY(0);
+	-o-transform:      translateY(0);
+	transform:		   translateY(0);
+
+	-webkit-animation: descend-out-reverse 0.5s ease-in-out 1 0s forwards;
+	-moz-animation:    descend-out-reverse 0.5s ease-in-out 1 0s forwards;
+	-o-animation: 	   descend-out-reverse 0.5s ease-in-out 1 0s forwards;
+	animation: 		   descend-out-reverse 0.5s ease-in-out 1 0s forwards;
+}
+
+.--explode {
+	-webkit-animation: explode 0.5s ease-in-out 1 0s forwards;
+	-moz-animation:    explode 0.5s ease-in-out 1 0s forwards;
+	-o-animation: 	   explode 0.5s ease-in-out 1 0s forwards;
+	animation: 		   explode 0.5s ease-in-out 1 0s forwards;
+}
+
+.--implode {
+	-webkit-animation: implode 0.5s ease-in-out 1 0s forwards;
+	-moz-animation:    implode 0.5s ease-in-out 1 0s forwards;
+	-o-animation: 	   implode 0.5s ease-in-out 1 0s forwards;
+	animation: 		   implode 0.5s ease-in-out 1 0s forwards;
+}
+
 .--zoom-in {
 	-webkit-animation: zoom-in 0.5s ease-in-out 1 0s forwards;
     -moz-animation:    zoom-in 0.5s ease-in-out 1 0s forwards;
     -o-animation: 	   zoom-in 0.5s ease-in-out 1 0s forwards;
     animation: 		   zoom-in 0.5s ease-in-out 1 0s forwards;
+}
+
+.--zoom-in-revserse {
+	-webkit-animation: zoom-in-revserse 0.5s ease-in-out 1 0s forwards;
+    -moz-animation:    zoom-in-revserse 0.5s ease-in-out 1 0s forwards;
+    -o-animation: 	   zoom-in-revserse 0.5s ease-in-out 1 0s forwards;
+    animation: 		   zoom-in-revserse 0.5s ease-in-out 1 0s forwards;
 }
 
 .--infinite-animation {
