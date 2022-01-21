@@ -28,6 +28,7 @@ export interface NavbarProps extends Pick<React.HTMLAttributes<HTMLElement>, 'cl
  */
 const Navbar = ({ className, items }: NavbarProps) => {
 	const [isListVisible, setIsListVisible] = React.useState<boolean>(false);
+	const [wasRendered, setWasRendered] = React.useState<boolean>(false);
 	const [isMobile, setIsMobile] = React.useState<boolean>(isMobileView(window.innerWidth));
 
 	React.useEffect(() => {
@@ -49,12 +50,20 @@ const Navbar = ({ className, items }: NavbarProps) => {
 		);
 	};
 
+	const onVisibilityControlButtonClick = () => {
+		setIsListVisible(!isListVisible);
+
+		if (wasRendered === false) {
+			setWasRendered(true);
+		}
+	};
+
 	return (
 		<nav
 			className={className && isStringValid(className) ? `navbar ${className}` : 'navbar'}
 			data-is-mobile={isMobile}
 		>
-			<ul className='navbar__list' data-is-visible={isMobile ? isListVisible : null}>
+			<ul className='navbar__list' data-is-visible={isMobile && wasRendered ? isListVisible : null}>
 				{items.map((item) => {
 					return (
 						<li key={getUniqueKey()}>
@@ -73,11 +82,11 @@ const Navbar = ({ className, items }: NavbarProps) => {
 				})}
 			</ul>
 			{isMobile ? (
-				<div className='navbar__bar --flex-center'>
+				<div className='navbar__bar --flex-center' data-is-rotated={isListVisible}>
 					<RectButton
-						className='navbar__button --flex-center'
+						className='--flex-center'
 						ContentComponent={getPlusIcon}
-						onClick={() => setIsListVisible(!isListVisible)}
+						onClick={onVisibilityControlButtonClick}
 					/>
 				</div>
 			) : null}

@@ -6,64 +6,18 @@
 
 	&__list {
 		display: flex;
-		background-color: #1a1a1a;
 	}
 
 	&[data-is-mobile='true'] {
 		.navbar {
-			&__button {
-				position: absolute;
-				border-radius: 100%;
-				z-index: 3;
-				border: 0.4rem solid #0f0f0f;
-				margin: -3rem 0 0 0;
-				width: 4.6rem;
-				height: 4.6rem;
-
-				& svg {
-					stroke: white;
-					width: 3rem;
-					height: 3rem;
-
-					& line:first-of-type {
-						-webkit-transition: transform ease-in-out 0.2s;
-    					-moz-transition:    transform ease-in-out 0.2s;
-    					-o-transition:      transform ease-in-out 0.2s;
-						transition:         transform ease-in-out 0.2s;
-
-						-webkit-transform-origin: 50% 50%;
-						-moz-transform-origin: 	  50% 50%;
-						-o-transform-origin: 	  50% 50%;
-						transform-origin: 		  50% 50%;
-
-						-webkit-transform: rotate(0);
-						-moz-transform:    rotate(0);
-						-o-transform:      rotate(0);
-						transform:		   rotate(0);
-					}
-
-					&[data-is-rotated='true'] {
-						& line:first-of-type {
-							-webkit-transform: rotate(-90deg);
-							-moz-transform:    rotate(-90deg);
-							-o-transform:      rotate(-90deg);
-							transform:		   rotate(-90deg);
-						}
-					}
-				}
-
-				& .rect-button__background {
-					border-radius: 100%;
-				}
-			}
-
 			&__bar {
 				display: flex;
 				width: 100%;
-				background-color: #1a1a1a;
-				align-items: center;
-				justify-content: center;
-				height: 4rem;
+
+				& .rect-button {
+					position: absolute;
+					z-index: 3;
+				}
 			}
 
 			&__list {
@@ -72,25 +26,6 @@
 				z-index: 2;
 				height: 100vh;
 				width: 100vw;
-
-				-webkit-transform: translateX(-100vw);
-				-moz-transform:    translateX(-100vw);
-				-o-transform:      translateX(-100vw);
-				transform:		   translateX(-100vw);
-
-				&[data-is-visible='true'] {
-					-webkit-animation: slide-in-reverse 0.5s ease-in-out 1 0s forwards;
-					-moz-animation:    slide-in-reverse 0.5s ease-in-out 1 0s forwards;
-					-o-animation: 	   slide-in-reverse 0.5s ease-in-out 1 0s forwards;
-					animation: 		   slide-in-reverse 0.5s ease-in-out 1 0s forwards;
-				}
-
-				&[data-is-visible='false'] {
-					-webkit-animation: slide-out-reverse 0.5s ease-in-out 1 0s forwards;
-					-moz-animation:    slide-out-reverse 0.5s ease-in-out 1 0s forwards;
-					-o-animation: 	   slide-out-reverse 0.5s ease-in-out 1 0s forwards;
-					animation: 		   slide-out-reverse 0.5s ease-in-out 1 0s forwards;
-				}
 			}
 		}
 	}
@@ -100,7 +35,6 @@
 	.navbar {
 		&__list {
 			flex-direction: row;
-			padding: 1vh;
 		}
 	}
 }
