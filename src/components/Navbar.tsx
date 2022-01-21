@@ -1,21 +1,17 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+//Types
+import { Redirector } from '../utils/interfaces';
+
 //Components
 import { RectButton } from '.';
 
 //Services
 import { getUniqueKey, isMobileView, isStringValid, isURLValid } from '../utils/services';
 
-export interface NavbarItem {
-	title: string;
-	path: string;
-	isActive?: boolean;
-	willRedirectOutside?: boolean;
-}
-
 export interface NavbarProps extends Pick<React.HTMLAttributes<HTMLElement>, 'className'> {
-	items: NavbarItem[];
+	items: Redirector[];
 }
 
 /**
@@ -23,7 +19,7 @@ export interface NavbarProps extends Pick<React.HTMLAttributes<HTMLElement>, 'cl
  * This component uses the react-dom's V6 'NavLink' so it only redirects
  * from the base path foward.
  * @param className [string]
- * @param items NavbarItem[]
+ * @param items Redirector[]
  * @returns JSX.Element
  */
 const Navbar = ({ className, items }: NavbarProps) => {
