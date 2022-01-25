@@ -10,6 +10,11 @@ export type ComponentGetter = () => React.ReactNode;
 export type ComponentAsProp = React.ReactNode | ComponentGetter;
 
 /**
- * @description A common component onclick event handler type.
+ * @description A common component onclick event handler.
  */
 export type ComponentClickEvent = (event: React.MouseEvent) => void;
+
+/**
+ * @description A Three.JS Object hover handler callback.
+ */
+export type ObjectHoverCallBack = (hoverEvent: MouseEvent, hoverIntersection: THREE.Intersection[]) => void;
