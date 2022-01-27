@@ -190,6 +190,16 @@
 	justify-content: center;
 }
 
+.--flex-row {
+	display: flex;
+	flex-direction: row;
+}
+
+.--flex-column {
+	display: flex;
+	flex-direction: row;
+}
+
 .--page {
 	min-height: 100vh;
 	width: 100vw;
