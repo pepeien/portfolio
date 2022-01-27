@@ -4,28 +4,31 @@
 	overflow: hidden;
 	width: 100vw;
 
-	&__list {
+	&__list, &__content {
 		display: flex;
 	}
 
 	&[data-is-mobile='true'] {
 		.navbar {
-			&__bar {
-				display: flex;
-				width: 100%;
-				z-index: 3;
-
-				& .rect-button {
-					position: absolute;
-				}
-			}
-
-			&__list {
-				flex-direction: column-reverse;
+			&__content {
 				overflow: hidden;
 				z-index: 2;
 				height: 100vh;
 				width: 100vw;
+			}
+
+			&__list {
+				flex-direction: column-reverse;
+			}
+
+			&__bar {
+				display: flex;
+				width: 100%;
+				z-index: 4;
+
+				& .rect-button {
+					position: absolute;
+				}
 			}
 		}
 	}
@@ -33,6 +36,11 @@
 
 @media (min-width: 801px) {
 	.navbar {
+		&__content {
+			height: 100%;
+			width: 100%;
+		}
+
 		&__list {
 			flex-direction: row;
 		}

@@ -59,24 +59,31 @@ const Navbar = ({ className, items }: NavbarProps) => {
 			className={className && isStringValid(className) ? `navbar ${className}` : 'navbar'}
 			data-is-mobile={isMobile}
 		>
-			<ul className='navbar__list' data-is-visible={isMobile && wasRendered ? isListVisible : null}>
-				{items.map((item) => {
-					return (
-						<li key={getUniqueKey()}>
-							{item.willRedirectOutside && isURLValid(item.path) ? (
-								<a href={item.path}>{item.title}</a>
-							) : (
-								<NavLink
-									to={item.path}
-									className={({ isActive }) => (isActive ? 'navbar__item' : 'navbar__item')}
-								>
-									{item.title}
-								</NavLink>
-							)}
-						</li>
-					);
-				})}
-			</ul>
+			<div className='navbar__content' data-is-visible={isMobile && wasRendered ? isListVisible : null}>
+				<div className='navbar__logo --flex-row --flex-center'>
+					<div className='navbar__logo-first' />
+					<span className='navbar__logo-second --flex-center'>Ericodess</span>
+					<div className='navbar__logo-third' />
+				</div>
+				<ul className='navbar__list'>
+					{items.map((item) => {
+						return (
+							<li key={getUniqueKey()}>
+								{item.willRedirectOutside && isURLValid(item.path) ? (
+									<a href={item.path}>{item.title}</a>
+								) : (
+									<NavLink
+										to={item.path}
+										className={({ isActive }) => (isActive ? 'navbar__item' : 'navbar__item')}
+									>
+										{item.title}
+									</NavLink>
+								)}
+							</li>
+						);
+					})}
+				</ul>
+			</div>
 			{isMobile ? (
 				<div className='navbar__bar --flex-center' data-is-rotated={isListVisible}>
 					<RectButton
