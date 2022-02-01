@@ -17,8 +17,6 @@ const Home = () => {
 		return () => {
 			window.removeEventListener('resize', () => setIsMobile(isMobileView(window.innerWidth)));
 		};
-
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	});
 
 	const getDevPreviewComponent = (previewURL: string) => {
