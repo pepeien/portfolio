@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, useLocation, Location } from 'react-router-dom';
 
 //Types
 import { Redirector } from '../utils/interfaces';
@@ -8,7 +8,7 @@ import { Redirector } from '../utils/interfaces';
 import { RectButton } from '.';
 
 //Services
-import { getUniqueKey, isMobileView, isStringValid, isURLValid } from '../utils/services';
+import { getUniqueKey, isMobileView, isStringValid, isURLValid, formatPathname } from '../utils/services';
 
 export interface NavbarProps extends Pick<React.HTMLAttributes<HTMLElement>, 'className'> {
 	items: Redirector[];
@@ -17,25 +17,39 @@ export interface NavbarProps extends Pick<React.HTMLAttributes<HTMLElement>, 'cl
 /**
  * @description
  * This component uses the react-dom's V6 'NavLink' so it only redirects
- * from the base path foward.
- * @param className [string]
- * @param items Redirector[]
+ * from the base path foward if you are not using a '/' as the first
+ * character of the pathname.
+ * @param [className]
+ * @param items
  * @returns JSX.Element
  */
 const Navbar = ({ className, items }: NavbarProps) => {
 	const [isListVisible, setIsListVisible] = React.useState<boolean>(false);
 	const [wasRendered, setWasRendered] = React.useState<boolean>(false);
 	const [isMobile, setIsMobile] = React.useState<boolean>(isMobileView(window.innerWidth));
+	const navbarIndicatorComponent = React.useRef<HTMLLIElement>(null);
+	const activeNavbarItemComponent = React.useRef<HTMLLIElement>(null);
+	const location: Location = useLocation();
 
 	React.useEffect(() => {
-		window.addEventListener('resize', () => setIsMobile(isMobileView(window.innerWidth)));
+		window.addEventListener('resize', () => {
+			setIsMobile(isMobileView(window.innerWidth));
+			navbarIndicatorHandler(true);
+		});
 
 		return () => {
-			window.removeEventListener('resize', () => setIsMobile(isMobileView(window.innerWidth)));
+			window.addEventListener('resize', () => {
+				setIsMobile(isMobileView(window.innerWidth));
+				navbarIndicatorHandler(true);
+			});
 		};
+	});
+
+	React.useEffect(() => {
+		navbarIndicatorHandler();
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	});
+	}, [location]);
 
 	const getPlusIcon = () => {
 		return (
@@ -46,11 +60,56 @@ const Navbar = ({ className, items }: NavbarProps) => {
 		);
 	};
 
-	const onVisibilityControlButtonClick = () => {
+	const onVisibilityControlButtonClick = (): void => {
 		setIsListVisible(!isListVisible);
 
 		if (wasRendered === false) {
 			setWasRendered(true);
+		}
+	};
+
+	const getActiveNavbarItemPathNameStatus = (): string | void => {
+		const splittedPathName: string[] = formatPathname(location.pathname.slice(1, location.pathname.length)).split(
+			'/',
+		);
+
+		for (let i = 0; i < splittedPathName.length; i++) {
+			const pathBlock: string = splittedPathName[i];
+
+			if (items.find((item) => item.path === pathBlock)) {
+				return pathBlock;
+			}
+		}
+	};
+
+	const navbarIndicatorHandler = (isResizeEvent = false): void => {
+		if (navbarIndicatorComponent.current && activeNavbarItemComponent.current) {
+			const IndicatorComponent = navbarIndicatorComponent.current;
+			const NavbarItemComponent = activeNavbarItemComponent.current;
+
+			if (isResizeEvent) {
+				if (!IndicatorComponent.style.transitionDuration) {
+					IndicatorComponent.style.transitionDuration = '0ms';
+				}
+			} else {
+				if (IndicatorComponent.style.transitionDuration) {
+					IndicatorComponent.style.transitionDuration = '';
+				}
+			}
+
+			if (isMobile) {
+				IndicatorComponent.style.width = '';
+				IndicatorComponent.style.left = '';
+
+				IndicatorComponent.style.height = `${NavbarItemComponent.offsetHeight}px`;
+				IndicatorComponent.style.top = `${NavbarItemComponent.offsetTop}px`;
+			} else {
+				IndicatorComponent.style.height = '';
+				IndicatorComponent.style.top = '';
+
+				IndicatorComponent.style.width = `${NavbarItemComponent.offsetWidth}px`;
+				IndicatorComponent.style.left = `${NavbarItemComponent.offsetLeft}px`;
+			}
 		}
 	};
 
@@ -66,22 +125,20 @@ const Navbar = ({ className, items }: NavbarProps) => {
 					<div className='navbar__logo-third' />
 				</div>
 				<ul className='navbar__list'>
-					{items.map((item) => {
-						return (
-							<li key={getUniqueKey()}>
-								{item.willRedirectOutside && isURLValid(item.path) ? (
-									<a href={item.path}>{item.title}</a>
-								) : (
-									<NavLink
-										to={item.path}
-										className={({ isActive }) => (isActive ? 'navbar__item' : 'navbar__item')}
-									>
-										{item.title}
-									</NavLink>
-								)}
-							</li>
-						);
-					})}
+					{items.map((item) => (
+						<li
+							ref={getActiveNavbarItemPathNameStatus() === item.path ? activeNavbarItemComponent : null}
+							key={getUniqueKey()}
+							className='navbar__item'
+						>
+							{item.willRedirectOutside && isURLValid(item.path) ? (
+								<a href={item.path}>{item.title}</a>
+							) : (
+								<Link to={item.path}>{item.title}</Link>
+							)}
+						</li>
+					))}
+					<li ref={navbarIndicatorComponent} className='navbar__indicator' />
 				</ul>
 			</div>
 			{isMobile ? (

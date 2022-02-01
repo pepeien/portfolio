@@ -6,6 +6,12 @@
 
 	&__list, &__content {
 		display: flex;
+		position: relative;
+	}
+
+	&__indicator {
+		position: absolute;
+		border: 1px solid white;
 	}
 
 	&[data-is-mobile='true'] {
@@ -41,6 +47,18 @@
 					position: absolute;
 				}
 			}
+
+			&__indicator {
+				width: 99.5%;
+				border-top: 0;
+				border-bottom: 0;
+
+				-webkit-transition:  top ease-in-out 0.2s, height ease-in-out 0.2s;
+				-moz-transition:     top ease-in-out 0.2s, height ease-in-out 0.2s;
+				-o-transition:       top ease-in-out 0.2s, height ease-in-out 0.2s;
+				transition:          top ease-in-out 0.2s, height ease-in-out 0.2s;
+			}
+		
 		}
 	}
 }
@@ -54,6 +72,18 @@
 
 		&__list {
 			flex-direction: row;
+		}
+
+		&__indicator {
+			height: 100%;
+			border-top: 0;
+			border-left: 0;
+			border-right: 0;
+
+			-webkit-transition:  left ease-in-out 0.2s, width ease-in-out 0.2s;
+			-moz-transition:     left ease-in-out 0.2s, width ease-in-out 0.2s;
+			-o-transition:       left ease-in-out 0.2s, width ease-in-out 0.2s;
+			transition:          left ease-in-out 0.2s, width ease-in-out 0.2s;
 		}
 	}
 }

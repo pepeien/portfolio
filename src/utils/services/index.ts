@@ -91,7 +91,7 @@ export const getDeviceOrientation = (innerWidth: number): DivisorOrientation => 
  *
  * @param onDelayEnd
  * @param [delayInMs]
- * @param void
+ * @returns void
  */
 export const emulateDelay = (onDelayEnd: () => void, delayInMs = 100): void => {
 	setTimeout(() => {
@@ -109,6 +109,17 @@ export const getUniqueKey = (): string => {
 	return uniqueKey;
 };
 
+/**
+ *
+ * @param event
+ * @param renderer
+ * @param mouse
+ * @param raycaster
+ * @param camera
+ * @param objectList
+ * @param callBack
+ * @returns void
+ */
 export const OnObjectHover = (
 	event: MouseEvent,
 	renderer: THREE.Renderer,
@@ -130,4 +141,17 @@ export const OnObjectHover = (
 	if (typeof callBack === 'function') {
 		callBack(event, raycaster.intersectObjects(objectList, true));
 	}
+};
+
+/**
+ *
+ * @param path
+ * @returns string
+ */
+export const formatPathname = (path: string): string => {
+	if (path[path.length - 1] === '/') {
+		return path;
+	}
+
+	return path + '/';
 };
