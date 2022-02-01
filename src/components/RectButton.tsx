@@ -1,14 +1,14 @@
 import React from 'react';
 
 //Types
-import { ComponentAsProp, ComponentClickEvent } from '../utils/types';
+import { ComponentAsProp } from '../utils/types';
 
 //Services
 import { extractPropComponent, isStringValid } from '../utils/services';
 
 export interface RectButtonProps extends Pick<React.HTMLAttributes<HTMLButtonElement>, 'className'> {
 	ContentComponent?: ComponentAsProp;
-	onClick?: ComponentClickEvent;
+	onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const RectButton = ({ className, ContentComponent, onClick }: RectButtonProps) => {
@@ -31,8 +31,10 @@ const RectButton = ({ className, ContentComponent, onClick }: RectButtonProps) =
 					? `rect-button --rasterized-button ${className}`
 					: 'rect-button --rasterized-button'
 			}
+			/* eslint-disable @typescript-eslint/no-unsafe-call */
 			onClickCapture={setRectOrigin}
 			onClick={onClick}
+			/* eslint-enable @typescript-eslint/no-unsafe-call */
 		>
 			<div className='rect-button__content'>{extractPropComponent(ContentComponent)}</div>
 			<div ref={backgroundComponent} className='rect-button__background' />

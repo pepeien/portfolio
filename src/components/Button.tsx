@@ -1,7 +1,7 @@
 import React from 'react';
 
 //Types
-import { ComponentClickEvent, ComponentAsProp } from '../utils/types';
+import { ComponentAsProp } from '../utils/types';
 
 //Services
 import { extractPropComponent } from '../utils/services';
@@ -22,7 +22,7 @@ export interface ButtonProps {
 	fillComponentStyle?: React.CSSProperties;
 	fillHoverAnimationType?: ButtonHoverAnimation;
 	ContentComponent?: ComponentAsProp;
-	onClick?: ComponentClickEvent;
+	onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const Button = ({
