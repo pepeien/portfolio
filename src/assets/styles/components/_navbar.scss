@@ -4,6 +4,10 @@
 	overflow: hidden;
 	width: 100vw;
 
+	&__logo {
+		pointer-events: none;
+	}
+
 	&__list, &__content {
 		display: flex;
 		position: relative;
@@ -12,6 +16,34 @@
 	&__indicator {
 		position: absolute;
 		border: 1px solid white;
+		pointer-events: none;
+
+		background: -webkit-radial-gradient(circle, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.03) 90%, rgba(255, 255, 255, 0.08) 100%);
+		background: -moz-radial-gradient(	circle, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.03) 90%, rgba(255, 255, 255, 0.08) 100%);
+		background: -o-radial-gradient(		circle, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.03) 90%, rgba(255, 255, 255, 0.08) 100%);
+		background: radial-gradient(		circle, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.03) 90%, rgba(255, 255, 255, 0.08) 100%);
+
+		background-repeat: no-repeat;
+		background-position: center;
+
+		-webkit-animation: local-border-blink 2s ease-in-out infinite;
+		-moz-animation:    local-border-blink 2s ease-in-out infinite;
+		-o-animation: 	   local-border-blink 2s ease-in-out infinite;
+		animation: 		   local-border-blink 2s ease-in-out infinite;
+	}
+
+	&__item {
+		& a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100%;
+			text-decoration: none;
+
+			&:visited, &:active, &:link {
+				color: white;
+			}
+		}
 	}
 
 	&[data-is-mobile='true'] {
@@ -63,6 +95,66 @@
 	}
 }
 
+@-webkit-keyframes local-border-blink {
+	0% {
+		background-size: 100% 100%;
+	}
+	50% {
+		background-size: 105% 100%;
+	}
+	100% {
+		background-size: 100% 100%;
+	}
+}
+
+@-moz-keyframes local-border-blink {
+	0% {
+		background-size: 100% 100%;
+	}
+	50% {
+		background-size: 105% 100%;
+	}
+	100% {
+		background-size: 100% 100%;
+	}
+}
+
+@-ms-keyframes local-border-blink {
+	0% {
+		background-size: 100% 100%;
+	}
+	50% {
+		background-size: 105% 100%;
+	}
+	100% {
+		background-size: 100% 100%;
+	}
+}
+
+@-o-keyframes local-border-blink {
+	0% {
+		background-size: 100% 100%;
+	}
+	50% {
+		background-size: 105% 100%;
+	}
+	100% {
+		background-size: 100% 100%;
+	}
+}
+
+@keyframes local-border-blink {
+	0% {
+		background-size: 100% 100%;
+	}
+	50% {
+		background-size: 105% 100%;
+	}
+	100% {
+		background-size: 100% 100%;
+	}
+}
+
 @media (min-width: 801px) {
 	.navbar {
 		&__content {
@@ -71,19 +163,102 @@
 		}
 
 		&__list {
+			height: 100%;
 			flex-direction: row;
 		}
 
-		&__indicator {
+		&__item {
 			height: 100%;
+
+			-webkit-transition: background-color ease-in-out 0.2s;
+			-moz-transition:    background-color ease-in-out 0.2s;
+			-o-transition:      background-color ease-in-out 0.2s;
+			transition:         background-color ease-in-out 0.2s;	
+
+			&:hover {
+				background-color: rgba(255, 255, 255, 0.075);
+			}
+		}
+
+		&__indicator {
+			height: 98%;
 			border-top: 0;
 			border-left: 0;
 			border-right: 0;
+			background-color: transparent;
 
-			-webkit-transition:  left ease-in-out 0.2s, width ease-in-out 0.2s;
-			-moz-transition:     left ease-in-out 0.2s, width ease-in-out 0.2s;
-			-o-transition:       left ease-in-out 0.2s, width ease-in-out 0.2s;
-			transition:          left ease-in-out 0.2s, width ease-in-out 0.2s;
+			background: -webkit-linear-gradient(rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.04) 80%, rgba(255, 255, 255, 0.08) 100%);
+			background: -moz-linear-gradient(	rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.04) 80%, rgba(255, 255, 255, 0.08) 100%);
+			background: -o-linear-gradient(		rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.04) 80%, rgba(255, 255, 255, 0.08) 100%);
+			background: linear-gradient(		rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.04) 80%, rgba(255, 255, 255, 0.08) 100%);
+
+			background-repeat: no-repeat;
+			background-position: center;
+
+			-webkit-transition:  left ease-in-out 0.2s, width ease-in-out 0.2s, background ease-in-out 0.2s;
+			-moz-transition:     left ease-in-out 0.2s, width ease-in-out 0.2s, background ease-in-out 0.2s;
+			-o-transition:       left ease-in-out 0.2s, width ease-in-out 0.2s, background ease-in-out 0.2s;
+			transition:          left ease-in-out 0.2s, width ease-in-out 0.2s, background ease-in-out 0.2s;
+		}
+	}
+
+	@-webkit-keyframes local-border-blink {
+		0% {
+			background-size: 100% 100%;
+		}
+		50% {
+			background-size: 100% 105%;
+		}
+		100% {
+			background-size: 100% 100%;
+		}
+	}
+	
+	@-moz-keyframes local-border-blink {
+		0% {
+			background-size: 100% 100%;
+		}
+		50% {
+			background-size: 100% 105%;
+		}
+		100% {
+			background-size: 100% 100%;
+		}
+	}
+	
+	@-ms-keyframes local-border-blink {
+		0% {
+			background-size: 100% 100%;
+		}
+		50% {
+			background-size: 100% 105%;
+		}
+		100% {
+			background-size: 100% 100%;
+		}
+	}
+	
+	@-o-keyframes local-border-blink {
+		0% {
+			background-size: 100% 100%;
+		}
+		50% {
+			background-size: 100% 105%;
+		}
+		100% {
+			background-size: 100% 100%;
+		}
+	}
+	
+	@keyframes local-border-blink {
+		0% {
+			background-size: 100% 100%;
+		}
+		50% {
+			background-size: 100% 105%;
+		}
+		100% {
+			background-size: 100% 100%;
 		}
 	}
 }

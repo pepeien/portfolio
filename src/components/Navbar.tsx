@@ -32,6 +32,12 @@ const Navbar = ({ className, items }: NavbarProps) => {
 	const location: Location = useLocation();
 
 	React.useEffect(() => {
+		navbarIndicatorHandler();
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [location, items]);
+
+	React.useEffect(() => {
 		window.addEventListener('resize', () => {
 			setIsMobile(isMobileView(window.innerWidth));
 			navbarIndicatorHandler(true);
@@ -44,12 +50,6 @@ const Navbar = ({ className, items }: NavbarProps) => {
 			});
 		};
 	});
-
-	React.useEffect(() => {
-		navbarIndicatorHandler();
-
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [location]);
 
 	const getPlusIcon = () => {
 		return (
@@ -74,9 +74,9 @@ const Navbar = ({ className, items }: NavbarProps) => {
 		);
 
 		for (let i = 0; i < splittedPathName.length; i++) {
-			const pathBlock: string = splittedPathName[i];
+			const pathBlock: string = splittedPathName[i].toLocaleLowerCase();
 
-			if (items.find((item) => item.path === pathBlock)) {
+			if (items.find((item) => item.path.toLocaleLowerCase() === pathBlock)) {
 				return pathBlock;
 			}
 		}
@@ -120,14 +120,18 @@ const Navbar = ({ className, items }: NavbarProps) => {
 		>
 			<div className='navbar__content' data-is-visible={isMobile && wasRendered ? isListVisible : null}>
 				<div className='navbar__logo --flex-row --flex-center'>
-					<div className='navbar__logo-first' />
-					<span className='navbar__logo-second --flex-center'>Ericodess</span>
-					<div className='navbar__logo-third' />
+					<div className='navbar__logo-left-bar' />
+					<div className='navbar__logo-text --flex-center'>Ericodess</div>
+					<div className='navbar__logo-right-bar' />
 				</div>
 				<ul className='navbar__list'>
 					{items.map((item) => (
 						<li
-							ref={getActiveNavbarItemPathNameStatus() === item.path ? activeNavbarItemComponent : null}
+							ref={
+								getActiveNavbarItemPathNameStatus() === item.path.toLocaleLowerCase()
+									? activeNavbarItemComponent
+									: null
+							}
 							key={getUniqueKey()}
 							className='navbar__item'
 						>
