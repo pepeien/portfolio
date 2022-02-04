@@ -20,7 +20,7 @@ export interface StatusPageProps {
 const Status = ({
 	httpStatusCode,
 	httpStatusCause,
-	redirectUrl = '-1',
+	redirectUrl = '/',
 	willRedirectOutside = false,
 }: StatusPageProps) => {
 	const params: StatusPageProps = useParams() as StatusPageProps;
