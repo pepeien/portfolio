@@ -51,18 +51,21 @@
 			&__content {
 				overflow: hidden;
 				z-index: 2;
-				height: 100vh;
-				width: 100vw;
+				width: 0;
+				height: 0;
+				pointer-events: none;
+
+				&[data-is-visible='true']{
+					height: 100vh;
+					width: 100vw;
+					pointer-events: all;
+				}
 
 				&[data-is-visible='false'] {
-					pointer-events: none;
-
 					-webkit-transition: width 0s ease-in-out 0.5s, height 0s ease-in-out 0.5s;
 					-moz-transition: 	width 0s ease-in-out 0.5s, height 0s ease-in-out 0.5s;
 					-o-transition: 	 	width 0s ease-in-out 0.5s, height 0s ease-in-out 0.5s;
 					transition:		 	width 0s ease-in-out 0.5s, height 0s ease-in-out 0.5s;
-
-					height: 0;
 				}
 			}
 

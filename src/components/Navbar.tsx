@@ -53,7 +53,7 @@ const Navbar = ({ className, items }: NavbarProps) => {
 
 	const getPlusIcon = () => {
 		return (
-			<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' data-is-rotated={isListVisible}>
+			<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' data-is-active={isListVisible}>
 				<line x1='12' x2='12' y1='5' y2='19' />
 				<line x1='5' x2='19' y1='12' y2='12' />
 			</svg>
@@ -66,6 +66,10 @@ const Navbar = ({ className, items }: NavbarProps) => {
 		if (wasRendered === false) {
 			setWasRendered(true);
 		}
+
+		setTimeout(() => {
+			navbarIndicatorHandler();
+		}, 1000);
 	};
 
 	const getActiveNavbarItemPathNameStatus = (): string | void => {
@@ -146,7 +150,7 @@ const Navbar = ({ className, items }: NavbarProps) => {
 				</ul>
 			</div>
 			{isMobile ? (
-				<div className='navbar__bar --flex-center' data-is-rotated={isListVisible}>
+				<div className='navbar__bar --flex-center' data-is-active={isListVisible}>
 					<RectButton
 						className='--flex-center'
 						ContentComponent={getPlusIcon}
