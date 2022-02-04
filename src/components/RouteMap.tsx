@@ -83,7 +83,7 @@ const RouteMap = ({ pinpoints, className }: RouteMapProps) => {
 					);
 
 					box.position.set(i * 10, 0, i * 10);
-					box.name = pinpoints[i].path;
+					box.name = pinpoints[i].target;
 
 					scene.add(box);
 					boxList.push(box);
@@ -196,7 +196,7 @@ const RouteMap = ({ pinpoints, className }: RouteMapProps) => {
 						(hoverEvent, hoveredIntersection) => {
 							if (
 								hoveredIntersection.length > 0 &&
-								pinpoints.find((pinpoint) => pinpoint.path === hoveredIntersection[0].object.name)
+								pinpoints.find((pinpoint) => pinpoint.target === hoveredIntersection[0].object.name)
 							) {
 								navigate(hoveredIntersection[0].object.name, { replace: false });
 							}
@@ -215,7 +215,7 @@ const RouteMap = ({ pinpoints, className }: RouteMapProps) => {
 						(hoverEvent, hoverIntersection) => {
 							if (
 								hoverIntersection.length > 0 &&
-								pinpoints.find((pinpoint) => pinpoint.path === hoverIntersection[0].object.name)
+								pinpoints.find((pinpoint) => pinpoint.target === hoverIntersection[0].object.name)
 							) {
 								if (renderer.domElement.style.cursor === '') {
 									renderer.domElement.style.cursor = 'pointer';
