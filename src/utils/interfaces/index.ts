@@ -1,6 +1,7 @@
 export interface Redirector {
 	title: string;
-	path: string;
+	target: string;
 	isActive?: boolean;
+	isComponentDriven?: boolean;
 	willRedirectOutside?: boolean;
 }
