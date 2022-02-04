@@ -197,13 +197,12 @@
 
 .--flex-column {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 }
 
 .--page {
 	min-height: 100vh;
 	width: 100vw;
-	overflow: hidden;
 }
 
 .--hidden-overflow-all {
