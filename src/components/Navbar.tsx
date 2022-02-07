@@ -26,7 +26,7 @@ export interface NavbarProps extends Pick<React.HTMLAttributes<HTMLElement>, 'cl
 
 /**
  * @description
- * This component uses the react-dom's V6 'NavLink' so it only redirects
+ * When it comes to URL driven redirection this component uses the react-dom's V6 'NavLink' so it only redirects
  * from the base path foward if you are not using a '/' as the first
  * character of the pathname.
  * @param [className]
@@ -125,7 +125,7 @@ const Navbar = ({ className, items, HighlightedComponents }: NavbarProps) => {
 		const TargetComponent: HTMLElement | null = document.getElementById(item.target);
 
 		if (TargetComponent) {
-			TargetComponent.scrollIntoView({ behavior: 'smooth' });
+			window.scrollTo({ top: TargetComponent.offsetTop, behavior: 'smooth' });
 
 			if (isMobile) {
 				setIsListVisible(false);
@@ -156,22 +156,15 @@ const Navbar = ({ className, items, HighlightedComponents }: NavbarProps) => {
 
 	const navbarIndicatorPositionHandler = (): void => {
 		if (NavbarComponentRef.current) {
-			const navbarHeight = NavbarComponentRef.current.getBoundingClientRect().height;
-
 			const nextComponentName = items
 				.filter((item) => item.isComponentDriven === true)
 				.find((item) => {
 					const ComponentDrivenElement: HTMLElement | null = document.getElementById(item.target);
 
 					if (ComponentDrivenElement) {
-						const ComponentDrivenElementClientRect = ComponentDrivenElement.getBoundingClientRect();
-
 						return (
-							window.scrollY >= ComponentDrivenElementClientRect.y - navbarHeight &&
-							window.scrollY <=
-								ComponentDrivenElementClientRect.y +
-									ComponentDrivenElementClientRect.height +
-									navbarHeight
+							window.scrollY >= ComponentDrivenElement.offsetTop &&
+							window.scrollY < ComponentDrivenElement.offsetTop + ComponentDrivenElement.offsetHeight
 						);
 					}
 
