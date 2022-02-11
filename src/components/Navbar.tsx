@@ -44,6 +44,10 @@ const Navbar = ({ className, items, HighlightedComponents }: NavbarProps) => {
 	const location: Location = useLocation();
 
 	React.useEffect(() => {
+		setActiveComponentName('about');
+	}, []);
+
+	React.useEffect(() => {
 		window.addEventListener('load', () => {
 			window.scrollTo({ top: 0 });
 
@@ -87,53 +91,7 @@ const Navbar = ({ className, items, HighlightedComponents }: NavbarProps) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [activeComponentName]);
 
-	const onVisibilityControlButtonClick = (): void => {
-		setIsListVisible(!isListVisible);
-
-		if (wasRendered === false) {
-			setWasRendered(true);
-		}
-
-		navbarIndicatorPositionHandler();
-
-		emulateDelay(navbarIndicatorAnimationHandler, 1200);
-	};
-
-	const getActiveNavbarItemPathNameStatus = (): string | void => {
-		const splittedPathName: string[] = formatPathname(location.pathname.slice(1, location.pathname.length)).split(
-			'/',
-		);
-
-		for (let i = 0; i < splittedPathName.length; i++) {
-			const pathBlock: string = splittedPathName[i].toLocaleLowerCase();
-
-			if (items.find((item) => item.target.toLocaleLowerCase() === pathBlock)) {
-				return pathBlock;
-			}
-		}
-	};
-
-	const isActive = (item: Redirector): boolean => {
-		if (item.isComponentDriven) {
-			return item.target === activeComponentName;
-		} else {
-			return getActiveNavbarItemPathNameStatus() === item.target.toLocaleLowerCase();
-		}
-	};
-
-	const redirectToComponent = (item: Redirector): void => {
-		const TargetComponent: HTMLElement | null = document.getElementById(item.target);
-
-		if (TargetComponent) {
-			window.scrollTo({ top: TargetComponent.offsetTop, behavior: 'smooth' });
-
-			if (isMobile) {
-				setIsListVisible(false);
-			}
-		}
-	};
-
-	const navbarIndicatorAnimationHandler = (): void => {
+	const navbarIndicatorAnimationHandler = React.useCallback((): void => {
 		if (NavbarIndicatorComponentRef.current && ActiveNavbarItemComponentRef.current) {
 			const IndicatorComponent = NavbarIndicatorComponentRef.current;
 			const NavbarItemComponent = ActiveNavbarItemComponentRef.current;
@@ -152,9 +110,9 @@ const Navbar = ({ className, items, HighlightedComponents }: NavbarProps) => {
 				IndicatorComponent.style.left = `${NavbarItemComponent.offsetLeft}px`;
 			}
 		}
-	};
+	}, [isMobile]);
 
-	const navbarIndicatorPositionHandler = (): void => {
+	const navbarIndicatorPositionHandler = React.useCallback((): void => {
 		if (NavbarComponentRef.current) {
 			const nextComponentName = items
 				.filter((item) => item.isComponentDriven === true)
@@ -177,16 +135,99 @@ const Navbar = ({ className, items, HighlightedComponents }: NavbarProps) => {
 				}
 			}
 		}
-	};
+	}, [activeComponentName, items]);
 
-	const getPlusIcon = () => {
+	const onVisibilityControlButtonClick = React.useCallback((): void => {
+		setIsListVisible(!isListVisible);
+
+		if (wasRendered === false) {
+			setWasRendered(true);
+		}
+
+		navbarIndicatorPositionHandler();
+
+		if (isMobile) {
+			emulateDelay(navbarIndicatorAnimationHandler, 1200);
+		}
+	}, [isListVisible, isMobile, navbarIndicatorAnimationHandler, navbarIndicatorPositionHandler, wasRendered]);
+
+	const getActiveNavbarItemPathNameStatus = React.useCallback((): string | void => {
+		const splittedPathName: string[] = formatPathname(location.pathname.slice(1, location.pathname.length)).split(
+			'/',
+		);
+
+		for (let i = 0; i < splittedPathName.length; i++) {
+			const pathBlock: string = splittedPathName[i].toLocaleLowerCase();
+
+			if (items.find((item) => item.target.toLocaleLowerCase() === pathBlock)) {
+				return pathBlock;
+			}
+		}
+	}, [items, location.pathname]);
+
+	const isActive = React.useCallback(
+		(item: Redirector): boolean => {
+			if (item.isComponentDriven) {
+				return item.target === activeComponentName;
+			} else {
+				return getActiveNavbarItemPathNameStatus() === item.target.toLocaleLowerCase();
+			}
+		},
+		[activeComponentName, getActiveNavbarItemPathNameStatus],
+	);
+
+	const redirectToComponent = React.useCallback(
+		(item: Redirector): void => {
+			const TargetComponent: HTMLElement | null = document.getElementById(item.target);
+
+			if (TargetComponent) {
+				window.scrollTo({ top: TargetComponent.offsetTop, behavior: 'smooth' });
+
+				if (isMobile) {
+					setIsListVisible(false);
+				}
+			}
+		},
+		[isMobile],
+	);
+
+	const PlusIcon = React.useMemo(() => {
 		return (
 			<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' data-is-active={isListVisible}>
 				<line x1='12' x2='12' y1='5' y2='19' />
 				<line x1='5' x2='19' y1='12' y2='12' />
 			</svg>
 		);
-	};
+	}, [isListVisible]);
+
+	const MobileNavbarHandle = React.useMemo(() => {
+		return (
+			<ul className='navbar__bar --flex-center' data-is-active={isListVisible}>
+				{HighlightedComponents ? (
+					Symbol.iterator in Object(HighlightedComponents) ? (
+						(HighlightedComponents as ComponentAsProp[]).map((HighlightedComponent) => {
+							return (
+								<li key={getUniqueKey()} className='navbar__button --flex-center'>
+									{extractPropComponent(HighlightedComponent)}
+								</li>
+							);
+						})
+					) : (
+						<li>{extractPropComponent(HighlightedComponents)}</li>
+					)
+				) : null}
+				<li className='navbar__hamburguer-button'>
+					<RectButton
+						className='--flex-center'
+						ContentComponent={PlusIcon}
+						onClick={onVisibilityControlButtonClick}
+					/>
+				</li>
+			</ul>
+		);
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [HighlightedComponents, isListVisible]);
 
 	return (
 		<nav
@@ -227,30 +268,7 @@ const Navbar = ({ className, items, HighlightedComponents }: NavbarProps) => {
 					<li ref={NavbarIndicatorComponentRef} className='navbar__indicator' />
 				</ul>
 			</div>
-			{isMobile ? (
-				<ul className='navbar__bar --flex-center' data-is-active={isListVisible}>
-					{HighlightedComponents ? (
-						Symbol.iterator in Object(HighlightedComponents) ? (
-							(HighlightedComponents as ComponentAsProp[]).map((HighlightedComponent) => {
-								return (
-									<li key={getUniqueKey()} className='navbar__button --flex-center'>
-										{extractPropComponent(HighlightedComponent)}
-									</li>
-								);
-							})
-						) : (
-							<li>{extractPropComponent(HighlightedComponents)}</li>
-						)
-					) : null}
-					<li className='navbar__hamburguer-button'>
-						<RectButton
-							className='--flex-center'
-							ContentComponent={getPlusIcon}
-							onClick={onVisibilityControlButtonClick}
-						/>
-					</li>
-				</ul>
-			) : null}
+			{isMobile ? MobileNavbarHandle : null}
 		</nav>
 	);
 };
