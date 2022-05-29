@@ -1,4 +1,4 @@
-[![portfolio](https://raw.githubusercontent.com/ericodess/portfolio/master/.github/images/project-thumbnail.png)](https://efrederick.dev)
+[![portfolio](https://raw.githubusercontent.com/ericodesu/portfolio/master/.github/images/project-thumbnail.png)](https://efrederick.dev)
 
 # portfolio
 
