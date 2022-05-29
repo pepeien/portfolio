@@ -1,7 +1,7 @@
 {
 	"name": "portfolio",
 	"version": "0.4.0",
-	"homepage": "https://efrederick.dev",
+	"homepage": "https://ericodesu.com",
 	"private": true,
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.16.1",
