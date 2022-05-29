@@ -213,7 +213,7 @@ const Navbar = ({ className, items, HighlightedComponents }: NavbarProps) => {
 							);
 						})
 					) : (
-						<li>{extractPropComponent(HighlightedComponents)}</li>
+						<li>{extractPropComponent(HighlightedComponents as ComponentAsProp)}</li>
 					)
 				) : null}
 				<li className='navbar__hamburguer-button'>

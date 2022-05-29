@@ -1,57 +1,50 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { GoThreeBars } from 'react-icons/go';
 
-//Components
-import { Divisor, PreviewButton } from '../components';
-
-//Services
-import { emulateDelay, isMobileView } from '../utils/services';
+let timeout: NodeJS.Timeout | undefined = undefined;
 
 const Home = () => {
-	const navigate = useNavigate();
-	const [isMobile, setIsMobile] = React.useState<boolean>(isMobileView(window.innerWidth));
+	const [isNavbarActive, setIsNavbarActive] = React.useState(false);
+	const navbarListRef = React.useRef<HTMLDivElement>(null);
 
-	React.useEffect(() => {
-		window.addEventListener('resize', () => setIsMobile(isMobileView(window.innerWidth)));
+	const onNavbarButtonClick = () => {
+		const nextState = !isNavbarActive;
 
-		return () => {
-			window.removeEventListener('resize', () => setIsMobile(isMobileView(window.innerWidth)));
-		};
-	});
+		setIsNavbarActive(nextState);
 
-	const getDevPreviewComponent = (previewURL: string) => {
-		return (
-			<img
-				className={isMobile ? '--descend-in-reverse' : '--slide-in'}
-				src={previewURL}
-				style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '100%' }}
-			/>
-		);
-	};
+		if (timeout) {
+			clearTimeout(timeout);
+		}
 
-	const getArtPreviewComponent = (previewURL: string) => {
-		return (
-			<img
-				className={isMobile ? '--descend-in' : '--slide-in-reverse'}
-				src={previewURL}
-				style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '100%' }}
-			/>
-		);
+		if (nextState) {
+			if (navbarListRef && navbarListRef.current) {
+				navbarListRef.current.style.display = 'flex';
+			}
+		} else {
+			timeout = setTimeout(() => {
+				if (navbarListRef && navbarListRef.current) {
+					navbarListRef.current.style.display = 'none';
+				}
+			}, 600);
+		}
 	};
 
 	return (
-		<main className='home --page --flex-center --fade-in'>
-			<PreviewButton
-				className='--hidden-overflow-all'
-				ContentComponent={() => getDevPreviewComponent('https://wallpapercave.com/wp/wp2729921.gif')}
-				onClick={() => emulateDelay(() => navigate('dev', { replace: false, state: location.pathname }), 200)}
-			/>
-			<Divisor className='--zoom-in' backgroundColor='#404040' />
-			<PreviewButton
-				className='--hidden-overflow-all'
-				ContentComponent={() => getArtPreviewComponent('https://wallpapercave.com/wp/wp2729921.gif')}
-				onClick={() => emulateDelay(() => navigate('art', { replace: false, state: location.pathname }), 200)}
-			/>
+		<main className='home --page --flex-column'>
+			<div className='home__content --flex-column'>
+				<div className='home__logo --flex-center --descend-in-reverse --faded-box'></div>
+				<div className='home__navbar --flex-column --expand-sideways'>
+					<button className='home__navbar--button' onClick={onNavbarButtonClick}>
+						<GoThreeBars />
+					</button>
+					<div ref={navbarListRef} className='home__navbar--list' data-is-active={isNavbarActive}>
+						<ul className='--flex-column --flex-center'></ul>
+					</div>
+				</div>
+				<div className='home__resume --flex-center --descend-in-reverse --faded-box'>
+					<div className='home__resume--content'></div>
+				</div>
+			</div>
 		</main>
 	);
 };

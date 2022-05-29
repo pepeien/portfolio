@@ -25,7 +25,7 @@ export const extractPropComponent = (Component?: ComponentAsProp): React.ReactNo
 
 	if (typeof Component === 'function') {
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-call
-		return Component() as React.ReactNode;
+		return Component();
 	}
 
 	return Component;

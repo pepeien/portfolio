@@ -11,6 +11,15 @@
 	animation: 		   fade-in 0.2s ease-in-out 1 0s forwards;
 }
 
+.--fade-out {
+	opacity: 1;
+
+	-webkit-animation: fade-out 0.2s ease-in-out 1 0s forwards;
+	-moz-animation:    fade-out 0.2s ease-in-out 1 0s forwards;
+	-o-animation: 	   fade-out 0.2s ease-in-out 1 0s forwards;
+	animation: 		   fade-out 0.2s ease-in-out 1 0s forwards;
+}
+
 .--bounce-in {
 	-webkit-animation: bounce-in 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) 1;
     -moz-animation:    bounce-in 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) 1;
@@ -26,99 +35,115 @@
 }
 
 .--slide-in {
+	opacity: 0;
+
 	-webkit-transform: translateX(100vw);
 	-moz-transform:    translateX(100vw);
 	-o-transform:      translateX(100vw);
 	transform:		   translateX(100vw);
 
-	-webkit-animation: slide-in 0.5s ease-in-out 1 0s forwards;
-	-moz-animation:    slide-in 0.5s ease-in-out 1 0s forwards;
-	-o-animation: 	   slide-in 0.5s ease-in-out 1 0s forwards;
-	animation: 		   slide-in 0.5s ease-in-out 1 0s forwards;
+	-webkit-animation: slide-in 0.5s ease-in-out 1 0s forwards, fade-in 0.5s ease-in-out 1 0.1s forwards;
+	-moz-animation:    slide-in 0.5s ease-in-out 1 0s forwards, fade-in 0.5s ease-in-out 1 0.1s forwards;
+	-o-animation: 	   slide-in 0.5s ease-in-out 1 0s forwards, fade-in 0.5s ease-in-out 1 0.1s forwards;
+	animation: 		   slide-in 0.5s ease-in-out 1 0s forwards, fade-in 0.5s ease-in-out 1 0.1s forwards;
 }
 
 .--slide-out {
+	opacity: 1;
+
 	-webkit-transform: translateX(0);
 	-moz-transform:    translateX(0);
 	-o-transform:      translateX(0);
 	transform:		   translateX(0);
 
-	-webkit-animation: slide-out 0.5s ease-in-out 1 0s forwards;
-	-moz-animation:    slide-out 0.5s ease-in-out 1 0s forwards;
-	-o-animation: 	   slide-out 0.5s ease-in-out 1 0s forwards;
-	animation: 		   slide-out 0.5s ease-in-out 1 0s forwards;
+	-webkit-animation: slide-out 0.5s ease-in-out 1 0.1s forwards, fade-out 0.5s ease-in-out 1 0s forwards;
+	-moz-animation:    slide-out 0.5s ease-in-out 1 0.1s forwards, fade-out 0.5s ease-in-out 1 0s forwards;
+	-o-animation: 	   slide-out 0.5s ease-in-out 1 0.1s forwards, fade-out 0.5s ease-in-out 1 0s forwards;
+	animation: 		   slide-out 0.5s ease-in-out 1 0.1s forwards, fade-out 0.5s ease-in-out 1 0s forwards;
 }
 
 .--slide-in-reverse {
+	opacity: 0;
+	
 	-webkit-transform: translateX(-100vw);
 	-moz-transform:    translateX(-100vw);
 	-o-transform:      translateX(-100vw);
 	transform:		   translateX(-100vw);
 
-	-webkit-animation: slide-in-reverse 0.5s ease-in-out 1 0s forwards;
-	-moz-animation:    slide-in-reverse 0.5s ease-in-out 1 0s forwards;
-	-o-animation: 	   slide-in-reverse 0.5s ease-in-out 1 0s forwards;
-	animation: 		   slide-in-reverse 0.5s ease-in-out 1 0s forwards;
+	-webkit-animation: slide-in-reverse 0.5s ease-in-out 1 0s forwards, fade-in 0.5s ease-in-out 1 0.1s forwards;
+	-moz-animation:    slide-in-reverse 0.5s ease-in-out 1 0s forwards, fade-in 0.5s ease-in-out 1 0.1s forwards;
+	-o-animation: 	   slide-in-reverse 0.5s ease-in-out 1 0s forwards, fade-in 0.5s ease-in-out 1 0.1s forwards;
+	animation: 		   slide-in-reverse 0.5s ease-in-out 1 0s forwards, fade-in 0.5s ease-in-out 1 0.1s forwards;
 }
 
 .--slide-out-reverse {
+	opacity: 1;
+
 	-webkit-transform: translateX(0);
 	-moz-transform:    translateX(0);
 	-o-transform:      translateX(0);
 	transform:		   translateX(0);
 
-	-webkit-animation: slide-out-reverse 0.5s ease-in-out 1 0s forwards;
-	-moz-animation:    slide-out-reverse 0.5s ease-in-out 1 0s forwards;
-	-o-animation: 	   slide-out-reverse 0.5s ease-in-out 1 0s forwards;
-	animation: 		   slide-out-reverse 0.5s ease-in-out 1 0s forwards;
+	-webkit-animation: slide-out-reverse 0.5s ease-in-out 1 0.1s forwards, fade-out 0.5s ease-in-out 1 0s forwards;
+	-moz-animation:    slide-out-reverse 0.5s ease-in-out 1 0.1s forwards, fade-out 0.5s ease-in-out 1 0s forwards;
+	-o-animation: 	   slide-out-reverse 0.5s ease-in-out 1 0.1s forwards, fade-out 0.5s ease-in-out 1 0s forwards;
+	animation: 		   slide-out-reverse 0.5s ease-in-out 1 0.1s forwards, fade-out 0.5s ease-in-out 1 0s forwards;
 }
 
 .--descend-in {
+	opacity: 0;
+
 	-webkit-transform: translateY(-100vh);
 	-moz-transform:    translateY(-100vh);
 	-o-transform:      translateY(-100vh);
 	transform:		   translateY(-100vh);
 
-	-webkit-animation: descend-in 0.5s ease-in-out 1 0s forwards;
-	-moz-animation:    descend-in 0.5s ease-in-out 1 0s forwards;
-	-o-animation: 	   descend-in 0.5s ease-in-out 1 0s forwards;
-	animation: 		   descend-in 0.5s ease-in-out 1 0s forwards;
+	-webkit-animation: descend-in 0.5s ease-in-out 1 0s forwards, fade-in 0.5s ease-in-out 1 0.1s forwards;
+	-moz-animation:    descend-in 0.5s ease-in-out 1 0s forwards, fade-in 0.5s ease-in-out 1 0.1s forwards;
+	-o-animation: 	   descend-in 0.5s ease-in-out 1 0s forwards, fade-in 0.5s ease-in-out 1 0.1s forwards;
+	animation: 		   descend-in 0.5s ease-in-out 1 0s forwards, fade-in 0.5s ease-in-out 1 0.1s forwards;
 }
 
 .--descend-out {
+	opacity: 1;
+
 	-webkit-transform: translateY(0);
 	-moz-transform:    translateY(0);
 	-o-transform:      translateY(0);
 	transform:		   translateY(0);
 
-	-webkit-animation: descend-out 0.5s ease-in-out 1 0s forwards;
-	-moz-animation:    descend-out 0.5s ease-in-out 1 0s forwards;
-	-o-animation: 	   descend-out 0.5s ease-in-out 1 0s forwards;
-	animation: 		   descend-out 0.5s ease-in-out 1 0s forwards;
+	-webkit-animation: descend-out 0.5s ease-in-out 1 0.1s forwards, fade-out 0.5s ease-in-out 1 0s forwards;
+	-moz-animation:    descend-out 0.5s ease-in-out 1 0.1s forwards, fade-out 0.5s ease-in-out 1 0s forwards;
+	-o-animation: 	   descend-out 0.5s ease-in-out 1 0.1s forwards, fade-out 0.5s ease-in-out 1 0s forwards;
+	animation: 		   descend-out 0.5s ease-in-out 1 0.1s forwards, fade-out 0.5s ease-in-out 1 0s forwards;
 }
 
 .--descend-in-reverse {
+	opacity: 0;
+
 	-webkit-transform: translateY(100vh);
 	-moz-transform:    translateY(100vh);
 	-o-transform:      translateY(100vh);
 	transform:		   translateY(100vh);
 
-	-webkit-animation: descend-in-reverse 0.5s ease-in-out 1 0s forwards;
-	-moz-animation:    descend-in-reverse 0.5s ease-in-out 1 0s forwards;
-	-o-animation: 	   descend-in-reverse 0.5s ease-in-out 1 0s forwards;
-	animation: 		   descend-in-reverse 0.5s ease-in-out 1 0s forwards;
+	-webkit-animation: descend-in-reverse 0.5s ease-in-out 1 0s forwards, fade-in 0.5s ease-in-out 1 0.1s forwards;
+	-moz-animation:    descend-in-reverse 0.5s ease-in-out 1 0s forwards, fade-in 0.5s ease-in-out 1 0.1s forwards;
+	-o-animation: 	   descend-in-reverse 0.5s ease-in-out 1 0s forwards, fade-in 0.5s ease-in-out 1 0.1s forwards;
+	animation: 		   descend-in-reverse 0.5s ease-in-out 1 0s forwards, fade-in 0.5s ease-in-out 1 0.1s forwards;
 }
 
 .--descend-out-reverse {
+	opacity: 1;
+
 	-webkit-transform: translateY(0);
 	-moz-transform:    translateY(0);
 	-o-transform:      translateY(0);
 	transform:		   translateY(0);
 
-	-webkit-animation: descend-out-reverse 0.5s ease-in-out 1 0s forwards;
-	-moz-animation:    descend-out-reverse 0.5s ease-in-out 1 0s forwards;
-	-o-animation: 	   descend-out-reverse 0.5s ease-in-out 1 0s forwards;
-	animation: 		   descend-out-reverse 0.5s ease-in-out 1 0s forwards;
+	-webkit-animation: descend-out-reverse 0.5s ease-in-out 1 0.1s forwards, fade-out 0.5s ease-in-out 1 0s forwards;
+	-moz-animation:    descend-out-reverse 0.5s ease-in-out 1 0.1s forwards, fade-out 0.5s ease-in-out 1 0s forwards;
+	-o-animation: 	   descend-out-reverse 0.5s ease-in-out 1 0.1s forwards, fade-out 0.5s ease-in-out 1 0s forwards;
+	animation: 		   descend-out-reverse 0.5s ease-in-out 1 0.1s forwards, fade-out 0.5s ease-in-out 1 0s forwards;
 }
 
 .--explode {
@@ -148,6 +173,14 @@
     -o-animation: 	   zoom-in-revserse 0.5s ease-in-out 1 0s forwards;
     animation: 		   zoom-in-revserse 0.5s ease-in-out 1 0s forwards;
 }
+
+.--expand-sideways {
+	-webkit-animation: expand-sideways 0.5s ease-in-out 1 0s forwards;
+    -moz-animation:    expand-sideways 0.5s ease-in-out 1 0s forwards;
+    -o-animation: 	   expand-sideways 0.5s ease-in-out 1 0s forwards;
+    animation: 		   expand-sideways 0.5s ease-in-out 1 0s forwards;
+}
+
 
 .--infinite-animation {
 	-webkit-animation-iteration-count: infinite !important;
