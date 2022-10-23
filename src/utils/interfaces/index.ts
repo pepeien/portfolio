@@ -1,7 +1,2 @@
-export interface Redirector {
-	title: string;
-	target: string;
-	isActive?: boolean;
-	isComponentDriven?: boolean;
-	willRedirectOutside?: boolean;
-}
+export type { AppTab, AppTabList } from './app-tab';
+export type { Redirector } from './redirector';

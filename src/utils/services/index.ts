@@ -155,3 +155,16 @@ export const formatPathname = (path: string): string => {
 
 	return path + '/';
 };
+
+/**
+ *
+ * @param target
+ * @returns string
+ */
+export const firstToUpperCase = (target: string): string => {
+	if (target.length === 1) {
+		return target.toUpperCase();
+	}
+
+	return target.charAt(0).toUpperCase() + target.slice(1);
+};

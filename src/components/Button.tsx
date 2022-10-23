@@ -17,6 +17,7 @@ export type ButtonFillDesign = 'default' | 'diagonal-down' | 'diagonal-up';
 export type ButtonHoverAnimation = 'default' | 'slide-right' | 'slide-left' | 'slide-down' | 'slide-up';
 
 export interface ButtonProps {
+	className?: string;
 	wrapperComponentStyle?: React.CSSProperties;
 	fillDesign?: ButtonFillDesign;
 	fillComponentStyle?: React.CSSProperties;
@@ -26,6 +27,7 @@ export interface ButtonProps {
 }
 
 const Button = ({
+	className = '',
 	wrapperComponentStyle,
 	ContentComponent,
 	fillComponentStyle,
@@ -35,15 +37,15 @@ const Button = ({
 }: ButtonProps) => {
 	return (
 		<button
-			className='button --rasterized-button --flex-center'
+			className={`${className} --rasterized-button --flex-center`.trim()}
 			onClick={onClick}
 			style={wrapperComponentStyle}
 			data-fill-design={fillDesign}
 			data-hover-animation={fillHoverAnimationType}
 		>
-			<div className='button__content'>{extractPropComponent(ContentComponent)}</div>
+			<div className='content'>{extractPropComponent(ContentComponent)}</div>
 			<div
-				className='button__background --opacity-ease-in'
+				className='background --opacity-ease-in'
 				style={fillComponentStyle}
 				data-fill-design={fillDesign}
 				data-hover-animation={fillHoverAnimationType}
