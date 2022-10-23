@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 //Pages
@@ -11,7 +11,9 @@ import { HttpStatusCode } from './utils/enums';
 //Styles
 import './assets/styles/main.scss';
 
-ReactDOM.render(
+const root = createRoot(window.document.getElementById('root') as HTMLElement);
+
+root.render(
 	<React.StrictMode>
 		<Router>
 			<Routes>
@@ -20,5 +22,4 @@ ReactDOM.render(
 			</Routes>
 		</Router>
 	</React.StrictMode>,
-	document.getElementById('root'),
 );
