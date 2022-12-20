@@ -1,8 +1,8 @@
 // Tabs
 
-export { default as ArtTab } from './tabs/Art';
+export { default as ProjectsTab } from './tabs/Projects';
 export { default as ContactTab } from './tabs/Contact';
-export { default as DevTab } from './tabs/Dev';
+export { default as SpecialtiesTab } from './tabs/Specialties';
 export { default as HomeTab } from './tabs/Home';
 
 // Pages

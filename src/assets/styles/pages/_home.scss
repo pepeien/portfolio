@@ -15,6 +15,11 @@
 		animation-duration: 1s;
 		border-bottom-left-radius: 0 !important;
 		border-bottom-right-radius: 0 !important;
+
+		& span {
+			color: white;
+			font-size: 3.2rem;
+		}
 	}
 
 	&__navbar {
@@ -87,6 +92,12 @@
 		&--content {
 			height: 100%;
 			width: 100%;
+
+			&.--left-root {
+				& .specialty__steps {
+					flex-direction: row-reverse;
+				}
+			}
 		}
 	}
 }
@@ -104,6 +115,10 @@
 	.home {
 		&__logo {
 			height: 30vh;
+
+			& span {
+				font-size: 6vh;
+			}
 		}
 
 		&__navbar {
@@ -120,6 +135,11 @@
 		&__resume {
 			min-height: 48vh;
 			padding: 2vh;
+
+			&--content {
+				height: 100%;
+				width: 100%;
+			}
 		}
 	}
 

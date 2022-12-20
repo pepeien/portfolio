@@ -1,0 +1,29 @@
+.specialties {
+	display: flex;
+	flex-direction: column;
+	gap: 4rem 0;
+
+	&__sub-title {
+		color: white;
+		font-size: 2rem;
+		text-align: center;
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+}
+
+@media (min-width: 801px) {
+	.specialties {
+		flex-direction: row;
+
+		&__list {
+			gap: 1vh;
+			height: 48vh;
+			width: 50%;
+		}
+	}
+}

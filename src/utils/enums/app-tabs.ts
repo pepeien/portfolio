@@ -1,7 +1,7 @@
 enum EAppTabs {
-	art = 'art',
+	projects = 'projects',
 	contact = 'contact',
-	development = 'development',
+	specialties = 'specialties',
 	about = 'about',
 }
 

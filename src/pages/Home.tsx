@@ -10,7 +10,7 @@ import { AppTab, AppTabList } from '../utils/interfaces';
 import { firstToUpperCase } from '../utils/services';
 
 // Tabs
-import { HomeTab, DevTab, ArtTab, ContactTab } from '../pages';
+import { HomeTab, ContactTab, ProjectsTab, SpecialtiesTab } from '../pages';
 
 // Types
 import { ButtonFillDesign, ButtonHoverAnimation } from '../components/Button';
@@ -24,24 +24,28 @@ interface MovementDiff {
 	backtrackedDistance: number;
 }
 
-const AppTabs: AppTabList = {
-	about: {
+const AppTabs: AppTab[] = [
+	{
+		name: 'about',
 		isActive: true,
 		component: <HomeTab />,
 	},
-	development: {
+	{
+		name: 'specialties',
 		isActive: true,
-		component: <DevTab />,
+		component: <SpecialtiesTab />,
 	},
-	art: {
-		isActive: false,
-		component: <ArtTab />,
+	{
+		name: 'projects',
+		isActive: true,
+		component: <ProjectsTab />,
 	},
-	contact: {
+	{
+		name: 'contact',
 		isActive: true,
 		component: <ContactTab />,
 	},
-};
+];
 
 const mouseEventHistory: Array<MouseEvent> = [];
 
@@ -52,6 +56,8 @@ const Home = () => {
 
 	const [buttonFillDesign, setButtonFillDesign] = React.useState<ButtonFillDesign>('default');
 	const [buttonHoverAnimation, setButtonHoverAnimation] = React.useState<ButtonHoverAnimation>('default');
+	const [previousIndex, setPreviousIndex] = React.useState<number>(0);
+	const [currentIndex, setCurrentIndex] = React.useState<number>(0);
 
 	React.useEffect(() => {
 		setTimeout(() => {
@@ -77,7 +83,10 @@ const Home = () => {
 		};
 	}, []);
 
-	const onTabClick = () => {
+	const onTabSelection = (index: number, last: number) => {
+		setCurrentIndex(index);
+		setPreviousIndex(last);
+
 		moveNavbarIndicator();
 	};
 
@@ -175,7 +184,7 @@ const Home = () => {
 		}, 100);
 	};
 
-	const onTabButtonHover = () => {
+	const onTabButtonHover = React.useCallback(() => {
 		if (mouseEventHistory) {
 			const mouseHeadingDirection = getMouseHeadingDirection();
 
@@ -212,27 +221,17 @@ const Home = () => {
 					break;
 			}
 		}
-	};
+	}, []);
 
-	const generateTabButton = (tabName: string, isTabActive: boolean) => {
-		if (isTabActive === false) {
-			return (
-				<Tab className={`home__navbar--item --flex-center --${tabName} --disabled`} key={v4()} disabled={true}>
-					<Button
-						fillComponentStyle={{
-							backgroundColor: 'rgba(2, 70, 64, 1)',
-						}}
-						ContentComponent={() => <span>{firstToUpperCase(tabName)}</span>}
-					/>
-				</Tab>
-			);
-		}
-
-		return (
+	const generateTabButton = React.useCallback(() => {
+		return Object.values(AppTabs).map((tabComponent) => (
 			<Tab
-				className={`home__navbar--item --flex-center --${tabName}`}
+				className={`home__navbar--item --flex-center --${tabComponent.name}${
+					tabComponent.isActive ? '' : ' --disabled'
+				}`}
 				key={v4()}
 				onMouseEnter={() => onTabButtonHover()}
+				disabled={!tabComponent.isActive}
 			>
 				<Button
 					className='active-tab-button'
@@ -241,52 +240,44 @@ const Home = () => {
 					}}
 					fillDesign={buttonFillDesign}
 					fillHoverAnimationType={buttonHoverAnimation}
-					ContentComponent={() => <span>{firstToUpperCase(tabName)}</span>}
+					ContentComponent={() => <span>{firstToUpperCase(tabComponent.name)}</span>}
 				/>
 			</Tab>
-		);
-	};
+		));
+	}, [buttonFillDesign, buttonHoverAnimation, onTabButtonHover]);
 
-	const generateTabComponent = (appTab: AppTab) => {
-		/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-		if (appTab.isActive === false) {
+	const TabsComponent = React.useMemo(() => {
+		return Object.values(AppTabs).map((tabComponent, index) => {
+			const isSelected = index === currentIndex;
+			const cameFromLeft = previousIndex > currentIndex;
+
 			return (
-				<TabPanel key={v4()} className='react-tabs__tab-panel home__resume--content'>
-					<div></div>
+				<TabPanel
+					key={v4()}
+					className={`react-tabs__tab-panel home__resume--content${
+						isSelected ? (cameFromLeft ? ' --left-root' : ' --right--root') : ''
+					}`}
+				>
+					{tabComponent.isActive ? tabComponent.component : <div></div>}
 				</TabPanel>
 			);
-		}
-
-		return (
-			<TabPanel key={v4()} className='react-tabs__tab-panel home__resume--content'>
-				{appTab.component}
-			</TabPanel>
-		);
-		/* eslint-enable @typescript-eslint/no-unsafe-member-access */
-	};
+		});
+	}, [previousIndex, currentIndex]);
 
 	return (
 		<main className='home --page --flex-column'>
 			<div className='home__content --flex-column'>
-				<div className='home__logo --flex-center --descend-in-reverse --faded-box'></div>
-				<Tabs onSelect={() => onTabClick()}>
+				<div className='home__logo --flex-center --descend-in-reverse --faded-box'>
+					<span>{firstToUpperCase(AppTabs[currentIndex].name)}</span>
+				</div>
+				<Tabs onSelect={(index, last) => onTabSelection(index, last)}>
 					<TabList className='home__navbar --expand-sideways --flex-column'>
-						<ul className='home__navbar--items --flex-center'>
-							{Object.entries(AppTabs).map(([key, tabComponent]) => {
-								/* eslint-disable @typescript-eslint/no-unsafe-argument */
-								return generateTabButton(key, tabComponent.isActive);
-								/* eslint-enable @typescript-eslint/no-unsafe-argument */
-							})}
-						</ul>
+						<ul className='home__navbar--items --flex-center'>{generateTabButton()}</ul>
 						<div className='home__navbar--trail'>
 							<div ref={navbarIndicator} className='home__navbar--indicator' />
 						</div>
 					</TabList>
-					<div className='home__resume --descend-in-reverse  --faded-box'>
-						{Object.values(AppTabs).map((appTab) => {
-							return generateTabComponent(appTab);
-						})}
-					</div>
+					<div className='home__resume --descend-in-reverse --faded-box'>{TabsComponent}</div>
 				</Tabs>
 			</div>
 		</main>
