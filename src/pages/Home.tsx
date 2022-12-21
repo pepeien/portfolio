@@ -6,7 +6,7 @@ import { v4 } from 'uuid';
 import 'react-tabs/style/react-tabs.css';
 
 // Utils
-import { AppTab, AppTabList } from '../utils/interfaces';
+import { AppTab } from '../utils/interfaces';
 import { firstToUpperCase } from '../utils/services';
 
 // Tabs
@@ -16,7 +16,8 @@ import { HomeTab, ContactTab, ProjectsTab, SpecialtiesTab } from '../pages';
 import { ButtonFillDesign, ButtonHoverAnimation } from '../components/Button';
 
 // Services
-import { Button } from '../components';
+import { Button, LanguageButton } from '../components';
+import { LangContext } from '../context';
 
 interface MovementDiff {
 	name: string;
@@ -26,22 +27,22 @@ interface MovementDiff {
 
 const AppTabs: AppTab[] = [
 	{
-		name: 'about',
+		name: 'ABOUT_TITLE',
 		isActive: true,
 		component: <HomeTab />,
 	},
 	{
-		name: 'specialties',
+		name: 'SPECIALTIES_TITLE',
 		isActive: true,
 		component: <SpecialtiesTab />,
 	},
 	{
-		name: 'projects',
+		name: 'PROJECTS_TITLE',
 		isActive: true,
 		component: <ProjectsTab />,
 	},
 	{
-		name: 'contact',
+		name: 'CONTACT_TITLE',
 		isActive: true,
 		component: <ContactTab />,
 	},
@@ -53,6 +54,8 @@ const MOUSE_EVENT_MAX_BACKTRACK = 5;
 
 const Home = () => {
 	const navbarIndicator = React.useRef<HTMLDivElement>(null);
+
+	const [selectedLang, _] = React.useContext(LangContext);
 
 	const [buttonFillDesign, setButtonFillDesign] = React.useState<ButtonFillDesign>('default');
 	const [buttonHoverAnimation, setButtonHoverAnimation] = React.useState<ButtonHoverAnimation>('default');
@@ -240,7 +243,7 @@ const Home = () => {
 					}}
 					fillDesign={buttonFillDesign}
 					fillHoverAnimationType={buttonHoverAnimation}
-					ContentComponent={() => <span>{firstToUpperCase(tabComponent.name)}</span>}
+					ContentComponent={() => <span>{firstToUpperCase(selectedLang[tabComponent.name])}</span>}
 				/>
 			</Tab>
 		));
@@ -266,9 +269,10 @@ const Home = () => {
 
 	return (
 		<main className='home --page --flex-column'>
+			<LanguageButton />
 			<div className='home__content --flex-column'>
 				<div className='home__logo --flex-center --descend-in-reverse --faded-box'>
-					<span>{firstToUpperCase(AppTabs[currentIndex].name)}</span>
+					<span>{firstToUpperCase(selectedLang[AppTabs[currentIndex].name])}</span>
 				</div>
 				<Tabs onSelect={(index, last) => onTabSelection(index, last)}>
 					<TabList className='home__navbar --expand-sideways --flex-column'>

@@ -1,7 +1,11 @@
 import React from 'react';
 import { v4 } from 'uuid';
 
+//Components
 import { Specialty, SpecialtyProps } from '../../components';
+
+//Context
+import { LangContext } from '../../context';
 
 const SpecialtiesList: SpecialtyProps[] = [
 	{
@@ -55,6 +59,8 @@ const SpecialtiesList: SpecialtyProps[] = [
 ];
 
 const SpecialtiesTab = () => {
+	const [selectedLang, _] = React.useContext(LangContext);
+
 	const [selectedSpecialty, setSelectedSpecialty] = React.useState<SpecialtyProps>(SpecialtiesList[0]);
 
 	const onMainSpecialtyClick = (speciality: SpecialtyProps) => {
@@ -64,7 +70,7 @@ const SpecialtiesTab = () => {
 	return (
 		<div className='specialties'>
 			<div className='specialties__list'>
-				<span className='specialties__sub-title'>Languages</span>
+				<span className='specialties__sub-title'>{selectedLang['SPECIALTIES_MAIN_SKILL']}</span>
 				{SpecialtiesList.map((speciality) => (
 					<Specialty
 						key={`${speciality.name}-${speciality.level}`}
@@ -77,7 +83,7 @@ const SpecialtiesTab = () => {
 			</div>
 			{selectedSpecialty && selectedSpecialty.frameworks ? (
 				<div className='specialties__list'>
-					<span className='specialties__sub-title'>Frameworks / Libs</span>
+					<span className='specialties__sub-title'>{selectedLang['SPECIALTIES_SUB_SKILL']}</span>
 					{selectedSpecialty.frameworks.map((speciality) => (
 						<Specialty key={v4()} name={speciality.name} level={speciality.level} isSelectabale={false} />
 					))}
