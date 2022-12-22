@@ -2,6 +2,7 @@ import React from 'react';
 
 // Context
 import { LangContext } from '../../context';
+
 // Components
 import { ModalStatus } from '../../components/Modal';
 
@@ -39,7 +40,7 @@ const ContactTab = () => {
 	};
 
 	return (
-		<div>
+		<div className='contact'>
 			<form
 				className='contact__form'
 				onSubmit={submitContactForm}

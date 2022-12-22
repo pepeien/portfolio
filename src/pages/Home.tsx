@@ -10,7 +10,7 @@ import { AppTab } from '../utils/interfaces';
 import { firstToUpperCase } from '../utils/services';
 
 // Tabs
-import { HomeTab, ContactTab, ProjectsTab, SpecialtiesTab } from '../pages';
+import { AboutTab, ContactTab, ProjectsTab, SpecialtiesTab } from '../pages';
 
 // Types
 import { ButtonFillDesign, ButtonHoverAnimation } from '../components/Button';
@@ -29,7 +29,7 @@ const AppTabs: AppTab[] = [
 	{
 		name: 'ABOUT_TITLE',
 		isActive: true,
-		component: <HomeTab />,
+		component: <AboutTab />,
 	},
 	{
 		name: 'SPECIALTIES_TITLE',
@@ -247,7 +247,7 @@ const Home = () => {
 				/>
 			</Tab>
 		));
-	}, [buttonFillDesign, buttonHoverAnimation, onTabButtonHover]);
+	}, [buttonFillDesign, buttonHoverAnimation, onTabButtonHover, selectedLang]);
 
 	const TabsComponent = React.useMemo(() => {
 		return Object.values(AppTabs).map((tabComponent, index) => {
