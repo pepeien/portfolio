@@ -14,6 +14,11 @@ export default {
 	SPECIALTIES_SUB_SKILL: 'Framerworks / Libs',
 
 	PROJECTS_TITLE: 'Projects',
+	PROJECTS_CODE: 'Code',
+	PROJECTS_LIVE_DEMO: 'Live Demo',
 
 	CONTACT_TITLE: 'Contact',
+	CONTACT_EMAIL: 'Email',
+	CONTACT_MESSAGE: 'Message',
+	CONTACT_SEND_BUTTON: 'Send',
 } as Lang;

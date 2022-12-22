@@ -14,6 +14,11 @@ export default {
 	SPECIALTIES_SUB_SKILL: 'Framerworks / Bibliotecas',
 
 	PROJECTS_TITLE: 'Projetos',
+	PROJECTS_CODE: 'Código',
+	PROJECTS_LIVE_DEMO: 'Demonstração',
 
 	CONTACT_TITLE: 'Contato',
+	CONTACT_EMAIL: 'Email',
+	CONTACT_MESSAGE: 'Menssagem',
+	CONTACT_SEND_BUTTON: 'Enviar',
 } as Lang;

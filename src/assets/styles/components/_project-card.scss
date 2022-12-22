@@ -1,0 +1,97 @@
+.project-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 15rem;
+	width: 77vw;
+	background-color: #36383c;
+	overflow: hidden;
+	border-radius: 15px;
+
+	&__thumbnail {
+		height: 110%;
+		width: 110%;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 110%;
+	}
+
+	&__name {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 5rem;
+		width: 100%;
+		color: white;
+		font-family: 'Ubuntu-Mono-Bold';
+		font-size: 1.3rem;
+	}
+
+	&__linkers {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		height: 6rem;
+
+		& a {
+			flex: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-decoration: none;
+			color: white;
+			font-family: 'Ubuntu-Mono-Regular';
+			font-size: 1rem;
+
+			&[data-is-disabled="true"] {
+				color: #85a6a6;
+			}
+
+			&:first-of-type {
+				box-shadow: inset 20px 20px 60px #2e3033,
+				            inset -20px -20px 60px #3e4045;
+			}
+
+			&:last-of-type {
+				background-color: #697f85;
+			}
+		}
+	}
+}
+
+@media (min-width: 801px) {
+	.project-card {
+		height: 40vh;
+		width: 35vw;
+
+		&__name {
+			height: 8vh;
+			font-size: 2.5vh;
+		}
+	
+		&__linkers {
+			height: 10vh;
+	
+			& a {
+				font-size: 2vh;
+
+				-webkit-transition:  color 0.2s ease-in-out;
+				-moz-transition:     color 0.2s ease-in-out;
+				-o-transition:       color 0.2s ease-in-out;
+				transition:          color 0.2s ease-in-out;
+
+				&[data-is-disabled="true"] {
+					&:hover {
+						color: #85a6a6;
+						cursor: default;
+					}
+				}
+
+				&:hover {
+					color: #00c896;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}
