@@ -6,7 +6,7 @@ import * as THREE from 'three';
 
 //Internals
 import { ComponentAsProp, ObjectHoverCallBack } from '../types';
-import { DivisorOrientation } from '../../components/Divisor';
+import { DeviceOrientation } from '../interfaces';
 
 /**
  * @param [str]
@@ -83,7 +83,7 @@ export const isMobileView = (deviceWidth: number): boolean => {
  * @param innerWidth
  * @returns DivisorOrientation
  */
-export const getDeviceOrientation = (innerWidth: number): DivisorOrientation => {
+export const getDeviceOrientation = (innerWidth: number): DeviceOrientation => {
 	return isMobileView(innerWidth) ? 'horizontal' : 'vertical';
 };
 

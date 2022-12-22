@@ -1,8 +1,12 @@
 .language__button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	background-color: #1A1A1A;
 	outline: none;
 	border: none;
-	position: fixed;
+	position: fixed !important;
+	width: 3.5rem;
 	height: 3.5rem;
 	border-radius: 15px;
 	margin: 0 10vw 7vh 0;
@@ -70,10 +74,12 @@
 
 @media (min-width: 801px) {
 	.language__button {
-		position: relative;
+		position: relative !important;
 		outline: none;
 		border: none;
 		margin: 2vh 3vw 0 auto;
+		width: 6vh;
+		height: 6vh;
 
 		& svg {
 			width: 2.5vh;
