@@ -1,26 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { createRoot } from 'react-dom/client';
 
 //Pages
-import { StatusPage, PlaceHolderPage } from './pages';
-
-//Utils
-import { HttpStatusCode } from './utils/enums';
+import App from './App';
 
 //Styles
 import './assets/styles/main.scss';
 
-ReactDOM.render(
+const root = createRoot(window.document.getElementById('root') as HTMLElement);
+
+root.render(
 	<React.StrictMode>
-		<main>
-			<Router>
-				<Routes>
-					<Route index element={<PlaceHolderPage />} />
-					<Route path='*' element={<StatusPage httpStatusCode={HttpStatusCode.NOT_FOUND} redirectUrl='' />} />
-				</Routes>
-			</Router>
-		</main>
+		<App />
 	</React.StrictMode>,
-	document.getElementById('root'),
 );

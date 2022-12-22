@@ -1,8 +1,7 @@
 import React from 'react';
-import { CSSProperties } from 'react';
 
 //Types
-import { ComponentClickEvent, ComponentAsProp } from '../utils/types';
+import { ComponentAsProp } from '../utils/types';
 
 //Services
 import { extractPropComponent } from '../utils/services';
@@ -18,15 +17,17 @@ export type ButtonFillDesign = 'default' | 'diagonal-down' | 'diagonal-up';
 export type ButtonHoverAnimation = 'default' | 'slide-right' | 'slide-left' | 'slide-down' | 'slide-up';
 
 export interface ButtonProps {
-	wrapperComponentStyle?: CSSProperties;
+	className?: string;
+	wrapperComponentStyle?: React.CSSProperties;
 	fillDesign?: ButtonFillDesign;
-	fillComponentStyle?: CSSProperties;
+	fillComponentStyle?: React.CSSProperties;
 	fillHoverAnimationType?: ButtonHoverAnimation;
 	ContentComponent?: ComponentAsProp;
-	onClick?: ComponentClickEvent;
+	onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const Button = ({
+	className = '',
 	wrapperComponentStyle,
 	ContentComponent,
 	fillComponentStyle,
@@ -36,14 +37,19 @@ const Button = ({
 }: ButtonProps) => {
 	return (
 		<button
-			className='button --rasterized-button --bg-color-ease-in --flex-center'
+			className={`${className} --rasterized-button --flex-center`.trim()}
 			onClick={onClick}
 			style={wrapperComponentStyle}
 			data-fill-design={fillDesign}
 			data-hover-animation={fillHoverAnimationType}
 		>
-			<div className='button__content'>{extractPropComponent(ContentComponent)}</div>
-			<div className='button__background --tranform-ease-in' style={fillComponentStyle} />
+			<div className='content'>{extractPropComponent(ContentComponent)}</div>
+			<div
+				className='background --opacity-ease-in'
+				style={fillComponentStyle}
+				data-fill-design={fillDesign}
+				data-hover-animation={fillHoverAnimationType}
+			/>
 		</button>
 	);
 };

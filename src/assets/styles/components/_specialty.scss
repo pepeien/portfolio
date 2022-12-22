@@ -1,0 +1,114 @@
+.specialty {
+	display: flex;
+	flex-direction: column; 
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	width: 100%;
+	height: 100%;
+	gap: 1rem;
+
+	&[data-is-selected="true"] {
+		.specialty__step {
+			border-color: rgb(200, 156, 56);
+		}
+	}
+
+	&__steps {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		gap: 0.5rem;
+	}
+
+	&__step {
+		width: 1.5rem;
+		height: 1.5rem;
+		border: 1px solid rgba(2, 70, 64, 1);
+		border-radius: 100%;
+		opacity: 0;
+
+		-webkit-animation: step-fade-in 0.6s ease-in-out 1 forwards;
+		-moz-animation:    step-fade-in 0.6s ease-in-out 1 forwards;
+		-o-animation: 	   step-fade-in 0.6s ease-in-out 1 forwards;
+		animation: 		   step-fade-in 0.6s ease-in-out 1 forwards;
+	}
+
+	&__name {
+		color: white;
+		text-align: center;
+		width: 100%;
+		height: 100%;
+		font-family: 'Ubuntu-Mono-Regular';
+	}
+}
+
+@media (min-width: 801px) {
+	.specialty {
+		gap: 3vh 0;
+		height: auto;
+
+		&__steps {
+			gap: 1vh;
+			height: 5vh;
+		}
+	
+		&__step {
+			width: 2vh;
+			height: 2vh;
+		}
+
+		&__name {
+			height: auto;
+		}
+	}
+}
+
+@-webkit-keyframes step-fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@-moz-keyframes step-fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@-ms-keyframes step-fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@-o-keyframes step-fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes step-fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
