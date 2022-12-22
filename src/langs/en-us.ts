@@ -16,7 +16,7 @@ export default {
 
 	ABOUT_TITLE: 'About',
 	ABOUT_TEXT:
-		"Yo! My name is *-Erick-*||I'm a *-full stack developer-* mostly leaned towards the *-web-* development.||I love fiding my way around *-exquisite-* problems.||Meanwhile I also try my best to *-documentate-* the hardships that appeared along the *-journey-*.",
+		"Yo! My name is *-Erick-*||I'm a *-full stack developer-* mostly leaned towards the *-web-* development.||I love *-solving-* exquisite *-problems-*.||Meanwhile I also try my best to *-documentate-* the hardships that appeared along the *-journey-*.",
 
 	SPECIALTIES_TITLE: 'Specialties',
 	SPECIALTIES_MAIN_SKILL: 'Languages',

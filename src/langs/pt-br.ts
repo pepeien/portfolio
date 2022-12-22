@@ -16,7 +16,7 @@ export default {
 
 	ABOUT_TITLE: 'Sobre',
 	ABOUT_TEXT:
-		'Opa! Meu nome é *-Erick-*||Sou um *-programador full stack-* com foco no desenvolvimento *-web-*.||Amo me esgueirar dentre problemas *-esquisitos-*.||Enquanto tento meu máximo para *-documentar-* as dificuldades que aparecerem durante a *-jornada-*.',
+		'Opa! Meu nome é *-Erick-*||Sou um *-programador full stack-* com foco no desenvolvimento *-web-*.||Amo *-resolver problemas-* esquisitos.||Enquanto tento meu máximo para *-documentar-* as dificuldades que aparecerem durante a *-jornada-*.',
 
 	SPECIALTIES_TITLE: 'Especialidades',
 	SPECIALTIES_MAIN_SKILL: 'Linguagens',
