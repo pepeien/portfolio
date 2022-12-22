@@ -10,23 +10,7 @@ import { fetchFromApi } from '../../utils/services/api';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const ProjectsTab = () => {
-	const [projects, setProjects] = React.useState<TestableProject[]>([
-		{
-			name: 'namah',
-			repoURL: 'https://github.com/ericodesu/namah',
-			testURL: 'https://ericodesu.github.io/namah',
-		},
-		{
-			name: 'portfolio',
-			repoURL: 'https://github.com/ericodesu/portfolio',
-			testURL: 'https://ericodesu.com',
-		},
-		{
-			name: 'portfolio-api',
-			repoURL: 'https://github.com/ericodesu/portfolio-api',
-			testURL: 'https://api.ericodesu.com',
-		},
-	]);
+	const [projects, setProjects] = React.useState<TestableProject[]>([]);
 
 	React.useEffect(() => {
 		fetchFromApi<TestableProject[]>('/testable')
@@ -56,17 +40,32 @@ const ProjectsTab = () => {
 				showArrows={false}
 				showStatus={false}
 			>
-				{projects.map((project) => {
-					return (
-						<ProjectCard
-							key={project.name}
-							name={project.name}
-							repoURL={project.repoURL}
-							testURL={project.name !== 'portfolio' ? project.testURL : undefined}
-							thumbnailURL={`${project.repoURL}/blob/master/.github/images/project-thumbnail.png?raw=true`}
-						/>
-					);
-				})}
+				{projects.length === 0
+					? Array(3)
+							.fill(0)
+							.map(() => {
+								return (
+									<ProjectCard
+										key={''}
+										name={''}
+										repoURL={''}
+										testURL={''}
+										thumbnailURL={''}
+										isLoading={true}
+									/>
+								);
+							})
+					: projects.map((project) => {
+							return (
+								<ProjectCard
+									key={project.name}
+									name={project.name}
+									repoURL={project.repoURL}
+									testURL={project.name !== 'portfolio' ? project.testURL : undefined}
+									thumbnailURL={`${project.repoURL}/blob/master/.github/images/project-thumbnail.png?raw=true`}
+								/>
+							);
+					  })}
 			</Carousel>
 		</div>
 	);
