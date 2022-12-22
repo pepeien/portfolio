@@ -1,9 +1,13 @@
 import React from 'react';
 
+// Context
+import { LangContext } from '../../context';
 // Components
 import { ModalStatus } from '../../components/Modal';
 
 const ContactTab = () => {
+	const [selectedLang, _] = React.useContext(LangContext);
+
 	const [formStatus, setFormStatus] = React.useState<ModalStatus>('waiting');
 	const emailInputRef = React.useRef<HTMLInputElement>(null);
 	const textInputRef = React.useRef<HTMLTextAreaElement>(null);
@@ -43,15 +47,15 @@ const ContactTab = () => {
 				method='POST'
 			>
 				<div className='contact__form-input'>
-					<label htmlFor='email'>Email</label>
+					<label htmlFor='email'>{selectedLang['CONTACT_EMAIL']}</label>
 					<input ref={emailInputRef} name='email' className='contact__form-email' type='email' />
 				</div>
 				<div className='contact__form-input'>
-					<label htmlFor='message'>Message</label>
+					<label htmlFor='message'>{selectedLang['CONTACT_MESSAGE']}</label>
 					<textarea ref={textInputRef} name='message' className='contact__form-message' />
 				</div>
 				<button className='contact__form-button'>
-					<span>Send</span>
+					<span>{selectedLang['CONTACT_SEND_BUTTON']}</span>
 					<div></div>
 				</button>
 			</form>
