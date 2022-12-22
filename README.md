@@ -18,7 +18,9 @@ Then open [http://localhost:3000/](http://localhost:3000/) to see your app. The 
 Most instances will need an back-end source in order to work a great way to provide it is to get started with [portfolio-api](https://github.com/ericodesu/portfolio-api), after creating this resources add these environment variables:
 
 ```
+REACT_APP_API_URL={YOUR-API-URL}
 REACT_APP_FORM_SERVICE_URL={YOUR-FORM-SERVICE-URL}
+REACT_APP_INITIAL_VALUE={YOUR-SECRET-VALUE}
 ```
 
 Now you are ready to use the project, just issue a `npm start` and you're good to go
