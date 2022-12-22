@@ -74,6 +74,14 @@
 			margin: 1.5rem 0 0 0;
 		}
 	}
+
+	& button {
+		border-radius: 15px;
+
+		& .content {
+			padding: 0.5rem 1rem;
+		}
+	}
 }
 
 @media (min-width: 801px) {

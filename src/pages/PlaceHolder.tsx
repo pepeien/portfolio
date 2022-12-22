@@ -1,9 +1,14 @@
 import React from 'react';
 
-//Components
+// Components
 import { ContactForm, RectButton } from '../components';
 
+// Context
+import { LangContext } from '../context';
+
 const PlaceHolder = () => {
+	const [selectedLang, _] = React.useContext(LangContext);
+
 	const [isModalVisible, setIsModalVisible] = React.useState<boolean>(false);
 
 	const modalHandler = () => {
@@ -26,11 +31,11 @@ const PlaceHolder = () => {
 		<main className='place-holder --page --fade-in --flex-center'>
 			<div className='place-holder__title --zoom-in --flex-center'>
 				<div>
-					<span className='--slide-in'>Coming</span>
+					<span className='--slide-in'>{selectedLang['PLACE_HOLDER_STATUS_1']}</span>
 				</div>
 				<div className='--blink --infinite-animation' />
 				<div>
-					<span>Soon</span>
+					<span>{selectedLang['PLACE_HOLDER_STATUS_2']}</span>
 				</div>
 			</div>
 			<div className='place-holder__footer' data-is-upward={isModalVisible}>

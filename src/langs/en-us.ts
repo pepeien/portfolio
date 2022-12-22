@@ -7,7 +7,16 @@ export default {
 
 	LANGUAGE_ABBREVIATION: 'enUs',
 
+	PLACE_HOLDER_STATUS_1: 'Offline',
+	PLACE_HOLDER_STATUS_2: ':(',
+
+	STATUS_TEXT_REASSURING: 'Head somewhere',
+	STATUS_TEXT_LOCAL_OPTION: 'safe',
+	STATUS_TEXT_OUTSIDE_OPTION: 'outside',
+
 	ABOUT_TITLE: 'About',
+	ABOUT_TEXT:
+		"Yo! My name is *-Erick-*||I'm a *-full stack developer-* mostly leaned towards the *-web-* development.||I love fiding my way around *-esquesite-* problems.||Meanwhile I also try my best to *-documentate-* the hardships that appeared along the *-journey-*.",
 
 	SPECIALTIES_TITLE: 'Specialties',
 	SPECIALTIES_MAIN_SKILL: 'Languages',

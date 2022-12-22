@@ -10,6 +10,9 @@ import { Button } from '../components';
 //Services
 import { isStringValid, isURLValid, validateInitialValue } from '../utils/services';
 
+// Context
+import { LangContext } from '../context';
+
 export interface StatusPageProps {
 	httpStatusCode?: HttpStatusCode;
 	httpStatusCause?: string;
@@ -23,6 +26,8 @@ const Status = ({
 	redirectUrl = '/',
 	willRedirectOutside = false,
 }: StatusPageProps) => {
+	const [selectedLang, _] = React.useContext(LangContext);
+
 	const params: StatusPageProps = useParams() as StatusPageProps;
 	const location = useLocation();
 	const href = useHref(redirectUrl);
@@ -88,7 +93,14 @@ const Status = ({
 						backgroundColor: 'rgba(2, 70, 64, 1)',
 					}}
 					onClick={redirectHandler}
-					ContentComponent={<span>Head somehwere {willRedirectOutside ? 'outside' : 'safe'}</span>}
+					ContentComponent={
+						<span>
+							{selectedLang['STATUS_TEXT_REASSURING']}{' '}
+							{willRedirectOutside
+								? selectedLang['STATUS_TEXT_LOCAL_OPTION']
+								: selectedLang['STATUS_TEXT_OUTSIDE_OPTION']}
+						</span>
+					}
 					fillDesign='diagonal-down'
 					fillHoverAnimationType='slide-right'
 				/>
