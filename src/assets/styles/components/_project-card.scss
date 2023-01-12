@@ -79,6 +79,7 @@
 
 			&[data-is-disabled="true"] {
 				color: #85a6a6;
+				background-color: #697f85 !important;
 			}
 
 			&:first-of-type {
@@ -87,7 +88,7 @@
 			}
 
 			&:last-of-type {
-				background-color: #697f85;
+				background-color: rgba(2, 70, 64, 1);
 			}
 		}
 	}
@@ -109,21 +110,22 @@
 			& a {
 				font-size: 2vh;
 
-				-webkit-transition:  color 0.2s ease-in-out;
-				-moz-transition:     color 0.2s ease-in-out;
-				-o-transition:       color 0.2s ease-in-out;
-				transition:          color 0.2s ease-in-out;
+				-webkit-transition:  background-color 0.2s ease-in-out;
+				-moz-transition:     background-color 0.2s ease-in-out;
+				-o-transition:       background-color 0.2s ease-in-out;
+				transition:          background-color 0.2s ease-in-out;
 
 				&[data-is-disabled="true"] {
 					&:hover {
-						color: #85a6a6;
 						cursor: default;
 					}
 				}
 
-				&:hover {
-					color: #00c896;
-					cursor: pointer;
+				&:last-of-type {
+					&:hover {
+						background-color: rgb(0, 200, 150);
+						cursor: pointer;
+					}
 				}
 			}
 		}

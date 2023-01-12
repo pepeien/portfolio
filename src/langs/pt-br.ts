@@ -2,7 +2,6 @@
 import { Lang } from '../utils/interfaces';
 
 export default {
-	SEARCH: 'Pesquisar',
 	LANGUAGE: 'Português (BR)',
 
 	LANGUAGE_ABBREVIATION: 'ptBr',
@@ -20,7 +19,7 @@ export default {
 
 	SPECIALTIES_TITLE: 'Especialidades',
 	SPECIALTIES_MAIN_SKILL: 'Linguagens',
-	SPECIALTIES_SUB_SKILL: 'Framerworks / Bibliotecas',
+	SPECIALTIES_SUB_SKILL: 'Frameworks / Bibliotecas',
 
 	PROJECTS_TITLE: 'Projetos',
 	PROJECTS_CODE: 'Código',

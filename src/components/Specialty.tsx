@@ -4,23 +4,53 @@ import { v4 } from 'uuid';
 export interface SpecialtyProps {
 	level: number;
 	name: string;
+	isFramework?: boolean;
+	isSelectable?: boolean;
 	isSelected?: boolean;
-	isSelectabale?: boolean;
-	frameworks?: Omit<SpecialtyProps, 'isSelected' | 'isSelectabale' | 'frameworks'>[];
+	wasSelected?: boolean;
+	frameworks?: Omit<SpecialtyProps, 'isSelected' | 'isSelectable' | 'frameworks'>[];
 	onClick?: () => void;
 }
 
-const Specialty = ({ level, name, onClick, isSelected = false, isSelectabale = true }: SpecialtyProps) => {
+const Specialty = ({
+	level,
+	name,
+	onClick,
+	isFramework = false,
+	isSelectable = true,
+	isSelected = false,
+	wasSelected = false,
+}: SpecialtyProps) => {
 	const onButtonClick = () => {
-		if (onClick) {
+		if (isSelectable && onClick) {
 			onClick();
 		}
+	};
+
+	const getAnimationDelayInSeconds = (index: number): number => {
+		const roundedLevel = Math.round(level);
+		const isLevelRound = roundedLevel % 2 === 0;
+		const correctIndex = index + 1;
+
+		const mid = Math.round(roundedLevel / 2);
+		const median = isLevelRound
+			? (isSelectable && wasSelected) || isFramework
+				? [mid, mid + 1]
+				: [1, level]
+			: [mid, mid];
+
+		if (correctIndex <= median[0]) {
+			return Math.abs((correctIndex - median[0]) / 10);
+		}
+
+		return Math.abs((correctIndex - median[1]) / 10);
 	};
 
 	return (
 		<button
 			className={`specialty`}
-			data-is-selected={isSelectabale === true && isSelected === true}
+			data-is-selected={(isSelectable && isSelected) || isFramework}
+			data-was-selected={(isSelectable && wasSelected) || isFramework}
 			onClick={onButtonClick}
 		>
 			<span className='specialty__name'>{name}</span>
@@ -28,11 +58,15 @@ const Specialty = ({ level, name, onClick, isSelected = false, isSelectabale = t
 				{Array(level)
 					.fill(0)
 					.map((_, index) => {
+						const delay = getAnimationDelayInSeconds(index);
+
 						return (
 							<div
 								key={v4()}
 								className='specialty__step'
-								style={{ animationDelay: `${(index + 1 - level) / 10}s` }}
+								style={{
+									animationDelay: `${delay}s`,
+								}}
 							></div>
 						);
 					})}
@@ -41,7 +75,4 @@ const Specialty = ({ level, name, onClick, isSelected = false, isSelectabale = t
 	);
 };
 
-const willRerender = (prevProps: SpecialtyProps, nextProps: SpecialtyProps) => {
-	return prevProps.isSelected === nextProps.isSelected;
-};
-export default React.memo(Specialty, willRerender);
+export default Specialty;

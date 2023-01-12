@@ -9,26 +9,42 @@ import { LangContext } from '../../context';
 
 const SpecialtiesList: SpecialtyProps[] = [
 	{
-		name: 'Javascript',
+		name: 'Javascript / Typescript',
 		level: 5,
 		frameworks: [
 			{
-				name: 'Angular',
+				name: 'Angular JS',
 				level: 3,
 			},
 			{
-				name: 'React',
+				name: 'React JS',
 				level: 5,
+			},
+			{
+				name: 'Node JS',
+				level: 5,
+			},
+			{
+				name: 'Next JS',
+				level: 2,
 			},
 		],
 	},
 	{
+		name: 'Golang',
+		level: 1,
+	},
+	{
 		name: 'C++',
-		level: 2,
+		level: 3,
 		frameworks: [
 			{
 				name: 'Open CV',
 				level: 1,
+			},
+			{
+				name: 'Unreal Engine 4',
+				level: 2,
 			},
 		],
 	},
@@ -54,6 +70,10 @@ const SpecialtiesList: SpecialtyProps[] = [
 				name: 'Postgress',
 				level: 1,
 			},
+			{
+				name: 'Mongo',
+				level: 1,
+			},
 		],
 	},
 ];
@@ -62,21 +82,33 @@ const SpecialtiesTab = () => {
 	const [selectedLang, _] = React.useContext(LangContext);
 
 	const [selectedSpecialty, setSelectedSpecialty] = React.useState<SpecialtyProps>(SpecialtiesList[0]);
+	const [lastSelectedSpecialty, setLastSelectedSpecialty] = React.useState<SpecialtyProps>(SpecialtiesList[0]);
 
 	const onMainSpecialtyClick = (speciality: SpecialtyProps) => {
+		setLastSelectedSpecialty(selectedSpecialty);
 		setSelectedSpecialty(speciality);
+	};
+
+	const sortSpecialtyByLevel = (a: SpecialtyProps, b: SpecialtyProps, isDescending = true): number => {
+		if (isDescending) {
+			return b.level - a.level;
+		}
+
+		return a.level - b.level;
 	};
 
 	return (
 		<div className='specialties'>
 			<div className='specialties__list'>
 				<span className='specialties__sub-title'>{selectedLang['SPECIALTIES_MAIN_SKILL']}</span>
-				{SpecialtiesList.map((speciality) => (
+				{SpecialtiesList.sort(sortSpecialtyByLevel).map((speciality) => (
 					<Specialty
 						key={`${speciality.name}-${speciality.level}`}
 						name={speciality.name}
 						level={speciality.level}
+						isSelectable={true}
 						isSelected={speciality.name === selectedSpecialty.name}
+						wasSelected={speciality.name === lastSelectedSpecialty.name}
 						onClick={() => onMainSpecialtyClick(speciality)}
 					/>
 				))}
@@ -84,8 +116,8 @@ const SpecialtiesTab = () => {
 			{selectedSpecialty && selectedSpecialty.frameworks ? (
 				<div className='specialties__list'>
 					<span className='specialties__sub-title'>{selectedLang['SPECIALTIES_SUB_SKILL']}</span>
-					{selectedSpecialty.frameworks.map((speciality) => (
-						<Specialty key={v4()} name={speciality.name} level={speciality.level} isSelectabale={false} />
+					{selectedSpecialty.frameworks.sort(sortSpecialtyByLevel).map((speciality) => (
+						<Specialty key={v4()} name={speciality.name} level={speciality.level} isFramework={true} />
 					))}
 				</div>
 			) : null}

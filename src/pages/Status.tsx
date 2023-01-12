@@ -97,8 +97,8 @@ const Status = ({
 						<span>
 							{selectedLang['STATUS_TEXT_REASSURING']}{' '}
 							{willRedirectOutside
-								? selectedLang['STATUS_TEXT_LOCAL_OPTION']
-								: selectedLang['STATUS_TEXT_OUTSIDE_OPTION']}
+								? selectedLang['STATUS_TEXT_OUTSIDE_OPTION']
+								: selectedLang['STATUS_TEXT_LOCAL_OPTION']}
 						</span>
 					}
 					fillDesign='diagonal-down'
