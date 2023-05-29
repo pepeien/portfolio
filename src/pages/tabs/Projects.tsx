@@ -3,7 +3,7 @@ import { Carousel } from 'react-responsive-carousel';
 
 //Components
 import { ProjectCard } from '../../components';
-import { TestableProject } from '../../utils/interfaces';
+import { TestableProject, TestableProjectResponse } from '../../utils/interfaces';
 import { fetchFromApi } from '../../utils/services/api';
 
 //Styles
@@ -13,16 +13,13 @@ const ProjectsTab = () => {
 	const [projects, setProjects] = React.useState<TestableProject[]>([]);
 
 	React.useEffect(() => {
-		fetchFromApi<TestableProject[]>('/testable')
+		fetchFromApi<TestableProjectResponse>('/testable')
 			.then((response) => {
-				// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-				if (!response.wasSuccessful) {
+				if (!response.wasSuccessful || !response.result || !response.result.testableProjects) {
 					return;
 				}
 
-				if (response.result) {
-					setProjects(response.result);
-				}
+				setProjects(response.result.testableProjects);
 			})
 			.catch((error) => {
 				console.log(error);
