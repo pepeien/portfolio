@@ -30,7 +30,6 @@
 
 			&__thumbnail {
 				flex: 3;
-				background-position: top;
 			}
 
 			&__name {
@@ -48,6 +47,7 @@
 		width: 110%;
 		background-repeat: no-repeat;
 		background-position: center;
+		background-position-y: top;
 		background-size: 110%;
 	}
 
