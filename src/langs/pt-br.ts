@@ -15,15 +15,18 @@ export default {
 
 	ABOUT_TITLE: 'Sobre',
 	ABOUT_TEXT:
-		'Opa! Meu nome é *-Erick-*||Sou um *-programador full stack-* com foco no desenvolvimento *-web-*.||Amo *-resolver problemas-* esquisitos.||Enquanto tento meu máximo para *-documentar-* as dificuldades que aparecerem durante a *-jornada-*.',
+		'Meu nome é *-Erick-*.||Sou um *-programador full stack-* com especialização *-web-*.||' +
+		'*-Criando aplicações-* robustas para *-usuários-* e *-desenvolvedores-*.',
 
 	SPECIALTIES_TITLE: 'Especialidades',
-	SPECIALTIES_MAIN_SKILL: 'Linguagens',
+	SPECIALTIES_MAIN_SKILL: 'Linguagens / Ferramentas',
 	SPECIALTIES_SUB_SKILL: 'Frameworks / Bibliotecas',
 
 	PROJECTS_TITLE: 'Projetos',
 	PROJECTS_CODE: 'Código',
 	PROJECTS_LIVE_DEMO: 'Demonstração',
+
+	SPECIALTY_TOOLS: 'Ferramentas',
 
 	CONTACT_TITLE: 'Contato',
 	CONTACT_EMAIL: 'Email',

@@ -15,15 +15,18 @@ export default {
 
 	ABOUT_TITLE: 'About',
 	ABOUT_TEXT:
-		"Yo! My name is *-Erick-*||I'm a *-full stack developer-* mostly leaned towards the *-web-* development.||I love *-solving-* exquisite *-problems-*.||Meanwhile I also try my best to *-document-* the hardships that appeared along the *-journey-*.",
+		"My name is *-Erick-*.||I'm a *-web-* specialized *-full stack developer-*.||" +
+		'*-Building-* robust *-applications-* to *-users-* and *-developers-*.',
 
 	SPECIALTIES_TITLE: 'Specialties',
-	SPECIALTIES_MAIN_SKILL: 'Languages',
+	SPECIALTIES_MAIN_SKILL: 'Languages / Tools',
 	SPECIALTIES_SUB_SKILL: 'Frameworks / Libs',
 
 	PROJECTS_TITLE: 'Projects',
 	PROJECTS_CODE: 'Code',
 	PROJECTS_LIVE_DEMO: 'Live Demo',
+
+	SPECIALTY_TOOLS: 'Tools',
 
 	CONTACT_TITLE: 'Contact',
 	CONTACT_EMAIL: 'Email',

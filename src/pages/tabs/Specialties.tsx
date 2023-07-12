@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { v4 } from 'uuid';
 
 //Components
@@ -13,66 +13,70 @@ const SpecialtiesList: SpecialtyProps[] = [
 		level: 5,
 		frameworks: [
 			{
-				name: 'Angular JS',
-				level: 3,
-			},
-			{
-				name: 'React JS',
+				name: 'Angular',
 				level: 5,
 			},
 			{
-				name: 'Node JS',
+				name: 'React',
 				level: 5,
 			},
 			{
-				name: 'Next JS',
-				level: 2,
-			},
-		],
-	},
-	{
-		name: 'Golang',
-		level: 1,
-	},
-	{
-		name: 'C++',
-		level: 3,
-		frameworks: [
-			{
-				name: 'Open CV',
-				level: 1,
+				name: 'Node / Express',
+				level: 5,
 			},
 			{
-				name: 'Unreal Engine 4',
-				level: 2,
+				name: 'Socket IO',
+				level: 5,
 			},
 		],
 	},
 	{
 		name: 'Java',
-		level: 3,
+		level: 5,
 		frameworks: [
 			{
 				name: 'Spring Boot',
-				level: 3,
+				level: 5,
 			},
 		],
 	},
 	{
-		name: 'SQL',
-		level: 3,
+		name: 'DB',
+		level: 5,
 		frameworks: [
 			{
 				name: 'MySQL',
-				level: 3,
+				level: 5,
 			},
 			{
 				name: 'Postgress',
-				level: 1,
+				level: 5,
 			},
 			{
 				name: 'Mongo',
-				level: 1,
+				level: 5,
+			},
+		],
+	},
+	{
+		name: 'SPECIALTY_TOOLS',
+		level: 5,
+		frameworks: [
+			{
+				name: 'Bash',
+				level: 5,
+			},
+			{
+				name: 'Docker',
+				level: 5,
+			},
+			{
+				name: 'NGINX',
+				level: 5,
+			},
+			{
+				name: 'Jira',
+				level: 5,
 			},
 		],
 	},
@@ -104,7 +108,7 @@ const SpecialtiesTab = () => {
 				{SpecialtiesList.sort(sortSpecialtyByLevel).map((speciality) => (
 					<Specialty
 						key={`${speciality.name}-${speciality.level}`}
-						name={speciality.name}
+						name={selectedLang[speciality.name] ?? speciality.name}
 						level={speciality.level}
 						isSelectable={true}
 						isSelected={speciality.name === selectedSpecialty.name}
@@ -117,7 +121,12 @@ const SpecialtiesTab = () => {
 				<div className='specialties__list'>
 					<span className='specialties__sub-title'>{selectedLang['SPECIALTIES_SUB_SKILL']}</span>
 					{selectedSpecialty.frameworks.sort(sortSpecialtyByLevel).map((speciality) => (
-						<Specialty key={v4()} name={speciality.name} level={speciality.level} isFramework={true} />
+						<Specialty
+							key={v4()}
+							name={selectedLang[speciality.name] ?? speciality.name}
+							level={speciality.level}
+							isFramework={true}
+						/>
 					))}
 				</div>
 			) : null}

@@ -70,6 +70,14 @@
 		gap: 3vh 0;
 		height: auto;
 
+		&[data-is-selected="false"] {
+			&:hover {
+				.specialty__step {
+					border-color: rgb(0, 200, 150) !important;
+				}
+			}
+		}
+
 		&__steps {
 			gap: 1vh;
 			height: 5vh;

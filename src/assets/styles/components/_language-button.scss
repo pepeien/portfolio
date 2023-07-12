@@ -9,7 +9,7 @@
 	width: 3.5rem;
 	height: 3.5rem;
 	border-radius: 15px;
-	margin: 0 10vw 7vh 0;
+	margin: 0 2vh 2dvh 0;
 	z-index: 2;
 	bottom: 0;
 	right: 0;
@@ -33,7 +33,7 @@
 	background-color: #1A1A1A;
 	overflow: hidden;
 	display: none;
-	margin: 0 10vw 8rem 0;
+	margin: 0 2vh 11dvh 0;
 	z-index: 2;
 	bottom: 0;
 	right: 0;
@@ -75,10 +75,7 @@
 
 @media (min-width: 801px) {
 	.language__button {
-		position: relative !important;
-		outline: none;
-		border: none;
-		margin: 2vh 3vw 0 auto;
+		margin: 0 2vh 2vh auto;
 		width: 6vh;
 		height: 6vh;
 
@@ -89,10 +86,9 @@
 	}
 	
 	.language__list {
-		position: absolute;
-		margin: 9vh 3vw 0 0;
+		margin: 0 2vh 9vh 0;
 		background-color: #1A1A1A;
-		bottom: auto;
+		top: auto;
 		right: 0;
 	
 		& li {
