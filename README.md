@@ -27,7 +27,7 @@ Now you are ready to use the project, just issue a `npm start` and you're good t
 
 ## About the Project
 
-This project it's my portfolio, mildlt likely to be updated.
+This project it's my portfolio page, always beign updated.
 
 ## Development
 
