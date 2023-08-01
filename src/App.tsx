@@ -17,24 +17,27 @@ import Langs from './langs';
 import { LangContext } from './context';
 
 const App = () => {
-	const [selectedLang, setSelectedLang] = React.useState<Lang>(Langs.enUs);
+    const [selectedLang, setSelectedLang] = React.useState<Lang>(Langs.enUs);
 
-	const updateSelectedLang = (langAbbreviation: keyof typeof Langs) => {
-		if (!Langs[langAbbreviation]) return;
+    const updateSelectedLang = (langAbbreviation: keyof typeof Langs) => {
+        if (!Langs[langAbbreviation]) return;
 
-		setSelectedLang({ ...Langs[langAbbreviation] });
-	};
+        setSelectedLang({ ...Langs[langAbbreviation] });
+    };
 
-	return (
-		<LangContext.Provider value={[selectedLang, updateSelectedLang]}>
-			<Router>
-				<Routes>
-					<Route index element={<HomePage />} />
-					<Route path='*' element={<StatusPage httpStatusCode={HttpStatusCode.NOT_FOUND} />} />
-				</Routes>
-			</Router>
-		</LangContext.Provider>
-	);
+    return (
+        <LangContext.Provider value={[selectedLang, updateSelectedLang]}>
+            <Router>
+                <Routes>
+                    <Route index element={<HomePage />} />
+                    <Route
+                        path='*'
+                        element={<StatusPage httpStatusCode={HttpStatusCode.NOT_FOUND} />}
+                    />
+                </Routes>
+            </Router>
+        </LangContext.Provider>
+    );
 };
 
 export default App;

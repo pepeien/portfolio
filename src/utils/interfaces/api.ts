@@ -1,17 +1,17 @@
 interface Project {
-	name: string;
-	repoURL: string;
+    name: string;
+    repoURL: string;
 }
 
 export interface TestableProject extends Project {
-	testURL: string;
+    testURL: string;
 }
 
 export interface TestableProjectResponse {
-	testableProjects: TestableProject[];
+    testableProjects: TestableProject[];
 }
 
 export interface ApiResponse<T> {
-	wasSuccessful: boolean;
-	result: T | undefined;
+    wasSuccessful: boolean;
+    result: T | undefined;
 }

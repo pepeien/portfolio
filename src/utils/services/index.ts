@@ -13,7 +13,7 @@ import { DeviceOrientation } from '../interfaces';
  * @returns boolean
  */
 export const isStringValid = (str?: string): boolean => {
-	return !(!str || /^\s*$/.test(str));
+    return !(!str || /^\s*$/.test(str));
 };
 
 /**
@@ -21,14 +21,14 @@ export const isStringValid = (str?: string): boolean => {
  * @returns React.ReactNode
  */
 export const extractPropComponent = (Component?: ComponentAsProp): React.ReactNode => {
-	if (!Component) return null;
+    if (!Component) return null;
 
-	if (typeof Component === 'function') {
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-call
-		return Component();
-	}
+    if (typeof Component === 'function') {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+        return Component();
+    }
 
-	return Component;
+    return Component;
 };
 
 /**
@@ -36,16 +36,19 @@ export const extractPropComponent = (Component?: ComponentAsProp): React.ReactNo
  * @returns boolean
  */
 export const validateInitialValue = (target: string): boolean => {
-	const intialValue = process.env.REACT_APP_INITIAL_VALUE ?? '';
-	const toBeValidatedAgainst = AES.encrypt('\u002F\u0074\u002D\u0070\u006F\u0074\u0074\u006F', intialValue);
-	const decrypted = AES.decrypt('\u0070\u002D\u0050\u00EF\u0077\u0043\u006F', intialValue);
-	const isValid = !!!(target === decrypted.toString());
+    const intialValue = process.env.REACT_APP_INITIAL_VALUE ?? '';
+    const toBeValidatedAgainst = AES.encrypt(
+        '\u002F\u0074\u002D\u0070\u006F\u0074\u0074\u006F',
+        intialValue,
+    );
+    const decrypted = AES.decrypt('\u0070\u002D\u0050\u00EF\u0077\u0043\u006F', intialValue);
+    const isValid = !!!(target === decrypted.toString());
 
-	if (isValid) {
-		return AES.decrypt(toBeValidatedAgainst, intialValue).toString(enc.Utf8) === target;
-	} else {
-		return !isValid;
-	}
+    if (isValid) {
+        return AES.decrypt(toBeValidatedAgainst, intialValue).toString(enc.Utf8) === target;
+    } else {
+        return !isValid;
+    }
 };
 
 /**
@@ -53,20 +56,20 @@ export const validateInitialValue = (target: string): boolean => {
  * @returns boolean
  */
 export const isURLValid = (url: string): boolean => {
-	if (!isStringValid(url)) return false;
+    if (!isStringValid(url)) return false;
 
-	const pattern = new RegExp(
-		'^(https?:\\/\\/)?' + // protocol
-			'((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
-			'((\\d{1,3}\\.){3}\\d{1,3}))|' + // OR ip (v4) address
-			'localhost' + // OR localhost
-			'(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
-			'(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
-			'(\\#[-a-z\\d_]*)?$', // fragment locator
-		'i',
-	);
+    const pattern = new RegExp(
+        '^(https?:\\/\\/)?' + // protocol
+            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+            '((\\d{1,3}\\.){3}\\d{1,3}))|' + // OR ip (v4) address
+            'localhost' + // OR localhost
+            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+            '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+            '(\\#[-a-z\\d_]*)?$', // fragment locator
+        'i',
+    );
 
-	return pattern.test(url);
+    return pattern.test(url);
 };
 
 /**
@@ -74,9 +77,9 @@ export const isURLValid = (url: string): boolean => {
  * @returns boolean
  */
 export const isMobileView = (deviceWidth: number): boolean => {
-	const mobileWidthTreshold = 801;
+    const mobileWidthTreshold = 801;
 
-	return deviceWidth <= mobileWidthTreshold;
+    return deviceWidth <= mobileWidthTreshold;
 };
 
 /**
@@ -84,7 +87,7 @@ export const isMobileView = (deviceWidth: number): boolean => {
  * @returns DivisorOrientation
  */
 export const getDeviceOrientation = (innerWidth: number): DeviceOrientation => {
-	return isMobileView(innerWidth) ? 'horizontal' : 'vertical';
+    return isMobileView(innerWidth) ? 'horizontal' : 'vertical';
 };
 
 /**
@@ -94,9 +97,9 @@ export const getDeviceOrientation = (innerWidth: number): DeviceOrientation => {
  * @returns void
  */
 export const emulateDelay = (onDelayEnd: () => void, delayInMs = 100): void => {
-	setTimeout(() => {
-		onDelayEnd();
-	}, delayInMs);
+    setTimeout(() => {
+        onDelayEnd();
+    }, delayInMs);
 };
 
 /**
@@ -104,9 +107,9 @@ export const emulateDelay = (onDelayEnd: () => void, delayInMs = 100): void => {
  * @returns string
  */
 export const getUniqueKey = (): string => {
-	const uniqueKey = uuidV4();
+    const uniqueKey = uuidV4();
 
-	return uniqueKey;
+    return uniqueKey;
 };
 
 /**
@@ -121,26 +124,26 @@ export const getUniqueKey = (): string => {
  * @returns void
  */
 export const OnObjectHover = (
-	event: MouseEvent,
-	renderer: THREE.Renderer,
-	mouse: THREE.Vector2,
-	raycaster: THREE.Raycaster,
-	camera: THREE.Camera,
-	objectList: THREE.Object3D[],
-	callBack: ObjectHoverCallBack,
+    event: MouseEvent,
+    renderer: THREE.Renderer,
+    mouse: THREE.Vector2,
+    raycaster: THREE.Raycaster,
+    camera: THREE.Camera,
+    objectList: THREE.Object3D[],
+    callBack: ObjectHoverCallBack,
 ): void => {
-	const rendererRect = renderer.domElement.getBoundingClientRect();
+    const rendererRect = renderer.domElement.getBoundingClientRect();
 
-	mouse.x = ((event.clientX - rendererRect.left) / rendererRect.width) * 2 - 1;
-	mouse.y = -((event.clientY - rendererRect.top) / rendererRect.height) * 2 + 1;
+    mouse.x = ((event.clientX - rendererRect.left) / rendererRect.width) * 2 - 1;
+    mouse.y = -((event.clientY - rendererRect.top) / rendererRect.height) * 2 + 1;
 
-	raycaster = new THREE.Raycaster();
+    raycaster = new THREE.Raycaster();
 
-	raycaster.setFromCamera(mouse, camera);
+    raycaster.setFromCamera(mouse, camera);
 
-	if (typeof callBack === 'function') {
-		callBack(event, raycaster.intersectObjects(objectList, true));
-	}
+    if (typeof callBack === 'function') {
+        callBack(event, raycaster.intersectObjects(objectList, true));
+    }
 };
 
 /**
@@ -149,11 +152,11 @@ export const OnObjectHover = (
  * @returns string
  */
 export const formatPathname = (path: string): string => {
-	if (path[path.length - 1] === '/') {
-		return path;
-	}
+    if (path[path.length - 1] === '/') {
+        return path;
+    }
 
-	return path + '/';
+    return path + '/';
 };
 
 /**
@@ -162,9 +165,9 @@ export const formatPathname = (path: string): string => {
  * @returns string
  */
 export const firstToUpperCase = (target: string): string => {
-	if (target.length === 1) {
-		return target.toUpperCase();
-	}
+    if (target.length === 1) {
+        return target.toUpperCase();
+    }
 
-	return target.charAt(0).toUpperCase() + target.slice(1);
+    return target.charAt(0).toUpperCase() + target.slice(1);
 };

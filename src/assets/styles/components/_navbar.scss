@@ -1,314 +1,381 @@
 .navbar {
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
-	width: 100vw;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100vw;
 
-	&__logo * {
-		-webkit-touch-callout: none;
-  		-webkit-user-select: none;
-   		-khtml-user-select: none;
-    	-moz-user-select: none;
-      	-ms-user-select: none;
+    &__logo * {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
         user-select: none;
-	}
+    }
 
-	&__list, &__content {
-		display: flex;
-		position: relative;
-	}
+    &__list,
+    &__content {
+        display: flex;
+        position: relative;
+    }
 
-	&__indicator {
-		position: absolute;
-		border: 1px solid #9dc0c0;
-		pointer-events: none;
+    &__indicator {
+        position: absolute;
+        border: 1px solid #9dc0c0;
+        pointer-events: none;
 
-		background: -webkit-radial-gradient(circle, rgba(157, 192, 192, 0) 60%, rgba(157, 192, 192, 0.03) 90%, rgba(157, 192, 192, 0.08) 100%);
-		background: -moz-radial-gradient(	circle, rgba(157, 192, 192, 0) 60%, rgba(157, 192, 192, 0.03) 90%, rgba(157, 192, 192, 0.08) 100%);
-		background: -o-radial-gradient(		circle, rgba(157, 192, 192, 0) 60%, rgba(157, 192, 192, 0.03) 90%, rgba(157, 192, 192, 0.08) 100%);
-		background: radial-gradient(		circle, rgba(157, 192, 192, 0) 60%, rgba(157, 192, 192, 0.03) 90%, rgba(157, 192, 192, 0.08) 100%);
+        background: -webkit-radial-gradient(
+            circle,
+            rgba(157, 192, 192, 0) 60%,
+            rgba(157, 192, 192, 0.03) 90%,
+            rgba(157, 192, 192, 0.08) 100%
+        );
+        background: -moz-radial-gradient(
+            circle,
+            rgba(157, 192, 192, 0) 60%,
+            rgba(157, 192, 192, 0.03) 90%,
+            rgba(157, 192, 192, 0.08) 100%
+        );
+        background: -o-radial-gradient(
+            circle,
+            rgba(157, 192, 192, 0) 60%,
+            rgba(157, 192, 192, 0.03) 90%,
+            rgba(157, 192, 192, 0.08) 100%
+        );
+        background: radial-gradient(
+            circle,
+            rgba(157, 192, 192, 0) 60%,
+            rgba(157, 192, 192, 0.03) 90%,
+            rgba(157, 192, 192, 0.08) 100%
+        );
 
-		background-repeat: no-repeat;
-		background-position: center;
+        background-repeat: no-repeat;
+        background-position: center;
 
-		-webkit-animation: local-border-blink 2s ease-in-out infinite;
-		-moz-animation:    local-border-blink 2s ease-in-out infinite;
-		-o-animation: 	   local-border-blink 2s ease-in-out infinite;
-		animation: 		   local-border-blink 2s ease-in-out infinite;
-	}
+        -webkit-animation: local-border-blink 2s ease-in-out infinite;
+        -moz-animation: local-border-blink 2s ease-in-out infinite;
+        -o-animation: local-border-blink 2s ease-in-out infinite;
+        animation: local-border-blink 2s ease-in-out infinite;
+    }
 
-	&__item {
-		& a, & button {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			height: 100%;
-			text-decoration: none;
-		}
-	}
+    &__item {
+        & a,
+        & button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-decoration: none;
+        }
+    }
 
-	&[data-is-mobile='true'] {
-		.navbar {
-			&__content {
-				overflow: hidden;
-				z-index: 2;
-				width: 0;
-				height: 0;
-				pointer-events: none;
+    &[data-is-mobile='true'] {
+        .navbar {
+            &__content {
+                overflow: hidden;
+                z-index: 2;
+                width: 0;
+                height: 0;
+                pointer-events: none;
 
-				&[data-is-visible='true']{
-					height: 100vh;
-					width: 100vw;
-					pointer-events: all;
-				}
+                &[data-is-visible='true'] {
+                    height: 100vh;
+                    width: 100vw;
+                    pointer-events: all;
+                }
 
-				&[data-is-visible='false']  {
-					-webkit-transition: width 0s ease-in-out 0.5s, height 0s ease-in-out 0.5s;
-					-moz-transition: 	width 0s ease-in-out 0.5s, height 0s ease-in-out 0.5s;
-					-o-transition: 	 	width 0s ease-in-out 0.5s, height 0s ease-in-out 0.5s;
-					transition:		 	width 0s ease-in-out 0.5s, height 0s ease-in-out 0.5s;
-				}
-			}
+                &[data-is-visible='false'] {
+                    -webkit-transition:
+                        width 0s ease-in-out 0.5s,
+                        height 0s ease-in-out 0.5s;
+                    -moz-transition:
+                        width 0s ease-in-out 0.5s,
+                        height 0s ease-in-out 0.5s;
+                    -o-transition:
+                        width 0s ease-in-out 0.5s,
+                        height 0s ease-in-out 0.5s;
+                    transition:
+                        width 0s ease-in-out 0.5s,
+                        height 0s ease-in-out 0.5s;
+                }
+            }
 
-			&__list {
-				flex-direction: column-reverse;
-			}
+            &__list {
+                flex-direction: column-reverse;
+            }
 
-			&__bar {
-				display: flex;
-				width: 100%;
-				z-index: 4;
-				align-items: center;
-				justify-content: center;
-				background-color: #1a1a1a;
+            &__bar {
+                display: flex;
+                width: 100%;
+                z-index: 4;
+                align-items: center;
+                justify-content: center;
+                background-color: #1a1a1a;
 
-				&[data-is-active='true']{
-					.navbar__button {
-						pointer-events: none;
+                &[data-is-active='true'] {
+                    .navbar__button {
+                        pointer-events: none;
 
-						-webkit-animation: fade-out 0.4s ease-in-out 1 0s forwards;
-						-moz-animation:    fade-out 0.4s ease-in-out 1 0s forwards;
-						-o-animation: 	   fade-out 0.4s ease-in-out 1 0s forwards;
-						animation: 		   fade-out 0.4s ease-in-out 1 0s forwards;
-					}
-				}
+                        -webkit-animation: fade-out 0.4s ease-in-out 1 0s forwards;
+                        -moz-animation: fade-out 0.4s ease-in-out 1 0s forwards;
+                        -o-animation: fade-out 0.4s ease-in-out 1 0s forwards;
+                        animation: fade-out 0.4s ease-in-out 1 0s forwards;
+                    }
+                }
 
-				&[data-is-active='false']  {
-					.navbar__button {
-						pointer-events: all;
+                &[data-is-active='false'] {
+                    .navbar__button {
+                        pointer-events: all;
 
-						-webkit-animation: fade-in 0.4s ease-in-out 1 0s forwards;
-						-moz-animation:    fade-in 0.4s ease-in-out 1 0s forwards;
-						-o-animation: 	   fade-in 0.4s ease-in-out 1 0s forwards;
-						animation: 		   fade-in 0.4s ease-in-out 1 0s forwards;
-					}
-				}
-			}
+                        -webkit-animation: fade-in 0.4s ease-in-out 1 0s forwards;
+                        -moz-animation: fade-in 0.4s ease-in-out 1 0s forwards;
+                        -o-animation: fade-in 0.4s ease-in-out 1 0s forwards;
+                        animation: fade-in 0.4s ease-in-out 1 0s forwards;
+                    }
+                }
+            }
 
-			&__button {
-				width: 100%;
-				height: 100%;
-			}
+            &__button {
+                width: 100%;
+                height: 100%;
+            }
 
-			&__hamburguer-button {
-				position: absolute;
+            &__hamburguer-button {
+                position: absolute;
 
-				& button {
-					background-color: #131313;
-				}
-			}
+                & button {
+                    background-color: #131313;
+                }
+            }
 
-			&__indicator {
-				width: 99%;
-				border-top: 0;
-				border-bottom: 0;
+            &__indicator {
+                width: 99%;
+                border-top: 0;
+                border-bottom: 0;
 
-				-webkit-transition:  top ease-in-out 0.2s, height ease-in-out 0.2s;
-				-moz-transition:     top ease-in-out 0.2s, height ease-in-out 0.2s;
-				-o-transition:       top ease-in-out 0.2s, height ease-in-out 0.2s;
-				transition:          top ease-in-out 0.2s, height ease-in-out 0.2s;
-			}
-		}
-	}
+                -webkit-transition:
+                    top ease-in-out 0.2s,
+                    height ease-in-out 0.2s;
+                -moz-transition:
+                    top ease-in-out 0.2s,
+                    height ease-in-out 0.2s;
+                -o-transition:
+                    top ease-in-out 0.2s,
+                    height ease-in-out 0.2s;
+                transition:
+                    top ease-in-out 0.2s,
+                    height ease-in-out 0.2s;
+            }
+        }
+    }
 }
 
 @-webkit-keyframes local-border-blink {
-	0% {
-		background-size: 100% 100%;
-	}
-	50% {
-		background-size: 105% 100%;
-	}
-	100% {
-		background-size: 100% 100%;
-	}
+    0% {
+        background-size: 100% 100%;
+    }
+    50% {
+        background-size: 105% 100%;
+    }
+    100% {
+        background-size: 100% 100%;
+    }
 }
 
 @-moz-keyframes local-border-blink {
-	0% {
-		background-size: 100% 100%;
-	}
-	50% {
-		background-size: 105% 100%;
-	}
-	100% {
-		background-size: 100% 100%;
-	}
+    0% {
+        background-size: 100% 100%;
+    }
+    50% {
+        background-size: 105% 100%;
+    }
+    100% {
+        background-size: 100% 100%;
+    }
 }
 
 @-ms-keyframes local-border-blink {
-	0% {
-		background-size: 100% 100%;
-	}
-	50% {
-		background-size: 105% 100%;
-	}
-	100% {
-		background-size: 100% 100%;
-	}
+    0% {
+        background-size: 100% 100%;
+    }
+    50% {
+        background-size: 105% 100%;
+    }
+    100% {
+        background-size: 100% 100%;
+    }
 }
 
 @-o-keyframes local-border-blink {
-	0% {
-		background-size: 100% 100%;
-	}
-	50% {
-		background-size: 105% 100%;
-	}
-	100% {
-		background-size: 100% 100%;
-	}
+    0% {
+        background-size: 100% 100%;
+    }
+    50% {
+        background-size: 105% 100%;
+    }
+    100% {
+        background-size: 100% 100%;
+    }
 }
 
 @keyframes local-border-blink {
-	0% {
-		background-size: 100% 100%;
-	}
-	50% {
-		background-size: 105% 100%;
-	}
-	100% {
-		background-size: 100% 100%;
-	}
+    0% {
+        background-size: 100% 100%;
+    }
+    50% {
+        background-size: 105% 100%;
+    }
+    100% {
+        background-size: 100% 100%;
+    }
 }
 
 @media (min-width: 801px) {
-	.navbar {
-		&__content {
-			height: 100%;
-			width: 100%;
-		}
+    .navbar {
+        &__content {
+            height: 100%;
+            width: 100%;
+        }
 
-		&__list {
-			height: 100%;
-			flex-direction: row;
-		}
+        &__list {
+            height: 100%;
+            flex-direction: row;
+        }
 
-		&__item {
-			height: 100%;
+        &__item {
+            height: 100%;
 
-			-webkit-transition: background-color ease-in-out 0.2s;
-			-moz-transition:    background-color ease-in-out 0.2s;
-			-o-transition:      background-color ease-in-out 0.2s;
-			transition:         background-color ease-in-out 0.2s;	
+            -webkit-transition: background-color ease-in-out 0.2s;
+            -moz-transition: background-color ease-in-out 0.2s;
+            -o-transition: background-color ease-in-out 0.2s;
+            transition: background-color ease-in-out 0.2s;
 
-			& a, & button {
-				width: 100%;
-				height: 100%;
+            & a,
+            & button {
+                width: 100%;
+                height: 100%;
 
-				&:hover {
-					cursor: pointer;
-				}
-			}
+                &:hover {
+                    cursor: pointer;
+                }
+            }
 
-			&:hover {
-				background-color: rgba(255, 255, 255, 0.05);
-			}
-		}
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.05);
+            }
+        }
 
-		&__indicator {
-			height: 98%;
-			border-top: 0;
-			border-left: 0;
-			border-right: 0;
-			background-color: transparent;
+        &__indicator {
+            height: 98%;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            background-color: transparent;
 
-			background: -webkit-linear-gradient(rgba(157, 192, 192, 0) 60%, rgba(157, 192, 192, 0.04) 80%, rgba(157, 192, 192, 0.08) 100%);
-			background: -moz-linear-gradient(	rgba(157, 192, 192, 0) 60%, rgba(157, 192, 192, 0.04) 80%, rgba(157, 192, 192, 0.08) 100%);
-			background: -o-linear-gradient(		rgba(157, 192, 192, 0) 60%, rgba(157, 192, 192, 0.04) 80%, rgba(157, 192, 192, 0.08) 100%);
-			background: linear-gradient(		rgba(157, 192, 192, 0) 60%, rgba(157, 192, 192, 0.04) 80%, rgba(157, 192, 192, 0.08) 100%);
+            background: -webkit-linear-gradient(
+                rgba(157, 192, 192, 0) 60%,
+                rgba(157, 192, 192, 0.04) 80%,
+                rgba(157, 192, 192, 0.08) 100%
+            );
+            background: -moz-linear-gradient(
+                rgba(157, 192, 192, 0) 60%,
+                rgba(157, 192, 192, 0.04) 80%,
+                rgba(157, 192, 192, 0.08) 100%
+            );
+            background: -o-linear-gradient(
+                rgba(157, 192, 192, 0) 60%,
+                rgba(157, 192, 192, 0.04) 80%,
+                rgba(157, 192, 192, 0.08) 100%
+            );
+            background: linear-gradient(
+                rgba(157, 192, 192, 0) 60%,
+                rgba(157, 192, 192, 0.04) 80%,
+                rgba(157, 192, 192, 0.08) 100%
+            );
 
-			background-repeat: no-repeat;
-			background-position: center;
+            background-repeat: no-repeat;
+            background-position: center;
 
-			-webkit-transition:  left ease-in-out 0.2s, width ease-in-out 0.2s, background ease-in-out 0.2s;
-			-moz-transition:     left ease-in-out 0.2s, width ease-in-out 0.2s, background ease-in-out 0.2s;
-			-o-transition:       left ease-in-out 0.2s, width ease-in-out 0.2s, background ease-in-out 0.2s;
-			transition:          left ease-in-out 0.2s, width ease-in-out 0.2s, background ease-in-out 0.2s;
-		}
+            -webkit-transition:
+                left ease-in-out 0.2s,
+                width ease-in-out 0.2s,
+                background ease-in-out 0.2s;
+            -moz-transition:
+                left ease-in-out 0.2s,
+                width ease-in-out 0.2s,
+                background ease-in-out 0.2s;
+            -o-transition:
+                left ease-in-out 0.2s,
+                width ease-in-out 0.2s,
+                background ease-in-out 0.2s;
+            transition:
+                left ease-in-out 0.2s,
+                width ease-in-out 0.2s,
+                background ease-in-out 0.2s;
+        }
 
-		&__bar {
-			display: none;
-		}
-	}
+        &__bar {
+            display: none;
+        }
+    }
 
-	@-webkit-keyframes local-border-blink {
-		0% {
-			background-size: 100% 100%;
-		}
-		50% {
-			background-size: 100% 105%;
-		}
-		100% {
-			background-size: 100% 100%;
-		}
-	}
-	
-	@-moz-keyframes local-border-blink {
-		0% {
-			background-size: 100% 100%;
-		}
-		50% {
-			background-size: 100% 105%;
-		}
-		100% {
-			background-size: 100% 100%;
-		}
-	}
-	
-	@-ms-keyframes local-border-blink {
-		0% {
-			background-size: 100% 100%;
-		}
-		50% {
-			background-size: 100% 105%;
-		}
-		100% {
-			background-size: 100% 100%;
-		}
-	}
-	
-	@-o-keyframes local-border-blink {
-		0% {
-			background-size: 100% 100%;
-		}
-		50% {
-			background-size: 100% 105%;
-		}
-		100% {
-			background-size: 100% 100%;
-		}
-	}
-	
-	@keyframes local-border-blink {
-		0% {
-			background-size: 100% 100%;
-		}
-		50% {
-			background-size: 100% 105%;
-		}
-		100% {
-			background-size: 100% 100%;
-		}
-	}
+    @-webkit-keyframes local-border-blink {
+        0% {
+            background-size: 100% 100%;
+        }
+        50% {
+            background-size: 100% 105%;
+        }
+        100% {
+            background-size: 100% 100%;
+        }
+    }
+
+    @-moz-keyframes local-border-blink {
+        0% {
+            background-size: 100% 100%;
+        }
+        50% {
+            background-size: 100% 105%;
+        }
+        100% {
+            background-size: 100% 100%;
+        }
+    }
+
+    @-ms-keyframes local-border-blink {
+        0% {
+            background-size: 100% 100%;
+        }
+        50% {
+            background-size: 100% 105%;
+        }
+        100% {
+            background-size: 100% 100%;
+        }
+    }
+
+    @-o-keyframes local-border-blink {
+        0% {
+            background-size: 100% 100%;
+        }
+        50% {
+            background-size: 100% 105%;
+        }
+        100% {
+            background-size: 100% 100%;
+        }
+    }
+
+    @keyframes local-border-blink {
+        0% {
+            background-size: 100% 100%;
+        }
+        50% {
+            background-size: 100% 105%;
+        }
+        100% {
+            background-size: 100% 100%;
+        }
+    }
 }
