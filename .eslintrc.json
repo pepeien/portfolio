@@ -1,12 +1,7 @@
 {
     "root": true,
     "parser": "@typescript-eslint/parser",
-    "plugins": [
-        "react", 
-        "react-hooks", 
-        "@typescript-eslint", 
-        "prettier"
-    ],
+    "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
     "extends": [
         "plugin:react/recommended",
         "plugin:react-hooks/recommended",
@@ -18,13 +13,10 @@
         "prettier/prettier": [
             "error",
             {
-              "endOfLine": "auto"
+                "endOfLine": "auto"
             }
         ],
-        "jsx-quotes": [
-            "error",
-            "prefer-single"
-        ]
+        "jsx-quotes": ["error", "prefer-single"]
     },
     "parserOptions": {
         "project": "./tsconfig.json",
@@ -36,10 +28,7 @@
     },
     "overrides": [
         {
-            "files": [
-                "*.ts",
-                "*.tsx"
-            ]
+            "files": ["*.ts", "*.tsx"]
         }
     ]
 }

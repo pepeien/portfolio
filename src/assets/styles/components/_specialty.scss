@@ -1,257 +1,257 @@
 .specialty {
-	display: flex;
-	flex-direction: column; 
-	align-items: center;
-	justify-content: center;
-	background-color: transparent;
-	border: none;
-	outline: none;
-	width: 100%;
-	height: 100%;
-	gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    gap: 1rem;
 
-	&[data-is-selected="true"] {
-		.specialty__step {
-			-webkit-animation: step-glow-in 0.6s ease-in-out 1 forwards;
-			-moz-animation:    step-glow-in 0.6s ease-in-out 1 forwards;
-			-o-animation: 	   step-glow-in 0.6s ease-in-out 1 forwards;
-			animation: 		   step-glow-in 0.6s ease-in-out 1 forwards;
-		}
-	}
+    &[data-is-selected='true'] {
+        .specialty__step {
+            -webkit-animation: step-glow-in 0.6s ease-in-out 1 forwards;
+            -moz-animation: step-glow-in 0.6s ease-in-out 1 forwards;
+            -o-animation: step-glow-in 0.6s ease-in-out 1 forwards;
+            animation: step-glow-in 0.6s ease-in-out 1 forwards;
+        }
+    }
 
-	&[data-is-selected="false"][data-was-selected="true"] {	
-		.specialty__step {
-			background-color: rgb(0, 200, 150);
-			border-color: transparent;
+    &[data-is-selected='false'][data-was-selected='true'] {
+        .specialty__step {
+            background-color: rgb(0, 200, 150);
+            border-color: transparent;
 
-			-webkit-animation: step-glow-out 0.6s ease-in-out 1 forwards;
-			-moz-animation:    step-glow-out 0.6s ease-in-out 1 forwards;
-			-o-animation: 	   step-glow-out 0.6s ease-in-out 1 forwards;
-			animation: 		   step-glow-out 0.6s ease-in-out 1 forwards;
-		}
-	}
+            -webkit-animation: step-glow-out 0.6s ease-in-out 1 forwards;
+            -moz-animation: step-glow-out 0.6s ease-in-out 1 forwards;
+            -o-animation: step-glow-out 0.6s ease-in-out 1 forwards;
+            animation: step-glow-out 0.6s ease-in-out 1 forwards;
+        }
+    }
 
-	&[data-is-selected="false"][data-was-selected="false"] {	
-		.specialty__step {
-			-webkit-animation: step-fade-in 0.6s ease-in-out 1 forwards;
-			-moz-animation:    step-fade-in 0.6s ease-in-out 1 forwards;
-			-o-animation: 	   step-fade-in 0.6s ease-in-out 1 forwards;
-			animation: 		   step-fade-in 0.6s ease-in-out 1 forwards;
-		}
-	}
+    &[data-is-selected='false'][data-was-selected='false'] {
+        .specialty__step {
+            -webkit-animation: step-fade-in 0.6s ease-in-out 1 forwards;
+            -moz-animation: step-fade-in 0.6s ease-in-out 1 forwards;
+            -o-animation: step-fade-in 0.6s ease-in-out 1 forwards;
+            animation: step-fade-in 0.6s ease-in-out 1 forwards;
+        }
+    }
 
-	&__steps {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-		gap: 0.5rem;
-	}
+    &__steps {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        gap: 0.5rem;
+    }
 
-	&__step {
-		width: 1.25rem;
-		height: 2.25rem;
-		border: 1px solid rgba(2, 70, 64, 1);
-		border-radius: 0.25rem;
-	}
+    &__step {
+        width: 1.25rem;
+        height: 2.25rem;
+        border: 1px solid rgba(2, 70, 64, 1);
+        border-radius: 0.25rem;
+    }
 
-	&__name {
-		color: white;
-		text-align: center;
-		width: 100%;
-		height: 100%;
-		font-family: 'Ubuntu-Mono-Regular';
-	}
+    &__name {
+        color: white;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        font-family: 'Ubuntu-Mono-Regular';
+    }
 }
 
 @media (min-width: 801px) {
-	.specialty {
-		gap: 3vh 0;
-		height: auto;
+    .specialty {
+        gap: 3vh 0;
+        height: auto;
 
-		&[data-is-selected="false"] {
-			&:hover {
-				.specialty__step {
-					border-color: rgb(0, 200, 150) !important;
-				}
-			}
-		}
+        &[data-is-selected='false'] {
+            &:hover {
+                .specialty__step {
+                    border-color: rgb(0, 200, 150) !important;
+                }
+            }
+        }
 
-		&__steps {
-			gap: 1vh;
-			height: 5vh;
-		}
-	
-		&__step {
-			width: 2.15vh;
-			height: 3.5vh;
-			border-radius: 0.3vh;
-		}
- 
-		&__name {
-			height: auto;
-		}
-	}
+        &__steps {
+            gap: 1vh;
+            height: 5vh;
+        }
+
+        &__step {
+            width: 2.15vh;
+            height: 3.5vh;
+            border-radius: 0.3vh;
+        }
+
+        &__name {
+            height: auto;
+        }
+    }
 }
 
 // START FADE-IN
 @-webkit-keyframes step-fade-in {
-	from {
-		border-color: rgb(0, 200, 150);
-	}
-	to {
-		border-color: rgba(2, 70, 64, 1);
-	}
+    from {
+        border-color: rgb(0, 200, 150);
+    }
+    to {
+        border-color: rgba(2, 70, 64, 1);
+    }
 }
 
 @-moz-keyframes step-fade-in {
-	from {
-		border-color: rgb(0, 200, 150);
-	}
-	to {
-		border-color: rgba(2, 70, 64, 1);
-	}
+    from {
+        border-color: rgb(0, 200, 150);
+    }
+    to {
+        border-color: rgba(2, 70, 64, 1);
+    }
 }
 
 @-ms-keyframes step-fade-in {
-	from {
-		border-color: rgb(0, 200, 150);
-	}
-	to {
-		border-color: rgba(2, 70, 64, 1);
-	}
+    from {
+        border-color: rgb(0, 200, 150);
+    }
+    to {
+        border-color: rgba(2, 70, 64, 1);
+    }
 }
 
 @-o-keyframes step-fade-in {
-	from {
-		border-color: rgb(0, 200, 150);
-	}
-	to {
-		border-color: rgba(2, 70, 64, 1);
-	}
+    from {
+        border-color: rgb(0, 200, 150);
+    }
+    to {
+        border-color: rgba(2, 70, 64, 1);
+    }
 }
 
 @keyframes step-fade-in {
-	from {
-		border-color: rgb(0, 200, 150);
-	}
-	to {
-		border-color: rgba(2, 70, 64, 1);
-	}
+    from {
+        border-color: rgb(0, 200, 150);
+    }
+    to {
+        border-color: rgba(2, 70, 64, 1);
+    }
 }
 // END FADE-IN
 
 // START GLOW-IN
 @-webkit-keyframes step-glow-in {
-	from {
-		background-color: transparent;
-		border-color: rgba(2, 70, 64, 1);
-	}
-	to {
-		background-color: rgb(0, 200, 150);
-		border-color: transparent;
-	}
+    from {
+        background-color: transparent;
+        border-color: rgba(2, 70, 64, 1);
+    }
+    to {
+        background-color: rgb(0, 200, 150);
+        border-color: transparent;
+    }
 }
 
 @-moz-keyframes step-glow-in {
-	from {
-		background-color: transparent;
-		border-color: rgba(2, 70, 64, 1);
-	}
-	to {
-		background-color: rgb(0, 200, 150);
-		border-color: transparent;
-	}
+    from {
+        background-color: transparent;
+        border-color: rgba(2, 70, 64, 1);
+    }
+    to {
+        background-color: rgb(0, 200, 150);
+        border-color: transparent;
+    }
 }
 
 @-ms-keyframes step-glow-in {
-	from {
-		background-color: transparent;
-		border-color: rgba(2, 70, 64, 1);
-	}
-	to {
-		background-color: rgb(0, 200, 150);
-		border-color: transparent;
-	}
+    from {
+        background-color: transparent;
+        border-color: rgba(2, 70, 64, 1);
+    }
+    to {
+        background-color: rgb(0, 200, 150);
+        border-color: transparent;
+    }
 }
 
 @-o-keyframes step-glow-in {
-	from {
-		background-color: transparent;
-		border-color: rgba(2, 70, 64, 1);
-	}
-	to {
-		background-color: rgb(0, 200, 150);
-		border-color: transparent;
-	}
+    from {
+        background-color: transparent;
+        border-color: rgba(2, 70, 64, 1);
+    }
+    to {
+        background-color: rgb(0, 200, 150);
+        border-color: transparent;
+    }
 }
 
 @keyframes step-glow-in {
-	from {
-		background-color: transparent;
-		border-color: rgba(2, 70, 64, 1);
-	}
-	to {
-		background-color: rgb(0, 200, 150);
-		border-color: transparent;
-	}
+    from {
+        background-color: transparent;
+        border-color: rgba(2, 70, 64, 1);
+    }
+    to {
+        background-color: rgb(0, 200, 150);
+        border-color: transparent;
+    }
 }
 // END GLOW-IN
 
 // START GLOW-OUT
 @-webkit-keyframes step-glow-out {
-	from {
-		background-color: rgb(0, 200, 150);
-		border-color: transparent;
-	}
-	to {
-		background-color: transparent;
-		border-color: rgba(2, 70, 64, 1);
-	}
+    from {
+        background-color: rgb(0, 200, 150);
+        border-color: transparent;
+    }
+    to {
+        background-color: transparent;
+        border-color: rgba(2, 70, 64, 1);
+    }
 }
 
 @-moz-keyframes step-glow-out {
-	from {
-		background-color: rgb(0, 200, 150);
-		border-color: transparent;
-	}
-	to {
-		background-color: transparent;
-		border-color: rgba(2, 70, 64, 1);
-	}
+    from {
+        background-color: rgb(0, 200, 150);
+        border-color: transparent;
+    }
+    to {
+        background-color: transparent;
+        border-color: rgba(2, 70, 64, 1);
+    }
 }
 
 @-ms-keyframes step-glow-out {
-	from {
-		background-color: rgb(0, 200, 150);
-		border-color: transparent;
-	}
-	to {
-		background-color: transparent;
-		border-color: rgba(2, 70, 64, 1);
-	}
+    from {
+        background-color: rgb(0, 200, 150);
+        border-color: transparent;
+    }
+    to {
+        background-color: transparent;
+        border-color: rgba(2, 70, 64, 1);
+    }
 }
 
 @-o-keyframes step-glow-out {
-	from {
-		background-color: rgb(0, 200, 150);
-		border-color: transparent;
-	}
-	to {
-		background-color: transparent;
-		border-color: rgba(2, 70, 64, 1);
-	}
+    from {
+        background-color: rgb(0, 200, 150);
+        border-color: transparent;
+    }
+    to {
+        background-color: transparent;
+        border-color: rgba(2, 70, 64, 1);
+    }
 }
 
 @keyframes step-glow-out {
-	from {
-		background-color: rgb(0, 200, 150);
-		border-color: transparent;
-	}
-	to {
-		background-color: transparent;
-		border-color: rgba(2, 70, 64, 1);
-	}
+    from {
+        background-color: rgb(0, 200, 150);
+        border-color: transparent;
+    }
+    to {
+        background-color: transparent;
+        border-color: rgba(2, 70, 64, 1);
+    }
 }
 // END GLOW-OUT

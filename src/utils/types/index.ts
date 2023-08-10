@@ -12,4 +12,7 @@ export type ComponentAsProp = React.ReactNode | ComponentGetter;
 /**
  * @description A Three.JS Object hover handler callback.
  */
-export type ObjectHoverCallBack = (hoverEvent: MouseEvent, hoverIntersection: THREE.Intersection[]) => void;
+export type ObjectHoverCallBack = (
+    hoverEvent: MouseEvent,
+    hoverIntersection: THREE.Intersection[],
+) => void;

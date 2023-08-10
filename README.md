@@ -4,7 +4,7 @@
 
 ### tl;dr
 
- ```
+```
 git clone https://github.com/pepeien/portfolio.git
 cd portfolio/
 npm install
