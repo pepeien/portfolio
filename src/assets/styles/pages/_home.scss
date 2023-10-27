@@ -1,177 +1,90 @@
 .home {
-    flex-direction: column;
-    overflow: hidden;
     align-items: center;
-    min-height: 100vh;
-    position: relative;
+    justify-content: center;
 
     &__content {
-        width: 90vw;
-        height: 100%;
-        margin: 5vh 0;
-    }
-
-    &__logo {
-        height: 30vh;
-        animation-duration: 1s;
-        border-bottom-left-radius: 0 !important;
-        border-bottom-right-radius: 0 !important;
-
-        & span {
-            color: white;
-            font-size: 3.2rem;
-            font-family: 'Arcane-Nine-Regular';
-        }
-    }
-
-    &__navbar {
-        -webkit-transform: scaleX(0);
-        -moz-transform: scaleX(0);
-        -o-transform: scaleX(0);
-        transform: scaleX(0);
-
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
         position: relative;
-        height: 8vh;
-        animation-duration: 0.3s;
-        animation-delay: 0.93s;
+        background-color: #071333;
 
-        &--items {
-            flex-basis: 100%;
+        &__window {
+            backdrop-filter: blur(16px) saturate(90%);
+            border-radius: 1.5vh;
+            width: 80%;
+            height: 82dvh;
+            z-index: 2;
+            opacity: 0;
+            margin-top: 5dvh;
 
-            & .react-tabs__tab--selected {
-                color: blue;
-            }
+            -webkit-animation: fade-in 1s ease-in-out 1s 1 forwards;
+            -moz-animation:    fade-in 1s ease-in-out 1s 1 forwards;
+            -o-animation:      fade-in 1s ease-in-out 1s 1 forwards;
+            animation:         fade-in 1s ease-in-out 1s 1 forwards;
+
+            box-shadow:         1px 2px 5px 0px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow:    1px 2px 5px 0px rgba(0, 0, 0, 0.75);
         }
 
-        &--item {
-            flex-basis: 100%;
-            height: 100%;
-            color: white;
-            border: none;
-
-            & button {
-                width: 100%;
+        &__waves {
+            width: 100%;
+            bottom: 0;
+            position: absolute;
+            z-index: 1;
+            height: 50vh;
+            overflow: hidden;
+    
+            svg {
                 height: 100%;
-                color: white;
-                font-family: 'Ubuntu-Mono-Regular';
-                font-size: 0.9rem;
-            }
-        }
+                margin-top: 15vh;
+                position: absolute;
 
-        & .react-tabs__tab--selected {
-            background-color: transparent;
-        }
+                -webkit-transform: translateY(100vh);
+                -moz-transform:    translateY(100vh);
+                -ms-transform:     translateY(100vh);
+                transform:         translateY(100vh);
 
-        &--trail {
-            width: 100%;
-            height: 0.2vh;
-        }
+                -webkit-animation: descend-in-reverse 1s cubic-bezier(.4,.13,.14,1.61) 1 forwards;
+                -moz-animation:    descend-in-reverse 1s cubic-bezier(.4,.13,.14,1.61) 1 forwards;
+                -o-animation:      descend-in-reverse 1s cubic-bezier(.4,.13,.14,1.61) 1 forwards;
+                animation:         descend-in-reverse 1s cubic-bezier(.4,.13,.14,1.61) 1 forwards;
 
-        &--indicator {
-            -webkit-transition:
-                -webkit-transform ease-in-out 0.3s,
-                width ease-in-out 0.3s;
-            -moz-transition:
-                -moz-transform ease-in-out 0.3s,
-                width ease-in-out 0.3s;
-            -o-transition:
-                -o-transform ease-in-out 0.3s,
-                width ease-in-out 0.3s;
-            transition:
-                transform ease-in-out 0.3s,
-                width ease-in-out 0.3s;
+                &:first-of-type {
+                    -webkit-animation-delay: 0.2s;
+                    -moz-animation-delay:    0.2s;
+                    -o-animation-delay:      0.2s;
+                    animation-delay:         0.2s;
+                }
 
-            -webkit-transform: translateX(0);
-            -moz-transform: translateX(0);
-            -o-transform: translateX(0);
-            transform: translateX(0);
+                &:nth-of-type(2) {
+                    -webkit-animation-delay: 0s;
+                    -moz-animation-delay:    0s;
+                    -o-animation-delay:      0s;
+                    animation-delay:         0s;
+                }
 
-            background-color: white;
-            height: 100%;
-            width: 100%;
-        }
-    }
-
-    &__resume {
-        min-height: 46vh;
-        padding: 3vh;
-        animation-duration: 1s;
-        animation-delay: 0.3s;
-        border-top-left-radius: 0 !important;
-        border-top-right-radius: 0 !important;
-
-        &--content {
-            height: 100%;
-            width: 100%;
-
-            &.--left-root {
-                & .specialty__steps {
-                    flex-direction: row-reverse;
+                &:last-of-type {
+                    -webkit-animation-delay: 0.3s;
+                    -moz-animation-delay:    0.3s;
+                    -o-animation-delay:      0.3s;
+                    animation-delay:         0.3s;
                 }
             }
         }
     }
-}
-
-.--art,
-.--contact,
-.--dev,
-.--home {
-    font-size: 1.2rem;
-}
-
-.--disabled {
-    background-color: gray;
-    pointer-events: none;
 }
 
 @media (min-width: 801px) {
     .home {
-        &__logo {
-            height: 30vh;
-
-            & span {
-                font-size: 6vh;
-            }
-        }
-
-        &__navbar {
-            height: 8vh;
-            background-color: rgba(128, 128, 128, 0.2);
-            border-radius: 0px !important;
-
-            &--item {
-                & button {
-                    font-size: 2.2vh;
+        &__content {
+            &__waves {
+                height: 60vh;
+                svg {
+                    margin-top: 15vh;
                 }
             }
-
-            &--list {
-                margin: 10vh 0 0 0;
-                height: 100%;
-            }
-        }
-
-        &__resume {
-            min-height: 48vh;
-            padding: 2vh;
-
-            &--content {
-                height: 100%;
-                width: 100%;
-            }
         }
     }
-
-    .--art,
-    .--contact,
-    .--dev,
-    .--home {
-        font-size: 2.2vh;
-    }
-}
-
-.--faded-box {
-    background-color: rgba(128, 128, 128, 0.1);
-    border-radius: 15px;
 }

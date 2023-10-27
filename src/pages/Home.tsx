@@ -1,295 +1,80 @@
 import React from 'react';
-import { Tabs, Tab, TabList, TabPanel } from 'react-tabs';
-import { v4 } from 'uuid';
 
-// Assets
-import 'react-tabs/style/react-tabs.css';
-
-// Utils
-import { AppTab } from '../utils/interfaces';
-import { firstToUpperCase } from '../utils/services';
-
-// Tabs
-import { AboutTab, ContactTab, ProjectsTab, SpecialtiesTab } from '../pages';
-
-// Types
-import { ButtonFillDesign, ButtonHoverAnimation } from '../components/Button';
+// Components
+import { LanguageButton } from '../components';
 
 // Services
-import { Button, LanguageButton } from '../components';
 import { LangContext } from '../context';
 
-interface MovementDiff {
-    name: string;
-    traveledDistance: number;
-    backtrackedDistance: number;
-}
-
-const AppTabs: AppTab[] = [
-    {
-        name: 'ABOUT_TITLE',
-        isActive: true,
-        component: <AboutTab />,
-    },
-    {
-        name: 'SPECIALTIES_TITLE',
-        isActive: true,
-        component: <SpecialtiesTab />,
-    },
-    {
-        name: 'PROJECTS_TITLE',
-        isActive: true,
-        component: <ProjectsTab />,
-    },
-    {
-        name: 'CONTACT_TITLE',
-        isActive: true,
-        component: <ContactTab />,
-    },
-];
-
-const mouseEventHistory: Array<MouseEvent> = [];
-
-const MOUSE_EVENT_MAX_BACKTRACK = 5;
-
 const Home = () => {
-    const navbarIndicator = React.useRef<HTMLDivElement>(null);
-
     const [selectedLang, _] = React.useContext(LangContext);
 
-    const [buttonFillDesign, setButtonFillDesign] = React.useState<ButtonFillDesign>('default');
-    const [buttonHoverAnimation, setButtonHoverAnimation] =
-        React.useState<ButtonHoverAnimation>('default');
-    const [previousIndex, setPreviousIndex] = React.useState<number>(0);
-    const [currentIndex, setCurrentIndex] = React.useState<number>(0);
-
-    React.useEffect(() => {
-        setTimeout(() => {
-            moveNavbarIndicator();
-        }, 1250);
-
-        window.addEventListener('resize', () => {
-            moveNavbarIndicator();
-        });
-
-        window.addEventListener('mousemove', (event) => {
-            pushMouseHistory(event);
-        });
-
-        return () => {
-            window.addEventListener('resize', () => {
-                moveNavbarIndicator();
-            });
-
-            window.addEventListener('mousemove', (event) => {
-                pushMouseHistory(event);
-            });
-        };
-    }, []);
-
-    const onTabSelection = (index: number, last: number) => {
-        setCurrentIndex(index);
-        setPreviousIndex(last);
-
-        moveNavbarIndicator();
-    };
-
-    const pushMouseHistory = (event: MouseEvent) => {
-        if (mouseEventHistory.length > MOUSE_EVENT_MAX_BACKTRACK) {
-            mouseEventHistory.shift();
-        }
-
-        mouseEventHistory.push(event);
-    };
-
-    const getMouseHeadingDirection = (): MovementDiff => {
-        const xAxis: MovementDiff = {
-            name: 'X',
-            traveledDistance: 0,
-            backtrackedDistance: 0,
-        };
-
-        const yAxis: MovementDiff = {
-            name: 'Y',
-            traveledDistance: 0,
-            backtrackedDistance: 0,
-        };
-
-        mouseEventHistory.forEach((mouseEvent, index) => {
-            if (index == 0) {
-                return;
-            }
-
-            const lastMovement: MouseEvent = mouseEventHistory[index - 1];
-
-            xAxis.traveledDistance += Math.abs(lastMovement.pageX - mouseEvent.pageX);
-
-            yAxis.traveledDistance += Math.abs(lastMovement.pageY - mouseEvent.pageY);
-
-            if (mouseEvent.pageX < lastMovement.pageX) {
-                xAxis.backtrackedDistance += Math.abs(lastMovement.pageX - mouseEvent.pageX);
-            }
-
-            if (mouseEvent.pageY < lastMovement.pageY) {
-                yAxis.backtrackedDistance += Math.abs(lastMovement.pageY - mouseEvent.pageY);
-            }
-        });
-
-        const result: MovementDiff = {
-            name: 'NaM',
-            traveledDistance: 0,
-            backtrackedDistance: 0,
-        };
-
-        const firstPostion = mouseEventHistory[0];
-        const lastPostion = mouseEventHistory[mouseEventHistory.length - 1];
-
-        if (xAxis.traveledDistance > yAxis.traveledDistance) {
-            result.name = xAxis.traveledDistance > xAxis.backtrackedDistance ? 'RIGHT' : 'LEFT';
-            result.traveledDistance = xAxis.traveledDistance;
-            result.backtrackedDistance = xAxis.backtrackedDistance;
-
-            if (xAxis.traveledDistance == xAxis.backtrackedDistance) {
-                result.name = firstPostion.pageX > lastPostion.pageX ? 'LEFT' : 'RIGHT';
-            }
-        } else {
-            result.name = yAxis.traveledDistance > yAxis.traveledDistance ? 'TOP' : 'BOTTOM';
-            result.traveledDistance = yAxis.traveledDistance;
-            result.backtrackedDistance = yAxis.backtrackedDistance;
-
-            if (yAxis.traveledDistance == yAxis.backtrackedDistance) {
-                result.name = firstPostion.pageY > lastPostion.pageY ? 'TOP' : 'BOTTOM';
-            }
-        }
-
-        return result;
-    };
-
-    const moveNavbarIndicator = () => {
-        setTimeout(() => {
-            const navbarItemElement = window.document.getElementsByClassName(
-                'react-tabs__tab--selected',
-            )[0] as HTMLLIElement;
-
-            if (!navbarItemElement) {
-                return;
-            }
-
-            const navbarIndicatorElement = navbarIndicator.current;
-
-            if (navbarIndicatorElement) {
-                const navbarItemElementRect = navbarItemElement.getBoundingClientRect();
-
-                const width = navbarItemElementRect.right - navbarItemElementRect.left;
-
-                navbarIndicatorElement.style.transform = `translateX(${
-                    navbarItemElementRect.x - width * 0.225
-                }px)`;
-                navbarIndicatorElement.style.width = `${width + 2.5}px`;
-            }
-        }, 100);
-    };
-
-    const onTabButtonHover = React.useCallback(() => {
-        if (mouseEventHistory) {
-            const mouseHeadingDirection = getMouseHeadingDirection();
-
-            switch (mouseHeadingDirection.name) {
-                case 'TOP':
-                    setButtonFillDesign('default');
-
-                    setButtonHoverAnimation('slide-up');
-
-                    break;
-                case 'BOTTOM':
-                    setButtonFillDesign('default');
-
-                    setButtonHoverAnimation('slide-down');
-
-                    break;
-                case 'LEFT':
-                    setButtonFillDesign('diagonal-down');
-
-                    setButtonHoverAnimation('slide-left');
-
-                    break;
-                case 'RIGHT':
-                    setButtonFillDesign('diagonal-down');
-
-                    setButtonHoverAnimation('slide-right');
-
-                    break;
-                default:
-                    setButtonFillDesign('default');
-
-                    setButtonHoverAnimation('default');
-
-                    break;
-            }
-        }
-    }, []);
-
-    const generateTabButton = React.useCallback(() => {
-        return Object.values(AppTabs).map((tabComponent) => (
-            <Tab
-                className={`home__navbar--item --flex-center --${tabComponent.name}${
-                    tabComponent.isActive ? '' : ' --disabled'
-                }`}
-                key={v4()}
-                onMouseEnter={() => onTabButtonHover()}
-                disabled={!tabComponent.isActive}
-            >
-                <Button
-                    className='active-tab-button'
-                    fillComponentStyle={{
-                        backgroundColor: 'rgba(2, 70, 64, 1)',
-                    }}
-                    fillDesign={buttonFillDesign}
-                    fillHoverAnimationType={buttonHoverAnimation}
-                    ContentComponent={() => (
-                        <span>{firstToUpperCase(selectedLang[tabComponent.name])}</span>
-                    )}
-                />
-            </Tab>
-        ));
-    }, [buttonFillDesign, buttonHoverAnimation, onTabButtonHover, selectedLang]);
-
-    const TabsComponent = React.useMemo(() => {
-        return Object.values(AppTabs).map((tabComponent, index) => {
-            const isSelected = index === currentIndex;
-            const cameFromLeft = previousIndex > currentIndex;
-
-            return (
-                <TabPanel
-                    key={v4()}
-                    className={`react-tabs__tab-panel home__resume--content${
-                        isSelected ? (cameFromLeft ? ' --left-root' : ' --right--root') : ''
-                    }`}
+    const getWaves = () => {
+        return (
+            <div className='home__content__waves --flex-column'>
+                <svg
+                    id='wave'
+                    viewBox='0 0 1440 420'
+                    version='1.1'
+                    xmlns='http://www.w3.org/2000/svg'
                 >
-                    {tabComponent.isActive ? tabComponent.component : <div></div>}
-                </TabPanel>
-            );
-        });
-    }, [previousIndex, currentIndex]);
-
+                    <defs>
+                        <linearGradient id='sw-gradient-0' x1='0' x2='0' y1='1' y2='0'>
+                            <stop stopColor='rgba(252, 45, 157, 1)' offset='0%'></stop>
+                            <stop stopColor='rgba(66, 159, 230, 1)' offset='100%'></stop>
+                        </linearGradient>
+                    </defs>
+                    <path
+                        style={{ transform: 'translate(0, 0px)', opacity: 1 }}
+                        fill='url(#sw-gradient-0)'
+                        d='M0,168L60,147C120,126,240,84,360,105C480,126,600,210,720,217C840,224,960,154,1080,112C1200,70,1320,56,1440,77C1560,98,1680,154,1800,182C1920,210,2040,210,2160,175C2280,140,2400,70,2520,70C2640,70,2760,140,2880,147C3000,154,3120,98,3240,84C3360,70,3480,98,3600,119C3720,140,3840,154,3960,147C4080,140,4200,112,4320,91C4440,70,4560,56,4680,98C4800,140,4920,238,5040,252C5160,266,5280,196,5400,140C5520,84,5640,42,5760,28C5880,14,6000,28,6120,42C6240,56,6360,70,6480,126C6600,182,6720,280,6840,266C6960,252,7080,126,7200,119C7320,112,7440,224,7560,259C7680,294,7800,252,7920,231C8040,210,8160,210,8280,203C8400,196,8520,182,8580,175L8640,168L8640,420L8580,420C8520,420,8400,420,8280,420C8160,420,8040,420,7920,420C7800,420,7680,420,7560,420C7440,420,7320,420,7200,420C7080,420,6960,420,6840,420C6720,420,6600,420,6480,420C6360,420,6240,420,6120,420C6000,420,5880,420,5760,420C5640,420,5520,420,5400,420C5280,420,5160,420,5040,420C4920,420,4800,420,4680,420C4560,420,4440,420,4320,420C4200,420,4080,420,3960,420C3840,420,3720,420,3600,420C3480,420,3360,420,3240,420C3120,420,3000,420,2880,420C2760,420,2640,420,2520,420C2400,420,2280,420,2160,420C2040,420,1920,420,1800,420C1680,420,1560,420,1440,420C1320,420,1200,420,1080,420C960,420,840,420,720,420C600,420,480,420,360,420C240,420,120,420,60,420L0,420Z'
+                    ></path>
+                </svg>
+                <svg
+                    id='wave-2'
+                    viewBox='0 0 1440 420'
+                    version='1.1'
+                    xmlns='http://www.w3.org/2000/svg'
+                >
+                    <defs>
+                        <linearGradient id='sw-gradient-1' x1='0' x2='0' y1='1' y2='0'>
+                            <stop stopColor='rgba(252, 45, 157, 1)' offset='0%'></stop>
+                            <stop stopColor='rgba(66, 159, 230, 1)' offset='100%'></stop>
+                        </linearGradient>
+                    </defs>
+                    <path
+                        style={{ transform: 'translate(0, 50px)', opacity: 0.9 }}
+                        fill='url(#sw-gradient-1)'
+                        d='M0,168L60,203C120,238,240,308,360,287C480,266,600,154,720,119C840,84,960,126,1080,147C1200,168,1320,168,1440,147C1560,126,1680,84,1800,91C1920,98,2040,154,2160,154C2280,154,2400,98,2520,119C2640,140,2760,238,2880,231C3000,224,3120,112,3240,91C3360,70,3480,140,3600,168C3720,196,3840,182,3960,182C4080,182,4200,196,4320,224C4440,252,4560,294,4680,315C4800,336,4920,336,5040,329C5160,322,5280,308,5400,315C5520,322,5640,350,5760,301C5880,252,6000,126,6120,84C6240,42,6360,84,6480,112C6600,140,6720,154,6840,140C6960,126,7080,84,7200,63C7320,42,7440,42,7560,35C7680,28,7800,14,7920,42C8040,70,8160,140,8280,168C8400,196,8520,182,8580,175L8640,168L8640,420L8580,420C8520,420,8400,420,8280,420C8160,420,8040,420,7920,420C7800,420,7680,420,7560,420C7440,420,7320,420,7200,420C7080,420,6960,420,6840,420C6720,420,6600,420,6480,420C6360,420,6240,420,6120,420C6000,420,5880,420,5760,420C5640,420,5520,420,5400,420C5280,420,5160,420,5040,420C4920,420,4800,420,4680,420C4560,420,4440,420,4320,420C4200,420,4080,420,3960,420C3840,420,3720,420,3600,420C3480,420,3360,420,3240,420C3120,420,3000,420,2880,420C2760,420,2640,420,2520,420C2400,420,2280,420,2160,420C2040,420,1920,420,1800,420C1680,420,1560,420,1440,420C1320,420,1200,420,1080,420C960,420,840,420,720,420C600,420,480,420,360,420C240,420,120,420,60,420L0,420Z'
+                    ></path>
+                </svg>
+                <svg
+                    id='wave-3'
+                    viewBox='0 0 1440 420'
+                    version='1.1'
+                    xmlns='http://www.w3.org/2000/svg'
+                >
+                    <defs>
+                        <linearGradient id='sw-gradient-2' x1='0' x2='0' y1='1' y2='0'>
+                            <stop stopColor='rgba(252, 45, 157, 1)' offset='0%'></stop>
+                            <stop stopColor='rgba(66, 159, 230, 1)' offset='100%'></stop>
+                        </linearGradient>
+                    </defs>
+                    <path
+                        style={{ transform: 'translate(0, 100px)', opacity: 0.8 }}
+                        fill='url(#sw-gradient-2)'
+                        d='M0,336L60,315C120,294,240,252,360,196C480,140,600,70,720,91C840,112,960,224,1080,231C1200,238,1320,140,1440,147C1560,154,1680,266,1800,273C1920,280,2040,182,2160,161C2280,140,2400,196,2520,224C2640,252,2760,252,2880,259C3000,266,3120,280,3240,238C3360,196,3480,98,3600,56C3720,14,3840,28,3960,49C4080,70,4200,98,4320,98C4440,98,4560,70,4680,112C4800,154,4920,266,5040,266C5160,266,5280,154,5400,91C5520,28,5640,14,5760,42C5880,70,6000,140,6120,175C6240,210,6360,210,6480,231C6600,252,6720,294,6840,308C6960,322,7080,308,7200,252C7320,196,7440,98,7560,84C7680,70,7800,140,7920,168C8040,196,8160,182,8280,182C8400,182,8520,196,8580,203L8640,210L8640,420L8580,420C8520,420,8400,420,8280,420C8160,420,8040,420,7920,420C7800,420,7680,420,7560,420C7440,420,7320,420,7200,420C7080,420,6960,420,6840,420C6720,420,6600,420,6480,420C6360,420,6240,420,6120,420C6000,420,5880,420,5760,420C5640,420,5520,420,5400,420C5280,420,5160,420,5040,420C4920,420,4800,420,4680,420C4560,420,4440,420,4320,420C4200,420,4080,420,3960,420C3840,420,3720,420,3600,420C3480,420,3360,420,3240,420C3120,420,3000,420,2880,420C2760,420,2640,420,2520,420C2400,420,2280,420,2160,420C2040,420,1920,420,1800,420C1680,420,1560,420,1440,420C1320,420,1200,420,1080,420C960,420,840,420,720,420C600,420,480,420,360,420C240,420,120,420,60,420L0,420Z'
+                    ></path>
+                </svg>
+            </div>
+        );
+    };
     return (
         <main className='home --page --flex-column'>
             <LanguageButton />
             <div className='home__content --flex-column'>
-                <div className='home__logo --flex-center --descend-in-reverse --faded-box'>
-                    <span>{firstToUpperCase(selectedLang[AppTabs[currentIndex].name])}</span>
-                </div>
-                <Tabs onSelect={(index, last) => onTabSelection(index, last)}>
-                    <TabList className='home__navbar --expand-sideways --flex-column'>
-                        <ul className='home__navbar--items --flex-center'>{generateTabButton()}</ul>
-                        <div className='home__navbar--trail'>
-                            <div ref={navbarIndicator} className='home__navbar--indicator' />
-                        </div>
-                    </TabList>
-                    <div className='home__resume --descend-in-reverse --faded-box'>
-                        {TabsComponent}
-                    </div>
-                </Tabs>
+                <div className='home__content__window'></div>
+                {getWaves()}
             </div>
         </main>
     );

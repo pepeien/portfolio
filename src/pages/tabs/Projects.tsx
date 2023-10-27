@@ -1,35 +1,15 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 
+//Consts
+import Projects from '../../projects';
+
 //Components
 import { ProjectCard } from '../../components';
-import { TestableProject, TestableProjectResponse } from '../../utils/interfaces';
-import { fetchFromApi } from '../../utils/services/api';
-
 //Styles
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const ProjectsTab = () => {
-    const [projects, setProjects] = React.useState<TestableProject[]>([]);
-
-    React.useEffect(() => {
-        fetchFromApi<TestableProjectResponse>('/testable')
-            .then((response) => {
-                if (
-                    !response.wasSuccessful ||
-                    !response.result ||
-                    !response.result.testableProjects
-                ) {
-                    return;
-                }
-
-                setProjects(response.result.testableProjects);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }, []);
-
     return (
         <div className='projects'>
             <Carousel
@@ -41,7 +21,7 @@ const ProjectsTab = () => {
                 showArrows={false}
                 showStatus={false}
             >
-                {projects.length === 0
+                {Projects.length === 0
                     ? Array(3)
                           .fill(0)
                           .map(() => {
@@ -52,20 +32,24 @@ const ProjectsTab = () => {
                                       repoURL={''}
                                       testURL={''}
                                       thumbnailURL={''}
+                                      description={''}
                                       isLoading={true}
                                   />
                               );
                           })
-                    : projects.map((project) => {
+                    : Projects.map((project) => {
                           return (
                               <ProjectCard
                                   key={project.name}
                                   name={project.name}
                                   repoURL={project.repoURL}
                                   testURL={
-                                      project.name !== 'portfolio' ? project.testURL : undefined
+                                      project.name !== 'portfolio'
+                                          ? project.testURL ?? undefined
+                                          : undefined
                                   }
                                   thumbnailURL={`${project.repoURL}/blob/master/.github/images/project-thumbnail.png?raw=true`}
+                                  description={project.description ?? ''}
                               />
                           );
                       })}
