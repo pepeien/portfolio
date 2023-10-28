@@ -2,40 +2,35 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #1a1a1a;
     outline: none;
     border: none;
-    position: fixed !important;
+    position: absolute !important;
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 15px;
-    margin: 0 2vh 2dvh 0;
+    margin: 2dvh 1vh 0 0;
     z-index: 3;
-    bottom: 0;
+    top: 0;
     right: 0;
-
-    box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.75);
 
     & svg {
         width: 1.5rem;
         height: 1.5rem;
-        fill: white;
+        fill: #2a3331;
     }
 }
 
 .language__list {
-    position: fixed;
+    position: absolute;
     flex-direction: column;
     align-items: center;
     border-radius: 15px;
-    background-color: #1a1a1a;
+    background-color: #343434;
     overflow: hidden;
     display: none;
-    margin: 0 2vh 11dvh 0;
-    z-index: 3;
-    bottom: 0;
+    margin: 10dvh 2vh 0 0;
+    z-index: 4;
+    top: 0;
     right: 0;
 
     box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.75);
@@ -75,7 +70,7 @@
 
 @media (min-width: 801px) {
     .language__button {
-        margin: 0 2vh 2vh auto;
+        margin: 2vh 1vh 0 auto;
         width: 6vh;
         height: 6vh;
 
@@ -86,9 +81,8 @@
     }
 
     .language__list {
-        margin: 0 2vh 9vh 0;
-        background-color: #1a1a1a;
-        top: auto;
+        margin: 9vh 0.5vh 0 0;
+        top: 0;
         right: 0;
 
         & li {

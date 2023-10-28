@@ -1,55 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,500;1,300;1,400&display=swap');
+
 .home {
     align-items: center;
     justify-content: center;
+    overflow-x: hidden;
 
     &__content {
         align-items: center;
         width: 100vw;
-        height: 100vh;
         position: relative;
-        background-color: #071333;
+        background-color: #dbdbdb;
 
-        &__window {
-            backdrop-filter: blur(16px) saturate(90%);
-            border-radius: 1.5vh;
-            width: 80%;
-            height: 82dvh;
-            z-index: 2;
+        &__socials {
+            align-self: flex-end;
+            position: fixed;
+            align-items: center;
+            justify-content: center;
+            bottom: 0;
+            right: 0;
+            margin: 0 2vh 2dvh 0;
+            gap: 2vh;
+            z-index: 3;
+            background-color: #2a3331;
+            border-radius: 15px;
+            width: 3.5rem;
+            height: 9rem;
             opacity: 0;
-            margin-top: 5dvh;
 
-            -webkit-animation: fade-in 1s ease-in-out 1s 1 forwards;
-            -moz-animation:    fade-in 1s ease-in-out 1s 1 forwards;
-            -o-animation:      fade-in 1s ease-in-out 1s 1 forwards;
-            animation:         fade-in 1s ease-in-out 1s 1 forwards;
+            -webkit-animation: fade-in 1s ease-in-out 1 1.2s forwards;
+            -moz-animation:    fade-in 1s ease-in-out 1 1.2s forwards;
+            -o-animation:      fade-in 1s ease-in-out 1 1.2s forwards;
+            animation:         fade-in 1s ease-in-out 1 1.2s forwards;
 
-            box-shadow:         1px 2px 5px 0px rgba(0, 0, 0, 0.75);
+            box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.75);
             -webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.75);
-            -moz-box-shadow:    1px 2px 5px 0px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.75);
+
+            li {
+                width: 1.5rem;
+                height: 1.5rem;
+
+                path {
+                    fill: #dbdbdb;
+                }
+
+                &:nth-of-type(2) {
+                    width: 2rem;
+                    height: 2rem;
+                }
+            }
         }
 
+        &__title {
+            width: 100%;
+            height: 60vh;
+
+            h2 {
+                font-size: 7rem;
+                position: absolute;
+                top: 40vh;
+                left: 4vh;
+                text-transform: uppercase;
+                font-family: 'Roboto Condensed';
+                color: #455657;
+                opacity: 0;
+
+                -webkit-animation: fade-in 1s ease-in-out 1 1.6s forwards;
+                -moz-animation:    fade-in 1s ease-in-out 1 1.6s forwards;
+                -o-animation:      fade-in 1s ease-in-out 1 1.6s forwards;
+                animation:         fade-in 1s ease-in-out 1 1.6s forwards;
+            }
+
+            div {
+                position: absolute;
+                top: 35vh;
+                left: 5vh;
+                gap: 2vh;
+
+                h3 {
+                    font-family: 'Roboto Condensed';
+                    font-style: italic;
+                    font-weight: 300;
+                    font-size: 2.5rem;
+                    color: #455657;
+                    opacity: 0;
+
+                    -webkit-animation: fade-in 1s ease-in-out 1 1.2s forwards;
+                    -moz-animation:    fade-in 1s ease-in-out 1 1.2s forwards;
+                    -o-animation:      fade-in 1s ease-in-out 1 1.2s forwards;
+                    animation:         fade-in 1s ease-in-out 1 1.2s forwards;
+
+                    &:last-of-type {
+                        -webkit-animation-delay: 1.4s;
+                        -moz-animation-delay:    1.4s;
+                        -o-animation-delay:      1.4s;
+                        animation-delay:         1.4s;
+                    }
+                }
+            }
+        }
+    
         &__waves {
             width: 100%;
-            bottom: 0;
-            position: absolute;
             z-index: 1;
-            height: 50vh;
+            height: 35vh;
             overflow: hidden;
     
             svg {
-                height: 100%;
-                margin-top: 15vh;
                 position: absolute;
-
-                -webkit-transform: translateY(100vh);
-                -moz-transform:    translateY(100vh);
-                -ms-transform:     translateY(100vh);
-                transform:         translateY(100vh);
-
-                -webkit-animation: descend-in-reverse 1s cubic-bezier(.4,.13,.14,1.61) 1 forwards;
-                -moz-animation:    descend-in-reverse 1s cubic-bezier(.4,.13,.14,1.61) 1 forwards;
-                -o-animation:      descend-in-reverse 1s cubic-bezier(.4,.13,.14,1.61) 1 forwards;
-                animation:         descend-in-reverse 1s cubic-bezier(.4,.13,.14,1.61) 1 forwards;
+                height: 35vh;
+                margin-top: 0vh;
+                opacity: 0;
+        
+                -webkit-animation: fade-in 1s ease-in-out 1 forwards;
+                -moz-animation:    fade-in 1s ease-in-out 1 forwards;
+                -o-animation:      fade-in 1s ease-in-out 1 forwards;
+                animation:         fade-in 1s ease-in-out 1 forwards;
 
                 &:first-of-type {
                     -webkit-animation-delay: 0.2s;
@@ -66,12 +132,18 @@
                 }
 
                 &:last-of-type {
-                    -webkit-animation-delay: 0.3s;
-                    -moz-animation-delay:    0.3s;
-                    -o-animation-delay:      0.3s;
-                    animation-delay:         0.3s;
+                    -webkit-animation-delay: 0.6s;
+                    -moz-animation-delay:    0.6s;
+                    -o-animation-delay:      0.6s;
+                    animation-delay:         0.6s;
                 }
             }
+        }
+
+        &__main {
+            background-color: #343434;
+            width: 100%;
+            height: 100vh;
         }
     }
 }
@@ -79,10 +151,49 @@
 @media (min-width: 801px) {
     .home {
         &__content {
+            &__socials {
+                width: 6vh;
+                height: 15vh;
+                margin: 0 2vh 2vh 0;
+                gap: 1vh;
+
+                li {
+                    height: 3vh;
+                    width: 3vh;
+
+                    &:nth-of-type(2) {
+                        height: 4vh;
+                        width: 4vh;
+                    }
+                }
+            }
+
+            &__title {
+                h2 {
+                    font-size: 22rem;
+                    position: absolute;
+                    top: 38.5vh;
+                    left: 12vh;
+                }
+
+                div {
+                    top: 32vh;
+                    left: 15vh;
+                    gap: 2vh;
+
+                    h3 {
+                        font-size: 5rem;
+                    }
+                }
+            }
+
             &__waves {
-                height: 60vh;
+                margin-top: 0;
+                height: 55vh;
+
                 svg {
-                    margin-top: 15vh;
+                    height: 50vh;
+                    margin-top: 0;
                 }
             }
         }
