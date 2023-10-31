@@ -2,14 +2,14 @@
 import { Lang } from '../utils/interfaces';
 
 export default {
-    LANGUAGE: 'English (US)',
+    LANGUAGE: '日本語',
 
-    LANGUAGE_ABBREVIATION: 'enUs',
-    LANGUAGE_LOCALE: 'en_US',
+    LANGUAGE_ABBREVIATION: 'jaJp',
+    LANGUAGE_LOCALE: 'ja_JP',
 
-    ABOUT_TITLE: 'hi, ',
-    ABOUT_TITLE_SECOND: 'my name is',
-    ABOUT_NAME: 'ERICK',
+    ABOUT_TITLE: 'こにちわ、',
+    ABOUT_TITLE_SECOND: '僕は',
+    ABOUT_NAME: 'ｴﾘｯｸ',
 
     SPECIALTIES_TITLE: 'Specialties',
 

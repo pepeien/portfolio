@@ -5,7 +5,9 @@ import { LangContext } from '../context';
 
 //Langs
 import Langs from '../langs';
-import RectButton from './RectButton';
+
+// Components
+import { Button } from '.';
 
 const LanguageButton = () => {
     const [selectedLang, setSelectedLang] = React.useContext(LangContext);
@@ -17,30 +19,7 @@ const LanguageButton = () => {
     };
 
     const onLanguageSelection = (langName: string) => {
-        const selectedLangAbrv = selectedLang['LANGUAGE_ABBREVIATION'];
-
-        switch (langName) {
-            case Langs.ptBr['LANGUAGE_ABBREVIATION']:
-                if (selectedLangAbrv === Langs.ptBr['LANGUAGE_ABBREVIATION']) {
-                    return;
-                }
-
-                setSelectedLang('ptBr');
-
-                break;
-
-            case Langs.enUs['LANGUAGE_ABBREVIATION']:
-                if (selectedLangAbrv === Langs.enUs['LANGUAGE_ABBREVIATION']) {
-                    return;
-                }
-
-                setSelectedLang('enUs');
-
-                break;
-
-            default:
-                return;
-        }
+        setSelectedLang(langName as keyof typeof Langs);
 
         setCanShowList(false);
     };
@@ -62,7 +41,7 @@ const LanguageButton = () => {
 
     return (
         <>
-            <RectButton
+            <Button
                 className='language__button'
                 onClick={onMainButtonClick}
                 ContentComponent={getCircleSVG}

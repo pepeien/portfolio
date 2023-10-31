@@ -3,7 +3,7 @@ import { TestableProject } from '../utils/interfaces';
 
 export default [
     {
-        name: 'Karikariyaki',
+        name: 'Ordering System (Karikariyaki)',
         repoURL: 'https://github.com/pepeien/karikariyaki',
         description: `NGINX powered reverse proxy, that serves all solutions used in my personal
         projects, while offering documentation for all services. In the begining
@@ -11,7 +11,7 @@ export default [
         but, as I made more projects it became my core service delivery.`,
     },
     {
-        name: 'Namah',
+        name: '(Namah)',
         repoURL: 'https://github.com/pepeien/namah',
         description: `NGINX powered reverse proxy, that serves all solutions used in my personal
         projects, while offering documentation for all services. In the begining
@@ -19,7 +19,7 @@ export default [
         but, as I made more projects it became my core service delivery.`,
     },
     {
-        name: 'Portfolio API',
+        name: 'Centralized Services (Portfolio API)',
         repoURL: 'https://github.com/pepeien/portfolio-api',
         description: `NGINX powered reverse proxy, that serves all solutions used in my personal
         projects, while offering documentation for all services. In the begining
