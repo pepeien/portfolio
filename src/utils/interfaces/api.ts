@@ -1,15 +1,17 @@
-interface Project {
+export interface Job {
+    startDate: string;
+    endDate?: string;
+    company: string;
+    positions: string[];
+    description: string;
+    technologies: string[];
+}
+
+export interface Project {
     name: string;
     repoURL: string;
     description: string;
-}
-
-export interface TestableProject extends Project {
-    testURL?: string;
-}
-
-export interface TestableProjectResponse {
-    testableProjects: TestableProject[];
+    technologies: string[];
 }
 
 export interface ApiResponse<T> {

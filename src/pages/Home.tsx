@@ -2,7 +2,7 @@ import React from 'react';
 import { v4 } from 'uuid';
 
 // Consts
-import Projects from '../projects';
+import { Jobs, Projects } from '../data';
 
 // Components
 import { Navbar } from '../components';
@@ -178,7 +178,24 @@ const Home = () => {
                             <div className='home__content__section__main'>
                                 <ul>
                                     {Projects.map((project) => {
-                                        return <li key={v4()}>{project.name}</li>;
+                                        return (
+                                            <li key={v4()} className='project'>
+                                                <div className='project__fader' />
+                                                <img
+                                                    className='project__thumbnail'
+                                                    src={`${project.repoURL}/blob/master/.github/images/project-thumbnail.png?raw=true`}
+                                                />
+                                                <div className='project__data'>
+                                                    <h5>{project.name}</h5>
+                                                    <ul className='project__skills'>
+                                                        {project.technologies.map((technology) => {
+                                                            return <li key={v4()}>{technology}</li>;
+                                                        })}
+                                                    </ul>
+                                                    <span>{project.description}</span>
+                                                </div>
+                                            </li>
+                                        );
                                     })}
                                 </ul>
                             </div>
@@ -186,8 +203,17 @@ const Home = () => {
                         <section className='home__content__section home__content__section__work'>
                             <div className='home__content__section__main'>
                                 <ul>
-                                    {Projects.map((project) => {
-                                        return <li key={v4()}>{project.name}</li>;
+                                    {Jobs.map((job) => {
+                                        return (
+                                            <li key={v4()}>
+                                                <div>
+                                                    {job.startDate}
+                                                    {job.endDate ? ` - ${job.endDate}` : undefined}
+                                                </div>
+                                                <div>{job.company}</div>
+                                                <div>{job.description}</div>
+                                            </li>
+                                        );
                                     })}
                                 </ul>
                             </div>
@@ -200,11 +226,7 @@ const Home = () => {
                                 <h4>Studies</h4>
                             </div>
                             <div className='home__content__section__main'>
-                                <ul>
-                                    {Projects.map((project) => {
-                                        return <li key={v4()}>{project.name}</li>;
-                                    })}
-                                </ul>
+                                <ul></ul>
                             </div>
                         </section>
                     </div>
