@@ -2,7 +2,7 @@ import { Job } from '../utils/interfaces/api';
 
 export default [
     {
-        startDate: 'Sep 2021',
+        startDate: new Date('2021-07-15'),
         company: 'PRODEMGE',
         positions: ['Developer'],
         description:
@@ -10,8 +10,8 @@ export default [
         technologies: ['Springboot', 'Java', 'Angular', 'Typescript', 'Mainframe'],
     },
     {
-        startDate: 'Apr 2021',
-        endDate: 'Sep 2021',
+        startDate: new Date('2021-04-15'),
+        endDate: new Date('2021-07-15'),
         company: 'Kukac',
         positions: ['Developer Intern'],
         description:

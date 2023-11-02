@@ -5,7 +5,9 @@ export default {
     LANGUAGE: '日本語',
 
     LANGUAGE_ABBREVIATION: 'jaJp',
-    LANGUAGE_LOCALE: 'ja_JP',
+    LANGUAGE_LOCALE: 'ja-JP',
+
+    NOW_TEXT: '現在',
 
     ABOUT_TITLE: 'こにちわ、',
     ABOUT_TITLE_SECOND: '僕は',

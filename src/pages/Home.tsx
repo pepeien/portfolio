@@ -54,6 +54,17 @@ const Home = () => {
         });
     }, [scrollY]);
 
+    const getMonthYear = (date?: Date, fallback = ''): string => {
+        if (!date) {
+            return fallback;
+        }
+
+        const month = date.toLocaleDateString(selectedLang['LANGUAGE_LOCALE'], { month: 'long' });
+        const year = date.toLocaleDateString(selectedLang['LANGUAGE_LOCALE'], { year: 'numeric' });
+
+        return `${month} ${year}`;
+    };
+
     return (
         <main className='home --page --flex-column'>
             <Navbar />
@@ -115,18 +126,30 @@ const Home = () => {
                                 </ul>
                             </div>
                         </section>
-                        <section className='home__content__section home__content__section__work'>
+                        <section className='home__content__section home__content__section__job'>
                             <div className='home__content__section__main'>
-                                <ul>
+                                <ul className='jobs'>
                                     {Jobs.map((job) => {
                                         return (
-                                            <li key={v4()}>
-                                                <div>
-                                                    {job.startDate}
-                                                    {job.endDate ? ` - ${job.endDate}` : undefined}
+                                            <li key={v4()} className='job'>
+                                                <div className='job__date'>
+                                                    <span>{getMonthYear(job.startDate)}</span>
+                                                    <div className='job__date__divider' />
+                                                    <span>
+                                                        {getMonthYear(
+                                                            job.endDate,
+                                                            selectedLang['NOW_TEXT'],
+                                                        )}
+                                                    </span>
                                                 </div>
-                                                <div>{job.company}</div>
-                                                <div>{job.description}</div>
+                                                <div className='job__info'>
+                                                    <div className='job__info__company'>
+                                                        {job.company}
+                                                    </div>
+                                                    <div className='job__info__description'>
+                                                        {job.description}
+                                                    </div>
+                                                </div>
                                             </li>
                                         );
                                     })}

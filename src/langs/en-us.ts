@@ -5,7 +5,9 @@ export default {
     LANGUAGE: 'English (US)',
 
     LANGUAGE_ABBREVIATION: 'enUs',
-    LANGUAGE_LOCALE: 'en_US',
+    LANGUAGE_LOCALE: 'en-US',
+
+    NOW_TEXT: 'Present',
 
     ABOUT_TITLE: 'hi, ',
     ABOUT_TITLE_SECOND: 'my name is',

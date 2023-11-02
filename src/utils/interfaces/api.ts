@@ -1,6 +1,6 @@
 export interface Job {
-    startDate: string;
-    endDate?: string;
+    startDate: Date;
+    endDate?: Date;
     company: string;
     positions: string[];
     description: string;

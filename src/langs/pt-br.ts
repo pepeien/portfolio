@@ -5,7 +5,9 @@ export default {
     LANGUAGE: 'Português (BR)',
 
     LANGUAGE_ABBREVIATION: 'ptBr',
-    LANGUAGE_LOCALE: 'pt_BR',
+    LANGUAGE_LOCALE: 'pt-BR',
+
+    NOW_TEXT: 'Presente',
 
     ABOUT_TITLE: 'olá, ',
     ABOUT_TITLE_SECOND: 'meu nome é',

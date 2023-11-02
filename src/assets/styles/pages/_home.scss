@@ -131,7 +131,7 @@
         &__section {
             display: flex;
             flex-direction: column;
-            gap: 8vh;
+            gap: 6vh;
             width: 85%;
 
             &__title {
@@ -141,7 +141,7 @@
 
                 h4 {
                     font-family: 'Roboto Condensed';
-                    font-size: 10vh;
+                    font-size: 9vh;
                     margin-top: 2vh;
                     color: $--accent-color;
                 }
@@ -157,6 +157,10 @@
             }
 
             &__projects {
+                .home__content__section__title {
+                    justify-content: center;
+                }
+    
                 .home__content__section__main {
                     > ul {
                         display: grid;
@@ -166,34 +170,48 @@
                 }
             }
 
-            &__work {
+            &__job {
                 flex-direction: column-reverse;
 
                 .home__content__section__title {
-                    justify-content: flex-end;
+                    justify-content: center;
                 }
     
                 .home__content__section__main {
-                    ul {
+                    .jobs {
                         display: flex;
                         flex-direction: column;
                         gap: 4vh;
             
-                        li {
-                            width: 100%;
+                        .job {
                             display: flex;
-                            flex-direction: row;
+                            flex-direction: column;
+                            width: 100%;
                             position: relative;
                             gap: 1vh;
 
-                            div {
-                                &:first-of-type {
-                                   flex: 0.5;
-                                }
+                            &__date {
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                gap: 0 1vh;
+                                width: 25vh;
 
-                                &:last-of-type {
-                                    flex: 2.5;
-                                    border-radius: 3vh;
+                                &__divider {
+                                    height: 1px;
+                                    width: 2vh;
+                                    background-color: black;
+                                }
+                            }
+                            
+                            &__info {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 1vh 0;
+                                flex: 2.5;
+
+                                &__description {
+                                    width: 100%;
                                 }
                             }
                         }
@@ -296,6 +314,10 @@
                 }
 
                 &__projects {
+                    .home__content__section__title {
+                        justify-content: flex-start;
+                    }
+
                     .home__content__section__main {
                         > ul {
                             display: grid;
@@ -305,17 +327,42 @@
                     }
                 }
 
-                &__work {
+                &__job {
+                    .home__content__section__title {
+                        justify-content: flex-end;
+                    }
+
                     .home__content__section__main {
-                        > ul {
+                        .jobs {
+                            flex-direction: column;
                             gap: 4vh;
 
-                            > li {
+                            .job {
+                                flex-direction: row;
+                                width: 100%;
+                                position: relative;
                                 gap: 1vh;
 
-                                > div {
-                                    &:last-of-type {
-                                        border-radius: 3vh;
+                                &__date { 
+                                    flex-direction: row;
+                                    align-items: center;
+                                    gap: 0 1vh;
+                                    width: 25vh;
+
+                                    &__divider {
+                                        height: 1px;
+                                        width: 2vh;
+                                        background-color: black;
+                                    }
+                                }
+
+                                &__info {
+                                    flex-direction: column;
+                                    gap: 1vh 0;
+                                    flex: 2.5;
+    
+                                    &__description {
+                                        width: 80%;
                                     }
                                 }
                             }
