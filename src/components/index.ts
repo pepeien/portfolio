@@ -6,6 +6,7 @@ export { default as Navbar } from './Navbar';
 export { default as ProjectCard } from './ProjectCard';
 export { default as RectButton } from './RectButton';
 export { default as Specialty } from './Specialty';
+export { default as Waves } from './Waves';
 
 // Types
 export type { SpecialtyProps } from './Specialty';

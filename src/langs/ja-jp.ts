@@ -11,11 +11,15 @@ export default {
     ABOUT_TITLE_SECOND: '僕は',
     ABOUT_NAME: 'ｴﾘｯｸ',
 
-    SPECIALTIES_TITLE: 'Specialties',
+    PROJECTS_TITLE: 'プロジェクトス',
+    PROJECT_KARIKARIYAKI_DESCRIPTION:
+        'Order status portal for internal fast food management system.',
+    PROJECT_NAMAH_DESCRIPTION: 'Blog/E-commerce mock app.',
+    PROJECT_PORTFOLIO_API_DESCRIPTION: 'Centralized micro-services provider.',
 
-    PROJECTS_TITLE: 'Projects',
+    HISTORY_TITLE: '職歴',
 
-    SPECIALTY_TOOLS: 'Tools',
+    STUDIES_TITLE: 'ログ',
 
-    CONTACT_TITLE: 'Contact',
+    CONTACT_TITLE: '接触',
 } as Lang;

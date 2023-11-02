@@ -6,11 +6,7 @@ import { LangContext } from '../context';
 //Langs
 import Langs from '../langs';
 
-interface NavbarProps {
-    theme?: 'LIGHT' | 'DARK';
-}
-
-const Navbar = ({ theme = 'LIGHT' }: NavbarProps) => {
+const Navbar = () => {
     const [selectedLang, setSelectedLang] = React.useContext(LangContext);
 
     const [canShowList, setCanShowList] = React.useState<boolean>(false);
@@ -33,7 +29,7 @@ const Navbar = ({ theme = 'LIGHT' }: NavbarProps) => {
     );
 
     return (
-        <nav className='navbar --fade-in' data-theme={theme}>
+        <nav className='navbar --fade-in' data-theme={'LIGHT'}>
             <div className='navbar__wrapper --flex-row'>
                 <a className='navbar__button --flex-column' href='/'>
                     <svg
@@ -51,13 +47,13 @@ const Navbar = ({ theme = 'LIGHT' }: NavbarProps) => {
                 </a>
                 <ul className='navbar__redirectors --flex-row'>
                     <li>
-                        <a href='/projects'>Projects</a>
+                        <a href='/projects'>{selectedLang['PROJECTS_TITLE']}</a>
                     </li>
                     <li>
-                        <a href='/studies'>Studies</a>
+                        <a href='/studies'>{selectedLang['STUDIES_TITLE']}</a>
                     </li>
                     <li>
-                        <a href='/contact'>Contact</a>
+                        <a href='/contact'>{selectedLang['CONTACT_TITLE']}</a>
                     </li>
                 </ul>
                 <div className='navbar__language --flex-column'>

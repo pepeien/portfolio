@@ -4,20 +4,20 @@ import { Project } from '../utils/interfaces';
 export default [
     {
         name: 'Karikariyaki',
-        repoURL: 'https://github.com/pepeien/karikariyaki',
-        description: `Order status portal for internal fast food management system.`,
+        repo: 'pepeien/karikariyaki',
+        description: 'PROJECT_KARIKARIYAKI_DESCRIPTION',
         technologies: ['Angular JS', 'Typescript', 'Node JS', 'Socket.IO', 'Mongo DB'],
     },
     {
         name: 'Namah',
-        repoURL: 'https://github.com/pepeien/namah',
-        description: `Blog/E-commerce mock app.`,
+        repo: 'pepeien/namah',
+        description: 'PROJECT_NAMAH_DESCRIPTION',
         technologies: ['React JS', 'Typescript', 'Node JS', 'Mongo DB'],
     },
     {
         name: 'Portfolio API',
-        repoURL: 'https://github.com/pepeien/portfolio-api',
-        description: `NGINX powered reverse proxy, that serves all solutions used in my personal projects, while offering documentation for all services.`,
+        repo: 'pepeien/portfolio-api',
+        description: 'PROJECT_PORTFOLIO_API_DESCRIPTION',
         technologies: ['Angular JS', 'Typescript', 'Node js', 'NGINX', 'Docker'],
     },
 ] as Project[];

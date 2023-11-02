@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,200;0,500;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
 
 .home {
     align-items: center;
@@ -97,46 +98,6 @@
             }
         }
 
-        &__waves {
-            width: 100%;
-            height: 50dvh;
-            position: relative;
-    
-            svg {
-                position: absolute;
-                height: 100%;
-                width: 100%;
-                opacity: 0;
-        
-                -webkit-animation: fade-in 1s ease-in-out 1 forwards;
-                -moz-animation:    fade-in 1s ease-in-out 1 forwards;
-                -o-animation:      fade-in 1s ease-in-out 1 forwards;
-                animation:         fade-in 1s ease-in-out 1 forwards;
-
-                &:nth-of-type(1){
-                    -webkit-animation-delay: 0.6s;
-                    -moz-animation-delay:    0.6s;
-                    -o-animation-delay:      0.6s;
-                    animation-delay:         0.6s;
-
-                    path {
-                        transform: translate(-45vh, 1vh) scale(2.5);
-                    }
-                }
-
-                &:nth-of-type(2) {
-                    -webkit-animation-delay: 0.4s;
-                    -moz-animation-delay:    0.4s;
-                    -o-animation-delay:      0.4s;
-                    animation-delay:         0.4s;
-
-                    path {
-                        transform: translate(-5vh, 1vh) scale(2.5);
-                    }
-                }
-            }
-        }
-
         &__wrapper {
             width: 100%;
             margin-top: -10dvh;
@@ -196,85 +157,11 @@
             }
 
             &__projects {
-                ul {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, 1fr);
-                    gap: 3vh;
-    
-                    .project {
-                        display: flex;
-                        border-radius: 1.5vh;
-                        height: 30vh;
-                        overflow: hidden;
-                        position: relative;
-                        justify-content: center;
-
-                        &__data {
-                            display: flex;
-                            flex-direction: column;
-                            gap: 2vh;
-                            margin: 2.5vh;
-                            margin-right: auto;
-                            width: 100%;
-                            z-index: $--max-z-index - 1;
-
-                            h5 {
-                                font-family: 'Roboto Condensed';
-                                font-weight: bold;
-                                font-size: 3vh;
-                                color: $--accent-color;
-                            }
-
-                            span {
-                                font-family: 'Roboto Condensed';
-                                font-weight: 400;
-                                font-size: 1.7vh;
-                                color: $--accent-color;
-                                width: 90%;
-                            }
-
-                            ul {
-                                display: grid;
-                                grid-template-columns: repeat(auto-fit, minmax(8vh, 1fr));
-                                gap: 1vh;
-                                width: 90%;
-
-                                li {
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    background-color: $--backdrop-background-color;
-                                    min-height: 2vh;
-                                    padding: 0.5vh;
-                                    border-radius: 3vh;
-                                    font-family: 'Roboto Condensed';
-                                    font-weight: 400;
-                                    font-size: 1.2vh;
-                                    color: $--accent-color;
-                                }
-                            }
-                        }
-
-                        &__fader {
-                            position: absolute;
-                            height: 100%;
-                            width: 100%;
-                            background-image: linear-gradient(to bottom right, #000000c5 30%, #00000059 70%);
-                            opacity: 0.8;
-                            z-index: $--max-z-index - 2;
-
-                            -webkit-transition: opacity ease-in-out 0.3s;
-                            -moz-transition:    opacity ease-in-out 0.3s;
-                            -o-transition:      opacity ease-in-out 0.3s;
-                            transition:         opacity ease-in-out 0.3s;
-                        }
-
-                        &__thumbnail {
-                            position: absolute;
-                            width: 130%;
-                            height: 105%;
-                            z-index: $--max-z-index - 3;
-                        }
+                .home__content__section__main {
+                    > ul {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, 1fr);
+                        gap: 3vh;
                     }
                 }
             }
@@ -342,7 +229,7 @@
     }
 }
 
-@media (min-width: 801px) {
+@media (min-width: 1281px) {
     .home {
         &__content {
             &__socials {
@@ -379,25 +266,6 @@
                 }
             }
 
-            &__waves {
-                height: 58vh;
-
-                svg {
-                    &:first-of-type {
-                        path {
-                            transform: translate(-5vh, -3vh) scale(1);
-                        }
-                    }
-    
-                    &:nth-of-type(2) {
-                        path {
-                            transform: translate(-5vh, -2vh) scale(1);
-                        }
-                    }
-                }
-            }
-
-            
             &__wrapper {
                 width: 100%;
                 margin-top: -55vh;
@@ -412,6 +280,7 @@
 
             &__main {
                 margin-top: -1vh;
+                gap: 15vh 0;
             }
 
             &__section {
@@ -427,75 +296,24 @@
                 }
 
                 &__projects {
-                    ul {
-                        grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
-                        gap: 2.5vh;
-    
-                        .project {
-                            border-radius: 1.5vh;
-                            height: 40vh;
-
-                            &:hover {
-                                cursor: pointer;
-
-                                .project {
-                                    &__data{
-                                        display: flex;
-                                    }
-
-                                    &__fader {
-                                        opacity: 0.8;
-                                    }
-                                }
-                            }
-
-                            &__data {
-                                display: none;
-                                gap: 2vh;
-                                margin: 4vh;
-
-                                h5 {
-                                    font-size: 3vh;
-                                }
-
-                                span {
-                                    font-size: 1.7vh;
-                                }
-
-                                ul {
-                                    grid-template-columns: repeat(auto-fit, minmax(8vh, 1fr));
-                                    gap: 1vh;
-
-                                    li {
-                                        min-height: 2vh;
-                                        padding: 0.5vh;
-                                        border-radius: 3vh;
-                                        font-size: 1.2vh;
-                                    }
-                                }
-
-                                -webkit-animation: slide-in-reverse 0.2s ease-in-out 1 forwards;
-                                -moz-animation:    slide-in-reverse 0.2s ease-in-out 1 forwards;
-                                -o-animation:      slide-in-reverse 0.2s ease-in-out 1 forwards;
-                                animation:         slide-in-reverse 0.2s ease-in-out 1 forwards;
-                            }
-
-                            &__fader {
-                                opacity: 0.35;
-                            }
+                    .home__content__section__main {
+                        > ul {
+                            display: grid;
+                            grid-template-columns: repeat(auto-fit, minmax(38vh, 1fr));
+                            gap: 2.5vh;
                         }
                     }
                 }
 
                 &__work {
                     .home__content__section__main {
-                        ul {
+                        > ul {
                             gap: 4vh;
 
-                            li {
+                            > li {
                                 gap: 1vh;
 
-                                div {
+                                > div {
                                     &:last-of-type {
                                         border-radius: 3vh;
                                     }
@@ -513,11 +331,11 @@
                     }
     
                     .home__content__section__main {
-                        ul {
+                        > ul {
                             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
                             gap: 4vh;
 
-                            li {
+                            > li {
                                 border-radius: 3vh;
                                 height: 15vh;
                             }

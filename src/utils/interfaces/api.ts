@@ -9,9 +9,15 @@ export interface Job {
 
 export interface Project {
     name: string;
-    repoURL: string;
+    repo: string;
     description: string;
     technologies: string[];
+    metadata?: ProjectMetadata;
+}
+
+export interface ProjectMetadata {
+    primaryColor: string;
+    accentColor: string;
 }
 
 export interface ApiResponse<T> {

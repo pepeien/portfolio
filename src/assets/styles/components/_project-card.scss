@@ -1,263 +1,132 @@
 .project-card {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    height: 15rem;
-    width: 77vw;
-    background-color: #36383c;
+    justify-content: center;
+    border-radius: 1.5vh;
+    min-height: 25vh;
+    width: 100%;
     overflow: hidden;
-    border-radius: 15px;
+    position: relative;
+    padding: 3vh 0;
+    
+    box-shadow:         1px 2px 5px 0px rgba(0, 0, 0, 0.55);
+    -webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.55);
+    -moz-box-shadow:    1px 2px 5px 0px rgba(0, 0, 0, 0.55);
+
+    &__data {
+        display: flex;
+        flex-direction: column;
+        gap: 2vh;
+        width: 80%;
+
+        h5 {
+            font-family: 'Roboto Condensed';
+            font-weight: 700;
+            font-size: 6vh;
+        }
+    
+        ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(10vh, 1fr));
+            gap: 1vh;
+            width: 90%;
+    
+            li {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 3vh;
+                padding: 0.5vh 1.5vh;
+                border-radius: 3vh;
+                font-family: 'Comfortaa';
+                font-weight: 400;
+                font-size: 1.2vh;
+            }
+        }
+    
+        span {
+            font-family: 'Comfortaa';
+            font-weight: 400;
+            font-size: 2.5vh;
+            width: 90%;
+            margin-top: 1vh;
+        }
+    }
 
     &[data-is-loading='true'] {
         .project-card {
             margin: 0 auto;
 
-            &__thumbnail,
-            &__name,
-            &__linkers {
-                & svg {
+            &__data {
+                svg {
                     width: 100%;
                     height: 100%;
+                    overflow: hidden;
+                    border-radius: 1.5vh;
                 }
-            }
 
-            &__name,
-            &__linkers {
-                margin: 1vh 0 0 0;
+                h5 {
+                    height: 6vh;
+                    width: 25vh;
+                }
 
-                & span {
+                ul {
+                    display: flex;
+                    flex-direction: row;
+
+                    li {
+                        height: 4vh;
+                        width: 10vh;
+                        padding: 0;
+                        overflow: hidden;
+                    }
+                }
+
+                span {
+                    height: 10vh;
                     width: 100%;
-                    height: 100%;
                 }
             }
-
-            &__thumbnail {
-                flex: 3;
-            }
-
-            &__name {
-                height: 3vh;
-
-                & span {
-                    width: 80%;
-                }
-            }
-        }
-    }
-
-    &__info {
-        position: absolute;
-        z-index: 2;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        overflow: hidden;
-
-        div {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 2vh;
-            justify-content: flex-start;
-            width: 100%;
-            height: 100%;
-            background-color: #2e3033;
-
-            h2 {
-                color: white;
-                opacity: 0.05;
-                font-family: 'Ubuntu-Mono-Bold';
-                font-size: 2.8rem;
-                position: absolute;
-                margin: 2vh;
-                margin-top: 1dvh;
-            }
-
-            p {
-                text-align: justify;
-                font-family: 'Ubuntu-Mono-Regular';
-                color: white;
-                font-size: 1rem;
-                margin: 8dvh 2vh 2vh 2vh;
-                width: 30%;
-            }
-        }
-
-        button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #1a1a1a;
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            z-index: 3;
-            outline: none;
-            border: none;
-            width: 3rem;
-            height: 3rem;
-            border-radius: 1.5vh;
-            margin: 0 1.5vh 1dvh 0;
-            pointer-events: all;
-        
-            & svg {
-                width: 1.5rem;
-                height: 1.5rem;
-                fill: white;
-            }
-        }
-    }
-
-    &__thumbnail {
-        height: 110%;
-        width: 110%;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-position-y: top;
-        background-size: 110%;
-    }
-
-    &__name {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 5rem;
-        width: 100%;
-        color: white;
-        font-family: 'Ubuntu-Mono-Bold';
-        font-size: 1.3rem;
-    }
-
-    &__linkers {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        height: 6rem;
-
-        & a {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: white;
-            font-family: 'Ubuntu-Mono-Regular';
-            font-size: 1rem;
-
-            &[data-is-disabled='true'] {
-                color: #85a6a6;
-                background-color: #697f85 !important;
-            }
-
-            &:first-of-type {
-                box-shadow:
-                    inset 20px 20px 60px #2e3033,
-                    inset -20px -20px 60px #3e4045;
-            }
-
-            &:last-of-type {
-                background-color: rgba(2, 70, 64, 1);
-            }
-        }
-    }
-
-    &[data-is-showing-info="disabled"] {
-        .project-card__info {    
-            div {
-                display: none;
-            }
-        }
-    }
-
-    &[data-is-showing-info="true"] {
-        .project-card__info {    
-            pointer-events: all;
         }
     }
 }
 
-@media (min-width: 801px) {
+@media (min-width: 1281px) {
     .project-card {
-        height: 40vh;
-        width: 35vw;
+        min-height: 30vh;
+        border-radius: 1.5vh;
+        align-items: flex-start;
 
-        &__info {    
-            div {
-                gap: 2vh;
-
-                h2 {
-                    font-size: 4rem;
-                }
-
-                p {
-                    width: auto;
-                    font-size: 1.3rem;
-                }
-            }
-    
-            button {
-                width: 3rem;
-                height: 3rem;
-                border-radius: 0;
-                margin: 0 0 6.5vh 0;
-                background-color: #36383c;
-
-                -webkit-transition: margin ease-in-out 0.5s, border-radius ease-in-out 0.4s, background-color ease-in-out 0.55s;
-                -moz-transition:    margin ease-in-out 0.5s, border-radius ease-in-out 0.4s, background-color ease-in-out 0.55s;
-                -o-transition:      margin ease-in-out 0.5s, border-radius ease-in-out 0.4s, background-color ease-in-out 0.55s;
-                transition:         margin ease-in-out 0.5s, border-radius ease-in-out 0.4s, background-color ease-in-out 0.55s;
-
-                & svg {
-                    width: 1.5rem;
-                    height: 1.5rem;
-                    fill: white;
-                }
-            }
+        &:hover {
+            cursor: pointer;
         }
 
-        &__name {
-            height: 8vh;
-            font-size: 2.5vh;
-        }
+        &__data {
+            width: 90%;
+            gap: 2vh;
+            height: 100%;
 
-        &__linkers {
-            height: 10vh;
+            h5 {
+                font-size: 6vh;
+                margin-top: 2vh;
+            }
 
-            & a {
-                font-size: 2vh;
+            ul {
+                grid-template-columns: repeat(auto-fit, minmax(10vh, 1fr));
+                gap: 1vh;
+                width: 90%;
 
-                -webkit-transition: background-color 0.2s ease-in-out;
-                -moz-transition: background-color 0.2s ease-in-out;
-                -o-transition: background-color 0.2s ease-in-out;
-                transition: background-color 0.2s ease-in-out;
-
-                &[data-is-disabled='true'] {
-                    &:hover {
-                        cursor: default;
-                    }
-                }
-
-                &:last-of-type {
-                    &:hover {
-                        background-color: rgb(0, 200, 150);
-                        cursor: pointer;
-                    }
+                li {
+                    min-height: 2.5vh;
+                    padding: 0.5vh 1vh;
+                    border-radius: 3vh;
+                    font-size: 1.2vh;
                 }
             }
-        }
-    
-        &[data-is-showing-info="true"] {
-            .project-card__info {    
-                button {
-                    border-radius: 1.5vh;
-                    margin: 0 1dvh 3.5vh 0;
-                    
-                    box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.75);
-                    -webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.75);
-                    -moz-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.75);
-                }
+
+            span {
+                font-size: 2.25vh;
+                margin-top: auto;
             }
         }
     }

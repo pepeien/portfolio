@@ -11,11 +11,15 @@ export default {
     ABOUT_TITLE_SECOND: 'my name is',
     ABOUT_NAME: 'ERICK',
 
-    SPECIALTIES_TITLE: 'Specialties',
-
     PROJECTS_TITLE: 'Projects',
+    PROJECT_KARIKARIYAKI_DESCRIPTION:
+        'Order status portal for internal fast food management system.',
+    PROJECT_NAMAH_DESCRIPTION: 'Blog/E-commerce mock app.',
+    PROJECT_PORTFOLIO_API_DESCRIPTION: 'Centralized micro-services provider.',
 
-    SPECIALTY_TOOLS: 'Tools',
+    HISTORY_TITLE: 'Experience',
+
+    STUDIES_TITLE: 'Blog',
 
     CONTACT_TITLE: 'Contact',
 } as Lang;
