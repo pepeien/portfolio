@@ -110,7 +110,7 @@
 
 @media (min-width: 1281px) {
     .post-card {
-		height: 20vh;
+		height: 21vh;
         border-radius: 1vh;
 
         &:hover {
@@ -148,10 +148,12 @@
 
 				h5 {
 					font-size: 4vh;
+					min-height: 5vh;
 				}
 	
 				span {
 					font-size: 1.7vh;
+					min-height: 2vh;
 				}
 			}
 
