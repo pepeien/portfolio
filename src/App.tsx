@@ -17,7 +17,7 @@ import Langs from './langs';
 import { LangContext } from './context';
 
 const App = () => {
-    const [selectedLang, setSelectedLang] = React.useState<Lang>(Langs.enUs);
+    const [selectedLang, setSelectedLang] = React.useState<Lang>(Langs['en-us']);
 
     const updateSelectedLang = (langAbbreviation: keyof typeof Langs) => {
         if (!Langs[langAbbreviation]) return;

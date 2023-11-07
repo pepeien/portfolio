@@ -26,7 +26,7 @@ const LanguageButton = () => {
 
     const isLanguageSelected = React.useCallback(
         (langName: string) => {
-            return langName === selectedLang['LANGUAGE_ABBREVIATION'];
+            return langName === selectedLang['LANGUAGE_LOCALE_URL'];
         },
         [selectedLang],
     );
@@ -50,11 +50,11 @@ const LanguageButton = () => {
                 {Object.values(Langs).map((lang) => {
                     return (
                         <li
-                            key={lang['LANGUAGE_ABBREVIATION']}
-                            data-is-selected={isLanguageSelected(lang['LANGUAGE_ABBREVIATION'])}
+                            key={lang['LANGUAGE_LOCALE_URL']}
+                            data-is-selected={isLanguageSelected(lang['LANGUAGE_LOCALE_URL'])}
                         >
                             <button
-                                onClick={() => onLanguageSelection(lang['LANGUAGE_ABBREVIATION'])}
+                                onClick={() => onLanguageSelection(lang['LANGUAGE_LOCALE_URL'])}
                             >
                                 {lang['LANGUAGE']}
                             </button>

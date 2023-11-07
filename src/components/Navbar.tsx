@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 
 //Context
 import { LangContext } from '../context';
@@ -7,31 +8,62 @@ import { LangContext } from '../context';
 import Langs from '../langs';
 
 const Navbar = () => {
+    const [searchParams, setSearchParams] = useSearchParams();
+
     const [selectedLang, setSelectedLang] = React.useContext(LangContext);
 
     const [canShowList, setCanShowList] = React.useState<boolean>(false);
+
+    const isLanguageSelected = React.useCallback(
+        (langName: string) => {
+            return langName === selectedLang['LANGUAGE_LOCALE_URL'];
+        },
+        [selectedLang],
+    );
+
+    React.useEffect(() => {
+        const langName = searchParams.get('locale');
+
+        if (!langName || !getLanguage(langName)) {
+            updateLanguageParam(Langs['en-us']['LANGUAGE_LOCALE_URL']);
+
+            return;
+        }
+
+        setSelectedLang(langName as keyof typeof Langs);
+    }, [searchParams]);
 
     const onMainButtonClick = () => {
         setCanShowList(!canShowList);
     };
 
     const onLanguageSelection = (langName: string) => {
-        setSelectedLang(langName as keyof typeof Langs);
+        const foundLanguage = getLanguage(langName);
+
+        if (!foundLanguage) {
+            return;
+        }
+
+        updateLanguageParam(foundLanguage['LANGUAGE_LOCALE_URL']);
 
         setCanShowList(false);
     };
 
-    const isLanguageSelected = React.useCallback(
-        (langName: string) => {
-            return langName === selectedLang['LANGUAGE_ABBREVIATION'];
-        },
-        [selectedLang],
-    );
+    const updateLanguageParam = (locale: string) => {
+        const nextSearchParam: URLSearchParams = new URLSearchParams();
+        nextSearchParam.append('locale', locale);
+
+        setSearchParams(nextSearchParam);
+    };
+
+    const getLanguage = (langName: string) => {
+        return Langs[Object.keys(Langs).find((key) => key === langName) as keyof typeof Langs];
+    };
 
     return (
         <nav className='navbar --fade-in' data-theme={'LIGHT'}>
             <div className='navbar__wrapper --flex-row'>
-                <a className='navbar__button --flex-column' href='/'>
+                <Link className='navbar__button --flex-column' to='/'>
                     <svg
                         version='1.0'
                         xmlns='http://www.w3.org/2000/svg'
@@ -44,16 +76,16 @@ const Navbar = () => {
 	c2.211,0,4-1.789,4-4V33.695l1.195,1.195c1.562,1.562,3.949,1.422,5.516-0.141C64.274,33.188,64.356,30.734,62.79,29.172z'
                         />
                     </svg>
-                </a>
+                </Link>
                 <ul className='navbar__redirectors --flex-row'>
                     <li>
-                        <a href='/projects'>{selectedLang['PROJECTS_TITLE']}</a>
+                        <Link to='/projects'>{selectedLang['PROJECTS_TITLE']}</Link>
                     </li>
                     <li>
-                        <a href='/studies'>{selectedLang['STUDIES_TITLE']}</a>
+                        <Link to='/studies'>{selectedLang['STUDIES_TITLE']}</Link>
                     </li>
                     <li>
-                        <a href='/contact'>{selectedLang['CONTACT_TITLE']}</a>
+                        <Link to='/contact'>{selectedLang['CONTACT_TITLE']}</Link>
                     </li>
                 </ul>
                 <div className='navbar__language --flex-column'>
@@ -66,14 +98,14 @@ const Navbar = () => {
                         {Object.values(Langs).map((lang) => {
                             return (
                                 <li
-                                    key={lang['LANGUAGE_ABBREVIATION']}
+                                    key={lang['LANGUAGE_LOCALE_URL']}
                                     data-is-selected={isLanguageSelected(
-                                        lang['LANGUAGE_ABBREVIATION'],
+                                        lang['LANGUAGE_LOCALE_URL'],
                                     )}
                                 >
                                     <button
                                         onClick={() =>
-                                            onLanguageSelection(lang['LANGUAGE_ABBREVIATION'])
+                                            onLanguageSelection(lang['LANGUAGE_LOCALE_URL'])
                                         }
                                     >
                                         <span>{lang['LANGUAGE']}</span>

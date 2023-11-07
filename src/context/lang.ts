@@ -7,7 +7,7 @@ import { Lang } from '../utils/interfaces';
 import Langs from '../langs';
 
 const LangContext = React.createContext<[Lang, (nextLang: keyof typeof Langs) => void]>([
-    Langs.enUs,
+    Langs['en-us'],
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     () => {},
 ]);

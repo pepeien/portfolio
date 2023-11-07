@@ -1,8 +1,8 @@
 .project-card {
     display: flex;
     align-items: center;
-    justify-content: center;
     border-radius: 1.5vh;
+    height: 80%;
     min-height: 25vh;
     width: 100%;
     overflow: hidden;
@@ -16,8 +16,10 @@
     &__data {
         display: flex;
         flex-direction: column;
+        margin-left: 4vh;
         gap: 2vh;
         width: 80%;
+        height: 100%;
 
         h5 {
             font-family: 'Roboto Condensed';
@@ -26,8 +28,8 @@
         }
     
         ul {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(10vh, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 1vh;
             width: 90%;
     
@@ -36,20 +38,20 @@
                 align-items: center;
                 justify-content: center;
                 min-height: 3vh;
-                padding: 0.5vh 1.5vh;
+                padding: 0.5vh 2vh;
                 border-radius: 3vh;
-                font-family: 'Comfortaa';
-                font-weight: 400;
+                font-family: 'Inter';
+                font-weight: 600;
                 font-size: 1.2vh;
             }
         }
     
         span {
-            font-family: 'Comfortaa';
+            font-family: 'Inter';
             font-weight: 400;
             font-size: 2.5vh;
             width: 90%;
-            margin-top: 1vh;
+            margin-top: auto;
         }
     }
 
@@ -93,7 +95,7 @@
 
 @media (min-width: 1281px) {
     .project-card {
-        min-height: 30vh;
+        padding-top: 1vh;
         border-radius: 1.5vh;
         align-items: flex-start;
 
@@ -112,13 +114,12 @@
             }
 
             ul {
-                grid-template-columns: repeat(auto-fit, minmax(10vh, 1fr));
                 gap: 1vh;
                 width: 90%;
 
                 li {
                     min-height: 2.5vh;
-                    padding: 0.5vh 1vh;
+                    padding: 0.5vh 2vh;
                     border-radius: 3vh;
                     font-size: 1.2vh;
                 }

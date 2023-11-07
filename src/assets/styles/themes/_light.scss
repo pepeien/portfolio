@@ -1,8 +1,10 @@
 $--backdrop-filter: blur(20px) saturate(1.7);
-$--backdrop-background-color: rgba(190, 193, 198, 0.5);
+$--backdrop-background-color: rgba(190, 193, 198, 0.7);
+$--backdrop-background-color-mobile: rgba(190, 193, 198, 1);
 $--backdrop-primary-color-light: #242525;
 $--backdrop-primary-color-dark: #3e4344;
-$--accent-color: #e1e1e1;
+$--accent-color: rgba(226, 232, 240, 1);
+$--selected-color: #345C54;
 
 $--pill-border-radius: 5vh;
 $--squircle-border-radius: 1.5vh;

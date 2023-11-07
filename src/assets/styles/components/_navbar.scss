@@ -18,7 +18,7 @@
         align-items: center;
         justify-content: center;
         padding: 0 2.5vh;
-        background-color: $--backdrop-background-color;
+        background-color: $--backdrop-background-color-mobile;
         border-radius: $--pill-border-radius;
 
         li {
@@ -49,7 +49,7 @@
         padding: 1.5vh 1.8vh;
         margin-left: auto;
         border-radius: 50%;
-        background-color: $--backdrop-background-color;
+        background-color: $--backdrop-background-color-mobile;
 
         box-shadow:         1px 2px 5px 0px rgba(0, 0, 0, 0.05);
         -webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.05);
@@ -78,7 +78,7 @@
             top: 0;
             right: 0;
             padding: 1.5vh 0;
-            background-color: $--backdrop-background-color;
+            background-color: $--backdrop-background-color-mobile;
             border-radius: $--squircle-border-radius;
             opacity: 0;
         
@@ -100,7 +100,7 @@
         
                 &[data-is-selected='true'] {
                     & button {
-                        color: #486a44;
+                        color: $--selected-color;
 
                         div {
                             opacity: 1;
@@ -135,7 +135,7 @@
                         position: absolute;
                         height: 0.75vh;
                         width: 2.75vh;
-                        background-color: #d3fbd86c;
+                        background-color: $--selected-color;
                         border-radius: 15px;
                         opacity: 0;
                         margin-top: 4vh;
@@ -179,6 +179,7 @@
 @media (min-width: 801px) {
     .navbar {
         &__button {
+            background-color: $--backdrop-background-color;
             backdrop-filter: $--backdrop-filter;
 
             &:hover {
@@ -187,6 +188,7 @@
         }
 
         &__redirectors {
+            background-color: $--backdrop-background-color;
             backdrop-filter: $--backdrop-filter;
 
             li {
@@ -202,6 +204,7 @@
                 margin: 7vh -3.3vh 0 0;
                 top: 0;
                 right: 0;
+                background-color: $--backdrop-background-color;
                 backdrop-filter: $--backdrop-filter;
         
                 & li {

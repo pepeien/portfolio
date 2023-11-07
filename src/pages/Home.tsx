@@ -5,14 +5,13 @@ import { v4 } from 'uuid';
 import { Jobs, Projects } from '../data';
 
 // Types
-import { Project, ProjectMetadata } from '../utils/interfaces';
+import { Post, PostMetadata, Project, ProjectMetadata } from '../utils/interfaces';
 
 // Components
-import { Navbar, ProjectCard, Waves } from '../components';
+import { Navbar, ProjectCard, Socials, Waves } from '../components';
 
 // Services
 import { LangContext } from '../context';
-import Socials from '../components/Socials';
 
 const BLUR_COEFFICIENT = 20;
 
@@ -22,6 +21,7 @@ const Home = () => {
     const [isLoadingProjects, setIsLoadingProjects] = React.useState<boolean>(true);
     const [scrollY, setScrollY] = React.useState<number>(window.scrollY);
     const [projects, setProjects] = React.useState<Project[]>([]);
+    const [posts, setPosts] = React.useState<Post[]>([]);
 
     React.useEffect(() => {
         const updatedProjects: Project[] = projects;
@@ -29,7 +29,7 @@ const Home = () => {
         setIsLoadingProjects(true);
 
         Projects.forEach((project, index) => {
-            void fetch(
+            fetch(
                 `https://raw.githubusercontent.com/${project.repo}/master/.github/metadata.json?raw=true`,
             )
                 .then((res) => res.json())
@@ -44,8 +44,22 @@ const Home = () => {
                             setIsLoadingProjects(false);
                         }, 600);
                     }
+                })
+                .catch((error) => {
+                    console.error(error);
                 });
         });
+
+        fetch(
+            'https://raw.githubusercontent.com/pepeien/portfolio/master/.github/posts/metadata.json?raw=true',
+        )
+            .then((res) => res.json())
+            .then((metadata: PostMetadata) => {
+                setPosts(metadata.posts);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     }, []);
 
     React.useEffect(() => {
@@ -62,7 +76,7 @@ const Home = () => {
         const month = date.toLocaleDateString(selectedLang['LANGUAGE_LOCALE'], { month: 'long' });
         const year = date.toLocaleDateString(selectedLang['LANGUAGE_LOCALE'], { year: 'numeric' });
 
-        return `${month} ${year}`;
+        return `${month.charAt(0).toUpperCase()}${month.slice(1)} ${year}`;
     };
 
     return (
@@ -133,22 +147,29 @@ const Home = () => {
                                         return (
                                             <li key={v4()} className='job'>
                                                 <div className='job__date'>
-                                                    <span>{getMonthYear(job.startDate)}</span>
-                                                    <div className='job__date__divider' />
-                                                    <span>
-                                                        {getMonthYear(
-                                                            job.endDate,
-                                                            selectedLang['NOW_TEXT'],
-                                                        )}
-                                                    </span>
+                                                    <div className='job__date__text'>
+                                                        <span>{getMonthYear(job.startDate)}</span>
+                                                        <div className='job__date__divider' />
+                                                        <span>
+                                                            {getMonthYear(
+                                                                job.endDate,
+                                                                selectedLang['NOW_TEXT'],
+                                                            )}
+                                                        </span>
+                                                    </div>
                                                 </div>
                                                 <div className='job__info'>
                                                     <div className='job__info__company'>
                                                         {job.company}
                                                     </div>
                                                     <div className='job__info__description'>
-                                                        {job.description}
+                                                        {selectedLang[job.description]}
                                                     </div>
+                                                    <ul className='job__info__technologies'>
+                                                        {job.technologies.map((technology) => {
+                                                            return <li key={v4()}>{technology}</li>;
+                                                        })}
+                                                    </ul>
                                                 </div>
                                             </li>
                                         );
@@ -164,7 +185,15 @@ const Home = () => {
                                 <h4>{selectedLang['STUDIES_TITLE']}</h4>
                             </div>
                             <div className='home__content__section__main'>
-                                <ul></ul>
+                                <ul>
+                                    {posts.map((post) => {
+                                        return (
+                                            <li key={v4()}>
+                                                {post.title[selectedLang['LANGUAGE_LOCALE_URL']]}
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
                             </div>
                         </section>
                     </div>

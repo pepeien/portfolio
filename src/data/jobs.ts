@@ -1,12 +1,11 @@
-import { Job } from '../utils/interfaces/api';
+import { Job } from '../utils/interfaces';
 
 export default [
     {
         startDate: new Date('2021-07-15'),
-        company: 'PRODEMGE',
+        company: 'Prodemge',
         positions: ['Developer'],
-        description:
-            "Designed and secured government applications using Typescript (Angular/React Native) and Java (Spring Boot). Managed document processing with iText and Apache POI API's. Implemented UI based on client-established patterns.",
+        description: 'JOB_KUKAC_DESCRIPTION',
         technologies: ['Springboot', 'Java', 'Angular', 'Typescript', 'Mainframe'],
     },
     {
@@ -14,8 +13,7 @@ export default [
         endDate: new Date('2021-07-15'),
         company: 'Kukac',
         positions: ['Developer Intern'],
-        description:
-            'Enhanced IBM Watson API-powered applications, focusing on chatbot development. Utilized Typescript (Angular) for front-end and Express for responsive chatbots. Optimized Watson Assistant algorithms and implemented DevOps, including Docker environments with CI/CD.',
+        description: 'JOB_PRODEMGE_DESCRIPTION',
         technologies: ['Node JS', 'Angular', 'Typescript', 'IBM Watson'],
     },
 ] as Job[];

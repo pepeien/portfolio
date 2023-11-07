@@ -29,7 +29,7 @@ const Socials = () => {
             </li>
             <li>
                 <a
-                    href={`https://www.linkedin.com/in/erick-frederick-c/?locale=${selectedLang['LANGUAGE_LOCALE']}`}
+                    href={`https://www.linkedin.com/in/erick-frederick-c/?locale=${selectedLang['LANGUAGE_LOCALE_LINKEDIN']}`}
                     target='_blank'
                     rel='noreferrer'
                 >
