@@ -1,16 +1,16 @@
 {
     "posts": [
         {
-            "id": 1,
+            "id": "hit-scan-a-ballad",
             "title": {
-                "en-US": "Hit Scan a ballad",
-                "ja-JP": "Hit Scan a ballad",
-                "pt-BR": "Hit Scan a ballad"
+                "en-us": "Hit Scan a ballad",
+                "ja-jp": "Hit Scan a ballad",
+                "pt-br": "Hit Scan a ballad"
             },
             "description": {
-                "en-US": "A quick read about my starting journey on learning unreal engine",
-                "ja-JP": "A quick read about my starting journey on learning unreal engine",
-                "pt-BR": "A quick read about my starting journey on learning unreal engine"
+                "en-us": "A quick read about my starting journey on learning unreal engine",
+                "ja-jp": "A quick read about my starting journey on learning unreal engine",
+                "pt-br": "A quick read about my starting journey on learning unreal engine"
             }
         }
     ]
