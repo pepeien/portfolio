@@ -28,7 +28,7 @@ const PostCard = ({ id, title, description, isLoading }: PostCardProps) => {
                 />
             </div>
             <div className='post-card__data'>
-                <div className='post-card__data__title'>
+                <div className='post-card__data__info'>
                     <h5>{title[selectedLang['LANGUAGE_LOCALE_URL']]}</h5>
                     <span>{description[selectedLang['LANGUAGE_LOCALE_URL']]}</span>
                 </div>

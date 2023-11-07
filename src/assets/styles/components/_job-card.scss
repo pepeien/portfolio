@@ -9,13 +9,15 @@
 	line-height: 1.25;
 
 	&__date {
+		margin: 0 0 0 1vh;
+
 		&__text {
 			display: flex;
 			flex-direction: row;
 			align-items: center;
 			gap: 0 1vh;
 			font-weight: 500;
-			font-size: 1.75vh;
+			font-size: 2vh;
 			opacity: 0.4;
 		}
 
@@ -31,6 +33,13 @@
 		flex-direction: column;
 		gap: 1vh 0;
 		flex: 2.5;
+		padding: 3vh;
+		background-color: $--light-background-color;
+		border-radius: 1.5vh;
+
+		box-shadow:         1px 2px 5px 0px rgba(0, 0, 0, 0.55);
+		-webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.55);
+		-moz-box-shadow:    1px 2px 5px 0px rgba(0, 0, 0, 0.55);
 
 		&__company {
 			font-size: 3vh;
@@ -75,10 +84,10 @@
 		gap: 1vh;
 
 		&__date { 
-			width: 28vh;
+			width: 24vh;
+			margin: 3.5vh 0 0 0;
 
 			&__text {
-				margin-top: 0.2vh;
 				flex-direction: row;
 				gap: 0 1vh;
 				width: 100%;
@@ -96,7 +105,7 @@
 			}
 
 			&__description {
-				width: 80%;
+				width: 100%;
 				font-size: 1.6vh;
 			}
 

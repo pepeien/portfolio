@@ -5,13 +5,46 @@ const ProjectCardLoader = () => {
     return (
         <div className='project-card' data-is-loading={true} data-is-showing-info={false}>
             <div className='project-card__data'>
-                <h5>
-                    <ContentLoader speed={3} backgroundColor='#36383c' foregroundColor='#4f5a61'>
-                        <rect rx='3' ry='3' width='100%' height='100%' />
-                    </ContentLoader>
-                </h5>
-                <ul>
-                    <li>
+                <div className='project-card__data__info'>
+                    <h5>
+                        <ContentLoader
+                            speed={3}
+                            backgroundColor='#36383c'
+                            foregroundColor='#4f5a61'
+                        >
+                            <rect rx='3' ry='3' width='100%' height='100%' />
+                        </ContentLoader>
+                    </h5>
+                    <ul>
+                        <li>
+                            <ContentLoader
+                                speed={2}
+                                backgroundColor='#36383c'
+                                foregroundColor='#4f5a61'
+                            >
+                                <rect rx='3' ry='3' width='100%' height='100%' />
+                            </ContentLoader>
+                        </li>
+                        <li>
+                            <ContentLoader
+                                speed={2}
+                                backgroundColor='#36383c'
+                                foregroundColor='#4f5a61'
+                            >
+                                <rect rx='3' ry='3' width='100%' height='100%' />
+                            </ContentLoader>
+                        </li>
+                        <li>
+                            <ContentLoader
+                                speed={2}
+                                backgroundColor='#36383c'
+                                foregroundColor='#4f5a61'
+                            >
+                                <rect rx='3' ry='3' width='100%' height='100%' />
+                            </ContentLoader>
+                        </li>
+                    </ul>
+                    <span>
                         <ContentLoader
                             speed={2}
                             backgroundColor='#36383c'
@@ -19,31 +52,8 @@ const ProjectCardLoader = () => {
                         >
                             <rect rx='3' ry='3' width='100%' height='100%' />
                         </ContentLoader>
-                    </li>
-                    <li>
-                        <ContentLoader
-                            speed={2}
-                            backgroundColor='#36383c'
-                            foregroundColor='#4f5a61'
-                        >
-                            <rect rx='3' ry='3' width='100%' height='100%' />
-                        </ContentLoader>
-                    </li>
-                    <li>
-                        <ContentLoader
-                            speed={2}
-                            backgroundColor='#36383c'
-                            foregroundColor='#4f5a61'
-                        >
-                            <rect rx='3' ry='3' width='100%' height='100%' />
-                        </ContentLoader>
-                    </li>
-                </ul>
-                <span>
-                    <ContentLoader speed={2} backgroundColor='#36383c' foregroundColor='#4f5a61'>
-                        <rect rx='3' ry='3' width='100%' height='100%' />
-                    </ContentLoader>
-                </span>
+                    </span>
+                </div>
             </div>
         </div>
     );
