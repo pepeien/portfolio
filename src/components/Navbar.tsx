@@ -61,7 +61,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className='navbar --fade-in' data-theme={'LIGHT'}>
+        <nav className='navbar' data-theme={'LIGHT'}>
             <div className='navbar__wrapper --flex-row'>
                 <Link className='navbar__button --flex-column' to='/'>
                     <svg
@@ -82,7 +82,7 @@ const Navbar = () => {
                         <Link to='/projects'>{selectedLang['PROJECTS_TITLE']}</Link>
                     </li>
                     <li>
-                        <Link to='/studies'>{selectedLang['STUDIES_TITLE']}</Link>
+                        <Link to='/posts'>{selectedLang['STUDIES_TITLE']}</Link>
                     </li>
                     <li>
                         <Link to='/contact'>{selectedLang['CONTACT_TITLE']}</Link>

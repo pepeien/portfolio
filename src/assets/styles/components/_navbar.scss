@@ -1,8 +1,15 @@
 .navbar {
     position: fixed;
-    top: 3dvh;
     height: 6vh;
     z-index: $--max-z-index;
+    margin: 0 auto;
+    margin-top: 3dvh;
+    opacity: 0;
+
+    -webkit-animation: fade-in 1s ease-in-out 1 forwards;
+	-moz-animation:    fade-in 1s ease-in-out 1 forwards;
+	-o-animation:      fade-in 1s ease-in-out 1 forwards;
+	animation:         fade-in 1s ease-in-out 1 forwards;
 
     &__wrapper {
         width: 100%;
@@ -178,6 +185,8 @@
 
 @media (min-width: 801px) {
     .navbar {
+        margin-top: 2dvh;
+
         &__button {
             background-color: $--backdrop-background-color;
             backdrop-filter: $--backdrop-filter;

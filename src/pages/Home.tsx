@@ -8,7 +8,7 @@ import { Jobs, Projects } from '../data';
 import { Post, PostMetadata, Project, ProjectMetadata } from '../utils/interfaces';
 
 // Components
-import { Navbar, ProjectCard, Socials, Waves } from '../components';
+import { JobCard, PostCard, ProjectCard, Waves } from '../components';
 
 // Services
 import { LangContext } from '../context';
@@ -19,6 +19,7 @@ const Home = () => {
     const [selectedLang, _] = React.useContext(LangContext);
 
     const [isLoadingProjects, setIsLoadingProjects] = React.useState<boolean>(true);
+    const [isLoadingPosts, setIsLoadingPosts] = React.useState<boolean>(true);
     const [scrollY, setScrollY] = React.useState<number>(window.scrollY);
     const [projects, setProjects] = React.useState<Project[]>([]);
     const [posts, setPosts] = React.useState<Post[]>([]);
@@ -27,6 +28,7 @@ const Home = () => {
         const updatedProjects: Project[] = projects;
 
         setIsLoadingProjects(true);
+        setIsLoadingPosts(true);
 
         Projects.forEach((project, index) => {
             fetch(
@@ -56,6 +58,7 @@ const Home = () => {
             .then((res) => res.json())
             .then((metadata: PostMetadata) => {
                 setPosts(metadata.posts);
+                setIsLoadingPosts(false);
             })
             .catch((error) => {
                 console.error(error);
@@ -68,22 +71,9 @@ const Home = () => {
         });
     }, [scrollY]);
 
-    const getMonthYear = (date?: Date, fallback = ''): string => {
-        if (!date) {
-            return fallback;
-        }
-
-        const month = date.toLocaleDateString(selectedLang['LANGUAGE_LOCALE'], { month: 'long' });
-        const year = date.toLocaleDateString(selectedLang['LANGUAGE_LOCALE'], { year: 'numeric' });
-
-        return `${month.charAt(0).toUpperCase()}${month.slice(1)} ${year}`;
-    };
-
     return (
         <main className='home --page --flex-column'>
-            <Navbar />
             <div className='home__content --flex-column'>
-                <Socials />
                 <div className='home__content__title'>
                     <div
                         className='home__content__title__text --flex-column'
@@ -145,32 +135,8 @@ const Home = () => {
                                 <ul className='jobs'>
                                     {Jobs.map((job) => {
                                         return (
-                                            <li key={v4()} className='job'>
-                                                <div className='job__date'>
-                                                    <div className='job__date__text'>
-                                                        <span>{getMonthYear(job.startDate)}</span>
-                                                        <div className='job__date__divider' />
-                                                        <span>
-                                                            {getMonthYear(
-                                                                job.endDate,
-                                                                selectedLang['NOW_TEXT'],
-                                                            )}
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div className='job__info'>
-                                                    <div className='job__info__company'>
-                                                        {job.company}
-                                                    </div>
-                                                    <div className='job__info__description'>
-                                                        {selectedLang[job.description]}
-                                                    </div>
-                                                    <ul className='job__info__technologies'>
-                                                        {job.technologies.map((technology) => {
-                                                            return <li key={v4()}>{technology}</li>;
-                                                        })}
-                                                    </ul>
-                                                </div>
+                                            <li key={v4()}>
+                                                <JobCard {...job} />
                                             </li>
                                         );
                                     })}
@@ -185,11 +151,11 @@ const Home = () => {
                                 <h4>{selectedLang['STUDIES_TITLE']}</h4>
                             </div>
                             <div className='home__content__section__main'>
-                                <ul>
+                                <ul className='posts'>
                                     {posts.map((post) => {
                                         return (
                                             <li key={v4()}>
-                                                {post.title[selectedLang['LANGUAGE_LOCALE_URL']]}
+                                                <PostCard {...post} isLoading={isLoadingPosts} />
                                             </li>
                                         );
                                     })}
