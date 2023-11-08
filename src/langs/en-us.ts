@@ -16,9 +16,9 @@ export default {
 
     PROJECTS_TITLE: 'Projects',
 
-    HISTORY_TITLE: 'Experience',
+    JOB_HISTORY_TITLE: 'Experience',
 
-    STUDIES_TITLE: 'Blog',
+    BLOG_TITLE: 'Blog',
 
     CONTACT_TITLE: 'Hire Me',
 } as Lang;

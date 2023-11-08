@@ -95,7 +95,7 @@ const Navbar = () => {
                         <Link to='/projects'>{selectedLang['PROJECTS_TITLE']}</Link>
                     </li>
                     <li>
-                        <Link to='/posts'>{selectedLang['STUDIES_TITLE']}</Link>
+                        <Link to='/posts'>{selectedLang['BLOG_TITLE']}</Link>
                     </li>
                     <li>
                         <Link to='/contact'>{selectedLang['CONTACT_TITLE']}</Link>

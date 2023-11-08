@@ -143,12 +143,12 @@ const Home = () => {
                                 </ul>
                             </div>
                             <div className='home__content__section__title'>
-                                <h4>{selectedLang['HISTORY_TITLE']}</h4>
+                                <h4>{selectedLang['JOB_HISTORY_TITLE']}</h4>
                             </div>
                         </section>
-                        <section className='home__content__section home__content__section__studies'>
+                        <section className='home__content__section home__content__section__blog'>
                             <div className='home__content__section__title'>
-                                <h4>{selectedLang['STUDIES_TITLE']}</h4>
+                                <h4>{selectedLang['BLOG_TITLE']}</h4>
                             </div>
                             <div className='home__content__section__main'>
                                 <ul className='posts'>

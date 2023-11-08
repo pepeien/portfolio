@@ -16,9 +16,9 @@ export default {
 
     PROJECTS_TITLE: 'プロジェクトス',
 
-    HISTORY_TITLE: '職歴',
+    JOB_HISTORY_TITLE: '職歴',
 
-    STUDIES_TITLE: 'ログ',
+    BLOG_TITLE: 'ログ',
 
     CONTACT_TITLE: '接触',
 } as Lang;
