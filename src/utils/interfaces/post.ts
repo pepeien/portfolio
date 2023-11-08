@@ -1,11 +1,11 @@
-export interface PostTranslations {
+export interface Translations {
     [key: string]: string;
 }
 
 export interface Post {
     id: string;
-    title: PostTranslations;
-    description: PostTranslations;
+    title: Translations;
+    description: Translations;
 }
 
 export interface PostMetadata {

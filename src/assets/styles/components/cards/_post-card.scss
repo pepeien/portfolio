@@ -96,6 +96,7 @@
 		&__arrow {
 			margin-top: auto;
 			margin-left: auto;
+			margin-bottom: 0.5vh;
 			height: 4vh;
 			width: 5vh;
 
@@ -130,10 +131,10 @@
 			img {
 				margin-top: -2.25vh;
 
-				-webkit-transform: scale(0.2);
-				-moz-transform:    scale(0.2);
-				-o-transform:      scale(0.2);
-				transform:         scale(0.2);
+				-webkit-transform: scale(0.21);
+				-moz-transform:    scale(0.21);
+				-o-transform:      scale(0.21);
+				transform:         scale(0.21);
 			}
 		}
 

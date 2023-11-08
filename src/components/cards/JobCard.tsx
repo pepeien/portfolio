@@ -32,7 +32,9 @@ const JobCard = ({ startDate, endDate, company, positions, description, technolo
             </div>
             <div className='job__info'>
                 <div className='job__info__company'>{company}</div>
-                <div className='job__info__description'>{selectedLang[description]}</div>
+                <div className='job__info__description'>
+                    {description[selectedLang['LANGUAGE_LOCALE_URL']]}
+                </div>
                 <ul className='job__info__technologies'>
                     {technologies.map((technology) => {
                         return <li key={v4()}>{technology}</li>;

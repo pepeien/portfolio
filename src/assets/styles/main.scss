@@ -12,16 +12,17 @@
 //Components Import
 @import 'components/button';
 @import 'components/contact-form';
-@import 'components/job-card';
 @import 'components/language-button';
 @import 'components/modal';
 @import 'components/navbar';
-@import 'components/post-card';
-@import 'components/project-card';
 @import 'components/rect-button';
 @import 'components/socials';
 @import 'components/specialty';
 @import 'components/waves';
+
+@import 'components/cards/job-card';
+@import 'components/cards/post-card';
+@import 'components/cards/project-card';
 
 //Pages Import
 @import 'pages/home';
