@@ -3,14 +3,14 @@
         {
             "id": "game-dev-a-ballad",
             "title": {
-                "en-us": "Game dev, a ballad",
-                "ja-jp": "Game dev, a ballad",
-                "pt-br": "Game dev, a ballad"
+                "en-us": "Game development, a ballad",
+                "ja-jp": "ゲーム開発、バラード",
+                "pt-br": "Desenvolvimento de jogos, a dança"
             },
             "description": {
                 "en-us": "A quick read about my rough start on learning unreal engine",
-                "ja-jp": "A quick read about my rough start on learning unreal engine",
-                "pt-br": "A quick read about my rough start on learning unreal engine"
+                "ja-jp": "アンリアル・エンジン習得の僕荒削りなスタートについてのログ",
+                "pt-br": "Uma leitura rápida sobre o começo complicado na minha jornada com a unreal engine"
             }
         }
     ]
