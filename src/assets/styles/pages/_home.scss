@@ -7,55 +7,7 @@
         width: 100vw;
         position: relative;
         background-color: transparent;
-
-        &__title {
-            width: 100%;
-            height: 50dvh;
-
-            &__text {
-                position: fixed;
-                justify-content: center;
-                align-items: flex-start;
-                top: 45dvh;
-                left: 4vh;
     
-                h2 {
-                    font-size: 15vh;
-                    text-transform: uppercase;
-                    font-family: 'Roboto Condensed';
-                    color: #455657;
-                    opacity: 0;
-    
-                    -webkit-animation: fade-in 1s ease-in-out 1 1.6s forwards;
-                    -moz-animation:    fade-in 1s ease-in-out 1 1.6s forwards;
-                    -o-animation:      fade-in 1s ease-in-out 1 1.6s forwards;
-                    animation:         fade-in 1s ease-in-out 1 1.6s forwards;
-                }
-    
-                h3 {
-                    font-family: 'Roboto Condensed';
-                    font-style: italic;
-                    font-weight: 300;
-                    font-size: 5vh;
-                    color: #455657;
-                    opacity: 0;
-                    margin-left: 1vh;
-
-                    -webkit-animation: fade-in 1s ease-in-out 1 1.2s forwards;
-                    -moz-animation:    fade-in 1s ease-in-out 1 1.2s forwards;
-                    -o-animation:      fade-in 1s ease-in-out 1 1.2s forwards;
-                    animation:         fade-in 1s ease-in-out 1 1.2s forwards;
-
-                    &:last-of-type {
-                        -webkit-animation-delay: 1.4s;
-                        -moz-animation-delay:    1.4s;
-                        -o-animation-delay:      1.4s;
-                        animation-delay:         1.4s;
-                    }
-                }
-            }
-        }
-
         &__wrapper {
             width: 100%;
             margin-top: -10dvh;
@@ -80,7 +32,7 @@
             background-color: #343434;
             width: 100%;
             height: 100%;
-            margin-top: -5dvh;
+            margin-top: -5.5dvh;
             padding: 8vh 0;
             align-items: center;
             gap: 12vh 0;
@@ -172,24 +124,6 @@
 @media (min-width: 1281px) {
     .home {
         &__content {
-            &__title {
-                height: 60vh;
-
-                &__text {
-                    top: 30vh;
-                    left: 15vh;
-
-                    h2 {
-                        font-size: 38vh;
-                    }
-
-                    h3 { 
-                        margin-left: 2vh;
-                        font-size: 8vh;
-                    }
-                }
-            }
-
             &__wrapper {
                 width: 100%;
                 margin-top: -55vh;
