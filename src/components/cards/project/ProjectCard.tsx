@@ -35,7 +35,7 @@ const ProjectCard = ({
                 backgroundColor: metadata?.primaryColor,
                 color: metadata?.accentColor,
             }}
-            href={`https://github.com/${repo}`}
+            href={`${process.env.REACT_APP_GITHUB_URL ?? ''}/${repo}`}
             target='_blank'
             rel='noreferrer'
         >

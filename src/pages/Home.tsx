@@ -32,7 +32,9 @@ const Home = () => {
 
         Projects.forEach((project, index) => {
             fetch(
-                `https://raw.githubusercontent.com/${project.repo}/master/.github/metadata.json?raw=true`,
+                `${process.env.REACT_APP_GITHUB_CDN ?? ''}/${
+                    project.repo
+                }/master/.github/metadata.json?raw=true`,
             )
                 .then((res) => res.json())
                 .then((metadata: ProjectMetadata) => {
@@ -53,7 +55,9 @@ const Home = () => {
         });
 
         fetch(
-            'https://raw.githubusercontent.com/pepeien/portfolio/master/.github/posts/metadata.json?raw=true',
+            `${
+                process.env.REACT_APP_GITHUB_CDN ?? ''
+            }/portfolio/master/.github/posts/metadata.json?raw=true`,
         )
             .then((res) => res.json())
             .then((metadata: PostMetadata) => {

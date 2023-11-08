@@ -4,7 +4,7 @@ import { Project } from '../utils/interfaces';
 export default [
     {
         name: 'Karikariyaki',
-        repo: 'pepeien/karikariyaki',
+        repo: 'karikariyaki',
         description: {
             'en-us': 'Order status portal for internal fast food management system',
             'ja-jp': 'ファーストフード社内管理システムポータル',
@@ -14,7 +14,7 @@ export default [
     },
     {
         name: 'Namah',
-        repo: 'pepeien/namah',
+        repo: 'namah',
         description: {
             'en-us': 'Blog/E-commerce mock app',
             'ja-jp': 'ブログ/Eコマースモックアプリ',
@@ -24,7 +24,7 @@ export default [
     },
     {
         name: 'Portfolio API',
-        repo: 'pepeien/portfolio-api',
+        repo: 'portfolio-api',
         description: {
             'en-us': 'Centralized micro-services provider',
             'ja-jp': '集中型マイクロサービス・プロバイダー',

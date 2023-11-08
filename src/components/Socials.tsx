@@ -10,7 +10,11 @@ const Socials = () => {
         <nav className='socials'>
             <ul className='--flex-column'>
                 <li>
-                    <a href='https://github.com/pepeien' target='_blank' rel='noreferrer'>
+                    <a
+                        href={process.env.REACT_APP_GITHUB_URL ?? ''}
+                        target='_blank'
+                        rel='noreferrer'
+                    >
                         <svg
                             viewBox='0 0 20 20'
                             version='1.1'
@@ -30,7 +34,9 @@ const Socials = () => {
                 </li>
                 <li>
                     <a
-                        href={`https://www.linkedin.com/in/erick-frederick-c/?locale=${selectedLang['LANGUAGE_LOCALE_LINKEDIN']}`}
+                        href={`${process.env.REACT_APP_LINKEDIN_URL ?? ''}/?locale=${
+                            selectedLang['LANGUAGE_LOCALE_LINKEDIN']
+                        }`}
                         target='_blank'
                         rel='noreferrer'
                     >
@@ -40,7 +46,11 @@ const Socials = () => {
                     </a>
                 </li>
                 <li>
-                    <a href='mailto:erickfcaldeira@gmail.com' target='_blank' rel='noreferrer'>
+                    <a
+                        href={process.env.REACT_APP_EMAIL_URL ?? ''}
+                        target='_blank'
+                        rel='noreferrer'
+                    >
                         <svg viewBox='0 0 32 32' version='1.1' xmlns='http://www.w3.org/2000/svg'>
                             <path d='M30.996 7.824v17.381c0 0 0 0 0 0.001 0 1.129-0.915 2.044-2.044 2.044-0 0-0 0-0.001 0h-4.772v-11.587l-8.179 6.136-8.179-6.136v11.588h-4.772c0 0 0 0-0 0-1.129 0-2.044-0.915-2.044-2.044 0-0 0-0.001 0-0.001v0-17.381c0-0 0-0.001 0-0.001 0-1.694 1.373-3.067 3.067-3.067 0.694 0 1.334 0.231 1.848 0.619l-0.008-0.006 10.088 7.567 10.088-7.567c0.506-0.383 1.146-0.613 1.84-0.613 1.694 0 3.067 1.373 3.067 3.067v0z'></path>
                         </svg>

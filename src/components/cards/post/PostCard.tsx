@@ -24,7 +24,9 @@ const PostCard = ({ id, title, description, isLoading }: PostCardProps) => {
         <div className='post-card' data-is-loading={isLoading}>
             <div className='post-card__thumbnail'>
                 <img
-                    src={`https://raw.githubusercontent.com/pepeien/portfolio/master/.github/posts/${id}/thumbnail.png?raw=true`}
+                    src={`${
+                        process.env.REACT_APP_GITHUB_CDN ?? ''
+                    }/portfolio/master/.github/posts/${id}/thumbnail.png?raw=true`}
                 />
             </div>
             <div className='post-card__data'>
