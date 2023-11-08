@@ -7,7 +7,3 @@ export interface Post {
     title: Translations;
     description: Translations;
 }
-
-export interface PostMetadata {
-    posts: Post[];
-}

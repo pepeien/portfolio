@@ -26,7 +26,7 @@ const JobCard = ({
     const [selectedLang, _] = React.useContext(LangContext);
 
     const getMonthYear = (date?: Date, fallback = ''): string => {
-        if (!date) {
+        if (!date || !date.toLocaleDateString) {
             return fallback;
         }
 

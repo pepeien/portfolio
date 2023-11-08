@@ -1,11 +1,8 @@
 import React from 'react';
 import { v4 } from 'uuid';
 
-// Consts
-import { Jobs, Projects } from '../data';
-
 // Types
-import { Job, Post, PostMetadata, Project, ProjectMetadata } from '../utils/interfaces';
+import { Job, Post, Project, ProjectMetadata } from '../utils/interfaces';
 
 // Components
 import { JobCard, PostCard, ProjectCard, Title, Waves } from '../components';
@@ -36,39 +33,74 @@ const Home = () => {
     }, []);
 
     const updateProjectListing = () => {
-        const updatedProjects: Project[] = projects;
-
         setIsLoadingProjects(true);
-        setIsLoadingPosts(true);
 
-        Projects.slice(0, MAX_PROJECT_SHOWCASE_COUNT).forEach((project, index) => {
-            fetch(
-                `${process.env.REACT_APP_GITHUB_CDN ?? ''}/${
-                    project.repo
-                }/master/.github/metadata.json?raw=true`,
-            )
-                .then((res) => res.json())
-                .then((metadata: ProjectMetadata) => {
-                    updatedProjects[index] = project;
-                    updatedProjects[index].metadata = metadata;
+        fetch(
+            `${
+                process.env.REACT_APP_GITHUB_CDN ?? ''
+            }/portfolio/master/.github/projects/metadata.json?raw=true`,
+        )
+            .then((_res) => _res.json())
+            .then((_projects: Project[]) => {
+                const updatedProjects: Project[] = projects;
 
-                    setProjects(updatedProjects);
+                _projects.slice(0, MAX_PROJECT_SHOWCASE_COUNT).forEach((project, index) => {
+                    fetch(
+                        `${process.env.REACT_APP_GITHUB_CDN ?? ''}/${
+                            project.repo
+                        }/master/.github/metadata.json?raw=true`,
+                    )
+                        .then((res) => res.json())
+                        .then((metadata: ProjectMetadata) => {
+                            updatedProjects[index] = project;
+                            updatedProjects[index].metadata = metadata;
 
-                    if (index + 1 === projects.length) {
-                        setTimeout(() => {
-                            setIsLoadingProjects(false);
-                        }, 600);
-                    }
-                })
-                .catch((error) => {
-                    console.error(error);
+                            setProjects(updatedProjects);
+
+                            if (index + 1 === projects.length) {
+                                setTimeout(() => {
+                                    setIsLoadingProjects(false);
+                                }, 600);
+                            }
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                        });
                 });
-        });
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     };
 
     const updateJobListing = () => {
-        setJobs(Jobs.slice(0, MAX_JOB_SHOWCASE_COUNT));
-        setIsLoadingJobs(false);
+        setIsLoadingJobs(true);
+
+        fetch(
+            `${
+                process.env.REACT_APP_GITHUB_CDN ?? ''
+            }/portfolio/master/.github/jobs/metadata.json?raw=true`,
+        )
+            .then((_res) => _res.json())
+            .then((_jobs: Job[]) => {
+                const fetchedJobs: Job[] = _jobs.slice(0, MAX_JOB_SHOWCASE_COUNT);
+
+                for (let i = 0; i < fetchedJobs.length; i++) {
+                    if (fetchedJobs[i].startDate) {
+                        fetchedJobs[i].startDate = new Date(fetchedJobs[i].startDate);
+                    }
+
+                    if (fetchedJobs[i].endDate) {
+                        fetchedJobs[i].endDate = new Date(fetchedJobs[i].endDate ?? new Date());
+                    }
+                }
+
+                setJobs(fetchedJobs);
+                setIsLoadingJobs(false);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     };
 
     const updatePostListing = () => {
@@ -79,9 +111,9 @@ const Home = () => {
                 process.env.REACT_APP_GITHUB_CDN ?? ''
             }/portfolio/master/.github/posts/metadata.json?raw=true`,
         )
-            .then((res) => res.json())
-            .then((metadata: PostMetadata) => {
-                setPosts(metadata.posts.slice(0, MAX_POST_SHOWCASE_COUNT));
+            .then((_res) => _res.json())
+            .then((_posts: Post[]) => {
+                setPosts(_posts.slice(0, MAX_POST_SHOWCASE_COUNT));
                 setIsLoadingPosts(false);
             })
             .catch((error) => {
