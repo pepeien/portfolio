@@ -97,9 +97,6 @@ const Navbar = () => {
                     <li>
                         <Link to='/posts'>{selectedLang['BLOG_TITLE']}</Link>
                     </li>
-                    <li>
-                        <Link to='/contact'>{selectedLang['CONTACT_TITLE']}</Link>
-                    </li>
                 </ul>
                 <div className='navbar__language --flex-column'>
                     <div className='navbar__button' onClick={onMainButtonClick}>

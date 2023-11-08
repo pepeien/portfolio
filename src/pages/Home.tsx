@@ -5,32 +5,43 @@ import { v4 } from 'uuid';
 import { Jobs, Projects } from '../data';
 
 // Types
-import { Post, PostMetadata, Project, ProjectMetadata } from '../utils/interfaces';
+import { Job, Post, PostMetadata, Project, ProjectMetadata } from '../utils/interfaces';
 
 // Components
-import { JobCard, PostCard, ProjectCard, Waves } from '../components';
+import { JobCard, PostCard, ProjectCard, Title, Waves } from '../components';
 
 // Services
 import { LangContext } from '../context';
 
-const BLUR_COEFFICIENT = 20;
+const MAX_PROJECT_SHOWCASE_COUNT = 3;
+const MAX_JOB_SHOWCASE_COUNT = 2;
+const MAX_POST_SHOWCASE_COUNT = 3;
 
 const Home = () => {
     const [selectedLang, _] = React.useContext(LangContext);
 
     const [isLoadingProjects, setIsLoadingProjects] = React.useState<boolean>(true);
+    const [isLoadingJobs, setIsLoadingJobs] = React.useState<boolean>(true);
     const [isLoadingPosts, setIsLoadingPosts] = React.useState<boolean>(true);
-    const [scrollY, setScrollY] = React.useState<number>(window.scrollY);
-    const [projects, setProjects] = React.useState<Project[]>([]);
-    const [posts, setPosts] = React.useState<Post[]>([]);
+    const [projects, setProjects] = React.useState<Project[]>(
+        new Array(MAX_PROJECT_SHOWCASE_COUNT).fill({}),
+    );
+    const [jobs, setJobs] = React.useState<Job[]>(new Array(MAX_JOB_SHOWCASE_COUNT).fill({}));
+    const [posts, setPosts] = React.useState<Post[]>(new Array(MAX_POST_SHOWCASE_COUNT).fill({}));
 
     React.useEffect(() => {
+        updateProjectListing();
+        updateJobListing();
+        updatePostListing();
+    }, []);
+
+    const updateProjectListing = () => {
         const updatedProjects: Project[] = projects;
 
         setIsLoadingProjects(true);
         setIsLoadingPosts(true);
 
-        Projects.forEach((project, index) => {
+        Projects.slice(0, MAX_PROJECT_SHOWCASE_COUNT).forEach((project, index) => {
             fetch(
                 `${process.env.REACT_APP_GITHUB_CDN ?? ''}/${
                     project.repo
@@ -53,6 +64,15 @@ const Home = () => {
                     console.error(error);
                 });
         });
+    };
+
+    const updateJobListing = () => {
+        setJobs(Jobs.slice(0, MAX_JOB_SHOWCASE_COUNT));
+        setIsLoadingJobs(false);
+    };
+
+    const updatePostListing = () => {
+        setIsLoadingPosts(true);
 
         fetch(
             `${
@@ -61,40 +81,18 @@ const Home = () => {
         )
             .then((res) => res.json())
             .then((metadata: PostMetadata) => {
-                setPosts(metadata.posts);
+                setPosts(metadata.posts.slice(0, MAX_POST_SHOWCASE_COUNT));
                 setIsLoadingPosts(false);
             })
             .catch((error) => {
                 console.error(error);
             });
-    }, []);
-
-    React.useEffect(() => {
-        addEventListener('scroll', () => {
-            setScrollY(window.scrollY);
-        });
-    }, [scrollY]);
+    };
 
     return (
         <main className='home --page --flex-column'>
             <div className='home__content --flex-column'>
-                <div className='home__content__title'>
-                    <div
-                        className='home__content__title__text --flex-column'
-                        style={{
-                            transform: `translate3d(0, ${-scrollY * 0.15}px, 0)`,
-                            filter: `blur(${
-                                ((scrollY * 1.2) / window.innerHeight) * BLUR_COEFFICIENT
-                            }px)`,
-                        }}
-                    >
-                        <div className='--flex-row'>
-                            <h3>{selectedLang['ABOUT_TITLE']}</h3>
-                            <h3>{selectedLang['ABOUT_TITLE_SECOND']}</h3>
-                        </div>
-                        <h2>{selectedLang['ABOUT_NAME']}</h2>
-                    </div>
-                </div>
+                <Title />
                 <Waves />
                 <div className='home__content__wrapper'>
                     <svg
@@ -137,10 +135,10 @@ const Home = () => {
                         <section className='home__content__section home__content__section__job'>
                             <div className='home__content__section__main'>
                                 <ul className='jobs'>
-                                    {Jobs.map((job) => {
+                                    {jobs.map((job) => {
                                         return (
                                             <li key={v4()}>
-                                                <JobCard {...job} />
+                                                <JobCard {...job} isLoading={isLoadingJobs} />
                                             </li>
                                         );
                                     })}

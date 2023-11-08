@@ -1,4 +1,4 @@
-.job {
+.job-card {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
@@ -74,10 +74,73 @@
 			}
 		}
 	}
+
+	&[data-is-loading='true'] {
+		.job-card {
+			&__date {
+				margin-right: 4vh;
+
+				&__text {
+					width: 25vh;
+					height: 6vh;
+
+					svg {
+						width: 100%;
+						height: 100%;
+						overflow: hidden;
+						border-radius: 1.5vh;
+					}
+				}
+			}
+
+			&__info {
+				&__company {
+					height: 6vh;
+					width: 40%;
+
+					svg {
+						width: 100%;
+						height: 100%;
+						overflow: hidden;
+						border-radius: 1.5vh;
+					}
+				}
+
+				&__description {
+					height: 18vh;
+					width: 100%;
+					margin-top: 1vh;
+
+					svg {
+						width: 100%;
+						height: 100%;
+						overflow: hidden;
+						border-radius: 1.5vh;
+					}
+				}
+
+				&__technologies { 
+					li {
+						padding: 0;
+						width: 10vh;
+						height: 4vh;
+						background-color: transparent;
+
+						svg {
+							width: 100%;
+							height: 100%;
+							overflow: hidden;
+							border-radius: 3vh;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 @media (min-width: 1281px) {
-	.job {
+	.job-card {
 		flex-direction: row;
 		width: 100%;
 		position: relative;
@@ -85,7 +148,7 @@
 
 		&__date { 
 			width: 24vh;
-			margin: 3.5vh 0 0 0;
+			margin: 3vh 0 0 0;
 
 			&__text {
 				flex-direction: row;
@@ -118,6 +181,40 @@
 					padding: 0 2vh;
 					font-size: 1.25vh;
 					backdrop-filter: $--backdrop-filter;
+				}
+			}
+		}
+
+		&[data-is-loading='true'] {
+			.job-card {
+				&__date {
+					margin-right: 4vh;
+
+					&__text {
+						height: 6vh;
+					}
+				}
+
+				&__info {
+					&__company {
+						height: 6vh;
+						width: 40%;
+					}
+
+					&__description {
+						height: 18vh;
+						width: 80%;
+						margin-top: 1vh;
+					}
+
+					&__technologies { 
+						li {
+							padding: 0;
+							width: 10vh;
+							height: 4vh;
+							background-color: transparent;
+						}
+					}
 				}
 			}
 		}

@@ -21,7 +21,7 @@ const PostCard = ({ id, title, description, isLoading }: PostCardProps) => {
     }
 
     return (
-        <div className='post-card' data-is-loading={isLoading}>
+        <div className='post-card'>
             <div className='post-card__thumbnail'>
                 <img
                     src={`${

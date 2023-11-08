@@ -2,12 +2,27 @@ import React from 'react';
 import { v4 } from 'uuid';
 
 // Types
-import { Job } from '../../utils/interfaces';
+import { Job } from '../../../utils/interfaces';
 
 // Context
-import { LangContext } from '../../context';
+import { LangContext } from '../../../context';
 
-const JobCard = ({ startDate, endDate, company, positions, description, technologies }: Job) => {
+// Components
+import JobCardLoader from './JobCard.loader';
+
+export interface JobCardProps extends Job {
+    isLoading?: boolean;
+}
+
+const JobCard = ({
+    startDate,
+    endDate,
+    company,
+    positions,
+    description,
+    technologies,
+    isLoading,
+}: JobCardProps) => {
     const [selectedLang, _] = React.useContext(LangContext);
 
     const getMonthYear = (date?: Date, fallback = ''): string => {
@@ -21,21 +36,25 @@ const JobCard = ({ startDate, endDate, company, positions, description, technolo
         return `${month.charAt(0).toUpperCase()}${month.slice(1)} ${year}`;
     };
 
+    if (isLoading) {
+        return <JobCardLoader />;
+    }
+
     return (
-        <div className='job'>
-            <div className='job__date'>
-                <div className='job__date__text'>
+        <div className='job-card'>
+            <div className='job-card__date'>
+                <div className='job-card__date__text'>
                     <span>{getMonthYear(startDate)}</span>
-                    <div className='job__date__divider' />
+                    <div className='job-card__date__divider' />
                     <span>{getMonthYear(endDate, selectedLang['NOW_TEXT'])}</span>
                 </div>
             </div>
-            <div className='job__info'>
-                <div className='job__info__company'>{company}</div>
-                <div className='job__info__description'>
+            <div className='job-card__info'>
+                <div className='job-card__info__company'>{company}</div>
+                <div className='job-card__info__description'>
                     {description[selectedLang['LANGUAGE_LOCALE_URL']]}
                 </div>
-                <ul className='job__info__technologies'>
+                <ul className='job-card__info__technologies'>
                     {technologies.map((technology) => {
                         return <li key={v4()}>{technology}</li>;
                     })}

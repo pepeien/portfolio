@@ -1,13 +1,13 @@
 import React from 'react';
 import { useParams, useLocation, useHref, useNavigate } from 'react-router-dom';
 
-//Enums
+// Enums
 import { HttpStatusCode } from '../utils/enums';
 
-//Components
+// Components
 import { Button } from '../components';
 
-//Services
+// Services
 import { isStringValid, isURLValid, validateInitialValue } from '../utils/services';
 
 // Context

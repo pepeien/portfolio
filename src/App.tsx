@@ -1,20 +1,22 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-//Pages
-import { ContactPage, HomePage, PostListPage, PostPage, ProjectPage, StatusPage } from './pages';
-
-//Utils
+// Utils
 import { HttpStatusCode } from './utils/enums';
 
-//Types
+// Types
 import { Lang } from './utils/interfaces';
 
-//Langs
+// Langs
 import Langs from './langs';
 
-//Context
+// Context
 import { LangContext } from './context';
+
+// Pages
+import { HomePage, PostListPage, PostPage, ProjectPage, StatusPage } from './pages';
+
+// Components
 import { Navbar, Socials } from './components';
 
 const App = () => {
@@ -34,7 +36,6 @@ const App = () => {
                 <Routes>
                     <Route path='/'>
                         <Route index element={<HomePage />} />
-                        <Route path='contact' element={<ContactPage />} />
                         <Route path='posts' element={<PostListPage />}>
                             <Route path=':id' element={<PostPage />} />
                         </Route>
