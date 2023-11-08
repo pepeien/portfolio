@@ -24,9 +24,22 @@ const Navbar = () => {
     React.useEffect(() => {
         const langName = searchParams.get('locale');
 
-        if (!langName || !getLanguage(langName)) {
+        if (!langName && !selectedLang) {
             updateLanguageParam(Langs['en-us']['LANGUAGE_LOCALE_URL']);
 
+            return;
+        }
+
+        if (!langName) {
+            updateLanguageParam(selectedLang['LANGUAGE_LOCALE_URL']);
+
+            return;
+        }
+
+        if (
+            selectedLang['LANGUAGE_LOCALE_URL'].trim().toUpperCase() ===
+            langName.trim().toUpperCase()
+        ) {
             return;
         }
 
