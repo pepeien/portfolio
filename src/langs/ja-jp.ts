@@ -21,4 +21,10 @@ export default {
     BLOG_TITLE: 'ログ',
 
     CONTACT_TITLE: '接触',
+    CONTACT_EMAIL_LABEL: 'メール',
+    CONTACT_MESSAGE_LABEL: 'メッセージ',
+    CONTACT_SEND_LABEL: '送信',
+    CONTACT_SENDING_MESSAGE: '送信中です',
+    CONTACT_SUCCESS_MESSAGE: '送られた',
+    CONTACT_FAILURE_MESSAGE: '送信済み',
 } as Lang;

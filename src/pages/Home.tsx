@@ -5,7 +5,7 @@ import { v4 } from 'uuid';
 import { Job, Post, Project, ProjectMetadata } from '../utils/interfaces';
 
 // Components
-import { JobCard, PostCard, ProjectCard, Title, Waves } from '../components';
+import { ContactForm, JobCard, PostCard, ProjectCard, Title, Waves } from '../components';
 
 // Services
 import { LangContext } from '../context';
@@ -194,6 +194,14 @@ const Home = () => {
                                         );
                                     })}
                                 </ul>
+                            </div>
+                        </section>
+                        <section className='home__content__section home__content__section__contact'>
+                            <div className='home__content__section__title'>
+                                <h4>{selectedLang['CONTACT_TITLE']}</h4>
+                            </div>
+                            <div className='home__content__section__main'>
+                                <ContactForm />
                             </div>
                         </section>
                     </div>

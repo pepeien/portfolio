@@ -47,7 +47,7 @@
             &__title {
                 display: flex;
                 flex: 1;
-                justify-content: flex-start;
+                text-align: center;
 
                 h4 {
                     font-family: 'Inter';
@@ -117,6 +117,14 @@
                     }
                 }
             }
+
+            &__contact {
+                .home__content__section {
+                    &__title {
+                        justify-content: center;
+                    }
+                }
+            }
         }
     }
 }
@@ -143,12 +151,14 @@
 
             &__section {
                 flex-direction: row;
-                gap: 4vh;
+                gap: 5vh;
 
                 &__title {
+                    justify-content: flex-start;
+
                     h4 {
                         font-size: 13vh;
-                        margin-top: 2vh;
+                        margin-top: 0;
                     }
                 }
 
@@ -186,7 +196,7 @@
                 &__blog {
                     width: 70%;
                     flex-direction: column;
-    
+
                     .home__content__section {
                         &__title {
                             justify-content: center;
@@ -196,6 +206,14 @@
                             > ul {
                                 gap: 4vh;
                             }
+                        }
+                    }
+                }
+
+                &__contact {
+                    .home__content__section {
+                        &__title {
+                            justify-content: flex-start;
                         }
                     }
                 }

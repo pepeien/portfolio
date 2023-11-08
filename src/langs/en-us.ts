@@ -20,5 +20,11 @@ export default {
 
     BLOG_TITLE: 'Blog',
 
-    CONTACT_TITLE: 'Hire Me',
+    CONTACT_TITLE: 'Contact',
+    CONTACT_EMAIL_LABEL: 'Email',
+    CONTACT_MESSAGE_LABEL: 'Message',
+    CONTACT_SEND_LABEL: 'Send',
+    CONTACT_SENDING_MESSAGE: 'Sending',
+    CONTACT_SUCCESS_MESSAGE: 'Message sent',
+    CONTACT_FAILURE_MESSAGE: 'Failed to send the message',
 } as Lang;

@@ -3,9 +3,8 @@
     flex-direction: column;
     align-items: left;
     justify-content: center;
-    width: 100%;
+    width: 92%;
     height: 100%;
-    color: white;
     gap: 1.5rem 0;
     padding: 0 1rem;
 
@@ -14,38 +13,45 @@
         flex-direction: column;
         gap: 1rem 0;
 
+        label,
+        input,
+        textarea {  
+            color: $--accent-color;
+        }
+
         & label {
-            font-family: 'Ubuntu-Mono-Bold';
+            font-family: 'Inter';
+            font-weight: 700;
             font-size: 1.5rem;
         }
 
         & input,
         & textarea {
             background-color: transparent;
-            color: white;
             resize: none;
-            font-family: 'Ubuntu-Mono-Regular';
+            font-family: 'Inter';
             font-size: 1.4rem;
-            padding: 0.4rem 0.5rem;
-            margin: 0 2rem 0 0;
+            font-weight: 300;
+            padding: 0.3rem 1rem;
             min-height: 3rem;
             max-height: 12rem;
             border: #4f5a61 solid 0.01rem;
             border-radius: 15px;
 
             -webkit-transition: border-color ease-in-out 0.2s;
-            -moz-transition: border-color ease-in-out 0.2s;
-            -o-transition: border-color ease-in-out 0.2s;
-            transition: border-color ease-in-out 0.2s;
+            -moz-transition:    border-color ease-in-out 0.2s;
+            -o-transition:      border-color ease-in-out 0.2s;
+            transition:         border-color ease-in-out 0.2s;
 
             &:focus {
-                border-color: rgb(200, 156, 56);
+                border-color: $--accent-color;
                 outline: none;
             }
         }
 
         & textarea {
             height: 12rem;
+            padding: 1rem;
         }
     }
 
@@ -57,72 +63,77 @@
         background-color: transparent;
         border: none;
         outline: none;
-        color: white;
-        font-family: 'Arcane-Nine-Regular';
+        color: $--accent-color;
+        font-family: 'Inter';
+        font-weight: 700;
         padding: 0;
         border: #4f5a61 solid 0.01rem;
-        margin: 0 2rem 0 0;
         height: 3.6rem;
-        font-size: 2rem;
+        font-size: 1.7rem;
         border-radius: 15px;
-
-        &:active,
-        &:focus,
-        &:hover {
-            & div:first-of-type {
-                width: 100%;
-                background-color: #4f5a61;
-            }
-        }
-
-        & div:first-of-type {
-            pointer-events: none;
-            width: 0%;
-            height: 100%;
-
-            -webkit-transition: width ease-in-out 0.2s;
-            -moz-transition: width ease-in-out 0.2s;
-            -o-transition: width ease-in-out 0.2s;
-            transition: width ease-in-out 0.2s;
-        }
 
         & span {
             pointer-events: none;
             position: absolute;
         }
+
+        -webkit-transition: background-color ease-in-out 0.2s, border-color ease-in-out 0.2s;
+        -moz-transition:    background-color ease-in-out 0.2s, border-color ease-in-out 0.2s;
+        -o-transition:      background-color ease-in-out 0.2s, border-color ease-in-out 0.2s;
+        transition:         background-color ease-in-out 0.2s, border-color ease-in-out 0.2s;
+
+        &:active,
+        &:focus,
+        &:hover {
+            background-color: $--selected-color;
+            border-color: transparent;
+        }
+    }
+
+    &-status {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Roboto Condensed';
+        font-weight: 700;
+        font-size: 3vh;
+        color: $--green-accent-color;
+        margin-top: 3vh;
+        height: 4vh;
     }
 }
 
 @media (min-width: 801px) {
     .contact__form {
+        width: 100%;
         gap: 3vh 0;
         padding: 0 2vh;
 
         &-input {
-            gap: 3vh 0;
+            gap: 2vh 0;
 
-            & input,
-            & textarea,
-            & label {
+            label {
                 font-size: clamp(1.5vh, 1.5vh + 0.5rem, 4vh);
             }
 
-            & input,
-            & textarea {
-                margin: 0 4vh 0 0;
+            input,
+            textarea {
+                font-size: clamp(1.2vh, 1.2vh + 0.5rem, 4vh);
+                margin: 0;
                 min-height: 5vh;
                 max-height: 20vh;
-                padding: 0.6vh 1vh;
+                padding: 1vh 1.5vh;
             }
 
-            & textarea {
+            textarea {
                 height: 10vh;
+                padding: 1.5vh;
             }
         }
 
-        & button {
+        button {
             border: #4f5a61 solid 0.01rem;
-            margin: 0 4vh 0 0;
+            margin: 0;
             height: 8vh;
             font-size: clamp(2vh, 2vh + 0.5rem, 4vh);
 
