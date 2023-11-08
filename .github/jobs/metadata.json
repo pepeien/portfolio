@@ -1,6 +1,6 @@
 [
     {
-        "startDate": "2021-07-15T12:00:00.000Z",
+        "startDate": "2021-09-15",
         "company": "Prodemge",
         "positions": ["Developer"],
         "description": {
@@ -11,8 +11,8 @@
         "technologies": ["Springboot", "Java", "Angular", "Typescript", "Mainframe"]
     },
     {
-        "startDate": "2021-04-15T12:00:00.000Z",
-        "endDate": "2021-07-15T12:00:00.000Z",
+        "startDate": "2021-04-15",
+        "endDate": "2021-09-15",
         "company": "Kukac",
         "positions": ["Developer Intern"],
         "description": {
