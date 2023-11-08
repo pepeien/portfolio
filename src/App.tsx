@@ -36,10 +36,6 @@ const App = () => {
                 <Routes>
                     <Route path='/'>
                         <Route index element={<HomePage />} />
-                        <Route path='posts' element={<PostListPage />}>
-                            <Route path=':id' element={<PostPage />} />
-                        </Route>
-                        <Route path='projects' element={<ProjectPage />} />
                         <Route
                             path='*'
                             element={<StatusPage httpStatusCode={HttpStatusCode.NOT_FOUND} />}

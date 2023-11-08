@@ -92,10 +92,10 @@ const Navbar = () => {
                 </Link>
                 <ul className='navbar__redirectors --flex-row'>
                     <li>
-                        <Link to='/projects'>{selectedLang['PROJECTS_TITLE']}</Link>
+                        <Link to='/'>{selectedLang['PROJECTS_TITLE']}</Link>
                     </li>
                     <li>
-                        <Link to='/posts'>{selectedLang['BLOG_TITLE']}</Link>
+                        <Link to='/'>{selectedLang['BLOG_TITLE']}</Link>
                     </li>
                 </ul>
                 <div className='navbar__language --flex-column'>
