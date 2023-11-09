@@ -92,7 +92,8 @@ To make a project legible to be showcased, you'll need fulfill these steps:
 	"accentColor":  {HEX_VALUE_COLOR_STRING} [string]
 }
 ```
-The file should be named `metadata.json` and it must be placed at `.github/metadata.json` inside the target the repo.
+
+- The file should be named `metadata.json` and it must be placed at `.github/metadata.json` inside the target the repo;
 
 - The repo must be manually added to the `.github/jobs/metadata.json` file containing the proper data.
 
