@@ -27,4 +27,7 @@ export default {
     CONTACT_SENDING_MESSAGE: 'Sending',
     CONTACT_SUCCESS_MESSAGE: 'Message sent',
     CONTACT_FAILURE_MESSAGE: 'Failed to send the message',
+
+    FOOTER_TEXT_1: "3rd time's a charm",
+    FOOTER_TEXT_2: 'Made by Erick Frederick',
 } as Lang;

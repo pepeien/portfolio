@@ -27,4 +27,7 @@ export default {
     CONTACT_SENDING_MESSAGE: 'Enviando',
     CONTACT_SUCCESS_MESSAGE: 'Menssagem enviada',
     CONTACT_FAILURE_MESSAGE: 'Falha ao enviar a messagem',
+
+    FOOTER_TEXT_1: 'Agora vai',
+    FOOTER_TEXT_2: 'Feito por Erick Frederick',
 } as Lang;

@@ -27,4 +27,7 @@ export default {
     CONTACT_SENDING_MESSAGE: '送信中です',
     CONTACT_SUCCESS_MESSAGE: '送られた',
     CONTACT_FAILURE_MESSAGE: '送信済み',
+
+    FOOTER_TEXT_1: '三度目の正直',
+    FOOTER_TEXT_2: 'メイド・バイ エリック・フレデリック',
 } as Lang;

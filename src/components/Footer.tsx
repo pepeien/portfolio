@@ -1,10 +1,17 @@
 import React from 'react';
 
+// Context
+import { LangContext } from '../context';
+
 const Footer = () => {
+    const [selectedLang, setSelectedLang] = React.useContext(LangContext);
+
     return (
         <footer>
-            <span>3rd time is a charm {'┐(︶▽︶)┌'}</span>
-            <span>Made by Erick Frederick</span>
+            <span>
+                {selectedLang['FOOTER_TEXT_1']} {'┐(︶▽︶)┌'}
+            </span>
+            <span>{selectedLang['FOOTER_TEXT_2']} </span>
         </footer>
     );
 };
