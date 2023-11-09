@@ -10,8 +10,8 @@ import { ContactForm, JobCard, PostCard, ProjectCard, Title, Waves } from '../co
 // Services
 import { LangContext } from '../context';
 
-const MAX_PROJECT_SHOWCASE_COUNT = 3;
-const MAX_JOB_SHOWCASE_COUNT = 2;
+const MAX_PROJECT_SHOWCASE_COUNT = 4;
+const MAX_JOB_SHOWCASE_COUNT = 3;
 const MAX_POST_SHOWCASE_COUNT = 3;
 
 const Home = () => {
@@ -42,25 +42,22 @@ const Home = () => {
         )
             .then((_res) => _res.json())
             .then((_projects: Project[]) => {
-                const updatedProjects: Project[] = projects;
+                const updatedProjects: Project[] = _projects;
 
-                _projects.slice(0, MAX_PROJECT_SHOWCASE_COUNT).forEach((project, index) => {
+                _projects.slice(0, MAX_PROJECT_SHOWCASE_COUNT).forEach((_project, index) => {
                     fetch(
                         `${process.env.REACT_APP_GITHUB_CDN ?? ''}/${
-                            project.repo
+                            _project.repo
                         }/master/.github/metadata.json?raw=true`,
                     )
                         .then((res) => res.json())
                         .then((metadata: ProjectMetadata) => {
-                            updatedProjects[index] = project;
+                            updatedProjects[index] = _project;
                             updatedProjects[index].metadata = metadata;
 
-                            setProjects(updatedProjects);
-
-                            if (index + 1 === projects.length) {
-                                setTimeout(() => {
-                                    setIsLoadingProjects(false);
-                                }, 600);
+                            if (index + 1 === _projects.length) {
+                                setProjects(updatedProjects);
+                                setIsLoadingProjects(false);
                             }
                         })
                         .catch((error) => {
