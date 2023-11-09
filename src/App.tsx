@@ -14,10 +14,10 @@ import Langs from './langs';
 import { LangContext } from './context';
 
 // Pages
-import { HomePage, PostListPage, PostPage, ProjectPage, StatusPage } from './pages';
+import { HomePage, StatusPage } from './pages';
 
 // Components
-import { Navbar, Socials } from './components';
+import { Footer, Navbar, Socials } from './components';
 
 const App = () => {
     const [selectedLang, setSelectedLang] = React.useState<Lang>(Langs['en-us']);
@@ -42,6 +42,7 @@ const App = () => {
                         />
                     </Route>
                 </Routes>
+                <Footer />
             </Router>
         </LangContext.Provider>
     );

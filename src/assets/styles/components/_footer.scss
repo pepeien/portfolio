@@ -1,0 +1,32 @@
+footer {
+	width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1vh;
+    padding-bottom: 2vh;
+    font-family: 'Ubuntu Mono';
+    font-size: 1.4vh;
+    color: $--accent-color;
+	background-color: $--grey-background-color;
+
+	span {
+		&:hover {
+			cursor: default;
+		}
+
+		&:first-of-type {
+			opacity: 0;
+
+			-webkit-transition: opacity ease-in-out 0.3s;
+			-moz-transition:    opacity ease-in-out 0.3s;
+			-o-transition:      opacity ease-in-out 0.3s;
+			transition:         opacity ease-in-out 0.3s;
+
+			&:hover, &:focus {
+				opacity: 1;
+			}
+		}
+	}
+}

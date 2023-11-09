@@ -74,7 +74,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className='navbar' data-theme={'LIGHT'}>
+        <nav className='navbar'>
             <div className='navbar__wrapper --flex-row'>
                 <Link className='navbar__button --flex-column' to='/'>
                     <svg
@@ -119,7 +119,7 @@ const Navbar = () => {
                                         }
                                     >
                                         <span>{lang['LANGUAGE']}</span>
-                                        <div />
+                                        <div className='navbar__indicator' />
                                     </button>
                                 </li>
                             );

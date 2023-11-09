@@ -2,7 +2,6 @@
     position: fixed;
     height: 6vh;
     z-index: $--max-z-index;
-    margin: 0 auto;
     margin-top: 2dvh;
     opacity: 0;
 
@@ -34,6 +33,7 @@
             justify-content: center;
             align-items: center;
             gap: 0.65vh 0;
+            position: relative;
 
             a {
                 font-family: 'Roboto Condensed';
@@ -57,6 +57,7 @@
         margin-left: auto;
         border-radius: 50%;
         background-color: $--backdrop-background-color-mobile;
+        position: relative;
 
         box-shadow:         1px 2px 5px 0px rgba(0, 0, 0, 0.05);
         -webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.05);
@@ -137,49 +138,19 @@
                         -o-transition:      color ease-in-out 0.3s;
                         transition:         color ease-in-out 0.3s;
                     }
-
-                    div {
-                        position: absolute;
-                        height: 0.75vh;
-                        width: 2.75vh;
-                        background-color: $--selected-color;
-                        border-radius: 15px;
-                        opacity: 0;
-                        margin-top: 4vh;
-                    }
                 }
             }
         }
     }
 
-    &[data-theme='LIGHT'] {
-        .navbar {
-            &__redirectors {
-                li {
-                    a {
-                        color: $--backdrop-primary-color-light;
-                    }
-                }
-            }
-
-            &__button {
-                svg {
-                    fill: $--backdrop-primary-color-light;
-                }
-            }
-
-            &__language {
-                &__list {
-                    & li {
-                        & button {
-                            span {
-                                color: $--backdrop-primary-color-light;
-                            }
-                        }
-                    }
-                }
-            }
-        }
+    &__indicator {
+        position: absolute;
+        height: 0.75vh;
+        width: 2vh;
+        background-color: $--selected-color;
+        border-radius: 15px;
+        opacity: 0;
+        margin-top: 4vh;
     }
 }
 
@@ -201,6 +172,8 @@
             backdrop-filter: $--backdrop-filter;
 
             li {
+                gap: 1vh 0;
+
                 &:hover {
                     cursor: pointer;
                 }
@@ -218,19 +191,19 @@
         
                 & li {
                     & button {
-                        height: 6.5vh;
+                        height: 6vh;
                         padding: 2vh;
 
                         &:hover {
                             cursor: pointer;
                         }
-
-                        div { 
-                            margin-top: 4vh;
-                        }
                     }
                 }
             }
+        }
+
+        &__indicator { 
+            margin-top: 4vh;
         }
     }
 }
