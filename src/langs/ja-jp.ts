@@ -12,7 +12,7 @@ export default {
 
     ABOUT_TITLE: 'こにちわ、',
     ABOUT_TITLE_SECOND: '僕は',
-    ABOUT_NAME: 'ｴﾘｯｸ',
+    ABOUT_NAME: 'ｴﾘｯｸです',
 
     PROJECTS_TITLE: 'プロジェクトス',
 

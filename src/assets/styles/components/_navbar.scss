@@ -1,107 +1,108 @@
 .navbar {
     position: fixed;
-    height: 6vh;
     z-index: $--max-z-index;
-    margin-top: 2dvh;
+    bottom: 0;
+    right: 0;
     opacity: 0;
+    padding-top: 2vh;
+    background-color: $--backdrop-background-color-mobile;
+    border-top-left-radius: $--pill-border-radius;
+    width: 8vh;
+
+    -webkit-transition: border-radius ease-in-out 0.25s;
+    -moz-transition:    border-radius ease-in-out 0.25s;
+    -o-transition:      border-radius ease-in-out 0.25s;
+    transition:         border-radius ease-in-out 0.25s;
 
     -webkit-animation: fade-in 1s ease-in-out 1 forwards;
 	-moz-animation:    fade-in 1s ease-in-out 1 forwards;
 	-o-animation:      fade-in 1s ease-in-out 1 forwards;
 	animation:         fade-in 1s ease-in-out 1 forwards;
+    
+    box-shadow:         1px 2px 5px 0px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow:    1px 2px 5px 0px rgba(0, 0, 0, 0.05);
 
-    &__wrapper {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        gap: 0 1vh;
-    }
+    &[data-can-show-languages='true'] {
+        border-top-left-radius: 0;
 
-    &__redirectors {
-        gap: 3vh;
-        width: 100%;
-        height: 100%;
-        align-items: center;
-        justify-content: center;
-        padding: 0 2.5vh;
-        background-color: $--backdrop-background-color-mobile;
-        border-radius: $--pill-border-radius;
-
-        li {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 0.65vh 0;
-            position: relative;
-
-            a {
-                font-family: 'Roboto Condensed';
-                font-size: 2vh;
-                font-weight: 400;
-                color: $--backdrop-primary-color-dark;
-                text-decoration: none;
-
-                -webkit-transition: color ease-in-out 0.3s;
-                -moz-transition:    color ease-in-out 0.3s;
-                -o-transition:      color ease-in-out 0.3s;
-                transition:         color ease-in-out 0.3s;
+        .navbar {
+            &__language {  
+                &__list {
+                    display: flex;
+                    border-radius: 0;
+                    border-top-left-radius: $--squircle-border-radius;
+                    border-bottom-left-radius: $--squircle-border-radius;
+                }
             }
         }
     }
 
+    &__internals {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        flex-direction: column-reverse;
+    }
+
+    &__divider {
+        height: 1px;
+        width: 60%;
+        background-color: $--backdrop-primary-color-light;
+        margin: 1vh auto;
+        opacity: 0.6;
+    }
+
     &__button {
+        display: flex;
         align-items: center;
         justify-content: center;
-        padding: 1.5vh 1.8vh;
-        margin-left: auto;
+        width: 100%;
+        padding: 1.5vh 0;
         border-radius: 50%;
-        background-color: $--backdrop-background-color-mobile;
         position: relative;
 
-        box-shadow:         1px 2px 5px 0px rgba(0, 0, 0, 0.05);
-        -webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.05);
-        -moz-box-shadow:    1px 2px 5px 0px rgba(0, 0, 0, 0.05);
-
         svg {
-            height: 2.5vh;
-            width: 2.5vh;
-            fill: $--backdrop-primary-color-dark;
-       
+            width: 2.3rem;
+		    height: 1.3rem;
+
             -webkit-transition: fill ease-in-out 0.3s;
             -moz-transition:    fill ease-in-out 0.3s;
             -o-transition:      fill ease-in-out 0.3s;
             transition:         fill ease-in-out 0.3s;
+
+            path {
+                fill: $--backdrop-primary-color-light;
+            }
         }
     }
 
     &__language {
+        position: relative;
+
         &__list {
+            display: none;
+            width: 13vh;
             position: absolute;
             flex-direction: column;
             align-items: center;
             overflow: hidden;
-            display: none;
-            margin: 8vh 0 0 0;
-            top: 0;
-            right: 0;
+            top: -2vh;
+            right: 8vh;
             padding: 1.5vh 0;
+            gap: 1vh;
             background-color: $--backdrop-background-color-mobile;
             border-radius: $--squircle-border-radius;
             opacity: 0;
-        
-            -webkit-animation: fade-in 0.5s ease-in-out 1 0s forwards;
-            -moz-animation:    fade-in 0.5s ease-in-out 1 0s forwards;
-            -o-animation:      fade-in 0.5s ease-in-out 1 0s forwards;
-            animation:         fade-in 0.5s ease-in-out 1 0s forwards;
+
+            -webkit-animation: fade-in 0.25s ease-in-out 1 0.15s forwards;
+            -moz-animation:    fade-in 0.25s ease-in-out 1 0.15s forwards;
+            -o-animation:      fade-in 0.25s ease-in-out 1 0.15s forwards;
+            animation:         fade-in 0.25s ease-in-out 1 0.15s forwards;
 
             box-shadow:         1px 2px 5px 0px rgba(0, 0, 0, 0.05);
             -webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.05);
             -moz-box-shadow:    1px 2px 5px 0px rgba(0, 0, 0, 0.05);
-        
-            &[data-can-show='true'] {
-                display: flex;
-            }
         
             & li {
                 width: 100%;
@@ -129,7 +130,7 @@
                     padding: 0 1rem;
     
                     span {
-                        color: $--backdrop-primary-color-dark;
+                        color: $--backdrop-primary-color-light;
                         font-family: 'Roboto Condensed';
                         font-size: 1.5vh;
 
@@ -138,72 +139,93 @@
                         -o-transition:      color ease-in-out 0.3s;
                         transition:         color ease-in-out 0.3s;
                     }
+
+                    div {
+                        position: absolute;
+                        height: 0.2vh;
+                        width: 2vh;
+                        background-color: $--green-accent-color;
+                        opacity: 0;
+                        margin-top: 5.5vh;
+                    }                
                 }
             }
         }
     }
 
-    &__indicator {
-        position: absolute;
-        height: 0.75vh;
-        width: 2vh;
-        background-color: $--selected-color;
-        border-radius: 15px;
-        opacity: 0;
-        margin-top: 4vh;
+    &__socials {
+        ul {
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
     }
 }
 
 @media (min-width: 801px) {
     .navbar {
-        margin-top: 2dvh;
+        width: 7vh;
+        backdrop-filter: $--backdrop-filter;
+        background-color: $--backdrop-background-color;
 
         &__button {
-            background-color: $--backdrop-background-color;
-            backdrop-filter: $--backdrop-filter;
+            height: 2.5vh;
+            width: 100%;
+            padding: 1.5vh 0;
+
+            svg {
+                path {
+                    -webkit-transition: fill ease-in-out 0.3s;
+                    -moz-transition:    fill ease-in-out 0.3s;
+                    -o-transition:      fill ease-in-out 0.3s;
+                    transition:         fill ease-in-out 0.3s;
+                }
+            }
 
             &:hover {
                 cursor: pointer;
-            }
-        }
 
-        &__redirectors {
-            background-color: $--backdrop-background-color;
-            backdrop-filter: $--backdrop-filter;
-
-            li {
-                gap: 1vh 0;
-
-                &:hover {
-                    cursor: pointer;
+                svg {
+                    path {
+                        fill: $--backdrop-primary-color-dark;
+                    }
                 }
             }
         }
 
         &__language {
             &__list {
-                padding: 0.5vh 0;
-                margin: 7vh -3.3vh 0 0;
-                top: 0;
-                right: 0;
+                padding: 1vh 0.5vh;
                 background-color: $--backdrop-background-color;
                 backdrop-filter: $--backdrop-filter;
-        
-                & li {
-                    & button {
+                width: 12vh;
+                right: 7vh;
+    
+                li {
+                    button {
                         height: 6vh;
-                        padding: 2vh;
+
+                        div {
+                            height: 0.4vh;
+                            margin-top: 6vh;
+                        }
 
                         &:hover {
-                            cursor: pointer;
+                            span {
+                                color: $--backdrop-primary-color-dark;
+                            }
                         }
                     }
                 }
             }
         }
+    
+        &__socials {
+            width: 100%;
 
-        &__indicator { 
-            margin-top: 4vh;
+            ul {
+                width: 100%;
+            }
         }
     }
 }

@@ -14,10 +14,10 @@ import Langs from './langs';
 import { LangContext } from './context';
 
 // Pages
-import { HomePage, StatusPage } from './pages';
+import { HomePage, PostListPage, StatusPage } from './pages';
 
 // Components
-import { Footer, Navbar, Socials } from './components';
+import { Footer, Navbar } from './components';
 
 const App = () => {
     const [selectedLang, setSelectedLang] = React.useState<Lang>(Langs['en-us']);
@@ -32,10 +32,10 @@ const App = () => {
         <LangContext.Provider value={[selectedLang, updateSelectedLang]}>
             <Router>
                 <Navbar />
-                <Socials />
                 <Routes>
                     <Route path='/'>
                         <Route index element={<HomePage />} />
+
                         <Route
                             path='*'
                             element={<StatusPage httpStatusCode={HttpStatusCode.NOT_FOUND} />}

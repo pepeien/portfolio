@@ -4,7 +4,6 @@ export { default as Footer } from './Footer';
 export { default as LanguageButton } from './LanguageButton';
 export { default as Modal } from './Modal';
 export { default as Navbar } from './Navbar';
-export { default as Socials } from './Socials';
 export { default as Title } from './Title';
 export { default as Waves } from './Waves';
 
