@@ -10,6 +10,16 @@
         "technologies": ["Angular JS", "Typescript", "Node JS", "Socket.IO", "Mongo DB"]
     },
     {
+        "name": "Mechanical Weather",
+        "repo": "mechanical-weather",
+        "description": {
+            "en-us": "Desktop application for visualizing weather flutuations throughout the day",
+            "ja-jp": "一日の気象変動を可視化するデスクトップアプリケーション",
+            "pt-br": "Programa para visualização das flutuações do clima durante o dia"
+        },
+        "technologies": ["React JS", "Javascript", "Node JS", "Electron", "Arduino"]
+    },
+    {
         "name": "Namah",
         "repo": "namah",
         "description": {
