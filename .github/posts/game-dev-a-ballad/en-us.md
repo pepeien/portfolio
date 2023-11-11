@@ -14,7 +14,7 @@ Moreover, the next two semesters while still using C I got introduced to the wor
 
 The year is still 2018, while working as a I.T intern at my college during downtime, I stumbled upon a video named "So You Wanna Make Games?? | Episode 1: Intro to Game Art"
 
-[![So You Wanna Make Games?? | Episode 1: Intro to Game Art Thumbnail](https://img.youtube.com/vi/RqRoXLLwJ8g/0.jpg)](https://www.youtube.com/watch?v=RqRoXLLwJ8g)
+[![So You Wanna Make Games?? | Episode 1: Intro to Game Art Thumbnail](https://raw.githubusercontent.com/pepeien/portfolio/master/.github/posts/game-dev-a-ballad/images/so-you-wanna-make-games.png)](https://www.youtube.com/watch?v=RqRoXLLwJ8g)
 
 This awesome video its part 1 of a 11 episode series about how (roughly) Game Development works, I don't know why but their [explanation](https://www.youtube.com/watch?v=kr7XYXMM7-U) about Technical Art got me shooting for that position even though I knew nothing at all about how to make games nor how to make art. _"P.S I still don't"_
 
@@ -22,7 +22,7 @@ At the time I was getting reeled into Web Development, as a consequence I lost c
 
 Jumping towards the end of 2019 the very same company that kindled a little bit of Game Dev spirit inside me a few months back, Riot Games, dropped **this**
 
-[![Project A: Riot’s Tactical FPS Announcement | Riot Pls: 10th Anniversary Edition - League of Legends](https://img.youtube.com/vi/4iGU6PctOBg/0.jpg)](https://www.youtube.com/watch?v=4iGU6PctOBg)
+[![Project A: Riot’s Tactical FPS Announcement | Riot Pls: 10th Anniversary Edition - League of Legends](https://raw.githubusercontent.com/pepeien/portfolio/master/.github/posts/game-dev-a-ballad/images/project-a-reveal.png)](https://www.youtube.com/watch?v=4iGU6PctOBg)
 
 A trailer streamed during Riot's 10th Anniversary stream showcasing its new FPS game made with **Unreal Engine**, a first for Riot Games too, being only a **Indie Music Company** at the time, its name? Project A. _"Mysterioussss~"_. Being a CS:GO head during that time (_"I still am"_), this announcement tackled the issues the CS playerbase had for a long time as not present anymore, it was like a love letter for us TTS players, with that they had my attention.
 
@@ -30,7 +30,7 @@ Fast forward two years, before Project A (a.k.a VALORANT official) release, arou
 
 Around 2021, VALORANT had their release and Riot Nu started his series on teaching Game Dev using **Unreal Engine** that my dear readers was my second attempt on unreal's game dev, with someone's guidance and a mildly clear after work/college hours, I stuck through a little longer, even to make basic studies such as
 
-[![Delta Seconds tied movement study](https://img.youtube.com/vi/6VLlKZM4nmI/0.jpg)](https://www.youtube.com/watch?v=6VLlKZM4nmI)
+[![Delta Seconds tied movement study](https://raw.githubusercontent.com/pepeien/portfolio/master/.github/posts/game-dev-a-ballad/images/first-unreal-study.png)](https://www.youtube.com/watch?v=6VLlKZM4nmI)
 
 Around the same time, I got a new job as a software developer intern, so, in order to give my all both at the new job and college I dropped unreal _"sigh"_ again.
 
@@ -38,7 +38,7 @@ Fast Forward Q1 2023, graduated, junior web developer, full of spare time and bi
 
 Well, turns out Valve took that personally and released it CS2 few months after that statement, by then I've already implemented a few things and a **bunch** of bugs like this one
 
-[![Flying Guns](https://img.youtube.com/vi/OfkQLqU1AdA/0.jpg)](https://www.youtube.com/watch?v=OfkQLqU1AdA)
+[![Flying Guns](https://raw.githubusercontent.com/pepeien/portfolio/master/.github/posts/game-dev-a-ballad/images/flying-wepaons.png)](https://www.youtube.com/watch?v=OfkQLqU1AdA)
 
 Come to find out that, trying to learn game development while trying to make it mulitplayer is hard.
 
