@@ -1,0 +1,22 @@
+.post-list {
+	align-items: center;
+	gap: 4vh 0;
+	background-color: $--grey-background-color;
+
+	> h4 {
+		font-family: 'Inter';
+		font-size: 12vh;
+		margin-top: 10vh;
+		color: $--accent-color;
+	}
+
+	> ul {
+		width: 80%;
+
+		li {
+			.post-card {
+				height: 18vh;
+			}
+		}
+	}
+}

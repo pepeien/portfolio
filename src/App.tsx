@@ -14,7 +14,7 @@ import Langs from './langs';
 import { LangContext } from './context';
 
 // Pages
-import { HomePage, PostListPage, StatusPage } from './pages';
+import { HomePage, StatusPage } from './pages';
 
 // Components
 import { Footer, Navbar } from './components';
@@ -35,7 +35,6 @@ const App = () => {
                 <Routes>
                     <Route path='/'>
                         <Route index element={<HomePage />} />
-
                         <Route
                             path='*'
                             element={<StatusPage httpStatusCode={HttpStatusCode.NOT_FOUND} />}

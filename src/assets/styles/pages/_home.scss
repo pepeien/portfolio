@@ -46,8 +46,9 @@
 
             &__title {
                 display: flex;
-                flex: 1;
-                text-align: center;
+                flex-direction: column;
+                align-items: center;
+                gap: 3vh;
 
                 h4 {
                     font-family: 'Inter';
@@ -106,6 +107,7 @@
                 .home__content__section {
                     &__title {
                         justify-content: center;
+                        margin: 0 auto;
                     }
 
                     &__main {
@@ -154,7 +156,10 @@
                 gap: 5vh;
 
                 &__title {
+                    min-width: 50vh;
+                    max-width: 70vh;
                     justify-content: flex-start;
+                    gap: 3vh;
 
                     h4 {
                         font-size: 13vh;
@@ -166,14 +171,19 @@
                     .home__content__section {
                         &__title {
                             justify-content: flex-start;
+                            align-items: flex-start;
                         }
 
                         &__main {
                             > ul {
                                 display: grid;
-                                grid-template-columns: repeat(auto-fit, minmax(38vh, 1fr));
+                                grid-template-columns: repeat(auto-fit, minmax(50vh, 1fr));
                                 gap: 2.5vh;
                             }
+                        }
+
+                        &__redirector {
+                            align-self: flex-end;
                         }
                     }
                 }
@@ -181,10 +191,15 @@
                 &__job {
                     .home__content__section {
                         &__title {
-                            justify-content: flex-end;
+                            justify-content: flex-start;
+                            align-items: flex-end;
                         }
 
                         &__main {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 2vh;
+
                             > ul {
                                 flex-direction: column;
                                 gap: 4vh;
@@ -199,6 +214,7 @@
 
                     .home__content__section {
                         &__title {
+                            align-items: center;
                             justify-content: center;
                         }
 
@@ -213,6 +229,7 @@
                 &__contact {
                     .home__content__section {
                         &__title {
+                            align-items: flex-start;
                             justify-content: flex-start;
                         }
                     }

@@ -5,7 +5,15 @@ import { v4 } from 'uuid';
 import { Job, Post, Project, ProjectMetadata } from '../utils/interfaces';
 
 // Components
-import { ContactForm, JobCard, PostCard, ProjectCard, Title, Waves } from '../components';
+import {
+    ContactForm,
+    ExternalRedirector,
+    JobCard,
+    PostCard,
+    ProjectCard,
+    Title,
+    Waves,
+} from '../components';
 
 // Services
 import { LangContext } from '../context';
@@ -20,6 +28,7 @@ const Home = () => {
     const [isLoadingProjects, setIsLoadingProjects] = React.useState<boolean>(true);
     const [isLoadingJobs, setIsLoadingJobs] = React.useState<boolean>(true);
     const [isLoadingPosts, setIsLoadingPosts] = React.useState<boolean>(true);
+
     const [projects, setProjects] = React.useState<Project[]>(
         new Array(MAX_PROJECT_SHOWCASE_COUNT).fill({}),
     );
@@ -27,43 +36,49 @@ const Home = () => {
     const [posts, setPosts] = React.useState<Post[]>(new Array(MAX_POST_SHOWCASE_COUNT).fill({}));
 
     React.useEffect(() => {
-        updateProjectListing();
+        updateProjectListing()
+            .then((updatedProjects) => {
+                if (!updatedProjects) {
+                    return;
+                }
+
+                setProjects(updatedProjects);
+                setIsLoadingProjects(false);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
         updateJobListing();
         updatePostListing();
     }, []);
 
-    const updateProjectListing = () => {
+    const updateProjectListing = async () => {
         setIsLoadingProjects(true);
 
-        fetch(
+        return await fetch(
             `${
                 process.env.REACT_APP_GITHUB_CDN ?? ''
             }/portfolio/master/.github/projects/metadata.json?raw=true`,
         )
             .then((_res) => _res.json())
-            .then((_projects: Project[]) => {
-                const updatedProjects: Project[] = _projects;
+            .then(async (_projects: Project[]) => {
+                if (!_projects) {
+                    return;
+                }
 
-                _projects.slice(0, MAX_PROJECT_SHOWCASE_COUNT).forEach((_project, index) => {
-                    fetch(
+                const fetchedProjects: Project[] = _projects.slice(0, MAX_PROJECT_SHOWCASE_COUNT);
+
+                for (let i = 0; i < fetchedProjects.length; i++) {
+                    const projectMetadata = await fetch(
                         `${process.env.REACT_APP_GITHUB_CDN ?? ''}/${
-                            _project.repo
+                            fetchedProjects[i].repo
                         }/master/.github/metadata.json?raw=true`,
-                    )
-                        .then((res) => res.json())
-                        .then((metadata: ProjectMetadata) => {
-                            updatedProjects[index] = _project;
-                            updatedProjects[index].metadata = metadata;
+                    );
 
-                            if (index + 1 === _projects.length) {
-                                setProjects(updatedProjects);
-                                setIsLoadingProjects(false);
-                            }
-                        })
-                        .catch((error) => {
-                            console.error(error);
-                        });
-                });
+                    fetchedProjects[i].metadata = (await projectMetadata.json()) as ProjectMetadata;
+                }
+
+                return fetchedProjects;
             })
             .catch((error) => {
                 console.error(error);
@@ -80,16 +95,18 @@ const Home = () => {
         )
             .then((_res) => _res.json())
             .then((_jobs: Job[]) => {
+                if (!_jobs) {
+                    return;
+                }
+
                 const fetchedJobs: Job[] = _jobs.slice(0, MAX_JOB_SHOWCASE_COUNT);
 
                 for (let i = 0; i < fetchedJobs.length; i++) {
-                    if (fetchedJobs[i].startDate) {
-                        fetchedJobs[i].startDate = new Date(fetchedJobs[i].startDate);
-                    }
+                    const startDate = fetchedJobs[i].startDate;
+                    fetchedJobs[i].startDate = startDate ? new Date(startDate) : new Date();
 
-                    if (fetchedJobs[i].endDate) {
-                        fetchedJobs[i].endDate = new Date(fetchedJobs[i].endDate ?? new Date());
-                    }
+                    const endDate = fetchedJobs[i].endDate;
+                    fetchedJobs[i].endDate = endDate ? new Date(endDate) : undefined;
                 }
 
                 setJobs(fetchedJobs);
@@ -110,6 +127,10 @@ const Home = () => {
         )
             .then((_res) => _res.json())
             .then((_posts: Post[]) => {
+                if (!_posts) {
+                    return;
+                }
+
                 setPosts(_posts.slice(0, MAX_POST_SHOWCASE_COUNT));
                 setIsLoadingPosts(false);
             })
@@ -175,6 +196,14 @@ const Home = () => {
                             </div>
                             <div className='home__content__section__title'>
                                 <h4>{selectedLang['JOB_HISTORY_TITLE']}</h4>
+                                <ExternalRedirector
+                                    href={`${
+                                        process.env.REACT_APP_GITHUB_CDN ?? ''
+                                    }/portfolio/master/.github/resumes/Erick-Frederick-Resume-${
+                                        selectedLang['LANGUAGE_LOCALE_URL']
+                                    }.pdf`}
+                                    text={selectedLang['JOB_HISTORY_REDIRECTOR']}
+                                />
                             </div>
                         </section>
                         <section className='home__content__section home__content__section__blog'>

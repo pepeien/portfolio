@@ -15,8 +15,10 @@ export default {
     ABOUT_NAME: 'ERICK',
 
     PROJECTS_TITLE: 'Projetos',
+    PROEJCTS_REDIRECTOR: 'Acessar Arquivo de Projetos',
 
     JOB_HISTORY_TITLE: 'Experiência',
+    JOB_HISTORY_REDIRECTOR: 'Acessar Currículo',
 
     BLOG_TITLE: 'Blog',
 

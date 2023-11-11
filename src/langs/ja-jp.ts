@@ -15,8 +15,10 @@ export default {
     ABOUT_NAME: 'ｴﾘｯｸです',
 
     PROJECTS_TITLE: 'プロジェクトス',
+    PROEJCTS_REDIRECTOR: 'プロジェクト・アーカイブ',
 
     JOB_HISTORY_TITLE: '職歴',
+    JOB_HISTORY_REDIRECTOR: '履歴書',
 
     BLOG_TITLE: 'ログ',
 
