@@ -16,10 +16,10 @@
             color: #455657;
             opacity: 0;
     
-            -webkit-animation: fade-in 1s ease-in-out 1 1.6s forwards;
-            -moz-animation:    fade-in 1s ease-in-out 1 1.6s forwards;
-            -o-animation:      fade-in 1s ease-in-out 1 1.6s forwards;
-            animation:         fade-in 1s ease-in-out 1 1.6s forwards;
+            -webkit-animation: fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 0.6 forwards;
+            -moz-animation:    fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 0.6 forwards;
+            -o-animation:      fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 0.6 forwards;
+            animation:         fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 0.6 forwards;
         }
     
         h3 {
@@ -31,16 +31,16 @@
             opacity: 0;
             margin-left: 1vh;
 
-            -webkit-animation: fade-in 1s ease-in-out 1 1.2s forwards;
-            -moz-animation:    fade-in 1s ease-in-out 1 1.2s forwards;
-            -o-animation:      fade-in 1s ease-in-out 1 1.2s forwards;
-            animation:         fade-in 1s ease-in-out 1 1.2s forwards;
+            -webkit-animation: fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 0.2 forwards;
+            -moz-animation:    fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 0.2 forwards;
+            -o-animation:      fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 0.2 forwards;
+            animation:         fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 0.2 forwards;
 
             &:last-of-type {
-                -webkit-animation-delay: 1.4s;
-                -moz-animation-delay:    1.4s;
-                -o-animation-delay:      1.4s;
-                animation-delay:         1.4s;
+                -webkit-animation-delay: $--initial-fade-duration + 0.4;
+                -moz-animation-delay:    $--initial-fade-duration + 0.4;
+                -o-animation-delay:      $--initial-fade-duration + 0.4;
+                animation-delay:         $--initial-fade-duration + 0.4;
             }
         }
     }

@@ -9,16 +9,16 @@
 		width: 100%;
 		opacity: 0;
 
-		-webkit-animation: fade-in 1s ease-in-out 1 forwards;
-		-moz-animation:    fade-in 1s ease-in-out 1 forwards;
-		-o-animation:      fade-in 1s ease-in-out 1 forwards;
-		animation:         fade-in 1s ease-in-out 1 forwards;
+		-webkit-animation: fade-in $--initial-fade-duration ease-in-out 1 forwards;
+		-moz-animation:    fade-in $--initial-fade-duration ease-in-out 1 forwards;
+		-o-animation:      fade-in $--initial-fade-duration ease-in-out 1 forwards;
+		animation:         fade-in $--initial-fade-duration ease-in-out 1 forwards;
 
 		&:nth-of-type(1){
-			-webkit-animation-delay: 0.6s;
-			-moz-animation-delay:    0.6s;
-			-o-animation-delay:      0.6s;
-			animation-delay:         0.6s;
+			-webkit-animation-delay: $--initial-fade-duration * 0.6;
+			-moz-animation-delay:    $--initial-fade-duration * 0.6;
+			-o-animation-delay:      $--initial-fade-duration * 0.6;
+			animation-delay:         $--initial-fade-duration * 0.6;
 
 			path {
 				transform: translate(-45vh, 1vh) scale(2.5);
@@ -26,10 +26,10 @@
 		}
 
 		&:nth-of-type(2) {
-			-webkit-animation-delay: 0.4s;
-			-moz-animation-delay:    0.4s;
-			-o-animation-delay:      0.4s;
-			animation-delay:         0.4s;
+			-webkit-animation-delay: $--initial-fade-duration * 0.4;
+			-moz-animation-delay:    $--initial-fade-duration * 0.4;
+			-o-animation-delay:      $--initial-fade-duration * 0.4;
+			animation-delay:         $--initial-fade-duration * 0.4;
 
 			path {
 				transform: translate(-5vh, 1vh) scale(2.5);

@@ -11,6 +11,11 @@ footer {
     color: $--accent-color;
 	background-color: $--grey-background-color;
 
+	-webkit-animation: fade-in $--initial-fade-duration ease-in-out 1 forwards;
+	-moz-animation:    fade-in $--initial-fade-duration ease-in-out 1 forwards;
+	-o-animation:      fade-in $--initial-fade-duration ease-in-out 1 forwards;
+	animation:         fade-in $--initial-fade-duration ease-in-out 1 forwards;
+
 	span {
 		&:hover {
 			cursor: default;
