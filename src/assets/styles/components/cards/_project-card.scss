@@ -23,6 +23,7 @@
         height: 100%;
         gap: 0.5vh;
         padding: 3vh;
+        position: relative;
 
         &__info {
             display: flex;
@@ -67,10 +68,11 @@
         }
 
         &__arrow {
-			margin-top: auto;
-			margin-left: auto;
-			height: 4vh;
-            width: 4vh;
+            position: absolute;
+            bottom: 2vh;
+			right: 2vh;
+			height: 3vh;
+            width: 3vh;
 
             svg {
                 height: 100%;
