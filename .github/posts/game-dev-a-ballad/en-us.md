@@ -38,7 +38,7 @@ Fast Forward Q1 2023, graduated, junior web developer, full of spare time and bi
 
 Well, turns out Valve took that personally and released it CS2 few months after that statement, by then I've already implemented a few things and a **bunch** of bugs like this one
 
-[![Flying Guns](https://raw.githubusercontent.com/pepeien/portfolio/master/.github/posts/game-dev-a-ballad/images/flying-wepaons.png)](https://www.youtube.com/watch?v=OfkQLqU1AdA)
+[![Flying Guns](https://raw.githubusercontent.com/pepeien/portfolio/master/.github/posts/game-dev-a-ballad/images/flying-weapons.png)](https://www.youtube.com/watch?v=OfkQLqU1AdA)
 
 Come to find out that, trying to learn game development while trying to make it mulitplayer is hard.
 
