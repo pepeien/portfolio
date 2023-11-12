@@ -4,9 +4,11 @@ What's up? Erick here.  _Who else could it be?_
 
 This is not a blog post about how I became a great game developer that went through thick and thin to release my first game, nor how I joined a AAA studio _yet_. No, this is the history on how I managed to give up on learning the very same thing twice, and **now**, I think I've finally learned to love it.
 
+But before diving into this journey, first I'll need to give a little context about my past with programming.
+
 ## The Genesis
 
-But before diving into this journey, first I'll need to give a little context about my past with programming. Dialing back a few years (roughly Q3 2018) just after starting college, getting my feet wet on programming trough 101 classes.
+Dialing back a few years (roughly Q3 2018) just after starting college, getting my feet wet on programming trough 101 classes.
 
 The programming language? **C**. _Yeah, I know gotta love it, right?_
 
