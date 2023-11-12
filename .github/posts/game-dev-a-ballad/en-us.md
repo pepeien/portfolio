@@ -42,7 +42,16 @@ Fast forward two years, before Project A (a.k.a VALORANT) official release, arou
 
 Around 2021, VALORANT had their release and Riot Nu started his series on teaching Game Dev using **Unreal Engine**, that my dear readers, was the start of my second attempt on unreal's game development, with someone's guidance and a mildly clear schedule after work & college, I stuck through a little longer, even to make basic studies such as:
 
-[![Delta Seconds tied movement study](https://raw.githubusercontent.com/pepeien/portfolio/master/.github/posts/game-dev-a-ballad/images/first-unreal-study.png)](https://www.youtube.com/watch?v=6VLlKZM4nmI)
+<iframe
+width="560"
+height="315"
+src="https://www.youtube.com/embed/RqRoXLLwJ8g?si=tQTZF5iqYH7SD26d"
+title="YouTube video player"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+allowfullscreen
+>
+</iframe>
 
 Around the same time, I got a new job as a software developer intern, so, in order to give my all, both at the new job and college I dropped unreal _sigh_ again.
 
