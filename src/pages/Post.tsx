@@ -17,13 +17,14 @@ const PostPage = () => {
         if (!id) {
             return;
         }
-        /*`${
-    process.env.REACT_APP_GITHUB_CDN ?? ''
-}/portfolio/master/.github/posts/${id.trim()}/${
-    selectedLang['LANGUAGE_LOCALE_URL']
-}.md`,
-*/
-        fetch('../en-us.md')
+
+        fetch(
+            `${
+                process.env.REACT_APP_GITHUB_CDN ?? ''
+            }/portfolio/master/.github/posts/${id.trim()}/${
+                selectedLang['LANGUAGE_LOCALE_URL']
+            }.md`,
+        )
             .then((res) => res.text())
             .then((data) => {
                 setPostData(data);
