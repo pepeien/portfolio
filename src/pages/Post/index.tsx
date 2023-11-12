@@ -3,20 +3,36 @@ import { useParams } from 'react-router-dom';
 import Markdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 
+// Types
+import { HttpStatusCode } from '../../utils/enums';
+
 // Context
-import { LangContext } from '../context';
+import { LangContext } from '../../context';
+
+// Components
+import PostPageLoader from './index.loader';
+import { StatusPage } from '..';
 
 const PostPage = () => {
     const { id } = useParams();
 
     const [selectedLang, _] = React.useContext(LangContext);
 
+    const [isLoading, setIsLoading] = React.useState<boolean>(true);
     const [postData, setPostData] = React.useState<string>('');
 
     React.useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+    React.useEffect(() => {
         if (!id) {
+            setIsLoading(false);
+
             return;
         }
+
+        setIsLoading(true);
 
         fetch(
             `${
@@ -27,15 +43,28 @@ const PostPage = () => {
         )
             .then((res) => res.text())
             .then((data) => {
+                setIsLoading(false);
+
+                if (data === '404: Not Found') {
+                    setPostData('');
+
+                    return;
+                }
+
                 setPostData(data);
             })
-            .catch((error) => {
-                console.error(error);
+            .catch(() => {
+                setPostData('');
+                setIsLoading(false);
             });
     }, [selectedLang]);
 
-    if (!id) {
-        return <main className='post --page --flex-column'></main>;
+    if (isLoading) {
+        return <PostPageLoader />;
+    }
+
+    if (!id || !postData) {
+        return <StatusPage httpStatusCode={HttpStatusCode.NOT_FOUND} />;
     }
 
     return (
