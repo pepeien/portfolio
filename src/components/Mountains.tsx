@@ -2,7 +2,7 @@ import React from 'react';
 
 const BLUR_COEFFICIENT = 20;
 
-const Waves = () => {
+const Mountains = () => {
     const [scrollY, setScrollY] = React.useState<number>(window.scrollY);
 
     React.useEffect(() => {
@@ -12,9 +12,8 @@ const Waves = () => {
     }, [scrollY]);
 
     return (
-        <div className='waves --flex-column'>
+        <div className='mountains --flex-column'>
             <svg
-                id='wave'
                 viewBox='0 0 1440 420'
                 version='1.1'
                 xmlns='http://www.w3.org/2000/svg'
@@ -35,7 +34,6 @@ const Waves = () => {
                 ></path>
             </svg>
             <svg
-                id='wave-2'
                 viewBox='0 0 1440 420'
                 version='1.1'
                 xmlns='http://www.w3.org/2000/svg'
@@ -59,4 +57,4 @@ const Waves = () => {
     );
 };
 
-export default Waves;
+export default Mountains;

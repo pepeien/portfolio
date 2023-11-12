@@ -12,7 +12,7 @@ import {
     PostCard,
     ProjectCard,
     Title,
-    Waves,
+    Mountains,
 } from '../components';
 
 // Services
@@ -143,14 +143,9 @@ const Home = () => {
         <main className='home --page --flex-column'>
             <div className='home__content --flex-column'>
                 <Title />
-                <Waves />
+                <Mountains />
                 <div className='home__content__wrapper'>
-                    <svg
-                        id='wave-3'
-                        viewBox='0 0 1440 420'
-                        version='1.1'
-                        xmlns='http://www.w3.org/2000/svg'
-                    >
+                    <svg viewBox='0 0 1440 420' version='1.1' xmlns='http://www.w3.org/2000/svg'>
                         <defs>
                             <linearGradient id='sw-gradient-2' x1='0' x2='0' y1='1' y2='0'>
                                 <stop stopColor='rgba(52, 52, 52, 1)' offset='0%'></stop>
