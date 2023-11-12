@@ -2,10 +2,9 @@
 import React from 'react';
 import { AES, enc } from 'crypto-js';
 import { v4 as uuidV4 } from 'uuid';
-import * as THREE from 'three';
 
 //Internals
-import { ComponentAsProp, ObjectHoverCallBack } from '../types';
+import { ComponentAsProp } from '../types';
 import { DeviceOrientation } from '../interfaces';
 
 /**
@@ -110,40 +109,6 @@ export const getUniqueKey = (): string => {
     const uniqueKey = uuidV4();
 
     return uniqueKey;
-};
-
-/**
- *
- * @param event
- * @param renderer
- * @param mouse
- * @param raycaster
- * @param camera
- * @param objectList
- * @param callBack
- * @returns void
- */
-export const OnObjectHover = (
-    event: MouseEvent,
-    renderer: THREE.Renderer,
-    mouse: THREE.Vector2,
-    raycaster: THREE.Raycaster,
-    camera: THREE.Camera,
-    objectList: THREE.Object3D[],
-    callBack: ObjectHoverCallBack,
-): void => {
-    const rendererRect = renderer.domElement.getBoundingClientRect();
-
-    mouse.x = ((event.clientX - rendererRect.left) / rendererRect.width) * 2 - 1;
-    mouse.y = -((event.clientY - rendererRect.top) / rendererRect.height) * 2 + 1;
-
-    raycaster = new THREE.Raycaster();
-
-    raycaster.setFromCamera(mouse, camera);
-
-    if (typeof callBack === 'function') {
-        callBack(event, raycaster.intersectObjects(objectList, true));
-    }
 };
 
 /**

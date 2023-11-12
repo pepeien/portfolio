@@ -34,9 +34,7 @@ const Title = () => {
                     data-has-second={selectedLang['ABOUT_NAME_SECOND'] ? true : false}
                 >
                     <h2>{selectedLang['ABOUT_NAME']}</h2>
-                    {selectedLang['ABOUT_NAME_SECOND'] ? (
-                        <h3>{selectedLang['ABOUT_NAME_SECOND']}</h3>
-                    ) : undefined}
+                    <h3>{selectedLang['ABOUT_NAME_SECOND']}</h3>
                 </div>
             </div>
         </div>
