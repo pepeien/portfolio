@@ -4,29 +4,34 @@
     bottom: 0;
     right: 0;
     opacity: 0;
-    padding-top: 2vh;
-    background-color: $--backdrop-background-color-mobile;
-    border-top-left-radius: $--pill-border-radius;
     width: 8vh;
-
-    -webkit-transition: border-radius ease-in-out 0.25s;
-    -moz-transition:    border-radius ease-in-out 0.25s;
-    -o-transition:      border-radius ease-in-out 0.25s;
-    transition:         border-radius ease-in-out 0.25s;
 
     -webkit-animation: fade-in 1s ease-in-out 1 forwards;
 	-moz-animation:    fade-in 1s ease-in-out 1 forwards;
 	-o-animation:      fade-in 1s ease-in-out 1 forwards;
 	animation:         fade-in 1s ease-in-out 1 forwards;
+
+    &[data-can-show='false'] {
+        .navbar {
+            &__content {
+                -webkit-transform: translateY(125%);
+                -moz-transform:    translateY(125%);
+                -o-transform:      translateY(125%);
+                transform:         translateY(125%);
+            }
     
-    box-shadow:         1px 2px 5px 0px rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.05);
-    -moz-box-shadow:    1px 2px 5px 0px rgba(0, 0, 0, 0.05);
+            &__hamburguer-button {
+                border-top-left-radius: $--squircle-border-radius;
+            }
+        }
+    }
 
     &[data-can-show-languages='true'] {
-        border-top-left-radius: 0;
-
         .navbar {
+            &__content {
+                border-top-left-radius: 0;
+            }
+
             &__language {  
                 &__list {
                     display: flex;
@@ -36,6 +41,28 @@
                 }
             }
         }
+    }
+
+    &__content {
+        width: 100%;
+        padding-top: 2vh;
+        background-color: $--backdrop-background-color-mobile;
+        border-top-left-radius: $--pill-border-radius;
+        z-index: $--max-z-index + 1;
+
+        box-shadow:         1px 2px 5px 0px rgba(0, 0, 0, 0.05);
+        -webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.05);
+        -moz-box-shadow:    1px 2px 5px 0px rgba(0, 0, 0, 0.05);
+
+        -webkit-transform: translateY(0);
+        -moz-transform:    translateY(0);
+        -o-transform:      translateY(0);
+        transform:         translateY(0);
+
+        -webkit-transition: border-radius ease-in-out 0.25s, transform ease-in-out 0.5s;
+        -moz-transition:    border-radius ease-in-out 0.25s, transform ease-in-out 0.5s;
+        -o-transition:      border-radius ease-in-out 0.25s, transform ease-in-out 0.5s;
+        transition:         border-radius ease-in-out 0.25s, transform ease-in-out 0.5s;
     }
 
     &__internals {
@@ -59,9 +86,12 @@
         justify-content: center;
         width: 100%;
         padding: 1.5vh 0;
-        border-radius: 50%;
         position: relative;
-
+        background-color: transparent;
+        outline: transparent;
+        border: none;
+        overflow: hidden;
+    
         svg {
             width: 2.3rem;
 		    height: 1.3rem;
@@ -160,13 +190,53 @@
             width: 100%;
         }
     }
+    
+    &__hamburguer-button {
+        height: 7vh;
+        background-color: $--green-background-color;
+        z-index: $--max-z-index + 2;
+
+        box-shadow:         1px 2px 5px 0px rgba(0, 0, 0, 0.05);
+        -webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.05);
+        -moz-box-shadow:    1px 2px 5px 0px rgba(0, 0, 0, 0.05);
+
+        -webkit-transition: border-radius ease-in-out 0.25s;
+        -moz-transition:    border-radius ease-in-out 0.25s;
+        -o-transition:      border-radius ease-in-out 0.25s;
+        transition:         border-radius ease-in-out 0.25s;
+
+        svg {
+            path {
+                stroke: $--backdrop-primary-color-light;
+            }
+        }
+    }
 }
 
 @media (min-width: 801px) {
     .navbar {
         width: 7vh;
-        backdrop-filter: $--backdrop-filter;
-        background-color: $--backdrop-background-color;
+
+        &[data-can-show='false'] {
+            .navbar {
+                &__content {
+                    -webkit-transform: translateY(0);
+                    -moz-transform:    translateY(0);
+                    -o-transform:      translateY(0);
+                    transform:         translateY(0);
+                }
+            }
+        }
+
+        &__content {
+            backdrop-filter: $--backdrop-filter;
+            background-color: $--backdrop-background-color;
+
+            -webkit-transform: translateY(0);
+            -moz-transform:    translateY(0);
+            -o-transform:      translateY(0);
+            transform:         translateY(0);
+        }
 
         &__button {
             height: 2.5vh;
@@ -226,6 +296,10 @@
             ul {
                 width: 100%;
             }
+        }
+
+        &__hamburguer-button {
+            display: none;
         }
     }
 }
