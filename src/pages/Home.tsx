@@ -188,7 +188,13 @@ const Home = () => {
                                     {jobs.map((job) => {
                                         return (
                                             <li key={v4()}>
-                                                <JobCard {...job} isLoading={isLoadingJobs} />
+                                                <JobCard
+                                                    {...job}
+                                                    direction={
+                                                        selectedLang['JOB_HISTORY_DATE_DIRECTION']
+                                                    }
+                                                    isLoading={isLoadingJobs}
+                                                />
                                             </li>
                                         );
                                     })}

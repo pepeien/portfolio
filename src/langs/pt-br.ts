@@ -19,6 +19,7 @@ export default {
 
     JOB_HISTORY_TITLE: 'Experiência',
     JOB_HISTORY_REDIRECTOR: 'Acessar Currículo',
+    JOB_HISTORY_DATE_DIRECTION: 'normal',
 
     BLOG_TITLE: 'Blog',
 

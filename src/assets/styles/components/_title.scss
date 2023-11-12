@@ -44,6 +44,22 @@
             }
         }
     }
+
+    &__name {
+        &[data-has-second='true'] {
+            display: flex;
+            flex-direction: column;
+            gap: 1vh;
+
+            h2 {
+                font-size: 10vh;
+            }
+
+            h3 {
+                margin-left: auto;
+            }
+        }
+    }
 }
 
 @media (min-width: 1281px) {
@@ -61,6 +77,20 @@
             h3 { 
                 margin-left: 2vh;
                 font-size: 8vh;
+            }
+        }
+
+        &__name {
+            &[data-has-second='true'] {
+                flex-direction: row;
+
+                h2 {
+                    font-size: 38vh;
+                }
+
+                h3 {
+                    margin-top: 18vh;
+                }
             }
         }
 	}

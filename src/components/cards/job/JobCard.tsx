@@ -10,7 +10,10 @@ import { LangContext } from '../../../context';
 // Components
 import JobCardLoader from './JobCard.loader';
 
+export type DateDirection = 'normal' | 'inverse';
+
 export interface JobCardProps extends Job {
+    direction: string;
     isLoading?: boolean;
 }
 
@@ -21,11 +24,12 @@ const JobCard = ({
     positions,
     description,
     technologies,
+    direction,
     isLoading,
 }: JobCardProps) => {
     const [selectedLang, _] = React.useContext(LangContext);
 
-    const getMonthYear = (date?: Date, fallback = ''): string => {
+    const getMonthYear = (date?: Date, direction = 'normal', fallback = ''): string => {
         if (!date || !date.toLocaleDateString) {
             return fallback;
         }
@@ -33,7 +37,11 @@ const JobCard = ({
         const month = date.toLocaleDateString(selectedLang['LANGUAGE_LOCALE'], { month: 'long' });
         const year = date.toLocaleDateString(selectedLang['LANGUAGE_LOCALE'], { year: 'numeric' });
 
-        return `${month.charAt(0).toUpperCase()}${month.slice(1)} ${year}`;
+        if (direction === 'normal') {
+            return `${month.charAt(0).toUpperCase()}${month.slice(1)} ${year}`;
+        }
+
+        return `${year} ${month.charAt(0).toUpperCase()}${month.slice(1)}`;
     };
 
     if (isLoading) {
@@ -44,9 +52,9 @@ const JobCard = ({
         <div className='job-card'>
             <div className='job-card__date'>
                 <div className='job-card__date__text'>
-                    <span>{getMonthYear(startDate)}</span>
+                    <span>{getMonthYear(startDate, direction)}</span>
                     <div className='job-card__date__divider' />
-                    <span>{getMonthYear(endDate, selectedLang['NOW_TEXT'])}</span>
+                    <span>{getMonthYear(endDate, direction, selectedLang['NOW_TEXT'])}</span>
                 </div>
             </div>
             <div className='job-card__info'>

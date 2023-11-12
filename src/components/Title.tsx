@@ -29,7 +29,15 @@ const Title = () => {
                     <h3>{selectedLang['ABOUT_TITLE']}</h3>
                     <h3>{selectedLang['ABOUT_TITLE_SECOND']}</h3>
                 </div>
-                <h2>{selectedLang['ABOUT_NAME']}</h2>
+                <div
+                    className='title__name'
+                    data-has-second={selectedLang['ABOUT_NAME_SECOND'] ? true : false}
+                >
+                    <h2>{selectedLang['ABOUT_NAME']}</h2>
+                    {selectedLang['ABOUT_NAME_SECOND'] ? (
+                        <h3>{selectedLang['ABOUT_NAME_SECOND']}</h3>
+                    ) : undefined}
+                </div>
             </div>
         </div>
     );

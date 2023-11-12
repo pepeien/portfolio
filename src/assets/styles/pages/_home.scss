@@ -41,7 +41,7 @@
         &__section {
             display: flex;
             flex-direction: column;
-            gap: 6vh;
+            gap: 8vh;
             width: 85%;
 
             &__title {
@@ -52,7 +52,7 @@
 
                 h4 {
                     font-family: 'Inter';
-                    font-size: 8vh;
+                    font-size: 7.5vh;
                     margin-top: 2vh;
                     color: $--accent-color;
                 }
