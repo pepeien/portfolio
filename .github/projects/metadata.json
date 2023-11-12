@@ -4,7 +4,7 @@
         "repo": "karikariyaki",
         "description": {
             "en-us": "Order status portal for internal fast food management system",
-            "ja-jp": "ファーストフード社内管理システムポータル",
+            "ja-jp": "ファストフード店管理システム",
             "pt-br": "Sistema de gerenciamento interno para portal de pedidos"
         },
         "technologies": ["Angular JS", "Typescript", "Node JS", "Socket.IO", "Mongo DB"]
