@@ -62,7 +62,7 @@
     }
 }
 
-@media (min-width: 1281px) {
+@media (min-width: $--min-desktop-width) {
 	.title {
 		height: 60vh;
 

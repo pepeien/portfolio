@@ -124,7 +124,7 @@
     }
 }
 
-@media (min-width: 1281px) {
+@media (min-width: $--min-desktop-width) {
     .project-card {
         border-radius: 1.5vh;
         align-items: flex-start;

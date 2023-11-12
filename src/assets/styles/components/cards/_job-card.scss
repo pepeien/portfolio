@@ -139,7 +139,7 @@
 	}
 }
 
-@media (min-width: 1281px) {
+@media (min-width: $--min-desktop-width) {
 	.job-card {
 		flex-direction: row;
 		width: 100%;

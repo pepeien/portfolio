@@ -110,7 +110,7 @@
     }
 }
 
-@media (min-width: 1281px) {
+@media (min-width: $--min-desktop-width) {
     .post-card {
 		height: 21vh;
         border-radius: 1vh;

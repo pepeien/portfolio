@@ -38,7 +38,7 @@
 	}
 }
 
-@media (min-width: 1281px) {
+@media (min-width: $--min-desktop-width) {
 	.waves {
 		height: 58vh;
 

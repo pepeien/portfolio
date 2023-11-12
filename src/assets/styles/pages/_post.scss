@@ -38,7 +38,14 @@
         align-items: center;
         background-color: $--backdrop-primary-color-light;
         color: $--grey-background-color;
-        padding: 4vh 0;
+        padding-top: 4vh;
+
+        &__footer {
+            -webkit-transform: translateX(-35vh);
+            -moz-transform:    translateX(-35vh);
+            -o-transform:      translateX(-35vh);
+            transform:         translateX(-35vh);
+        }
     }
 
     .markdown-body {
@@ -1128,7 +1135,7 @@
     }
 }
 
-@media (min-width: 1281px) {
+@media (min-width: $--min-desktop-width) {
     .post {
         &__banner {
             height: auto;
@@ -1141,7 +1148,16 @@
         }
     
         &__content {
-            padding: 4vh 0;
+            padding-top: 4vh;
+
+            &__footer {
+               height: 30vh;
+
+               -webkit-transform: translateX(-65vh);
+               -moz-transform:    translateX(-65vh);
+               -o-transform:      translateX(-65vh);
+               transform:         translateX(-65vh);
+            }
         }
 
         .markdown-body { 

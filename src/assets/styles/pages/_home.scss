@@ -131,7 +131,7 @@
     }
 }
 
-@media (min-width: 1281px) {
+@media (min-width: $--min-desktop-width) {
     .home {
         &__content {
             &__wrapper {

@@ -20,7 +20,7 @@
 	}
 }
 
-@media (min-width: 1281px) {
+@media (min-width: $--min-desktop-width) {
 	.external-redirector {
 		&:hover {
 			span {
