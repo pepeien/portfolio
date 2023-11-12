@@ -26,7 +26,7 @@ The year is still 2018, while working as a I.T intern at my college, during down
 src="https://www.youtube.com/embed/RqRoXLLwJ8g?si=tQTZF5iqYH7SD26d"
 title="YouTube video player"
 frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share"
+allow="autoplay"
 allowfullscreen
 >
 </iframe>
@@ -47,7 +47,7 @@ Jumping towards the end of 2019 the very same company that kindled a little bit 
 src="https://www.youtube.com/embed/4iGU6PctOBg?si=AwWVMoaD2a-sXhfU"
 title="YouTube video player"
 frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share"
+allow="autoplay"
 allowfullscreen
 >
 </iframe>
@@ -64,7 +64,7 @@ Around 2021, VALORANT had their release and Riot Nu started his series on teachi
 src="https://www.youtube.com/embed/heBOfv-p3aA?si=VO-3_e7jDASHTZ2e"
 title="YouTube video player"
 frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share"
+allow="autoplay"
 allowfullscreen
 >
 </iframe>
@@ -87,7 +87,7 @@ It turns out they took it personally and announced Counter Strike 2 a few months
 src="https://www.youtube.com/embed/tqKrT3i0ja4?si=vT5zbzat5pOTQUE1"
 title="YouTube video player"
 frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share"
+allow="autoplay"
 allowfullscreen
 >
 </iframe>

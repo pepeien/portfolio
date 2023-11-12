@@ -1,10 +1,10 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import Markdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 
 // Context
 import { LangContext } from '../context';
-import { useParams } from 'react-router-dom';
 
 const PostPage = () => {
     const { id } = useParams();
