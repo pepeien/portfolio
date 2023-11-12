@@ -24,7 +24,7 @@
         "repo": "namah",
         "description": {
             "en-us": "Blog/E-commerce mock app",
-            "ja-jp": "ブログ/Eコマースモックアプリ",
+            "ja-jp": "ブログ/ECサイト",
             "pt-br": "Simulador de Blog/E-commerce"
         },
         "technologies": ["React JS", "Typescript", "Node JS", "Mongo DB"]
