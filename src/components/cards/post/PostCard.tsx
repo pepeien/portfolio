@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // Type
 import { Post } from '../../../utils/interfaces';
@@ -21,7 +22,7 @@ const PostCard = ({ id, title, description, isLoading }: PostCardProps) => {
     }
 
     return (
-        <div className='post-card'>
+        <Link className='post-card' to={`/post/${id}`}>
             <div className='post-card__thumbnail'>
                 <img
                     src={`${
@@ -45,7 +46,7 @@ const PostCard = ({ id, title, description, isLoading }: PostCardProps) => {
                     </svg>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 };
 
