@@ -1,4 +1,4 @@
-# Game development, a ballad
+# ゲーム開発、バラード
 
 What's up? Erick here.  _Who else could it be?_
 

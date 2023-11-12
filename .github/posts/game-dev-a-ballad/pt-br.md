@@ -1,4 +1,4 @@
-# Game development, a ballad
+# Desenvolvimento de jogos, a dança
 
 What's up? Erick here.  _Who else could it be?_
 
