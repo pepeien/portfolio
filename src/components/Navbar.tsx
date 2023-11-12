@@ -31,7 +31,7 @@ const Navbar = () => {
             return;
         }
 
-        if (!langName) {
+        if (!langName || !Object.keys(Langs).find((lang) => lang === langName)) {
             updateLanguageParam(selectedLang['LANGUAGE_LOCALE_URL']);
 
             return;
