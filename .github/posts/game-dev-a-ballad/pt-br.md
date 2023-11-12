@@ -1,26 +1,26 @@
-# Desenvolvimento de jogos, a dança
+# Desenvolvimento de jogos, uma balada
 
-What's up? Erick here.  _Who else could it be?_
+E aí? Erick aqui. _Quem mais poderia ser?_
 
-This is not a blog post about how I became a great game developer that went through thick and thin to release my first game, nor how I joined a AAA studio _yet_. No, this is the history on how I managed to give up on learning the very same thing twice, and **now**, I think I've finally learned to love it.
+Este não é um post de blog sobre como me tornei um grande desenvolvedor de jogos que passou por altos e baixos para lançar meu primeiro jogo, nem sobre como me juntei a um estúdio AAA _ainda_. Não, esta é a história de como consegui desistir de aprender a mesma coisa duas vezes e **agora**, acho que finalmente aprendi a gostar disso.
 
-But before diving into this journey, first I'll need to give a little context about my past with programming.
+Mas antes de mergulharmos nessa jornada, primeiro preciso dar um pouco de contexto sobre meu passado com programação.
 
-## The Genesis
+## O Início
 
-Dialing back a few years (roughly Q3 2018) just after starting college, getting my feet wet on programming through 101 classes.
+Retrocedendo alguns anos (aproximadamente no terceiro trimestre de 2018), logo após começar a faculdade, mergulhando na programação por meio de aulas introdutórias.
 
-The programming language? **C**. _Yeah, I know gotta love it, right?_
+A linguagem de programação? **C**. _Sim, eu sei, tem que amar, certo?_
 
-Conditionals, loops, functions and error handling, that's all I can recall doing that semester, while the very barebones nature of C made things a little complicated, I've never hated, avoided or searched for alternatives for the language during that time period, not because I needed to get those grades, but I just liked to solve problems from the ground-up, it felt... rather thrilling.
+Condicionais, loops, funções e tratamento de erros, isso é tudo que consigo lembrar de ter feito naquele semestre, enquanto a natureza muito básica do C complicava um pouco as coisas, eu nunca odiei, evitei ou procurei alternativas para a linguagem naquele período, não porque precisava tirar boas notas, mas simplesmente porque gostava de resolver problemas desde o início, era... bastante emocionante.
 
-Moreover, the next two semesters while still using C I got introduced to the world of **☆:~..Data Structures~..:☆**, although I didn't love it, I didn't hate either, stuff just made sense but it didn't peak my interest at the time, little did I know that was my last contact with that language, at least within my academic curriculum.
+Além disso, nos dois semestres seguintes, ainda usando C, fui apresentado ao mundo das **☆:~..Estruturas de Dados~..:☆**, embora não tenha amado, também não odiei, as coisas simplesmente faziam sentido, mas não despertaram meu interesse na época, mal sabia eu que esse foi meu último contato com essa linguagem, pelo menos dentro do meu currículo acadêmico.
 
-_What about graphs you might ask? We learned that using Java...Yeah I'm still salty about that, I was hoping for C++._
+_E quanto a gráficos, você pode perguntar? Aprendemos isso usando Java... Sim, ainda estou chateado com isso, estava esperando por C++._
 
-## So You Wanna Make Games
+## Então Você Quer Fazer Jogos
 
-The year is still 2018, while working as a I.T intern at my college, during downtime I stumbled upon this video:
+O ano ainda é 2018, enquanto trabalhava como estagiário de TI em minha faculdade, durante os momentos de folga, me deparei com este vídeo:
 
 <iframe
 src="https://www.youtube.com/embed/RqRoXLLwJ8g?si=tQTZF5iqYH7SD26d"
@@ -31,17 +31,17 @@ allowfullscreen
 >
 </iframe>
 
-This awesome video its part 1 of a 10 episode series made by Riot Games, about the basics of how Game Development works called **So You Wanna Make Games??** , I don't know why, but their [explanation](https://www.youtube.com/watch?v=kr7XYXMM7-U) about Technical Art got me shooting for that position even though I knew nothing at all about how to make games nor how to make art.
+Esse incrível vídeo é a parte 1 de uma série de 10 episódios feita pela Riot Games, sobre o básico de como funciona o desenvolvimento de jogos chamada **So You Wanna Make Games??**, não sei por que, mas a [explicação](https://www.youtube.com/watch?v=kr7XYXMM7-U) deles sobre Arte Técnica me fez almejar essa posição, mesmo sem saber absolutamente nada sobre como fazer jogos ou criar arte.
 
-_P.S - I still don't._
+_P.S - Ainda não sei._
 
-At the time I was getting reeled into Web Development, as a consequence I lost contact with C, after watching that video I instantly got the itches to learn game dev as a hobby, so I went to google and typed, "game engines that use C++", yes, dropping C after learning data structures was just like cutting a puppy short of his mom's milk.
+Na época, eu estava sendo atraído pelo desenvolvimento web e, como consequência, perdi o contato com C. Depois de assistir aquele vídeo, instantaneamente tive vontade de aprender desenvolvimento de jogos como um hobby. Então, fui ao Google e digitei "motores de jogo que usam C++", sim, abandonar C após aprender estruturas de dados foi como separar um filhote de sua mãe.
 
-Anyways, the first one that popped up was **Unreal Engine**, at the time I think the LTS version was **4.24**, got my 512GB HDD and downloaded UE4 with Visual Studio, booted up, but, between having a weak PC and having a packed semester at college really turned me down on messing with unreal.
+Enfim, o primeiro que apareceu foi o **Unreal Engine**, na época a versão LTS era a **4.24**, peguei meu HDD de 512GB, baixei o UE4 com o Visual Studio, inicializei, mas, entre ter um PC fraco e um semestre lotado na faculdade, acabei desanimando de mexer com o Unreal.
 
-## The conection
+## A Conexão
 
-Jumping towards the end of 2019 the very same company that kindled a little bit of Game Dev spirit inside me a few months back, Riot Games, dropped **this**:
+Avançando para o final de 2019, a mesma empresa que acendeu um pouco do espírito de desenvolvimento de jogos em mim alguns meses antes, a Riot Games, lançou **isso**:
 
 <iframe
 src="https://www.youtube.com/embed/4iGU6PctOBg?si=AwWVMoaD2a-sXhfU"
@@ -52,13 +52,13 @@ allowfullscreen
 >
 </iframe>
 
-A trailer premiered during Riot's 10th Anniversary stream, showcasing its new FPS game made with **Unreal Engine**, a first for Riot Games too, being only a **Indie Music Company** at the time, its name? Project A. Being a CS:GO head during that time _I still am_, this announcement brought fix to issues that the CS playerbase had for a long time, it was like a love letter for us TTS players, with that, they had my attention.
+Um trailer lançado durante a transmissão do 10º aniversário da Riot, mostrando seu novo jogo de tiro em primeira pessoa feito com **Unreal Engine**, uma novidade para a Riot Games, que era apenas uma **empresa de música independente** na época, com o nome de Projeto A. Sendo um entusiasta de CS:GO naquela época _ainda sou_, este anúncio resolveu problemas que a base de jogadores de CS tinha há muito tempo, era como uma carta de amor para nós jogadores de TTS, com isso, eles tinham minha atenção.
 
-Fast forward two years, before Project A (a.k.a VALORANT) official release, around Q2 2020 the closed beta was announced, and the twitch requirement to get access got me watching all kind of streamers related to VALORANT, one of them was Riot Nu (Marcus Reid) a Riot Games developer that worked on VALORANT, got the beta key, watched a lot of dev talks and videos available about VALORANT, joined a few discord servers and submited a few bug reports at r/VALORANT, did that for the remaining of the year.
+Avance dois anos, antes do lançamento oficial do Projeto A (também conhecido como VALORANT), por volta do segundo trimestre de 2020, o beta fechado foi anunciado, e o requisito da Twitch para obter acesso me fez assistir a todos os tipos de streamers relacionados ao VALORANT. Um deles era o Riot Nu (Marcus Reid), um desenvolvedor da Riot Games que trabalhou no VALORANT. Consegui a chave beta, assisti muitas palestras e vídeos de desenvolvedores disponíveis sobre o VALORANT, entrei em alguns servidores do Discord e enviei alguns relatórios de bugs para o r/VALORANT, fiz isso pelo resto do ano.
 
-## Something is cooking
+## Borbulhando
 
-Around 2021, VALORANT had their release and Riot Nu started his series on teaching Game Dev using **Unreal Engine**, that my dear readers, was the start of my second attempt on unreal's game development, with someone's guidance and a mildly clear schedule after work & college, I stuck through a little longer, even to make basic studies such as:
+Por volta de 2021, o VALORANT foi lançado e o Riot Nu começou sua série ensinando Desenvolvimento de Jogos usando a **Unreal Engine**, isso, queridos leitores, foi o início da minha segunda tentativa no desenvolvimento de jogos no Unreal, com a orientação de alguém e uma agenda um pouco mais clara após o trabalho e a faculdade, continuei um pouco mais, mesmo para fazer estudos básicos como:
 
 <iframe
 src="https://www.youtube.com/embed/heBOfv-p3aA?si=VO-3_e7jDASHTZ2e"
@@ -69,19 +69,19 @@ allowfullscreen
 >
 </iframe>
 
-Around the same time, I got a new job as a software developer intern, so, in order to give my all, both at the new job and college I dropped unreal _sigh_ again.
+Ao mesmo tempo, consegui um novo emprego como estagiário de desenvolvimento de software, então, para me dedicar totalmente tanto ao novo emprego quanto à faculdade, deixei o Unreal de lado _suspiro_ novamente.
 
-## Third time's a charm
+## Agora vai
 
-Fast Forward Q1 2023, graduated, web developer, full of spare time and bills while scrolling twitter, I saw this UE 5.2 print screen and it's newly UI and said to myself:
+Avançando para o primeiro trimestre de 2023, formado, desenvolvedor web, cheio de tempo livre e contas a pagar, enquanto navegava no Twitter, vi esta captura de tela do UE 5.2 e sua nova IU e disse para mim mesmo:
 
-_You know what, let me test this thing._
+_Sabe de uma coisa, vou testar isso._
 
-Downloaded the whole 9, opened for five minutes and closed it, suddenly the CS:GO Source 2 port rumours started rising again but this time, it seemed serious, so as joke with my discord crew (also CS heads) I said:
+Baixei tudo, abri por cinco minutos e fechei, de repente os rumores sobre a portabilidade do CS:GO para o Source 2 começaram a surgir novamente, mas desta vez, parecia sério. Então, como uma piada com meu grupo no Discord (também entusiastas de CS), eu disse:
 
-_I'm going to start making CS:GO on unreal with only C++ and going to release it before Valve._
+_Vou começar a fazer o CS:GO no Unreal apenas com C++ e vou lançar antes da Valve._
 
-It turns out they took it personally and announced Counter Strike 2 a few months after that statement, by then I've already implemented a few things and a **bunch** of bugs like this one:
+Acontece que eles levaram a sério e anunciaram o Counter Strike 2 alguns meses após essa declaração, até então eu já tinha implementado algumas coisas e **um monte** de bugs como este:
 
 <iframe
 src="https://www.youtube.com/embed/tqKrT3i0ja4?si=vT5zbzat5pOTQUE1"
@@ -92,10 +92,10 @@ allowfullscreen
 >
 </iframe>
 
-Come to find out that, trying to learn game development while making it mulitplayer is hard.
+Descobri que tentar aprender desenvolvimento de jogos enquanto o torna multiplayer é difícil.
 
-Still invested in this project having implemented, UI, few sound effects and basic mulitplayer components, such as, teams, damage, and inventory one thing I have to say, is that, even tough I only implemented two weapons to this game, I tried my best to make it as I could implement as much weapons I wanted and I'm pretty proud of it.
+Ainda investido neste projeto, tendo implementado UI, alguns efeitos sonoros e componentes básicos de multiplayer, como times, dano e inventário, uma coisa que tenho a dizer é que, mesmo tendo implementado apenas duas armas neste jogo, fiz o meu melhor para torná-lo flexível o suficiente para eu poder implementar quantas armas eu quisesse e estou bastante orgulhoso disso.
 
-Dialing up to Q4 2023 slowed down a bit to rework my portfolio and finally create a blog, but I'm already envisioning going back to the basics and learn game development using either OpenGL or Vulkan and documentating my journey here at this blog.
+Chegando ao último trimestre de 2023, diminuí um pouco o ritmo para reformular meu portfólio e finalmente criar um blog, mas já estou imaginando voltar às bases e aprender desenvolvimento de jogos usando OpenGL ou Vulkan e documentar minha jornada aqui neste blog.
 
-That's pretty much it, for now... Hoping this fire stays fiery(?) for a looong time.
+Isso é basicamente tudo, por enquanto... Esperando que esse fogo permaneça ardente por muito tempo.
