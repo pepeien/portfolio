@@ -10,7 +10,7 @@ Mas antes de mergulharmos nessa jornada, primeiro preciso dar um pouco de contex
 
 Retrocedendo alguns anos (segundo semestre de 2018), logo após começar a faculdade, mergulhando na programação por meio de aulas introdutórias.
 
-A linguagem de programação? **C**. _Sim, eu sei, tem que amar, certo?_
+A linguagem de programação? **C**. _Sim, eu sei, fazer oque né?_
 
 Condicionais, loops, funções e tratamento de erros, isso é tudo que consigo lembrar de ter feito naquele semestre, enquanto a natureza muito básica do C complicava um pouco as coisas, eu nunca odiei, evitei ou procurei alternativas para a linguagem naquele período, não porque precisava tirar boas notas, mas simplesmente porque gostava de resolver problemas desde o início, era... emocionante.
 
