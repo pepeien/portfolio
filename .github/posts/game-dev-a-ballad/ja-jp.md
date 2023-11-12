@@ -1,5 +1,3 @@
-# ゲーム開発、バラード
-
 What's up? Erick here.
 
 This is not a blog post about how I became a great game developer that went through thick and thin to release my first game, nor how I joined a AAA studio. No, this is the history on how I managed to give up on learning the very same thing twice, and **now**, I think I've finally learned to love it.

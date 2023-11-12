@@ -1,5 +1,3 @@
-# Desenvolvimento de jogos, uma balada
-
 E aí? Erick aqui.
 
 Este não é um post sobre como me tornei um grande desenvolvedor de jogos que passou por altos e baixos para lançar meu primeiro jogo, nem sobre como me juntei a um estúdio AAA. Não, esta é a história de como consegui desistir de aprender a mesma coisa duas vezes e **agora**, acho que finalmente aprendi a gostar disso.

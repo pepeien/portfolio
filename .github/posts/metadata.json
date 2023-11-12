@@ -2,9 +2,9 @@
     {
         "id": "game-dev-a-ballad",
         "title": {
-            "en-us": "Game development, a ballad",
-            "ja-jp": "ゲーム開発、バラード",
-            "pt-br": "Desenvolvimento de jogos, a dança"
+            "en-us": "Game development, a rough start",
+            "ja-jp": "ゲーム開発、大変なスタート",
+            "pt-br": "Desenvolvimento de jogos, um começo complicado"
         },
         "description": {
             "en-us": "A history about my rough start on learning unreal engine",
