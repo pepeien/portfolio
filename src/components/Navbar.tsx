@@ -1,11 +1,14 @@
 import React from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 //Context
 import { LangContext } from '../context';
 
 //Langs
 import Langs from '../langs';
+
+//Components
+import ParameterizedLink from './ParameterizedLink';
 
 const Navbar = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -82,7 +85,7 @@ const Navbar = () => {
         >
             <div className='navbar__content'>
                 <div className='navbar__internals --flex-row'>
-                    <Link className='navbar__button --flex-column' to='/'>
+                    <ParameterizedLink className='navbar__button --flex-column' to='/'>
                         <svg
                             version='1.0'
                             xmlns='http://www.w3.org/2000/svg'
@@ -95,7 +98,7 @@ const Navbar = () => {
 	c2.211,0,4-1.789,4-4V33.695l1.195,1.195c1.562,1.562,3.949,1.422,5.516-0.141C64.274,33.188,64.356,30.734,62.79,29.172z'
                             />
                         </svg>
-                    </Link>
+                    </ParameterizedLink>
                     <div className='navbar__language --flex-column'>
                         <div className='navbar__button' onClick={onMainButtonClick}>
                             <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 // Type
 import { Post } from '../../../utils/interfaces';
@@ -8,6 +7,7 @@ import { Post } from '../../../utils/interfaces';
 import { LangContext } from '../../../context';
 
 // Components
+import { ParameterizedLink } from '../..';
 import PostCardLoader from './PostCard.loader';
 
 export interface PostCardProps extends Post {
@@ -22,7 +22,7 @@ const PostCard = ({ id, title, description, isLoading }: PostCardProps) => {
     }
 
     return (
-        <Link className='post-card' to={`/post/${id}`}>
+        <ParameterizedLink className='post-card' to={`/post/${id}`}>
             <div className='post-card__thumbnail'>
                 <img
                     src={`${
@@ -46,7 +46,7 @@ const PostCard = ({ id, title, description, isLoading }: PostCardProps) => {
                     </svg>
                 </div>
             </div>
-        </Link>
+        </ParameterizedLink>
     );
 };
 

@@ -6,6 +6,7 @@ export { default as LanguageButton } from './LanguageButton';
 export { default as Modal } from './Modal';
 export { default as Mountains } from './Mountains';
 export { default as Navbar } from './Navbar';
+export { default as ParameterizedLink } from './ParameterizedLink';
 export { default as Title } from './Title';
 
 export { default as PostCard } from './cards/post/PostCard';
