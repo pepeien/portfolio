@@ -30,7 +30,7 @@ export default async function ProjectCard({
                 backgroundColor: identity?.primaryColor,
                 color: identity?.accentColor,
             }}
-            href={`${process.env.GITHUB_URL ?? ''}/${repo}`}
+            href={`${process.env.NEXT_PUBLIC_GITHUB_URL ?? ''}/${repo}`}
             target='_blank'
             rel='noreferrer'
         >
