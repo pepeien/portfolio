@@ -9,7 +9,7 @@ export default {
     LANGUAGE_LOCALE_URL: 'ja-jp',
     LANGUAGE_LOCALE_LINKEDIN: 'en_US',
 
-    HOME_PAGE_TITLE: 'Erick Frederick 「エリック・フレデリック」',
+    HOME_PAGE_TITLE: 'Erick Frederick',
     HOME_PAGE_DESCRIPTION:
         'Erick Frederick 「エリック・フレデリック」は、ユーザーと開発者のために、堅牢で応答性が高くアプリケーションを作成するソフトウェア・エンジニアである。',
 
