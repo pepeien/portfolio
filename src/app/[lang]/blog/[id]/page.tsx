@@ -43,6 +43,16 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
             type: 'article',
             authors: ['Erick Frederick'],
             publishedTime: post.date,
+            images: {
+                url: new URL(
+                    `${
+                        process.env.GITHUB_CDN ?? ''
+                    }/portfolio/development/.github/blog/${post.id.trim()}/thumbnail.png`,
+                ),
+                alt: `${post.id} banner`,
+                width: 1920,
+                height: 1080,
+            },
         },
     };
 }

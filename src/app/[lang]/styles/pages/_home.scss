@@ -103,7 +103,7 @@
 
             &__blog {
                 flex-direction: column;
-    
+
                 .home__content__section {
                     &__title {
                         justify-content: center;
@@ -115,6 +115,10 @@
                             display: flex;
                             flex-direction: column;
                             gap: 4vh;
+                                
+                            li {
+                                width: 100%;
+                            }
                         }
                     }
                 }

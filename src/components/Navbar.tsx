@@ -97,9 +97,9 @@ const Navbar = ({ dictionary, locales }: Props) => {
                         </li>
                         <li className='navbar__button --flex-column'>
                             <Link
-                                href={`${
-                                    process.env.LINKEDIN_URL ?? ''
-                                }/?locale=${'LANGUAGE_LOCALE_LINKEDIN'}`}
+                                href={`${process.env.LINKEDIN_URL ?? ''}/?locale=${
+                                    dictionary['LANGUAGE_LOCALE_LINKEDIN']
+                                }`}
                                 target='_blank'
                                 rel='noreferrer'
                             >
