@@ -2,16 +2,16 @@
 
 import React from 'react';
 
+// Types
+import { Dictionary } from '@utils/interfaces';
+
 const BLUR_COEFFICIENT = 20;
 
 interface Props {
-    title: string;
-    titleSecond: string;
-    name: string;
-    nameSecond?: string;
+    dictionary: Dictionary;
 }
 
-export default function Title({ title, titleSecond, name, nameSecond }: Props) {
+export default function Title({ dictionary }: Props) {
     const [scrollY, setScrollY] = React.useState<number>(0);
     const [innerHeight, setInnerHeight] = React.useState<number>(0);
 
@@ -39,12 +39,15 @@ export default function Title({ title, titleSecond, name, nameSecond }: Props) {
                 }}
             >
                 <div className='--flex-row'>
-                    <h3>{title}</h3>
-                    <h3>{titleSecond}</h3>
+                    <h3>{dictionary['ABOUT_TITLE']}</h3>
+                    <h3>{dictionary['ABOUT_TITLE_SECOND']}</h3>
                 </div>
-                <div className='title__name' data-has-second={'ABOUT_NAME_SECOND' ? true : false}>
-                    <h2>{name}</h2>
-                    <h3>{nameSecond}</h3>
+                <div
+                    className='title__name'
+                    data-has-second={dictionary['ABOUT_NAME_SECOND'] ? true : false}
+                >
+                    <h2>{dictionary['ABOUT_NAME']}</h2>
+                    <h3>{dictionary['ABOUT_NAME_SECOND']}</h3>
                 </div>
             </div>
         </div>

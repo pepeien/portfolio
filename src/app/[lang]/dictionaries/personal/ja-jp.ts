@@ -12,7 +12,7 @@ export default {
         },
     },
     blog: {
-        'game-dev-a-ballad': {
+        'game-dev-a-rough-start': {
             title: 'ゲーム開発、大変なスタート',
             description: 'Unreal Engine 習得の僕荒削りなスタートについてのログ',
         },

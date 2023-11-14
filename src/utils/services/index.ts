@@ -1,10 +1,8 @@
 //Externals
-import React from 'react';
 import { AES, enc } from 'crypto-js';
 import { v4 as uuidV4 } from 'uuid';
 
 //Internals
-import { ComponentAsProp } from '../types';
 import { DeviceOrientation } from '../interfaces';
 
 /**

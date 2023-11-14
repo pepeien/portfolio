@@ -12,7 +12,7 @@ export default {
         },
     },
     blog: {
-        'game-dev-a-ballad': {
+        'game-dev-a-rough-start': {
             title: 'Desenvolvimento de jogos, um começo complicado',
             description:
                 'Uma historia sobre o começo complicado na minha jornada com a unreal engine',

@@ -1,11 +1,10 @@
 import { Metadata } from 'next';
 import React from 'react';
+import Markdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 
 // Types
 import { Blog } from '@utils/interfaces';
-
-// Components
-import { AsyncMarkdown } from '@components';
 
 // Dictionary
 import { getAlternates, getPersonalDictionary } from '../../dictionaries';
@@ -16,7 +15,7 @@ interface Params {
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
     const blog: Blog[] = await fetch(
-        `${process.env.GITHUB_CDN}/portfolio/master/.github/blogs/metadata.json`,
+        `${process.env.GITHUB_CDN}/portfolio/development/.github/blog/metadata.json`,
     ).then((res) => res.json());
 
     const post = blog.find((_) => _.id === params.id);
@@ -48,8 +47,17 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     };
 }
 
-export default function Page({ params }: Params) {
+export default async function Page({ params }: Params) {
     const { id, lang } = params;
+
+    const data = await fetch(
+        `${
+            process.env.GITHUB_CDN ?? ''
+        }/portfolio/development/.github/blog/${id.trim()}/${lang}.md`,
+        { next: { revalidate: 10 } },
+    )
+        .then((_res) => _res.text())
+        .catch(() => '');
 
     return (
         <main className='blog --page --flex-column'>
@@ -60,17 +68,15 @@ export default function Page({ params }: Params) {
                         style={{
                             backgroundImage: `url("${
                                 process.env.GITHUB_CDN ?? ''
-                            }/portfolio/master/.github/blogs/${id.trim()}/thumbnail.png")`,
+                            }/portfolio/development/.github/blog/${id.trim()}/thumbnail.png")`,
                         }}
                     />
                 </div>
             </section>
             <section className='blog__content --flex-column'>
-                <AsyncMarkdown
-                    src={`${
-                        process.env.GITHUB_CDN ?? ''
-                    }/portfolio/master/.github/blogs/${id.trim()}/${lang}.md`}
-                />
+                <Markdown className='markdown' rehypePlugins={[rehypeRaw]}>
+                    {data}
+                </Markdown>
                 <svg
                     className='blog__content__footer'
                     viewBox='0 0 1440 420'

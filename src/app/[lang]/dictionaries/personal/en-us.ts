@@ -12,7 +12,7 @@ export default {
         },
     },
     blog: {
-        'game-dev-a-ballad': {
+        'game-dev-a-rough-start': {
             title: 'Game development, a rough start',
             description: 'A history about my rough start on learning unreal engine',
         },

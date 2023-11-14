@@ -66,12 +66,7 @@ export default async function Page({ params }: Props) {
     return (
         <main className='home --page --flex-column'>
             <div className='home__content --flex-column'>
-                <Title
-                    title={dictionary['ABOUT_TITLE']}
-                    titleSecond={dictionary['ABOUT_TITLE_SECOND']}
-                    name={dictionary['ABOUT_NAME']}
-                    nameSecond={dictionary['ABOUT_NAME_SECOND']}
-                />
+                <Title dictionary={dictionary} />
                 <Mountains />
                 <div className='home__content__wrapper'>
                     <svg viewBox='0 0 1440 420' version='1.1' xmlns='http://www.w3.org/2000/svg'>

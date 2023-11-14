@@ -1,5 +1,4 @@
-'use client';
-
+import Link from 'next/link';
 import React from 'react';
 
 export interface ExternalRedirectorProps {
@@ -9,7 +8,7 @@ export interface ExternalRedirectorProps {
 
 const ExternalRedirector = ({ href, text }: ExternalRedirectorProps) => {
     return (
-        <a
+        <Link
             className='external-redirector --flex-row'
             href={href.trim()}
             target='_blank'
@@ -24,7 +23,7 @@ const ExternalRedirector = ({ href, text }: ExternalRedirectorProps) => {
                     strokeLinejoin='round'
                 />
             </svg>
-        </a>
+        </Link>
     );
 };
 

@@ -1,4 +1,4 @@
-.async-markdown {
+.markdown {
 	display: flex;
 	flex-direction: column;
 	color-scheme: dark;
@@ -1119,7 +1119,7 @@
 }
 
 @media (min-width: $--min-desktop-width) {
-	.async-markdown {
+	.markdown {
 		width: 70%;
 
         h1 {

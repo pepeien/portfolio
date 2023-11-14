@@ -17,7 +17,7 @@ export default function BlogCard({ id, dictionary, personalDictionary }: BlogCar
                 <Image
                     src={`${
                         process.env.GITHUB_CDN ?? ''
-                    }/portfolio/master/.github/blogs/${id}/thumbnail.png`}
+                    }/portfolio/development/.github/blog/${id}/thumbnail.png`}
                     height={1080}
                     width={1920}
                     alt={`${id} thumbnail`}
