@@ -51,11 +51,9 @@ To make a job legible to be showcased, you'll need fulfill these steps:
 [
 	{
 	    "startDate": {JOB_START_DATE}       [string] (YYYY-MM-DD),
+		"endDate":   {JOB_START_DATE}       [string] (YYYY-MM-DD) - OPTIONAL,
 	    "company":   {JOB_COMPANY_NAME}     [string],
 	    "positions": {JOB_POSITION_HISTORY} [string[]],
-	    "description": {
-	        {LOCALE_ID} [string]: {JOB_DESCRIPTION_TRANSLATION} [string]
-	    },
 	    "technologies": {JOB_TECHNOLOGIES} [string[]]
 	}
 ]
@@ -72,12 +70,6 @@ To make a post legible to be showcased, you'll need fulfill these steps:
 [
 	{
 	    "id": {POST_ID} [string],
-	    "title": {
-	        {LOCALE_ID} [string]: {POST_TITLE_TRANSLATION} [string]
-	    },
-	    "description": {
-	        {LOCALE_ID} [string]: {POST_DESCRIPTION_TRANSLATION} [string]
-	    }
 	}
 ]
 ```
