@@ -9,14 +9,19 @@ import { Blog } from '@utils/interfaces';
 // Dictionary
 import { getAlternates, getPersonalDictionary } from '../../dictionaries';
 
+// Services
+import { getCurrentRepoCDN } from '@utils/services/api';
+
 interface Params {
     params: { lang: string; id: string };
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
-    const blog: Blog[] = await fetch(
-        `${process.env.GITHUB_CDN}/portfolio/development/.github/blog/metadata.json`,
-    ).then((res) => res.json());
+    const currentRepoCDN = getCurrentRepoCDN();
+
+    const blog: Blog[] = await fetch(`${currentRepoCDN}/.github/blog/metadata.json`).then((res) =>
+        res.json(),
+    );
 
     const post = blog.find((_) => _.id === params.id);
 
@@ -31,16 +36,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     const title = dictionary.blog[params.id].title;
     const description = dictionary.blog[params.id].description;
     const banner = {
-        url: new URL(
-            `${
-                process.env.GITHUB_CDN ?? ''
-            }/portfolio/development/.github/blog/${post.id.trim()}/thumbnail.png`,
-        ),
-        secureUrl: new URL(
-            `${
-                process.env.GITHUB_CDN ?? ''
-            }/portfolio/development/.github/blog/${post.id.trim()}/thumbnail.png`,
-        ),
+        url: new URL(`${currentRepoCDN}/.github/blog/${post.id.trim()}/thumbnail.png`),
+        secureUrl: new URL(`${currentRepoCDN}/.github/blog/${post.id.trim()}/thumbnail.png`),
         alt: `${post.id} banner`,
         width: 1920,
         height: 1080,
@@ -67,7 +64,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
             card: 'summary_large_image',
             title: title,
             description: description,
-            creator: '@pepeien',
+            creator: `@${process.env.NEXT_PUBLIC_TWITTER_HANDLE ?? ''}`,
             images: banner,
         },
     };
@@ -76,12 +73,10 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function Page({ params }: Params) {
     const { id, lang } = params;
 
-    const data = await fetch(
-        `${
-            process.env.GITHUB_CDN ?? ''
-        }/portfolio/development/.github/blog/${id.trim()}/${lang}.md`,
-        { next: { revalidate: 10 } },
-    )
+    const cdnURL = getCurrentRepoCDN();
+    const data = await fetch(`${cdnURL}/.github/blog/${id.trim()}/${lang}.md`, {
+        next: { revalidate: 10 },
+    })
         .then((_res) => _res.text())
         .catch(() => '');
 
@@ -92,9 +87,7 @@ export default async function Page({ params }: Params) {
                     <div
                         className='blog__banner__image'
                         style={{
-                            backgroundImage: `url("${
-                                process.env.GITHUB_CDN ?? ''
-                            }/portfolio/development/.github/blog/${id.trim()}/thumbnail.png")`,
+                            backgroundImage: `url("${cdnURL}/.github/blog/${id.trim()}/thumbnail.png")`,
                         }}
                     />
                 </div>

@@ -17,12 +17,16 @@ Then open [http://localhost:3000/](http://localhost:3000/) to see your app. The 
 
 |  Variable  | Description                       |  Type   | Required |
 | :--------: | :-------------------------------  | :-----: | :------: |
-| FORM_SERVICE_URL         | Form service URL       | String |    ✅    |
-| INITIAL_VALUE            | Secret value           | String |    ✅    |
-| NEXT_PUBLIC_GITHUB_URL   | Git plataform URL      | String |    ✅    |
-| NEXT_PUBLIC_LINKEDIN_URL | Linkedin URL           | String |    ✅    |
-| NEXT_PUBLIC_EMAIL_URL    | Email URL              | String |    ✅    |
-| GITHUB_CDN               | CDN used to fetch data | String |    ✅    |
+| NEXT_PUBLIC_FORM_SERVICE_URL | Form service URL       | String |    ✅    |
+| INITIAL_VALUE                | Secret value           | String |    ✅    |
+| NEXT_PUBLIC_GIT_URL          | Git plataform URL      | String |    ✅    |
+| NEXT_PUBLIC_LINKEDIN_URL     | Linkedin URL           | String |    ✅    |
+| NEXT_PUBLIC_EMAIL_URL        | Email URL              | String |    ✅    |
+| NEXT_PUBLIC_TWITTER_HANDLE   | Twitter handle         | String |    ✅    |
+| GITHUB_CDN                   | CDN used to fetch data | String |    ✅    |
+| GITHUB_USER                  | User github handle     | String |    ✅    |
+| GITHUB_REPO                  | Current repo name      | String |    ✅    |
+| GITHUB_BRANCH                | Target branch name     | String |    ✅    |
 
 ps. _I strongly advise to use github's, as the app is coded around that structure "see below"._
 

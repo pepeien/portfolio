@@ -4,6 +4,9 @@ import { v4 } from 'uuid';
 // Types
 import { PersonalDictionary, Project, ProjectIdentity } from '@utils/interfaces';
 
+// Services
+import { getBaseCDN } from '@utils/services/api';
+
 export interface ProjectCardProps extends Project {
     dictionary: PersonalDictionary;
 }
@@ -15,7 +18,7 @@ export default async function ProjectCard({
     dictionary,
 }: ProjectCardProps) {
     const identity: ProjectIdentity = await fetch(
-        `${process.env.GITHUB_CDN ?? ''}/${repo}/master/.github/metadata.json?raw=true`,
+        `${getBaseCDN()}/${repo}/master/.github/metadata.json?raw=true`,
         {
             next: { revalidate: 10 },
         },
@@ -30,7 +33,7 @@ export default async function ProjectCard({
                 backgroundColor: identity?.primaryColor,
                 color: identity?.accentColor,
             }}
-            href={`${process.env.NEXT_PUBLIC_GITHUB_URL ?? ''}/${repo}`}
+            href={`${process.env.NEXT_PUBLIC_GIT_URL ?? ''}/${repo}`}
             target='_blank'
             rel='noreferrer'
         >

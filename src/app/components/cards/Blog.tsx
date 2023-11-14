@@ -5,6 +5,9 @@ import React from 'react';
 // Type
 import { Dictionary, PersonalDictionary, Blog } from '@utils/interfaces';
 
+// Services
+import { getCurrentRepoCDN } from '@utils/services/api';
+
 export interface BlogCardProps extends Blog {
     dictionary: Dictionary;
     personalDictionary: PersonalDictionary;
@@ -15,9 +18,7 @@ export default function BlogCard({ id, dictionary, personalDictionary }: BlogCar
         <Link className='blog-card' href={`${dictionary['LANGUAGE_LOCALE_URL']}/blog/${id}`}>
             <div className='blog-card__thumbnail'>
                 <Image
-                    src={`${
-                        process.env.GITHUB_CDN ?? ''
-                    }/portfolio/development/.github/blog/${id}/thumbnail.png`}
+                    src={`${getCurrentRepoCDN()}/.github/blog/${id}/thumbnail.png`}
                     height={1080}
                     width={1920}
                     alt={`${id} thumbnail`}

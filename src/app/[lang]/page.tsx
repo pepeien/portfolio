@@ -18,6 +18,9 @@ import {
 // Dictionary
 import { getDictionary, getPersonalDictionary } from './dictionaries';
 
+// Services
+import { getCurrentRepoCDN } from '@utils/services/api';
+
 interface Props {
     params: { lang: string };
 }
@@ -30,18 +33,17 @@ export default async function Page({ params }: Props) {
     const dictionary = await getDictionary(params.lang);
     const personalDictionary = await getPersonalDictionary(params.lang);
 
-    const projects = await fetch(
-        `${process.env.GITHUB_CDN ?? ''}/portfolio/development/.github/projects/metadata.json`,
-        { next: { revalidate: 10 } },
-    )
+    const currentRepoCDN = getCurrentRepoCDN();
+    const projects = await fetch(`${currentRepoCDN}/.github/projects/metadata.json`, {
+        next: { revalidate: 10 },
+    })
         .then((_res) => _res.json())
         .then((_projects: Project[]) => _projects.slice(0, MAX_PROJECT_SHOWCASE_COUNT))
         .catch(() => [] as Project[]);
 
-    const jobs = await fetch(
-        `${process.env.GITHUB_CDN ?? ''}/portfolio/development/.github/jobs/metadata.json`,
-        { next: { revalidate: 10 } },
-    )
+    const jobs = await fetch(`${currentRepoCDN}/.github/jobs/metadata.json`, {
+        next: { revalidate: 10 },
+    })
         .then((_res) => _res.json())
         .then((_jobs: Job[]) =>
             _jobs.slice(0, MAX_JOB_SHOWCASE_COUNT).map(
@@ -55,10 +57,9 @@ export default async function Page({ params }: Props) {
         )
         .catch(() => [] as Job[]);
 
-    const blog = await fetch(
-        `${process.env.GITHUB_CDN ?? ''}/portfolio/development/.github/blog/metadata.json`,
-        { next: { revalidate: 10 } },
-    )
+    const blog = await fetch(`${currentRepoCDN}/.github/blog/metadata.json`, {
+        next: { revalidate: 10 },
+    })
         .then((_res) => _res.json())
         .then((_blog: Blog[]) => _blog.slice(0, MAX_BLOG_SHOWCASE_COUNT))
         .catch(() => [] as Blog[]);
@@ -120,9 +121,7 @@ export default async function Page({ params }: Props) {
                             <div className='home__content__section__title'>
                                 <h4>{dictionary['JOB_HISTORY_TITLE']}</h4>
                                 <ExternalRedirector
-                                    href={`${
-                                        process.env.GITHUB_CDN ?? ''
-                                    }/portfolio/master/.github/resumes/Erick-Frederick-Resume-${
+                                    href={`${getCurrentRepoCDN()}/.github/resumes/Erick-Frederick-Resume-${
                                         dictionary['LANGUAGE_LOCALE_URL']
                                     }.pdf`}
                                     text={dictionary['JOB_HISTORY_REDIRECTOR']}

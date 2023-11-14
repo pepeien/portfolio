@@ -50,7 +50,7 @@ const ContactForm = ({ dictionary }: Props) => {
             className='contact__form'
             onSubmit={submitContactForm}
             onFocus={() => setStatus('')}
-            action={process.env.FORM_SERVICE_URL}
+            action={process.env.NEXT_PUBLIC_FORM_SERVICE_URL}
             method='POST'
         >
             <div className='contact__form-input'>

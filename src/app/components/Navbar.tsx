@@ -85,7 +85,7 @@ const Navbar = ({ dictionary, locales }: Props) => {
                     <ul className='--flex-column'>
                         <li className='navbar__button --flex-column'>
                             <Link
-                                href={process.env.NEXT_PUBLIC_GITHUB_URL ?? ''}
+                                href={process.env.NEXT_PUBLIC_GIT_URL ?? ''}
                                 target='_blank'
                                 rel='noreferrer'
                             >
