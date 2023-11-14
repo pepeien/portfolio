@@ -10,7 +10,8 @@ export default {
     LANGUAGE_LOCALE_LINKEDIN: 'en_US',
 
     HOME_PAGE_TITLE: 'Erick Frederick',
-    HOME_PAGE_DESCRIPTION: "Erick Frederick's portfolio page",
+    HOME_PAGE_DESCRIPTION:
+        'Erick Frederick is a software engineer who creates robust, responsive and aesthetic applications for users and developers',
 
     NOW_TEXT: 'Present',
 

@@ -10,7 +10,8 @@ export default {
     LANGUAGE_LOCALE_LINKEDIN: 'pt_BR',
 
     HOME_PAGE_TITLE: 'Erick Frederick',
-    HOME_PAGE_DESCRIPTION: 'Página de portfólio do Erick Frederick',
+    HOME_PAGE_DESCRIPTION:
+        'Erick Frederick é um engenheiro de software que cria aplicações robustas, responsivas pensando em usuários e desenvolvedores.',
 
     NOW_TEXT: 'Presente',
 
