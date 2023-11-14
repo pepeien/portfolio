@@ -3,11 +3,6 @@
         "startDate": "2021-09-15",
         "company": "Prodemge",
         "positions": ["Developer"],
-        "description": {
-            "en-us": "Ported and maintained robust production code bases for a diverse array of projects from state government entities while having close contact with the clients in order to have brainstorm and feedback sessions mid-development.",
-            "ja-jp": "州政府機関の多様なプロジェクトのために、堅牢なプロダクション・コード・ベースの移植と保守を行い、その一方で、開発の途中でブレーンストーミングやフィードバック・セッションを行うために、クライアントと緊密に連絡を取り合った。",
-            "pt-br": "Portei e mantive bases de código em produção para uma lista abrangente de projetos para os órgãos estaduais, enquanto tendo contato direto com o cliente, tendo sessões de brainstorming e feedback durante o desenvolvimento."
-        },
         "technologies": ["Springboot", "Java", "Angular", "Typescript", "Mainframe", "JSF"]
     },
     {
@@ -15,11 +10,6 @@
         "endDate": "2021-09-15",
         "company": "Kukac",
         "positions": ["Developer Intern"],
-        "description": {
-            "en-us": "Enhanced IBM Watson powered applications, focusing on chatbot development, optimized Watson Assistant algorithms and implemented DevOps.",
-            "ja-jp": "IBM Watson搭載アプリケーションの強化 チャットボットス開発、Watson Assistantアルゴリズムの最適化、DevOpsの導入に注力。",
-            "pt-br": "Aprimorei aplicativos com tecnologia IBM Watson com foco no desenvolvimento de chatbots, implementei e otimizei algoritmos do Watson Assistant em conjunto DevOps."
-        },
         "technologies": ["Node JS", "Angular", "Typescript", "IBM Watson", "Docker"]
     }
 ]
