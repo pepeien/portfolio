@@ -1,39 +1,37 @@
+'use client';
+
+import Image from 'next/image';
 import React from 'react';
 
 // Type
-import { Post } from '../../../utils/interfaces';
-
-// Context
-import { LangContext } from '../../../context';
+import { Post } from '@utils/interfaces';
 
 // Components
-import { ParameterizedLink } from '../..';
 import PostCardLoader from './PostCard.loader';
 
 export interface PostCardProps extends Post {
     isLoading?: boolean;
 }
 
-const PostCard = ({ id, title, description, isLoading }: PostCardProps) => {
-    const [selectedLang, _] = React.useContext(LangContext);
-
+const PostCard = ({ id, isLoading }: PostCardProps) => {
     if (isLoading) {
         return <PostCardLoader />;
     }
 
     return (
-        <ParameterizedLink className='post-card' to={`/post/${id}`}>
+        <a className='post-card'>
             <div className='post-card__thumbnail'>
-                <img
+                <Image
                     src={`${
-                        process.env.REACT_APP_GITHUB_CDN ?? ''
+                        process.env.GITHUB_CDN ?? ''
                     }/portfolio/master/.github/posts/${id}/thumbnail.png?raw=true`}
+                    alt={`${id} thumbnail`}
                 />
             </div>
             <div className='post-card__data'>
                 <div className='post-card__data__info'>
-                    <h5>{title[selectedLang['LANGUAGE_LOCALE_URL']]}</h5>
-                    <span>{description[selectedLang['LANGUAGE_LOCALE_URL']]}</span>
+                    <h5></h5>
+                    <span></span>
                 </div>
                 <div className='post-card__data__arrow'>
                     <svg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -46,7 +44,7 @@ const PostCard = ({ id, title, description, isLoading }: PostCardProps) => {
                     </svg>
                 </div>
             </div>
-        </ParameterizedLink>
+        </a>
     );
 };
 

@@ -1,20 +1,24 @@
+'use client';
+
 import React from 'react';
 
-// Context
-import { LangContext } from '../context';
+// Interface
+import { Dictionary } from '@utils/interfaces';
 
-const ContactForm = () => {
+interface Props {
+    dictionary: Dictionary;
+}
+
+const ContactForm = ({ dictionary }: Props) => {
     const emailInputRef = React.useRef<HTMLInputElement>(null);
     const textInputRef = React.useRef<HTMLTextAreaElement>(null);
-
-    const [selectedLang, _] = React.useContext(LangContext);
 
     const [status, setStatus] = React.useState<string>('');
 
     const submitContactForm = (ev: React.FormEvent) => {
         ev.preventDefault();
 
-        setStatus('CONTACT_SENDING_MESSAGE');
+        setStatus(dictionary['CONTACT_SENDING_MESSAGE']);
 
         const form = ev.target as HTMLFormElement;
         const data = new FormData(form);
@@ -28,14 +32,14 @@ const ContactForm = () => {
             if (xhr.readyState !== XMLHttpRequest.DONE) return;
 
             if (xhr.status !== 200) {
-                setStatus('CONTACT_FAILURE_MESSAGE');
+                setStatus(dictionary['CONTACT_FAILURE_MESSAGE']);
 
                 return;
             }
 
             form.reset();
 
-            setStatus('CONTACT_SUCCESS_MESSAGE');
+            setStatus(dictionary['CONTACT_SUCCESS_MESSAGE']);
         };
 
         xhr.send(data);
@@ -46,11 +50,11 @@ const ContactForm = () => {
             className='contact__form'
             onSubmit={submitContactForm}
             onFocus={() => setStatus('')}
-            action={process.env.REACT_APP_FORM_SERVICE_URL}
+            action={process.env.FORM_SERVICE_URL}
             method='POST'
         >
             <div className='contact__form-input'>
-                <label htmlFor='email'>{selectedLang['CONTACT_EMAIL_LABEL']}</label>
+                <label htmlFor='email'>{dictionary['CONTACT_EMAIL_LABEL']}</label>
                 <input
                     ref={emailInputRef}
                     name='email'
@@ -59,14 +63,14 @@ const ContactForm = () => {
                 />
             </div>
             <div className='contact__form-input'>
-                <label htmlFor='message'>{selectedLang['CONTACT_MESSAGE_LABEL']}</label>
+                <label htmlFor='message'>{dictionary['CONTACT_MESSAGE_LABEL']}</label>
                 <textarea ref={textInputRef} name='message' className='contact__form-message' />
             </div>
             <button className='contact__form-button'>
-                <span>{selectedLang['CONTACT_SEND_LABEL']}</span>
+                <span>{dictionary['CONTACT_SEND_LABEL']}</span>
             </button>
             <div className='contact__form-status --flex-row'>
-                <span>{selectedLang[status]}</span>
+                <span>{status}</span>
             </div>
         </form>
     );

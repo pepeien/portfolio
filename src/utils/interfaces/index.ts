@@ -1,6 +1,12 @@
 export type { DeviceOrientation } from './device-orientation';
+export type {
+    JobDictionary,
+    PostDictionary,
+    ProjectDictionary,
+    PersonalDictionary,
+    Dictionary,
+} from './dictionary';
 export type { Job } from './job';
-export type { Lang } from './lang';
-export type { Post, Translations as PostTranslations } from './post';
-export type { Project, ProjectMetadata } from './project';
+export type { Post } from './post';
+export type { Project, ProjectIdentity } from './project';
 export type { Redirector } from './redirector';

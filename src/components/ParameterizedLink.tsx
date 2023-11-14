@@ -1,8 +1,11 @@
+'use client';
+
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
 
 // Services
-import { removeExtraSlashes } from '../utils/services/api';
+import { removeExtraSlashes } from '@utils/services/api';
+import { useSearchParams } from 'next/navigation';
 
 interface ParameterizedLinkProps {
     className?: string;
@@ -11,10 +14,13 @@ interface ParameterizedLinkProps {
 }
 
 const ParameterizedLink = ({ className, to, children }: ParameterizedLinkProps) => {
-    const { search } = useLocation();
+    const search = useSearchParams();
 
     return (
-        <Link className={className} to={removeExtraSlashes(to) + search}>
+        <Link
+            className={className}
+            href={`${removeExtraSlashes(to)}?locale=${search.get('locale')}`}
+        >
             {children}
         </Link>
     );

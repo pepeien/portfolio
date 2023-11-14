@@ -1,20 +1,15 @@
+'use client';
+
 import React from 'react';
 import { v4 } from 'uuid';
 
 // Types
-import { Job } from '../../../utils/interfaces';
-
-// Context
-import { LangContext } from '../../../context';
-
-// Components
-import JobCardLoader from './JobCard.loader';
+import { Job } from '@utils/interfaces';
 
 export type DateDirection = 'normal' | 'inverse';
 
 export interface JobCardProps extends Job {
     direction: string;
-    isLoading?: boolean;
 }
 
 const JobCard = ({
@@ -22,20 +17,16 @@ const JobCard = ({
     endDate,
     company,
     positions,
-    description,
     technologies,
     direction,
-    isLoading,
 }: JobCardProps) => {
-    const [selectedLang, _] = React.useContext(LangContext);
-
     const getMonthYear = (date?: Date, direction = 'normal', fallback = ''): string => {
         if (!date || !date.toLocaleDateString) {
             return fallback;
         }
 
-        const month = date.toLocaleDateString(selectedLang['LANGUAGE_LOCALE'], { month: 'long' });
-        const year = date.toLocaleDateString(selectedLang['LANGUAGE_LOCALE'], { year: 'numeric' });
+        const month = date.toLocaleDateString('LANGUAGE_LOCALE_DATE', { month: 'long' });
+        const year = date.toLocaleDateString('LANGUAGE_LOCALE_DATE', { year: 'numeric' });
 
         if (direction === 'normal') {
             return `${month.charAt(0).toUpperCase()}${month.slice(1)} ${year}`;
@@ -44,24 +35,18 @@ const JobCard = ({
         return `${year} ${month.charAt(0).toUpperCase()}${month.slice(1)}`;
     };
 
-    if (isLoading) {
-        return <JobCardLoader />;
-    }
-
     return (
         <div className='job-card'>
             <div className='job-card__date'>
                 <div className='job-card__date__text'>
                     <span>{getMonthYear(startDate, direction)}</span>
                     <div className='job-card__date__divider' />
-                    <span>{getMonthYear(endDate, direction, selectedLang['NOW_TEXT'])}</span>
+                    <span>{getMonthYear(endDate, direction, 'NOW_TEXT')}</span>
                 </div>
             </div>
             <div className='job-card__info'>
                 <div className='job-card__info__company'>{company}</div>
-                <div className='job-card__info__description'>
-                    {description[selectedLang['LANGUAGE_LOCALE_URL']]}
-                </div>
+                <div className='job-card__info__description'></div>
                 <ul className='job-card__info__technologies'>
                     {technologies.map((technology) => {
                         return <li key={v4()}>{technology}</li>;

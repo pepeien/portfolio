@@ -1,11 +1,7 @@
+'use client';
+
 import React from 'react';
-
-//Context
-import { LangContext } from '../context';
-
-//Langs
-import Langs from '../langs';
-
+/*
 // Components
 import { Button } from '.';
 
@@ -67,3 +63,5 @@ const LanguageButton = () => {
 };
 
 export default LanguageButton;
+*/
+export default <></>;

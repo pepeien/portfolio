@@ -1,14 +1,11 @@
-import { Translations } from './post';
+export interface ProjectIdentity {
+    primaryColor: string;
+    accentColor: string;
+}
 
 export interface Project {
     name: string;
     repo: string;
-    description: Translations;
     technologies: string[];
-    metadata?: ProjectMetadata;
-}
-
-export interface ProjectMetadata {
-    primaryColor: string;
-    accentColor: string;
+    identity?: ProjectIdentity;
 }

@@ -1,17 +1,21 @@
+'use client';
+
 import React from 'react';
 
-// Context
-import { LangContext } from '../context';
+// Types
+import { Dictionary } from '@utils/interfaces';
 
-const Footer = () => {
-    const [selectedLang, setSelectedLang] = React.useContext(LangContext);
+interface Props {
+    dictionary: Dictionary;
+}
 
+const Footer = ({ dictionary }: Props) => {
     return (
         <footer>
             <span>
-                {selectedLang['FOOTER_TEXT_1']} {'┐(︶▽︶)┌'}
+                {dictionary['FOOTER_TEXT_1']} {'┐(︶▽︶)┌'}
             </span>
-            <span>{selectedLang['FOOTER_TEXT_2']} </span>
+            <span>{dictionary['FOOTER_TEXT_2']} </span>
         </footer>
     );
 };

@@ -1,34 +1,6 @@
 {
-    "root": true,
-    "parser": "@typescript-eslint/parser",
-    "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
-    "extends": [
-        "plugin:react/recommended",
-        "plugin:react-hooks/recommended",
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking"
-    ],
-    "rules": {
-        "prettier/prettier": [
-            "error",
-            {
-                "endOfLine": "auto"
-            }
-        ],
-        "jsx-quotes": ["error", "prefer-single"]
-    },
-    "parserOptions": {
-        "project": "./tsconfig.json",
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
-    "overrides": [
-        {
-            "files": ["*.ts", "*.tsx"]
-        }
-    ]
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "jsx-quotes": ["error", "prefer-single"]
+  }
 }

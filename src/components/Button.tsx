@@ -1,10 +1,12 @@
+'use client';
+
 import React from 'react';
 
 //Types
-import { ComponentAsProp } from '../utils/types';
+import { ComponentAsProp } from '@utils/types';
 
 //Services
-import { extractPropComponent } from '../utils/services';
+import { extractPropComponent } from '@utils/services';
 
 /**
  * @description The default fill design consists on a simple full background.

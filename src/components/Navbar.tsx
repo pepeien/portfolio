@@ -1,80 +1,37 @@
+'use client';
+
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
-import { useSearchParams } from 'react-router-dom';
 
-//Context
-import { LangContext } from '../context';
+// Types
+import { Dictionary } from '@utils/interfaces';
 
-//Langs
-import Langs from '../langs';
+interface Props {
+    dictionary: Dictionary;
+    locales: Dictionary;
+}
 
-//Components
-import ParameterizedLink from './ParameterizedLink';
-
-const Navbar = () => {
-    const [searchParams, setSearchParams] = useSearchParams();
-
-    const [selectedLang, setSelectedLang] = React.useContext(LangContext);
+const Navbar = ({ dictionary, locales }: Props) => {
+    const router = useRouter();
+    const pathName = usePathname();
 
     const [canShowNavbar, setCanShowNavbar] = React.useState<boolean>(false);
     const [canShowList, setCanShowList] = React.useState<boolean>(false);
 
     const isLanguageSelected = React.useCallback(
         (langName: string) => {
-            return langName === selectedLang['LANGUAGE_LOCALE_URL'];
+            return langName === dictionary['LANGUAGE_LOCALE_URL'];
         },
-        [selectedLang],
+        [dictionary],
     );
-
-    React.useEffect(() => {
-        const langName = searchParams.get('locale');
-
-        if (!langName && !selectedLang) {
-            updateLanguageParam(Langs['en-us']['LANGUAGE_LOCALE_URL']);
-
-            return;
-        }
-
-        if (!langName || !Object.keys(Langs).find((lang) => lang === langName)) {
-            updateLanguageParam(selectedLang['LANGUAGE_LOCALE_URL']);
-
-            return;
-        }
-
-        if (
-            selectedLang['LANGUAGE_LOCALE_URL'].trim().toUpperCase() ===
-            langName.trim().toUpperCase()
-        ) {
-            return;
-        }
-
-        setSelectedLang(langName as keyof typeof Langs);
-    }, [searchParams]);
 
     const onMainButtonClick = () => {
         setCanShowList(!canShowList);
     };
 
     const onLanguageSelection = (langName: string) => {
-        const foundLanguage = getLanguage(langName);
-
-        if (!foundLanguage) {
-            return;
-        }
-
-        updateLanguageParam(foundLanguage['LANGUAGE_LOCALE_URL']);
-
-        setCanShowList(false);
-    };
-
-    const updateLanguageParam = (locale: string) => {
-        const nextSearchParam: URLSearchParams = new URLSearchParams();
-        nextSearchParam.append('locale', locale);
-
-        setSearchParams(nextSearchParam);
-    };
-
-    const getLanguage = (langName: string) => {
-        return Langs[Object.keys(Langs).find((key) => key === langName) as keyof typeof Langs];
+        router.push(`/${langName}${pathName.split(dictionary['LANGUAGE_LOCALE_URL'])[1]}`);
     };
 
     return (
@@ -85,7 +42,10 @@ const Navbar = () => {
         >
             <div className='navbar__content'>
                 <div className='navbar__internals --flex-row'>
-                    <ParameterizedLink className='navbar__button --flex-column' to='/'>
+                    <Link
+                        className='navbar__button --flex-column'
+                        href={`/${dictionary['LANGUAGE_LOCALE_URL']}`}
+                    >
                         <svg
                             version='1.0'
                             xmlns='http://www.w3.org/2000/svg'
@@ -98,7 +58,7 @@ const Navbar = () => {
 	c2.211,0,4-1.789,4-4V33.695l1.195,1.195c1.562,1.562,3.949,1.422,5.516-0.141C64.274,33.188,64.356,30.734,62.79,29.172z'
                             />
                         </svg>
-                    </ParameterizedLink>
+                    </Link>
                     <div className='navbar__language --flex-column'>
                         <div className='navbar__button' onClick={onMainButtonClick}>
                             <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
@@ -106,20 +66,11 @@ const Navbar = () => {
                             </svg>
                         </div>
                         <ul className='navbar__language__list'>
-                            {Object.values(Langs).map((lang) => {
+                            {Object.entries(locales).map(([id, name]) => {
                                 return (
-                                    <li
-                                        key={lang['LANGUAGE_LOCALE_URL']}
-                                        data-is-selected={isLanguageSelected(
-                                            lang['LANGUAGE_LOCALE_URL'],
-                                        )}
-                                    >
-                                        <button
-                                            onClick={() =>
-                                                onLanguageSelection(lang['LANGUAGE_LOCALE_URL'])
-                                            }
-                                        >
-                                            <span>{lang['LANGUAGE']}</span>
+                                    <li key={id} data-is-selected={isLanguageSelected(id)}>
+                                        <button onClick={() => onLanguageSelection(id)}>
+                                            <span>{name}</span>
                                             <div />
                                         </button>
                                     </li>
@@ -132,8 +83,8 @@ const Navbar = () => {
                 <div className='navbar__socials'>
                     <ul className='--flex-column'>
                         <li className='navbar__button --flex-column'>
-                            <a
-                                href={process.env.REACT_APP_GITHUB_URL ?? ''}
+                            <Link
+                                href={process.env.GITHUB_URL ?? ''}
                                 target='_blank'
                                 rel='noreferrer'
                             >
@@ -142,13 +93,13 @@ const Navbar = () => {
                                         <path d='M15,5.6,10.4,1A3.4,3.4,0,0,0,5.78.86L7.66,2.74a1.25,1.25,0,0,1,1.67,1.2V4a1.23,1.23,0,0,1-.08.38l2.45,2.4a1.17,1.17,0,0,1,.37-.08A1.3,1.3,0,1,1,10.77,8h0a1.17,1.17,0,0,1,.08-.37L8.6,5.38v5.23a1.28,1.28,0,0,1,.73,1.15,1.3,1.3,0,0,1-2.6,0,1.27,1.27,0,0,1,.67-1.11V5.07A1.27,1.27,0,0,1,6.73,4a1.17,1.17,0,0,1,.08-.37l-1.9-1.9L1,5.6a3.38,3.38,0,0,0,0,4.79H1L5.6,15a3.38,3.38,0,0,0,4.79,0h0L15,10.4a3.38,3.38,0,0,0,0-4.79Z' />
                                     </g>
                                 </svg>
-                            </a>
+                            </Link>
                         </li>
                         <li className='navbar__button --flex-column'>
-                            <a
-                                href={`${process.env.REACT_APP_LINKEDIN_URL ?? ''}/?locale=${
-                                    selectedLang['LANGUAGE_LOCALE_LINKEDIN']
-                                }`}
+                            <Link
+                                href={`${
+                                    process.env.LINKEDIN_URL ?? ''
+                                }/?locale=${'LANGUAGE_LOCALE_LINKEDIN'}`}
                                 target='_blank'
                                 rel='noreferrer'
                             >
@@ -173,11 +124,11 @@ const Navbar = () => {
                                         </g>
                                     </g>
                                 </svg>
-                            </a>
+                            </Link>
                         </li>
                         <li className='navbar__button --flex-column'>
-                            <a
-                                href={process.env.REACT_APP_EMAIL_URL ?? ''}
+                            <Link
+                                href={process.env.EMAIL_URL ?? ''}
                                 target='_blank'
                                 rel='noreferrer'
                             >
@@ -188,7 +139,7 @@ const Navbar = () => {
                                 >
                                     <path d='M30.996 7.824v17.381c0 0 0 0 0 0.001 0 1.129-0.915 2.044-2.044 2.044-0 0-0 0-0.001 0h-4.772v-11.587l-8.179 6.136-8.179-6.136v11.588h-4.772c0 0 0 0-0 0-1.129 0-2.044-0.915-2.044-2.044 0-0 0-0.001 0-0.001v0-17.381c0-0 0-0.001 0-0.001 0-1.694 1.373-3.067 3.067-3.067 0.694 0 1.334 0.231 1.848 0.619l-0.008-0.006 10.088 7.567 10.088-7.567c0.506-0.383 1.146-0.613 1.84-0.613 1.694 0 3.067 1.373 3.067 3.067v0z'></path>
                                 </svg>
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>

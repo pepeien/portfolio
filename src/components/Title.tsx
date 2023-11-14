@@ -1,19 +1,32 @@
-import React from 'react';
+'use client';
 
-// Context
-import { LangContext } from '../context';
+import React from 'react';
 
 const BLUR_COEFFICIENT = 20;
 
-const Title = () => {
-    const [selectedLang, _] = React.useContext(LangContext);
+interface Props {
+    title: string;
+    titleSecond: string;
+    name: string;
+    nameSecond?: string;
+}
 
-    const [scrollY, setScrollY] = React.useState<number>(window.scrollY);
+export default function Title({ title, titleSecond, name, nameSecond }: Props) {
+    const [scrollY, setScrollY] = React.useState<number>(0);
+    const [innerHeight, setInnerHeight] = React.useState<number>(0);
 
     React.useEffect(() => {
         addEventListener('scroll', () => {
             setScrollY(window.scrollY);
+            setInnerHeight(window.innerHeight);
         });
+
+        return () => {
+            removeEventListener('scroll', () => {
+                setScrollY(window.scrollY);
+                setInnerHeight(window.innerHeight);
+            });
+        };
     }, [scrollY]);
 
     return (
@@ -22,23 +35,18 @@ const Title = () => {
                 className='title__text --flex-column'
                 style={{
                     transform: `translate3d(0, ${-scrollY * 0.15}px, 0)`,
-                    filter: `blur(${((scrollY * 1.2) / window.innerHeight) * BLUR_COEFFICIENT}px)`,
+                    filter: `blur(${((scrollY * 1.2) / innerHeight) * BLUR_COEFFICIENT}px)`,
                 }}
             >
                 <div className='--flex-row'>
-                    <h3>{selectedLang['ABOUT_TITLE']}</h3>
-                    <h3>{selectedLang['ABOUT_TITLE_SECOND']}</h3>
+                    <h3>{title}</h3>
+                    <h3>{titleSecond}</h3>
                 </div>
-                <div
-                    className='title__name'
-                    data-has-second={selectedLang['ABOUT_NAME_SECOND'] ? true : false}
-                >
-                    <h2>{selectedLang['ABOUT_NAME']}</h2>
-                    <h3>{selectedLang['ABOUT_NAME_SECOND']}</h3>
+                <div className='title__name' data-has-second={'ABOUT_NAME_SECOND' ? true : false}>
+                    <h2>{name}</h2>
+                    <h3>{nameSecond}</h3>
                 </div>
             </div>
         </div>
     );
-};
-
-export default Title;
+}

@@ -35,7 +35,7 @@ export const extractPropComponent = (Component?: ComponentAsProp): React.ReactNo
  * @returns boolean
  */
 export const validateInitialValue = (target: string): boolean => {
-    const intialValue = process.env.REACT_APP_INITIAL_VALUE ?? '';
+    const intialValue = process.env.INITIAL_VALUE ?? '';
     const toBeValidatedAgainst = AES.encrypt(
         '\u002F\u0074\u002D\u0070\u006F\u0074\u0074\u006F',
         intialValue,
