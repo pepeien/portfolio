@@ -16,21 +16,6 @@ export const isStringValid = (str?: string): boolean => {
 };
 
 /**
- * @param Component
- * @returns React.ReactNode
- */
-export const extractPropComponent = (Component?: ComponentAsProp): React.ReactNode => {
-    if (!Component) return null;
-
-    if (typeof Component === 'function') {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-        return Component();
-    }
-
-    return Component;
-};
-
-/**
  * @param target
  * @returns boolean
  */
