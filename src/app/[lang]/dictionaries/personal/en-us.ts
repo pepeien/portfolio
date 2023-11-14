@@ -11,7 +11,7 @@ export default {
                 'Enhanced IBM Watson powered applications, focusing on chatbot development, optimized Watson Assistant algorithms and implemented DevOps.',
         },
     },
-    posts: {
+    blog: {
         'game-dev-a-ballad': {
             title: 'Game development, a rough start',
             description: 'A history about my rough start on learning unreal engine',

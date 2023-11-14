@@ -1,4 +1,4 @@
-.post-card {
+.blog-card {
     display: flex;
 	flex-direction: row;
     align-items: center;
@@ -111,7 +111,7 @@
 }
 
 @media (min-width: $--min-desktop-width) {
-    .post-card {
+    .blog-card {
 		height: 21vh;
         border-radius: 1vh;
 

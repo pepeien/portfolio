@@ -2,7 +2,7 @@ export interface JobDictionary {
     description: string;
 }
 
-export interface PostDictionary {
+export interface BlogDictionary {
     title: string;
     description: string;
 }
@@ -13,7 +13,7 @@ export interface ProjectDictionary {
 
 export interface PersonalDictionary {
     jobs: { [key: string]: JobDictionary };
-    posts: { [key: string]: PostDictionary };
+    blog: { [key: string]: BlogDictionary };
     projects: { [key: string]: ProjectDictionary };
 }
 

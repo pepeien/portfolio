@@ -2,14 +2,14 @@ import React from 'react';
 import { v4 } from 'uuid';
 
 // Types
-import { Job, Post, Project } from '@utils/interfaces';
+import { Job, Blog, Project } from '@utils/interfaces';
 
 // Components
 import {
+    BlogCard,
     ContactForm,
     ExternalRedirector,
     JobCard,
-    PostCard,
     ProjectCard,
     Title,
     Mountains,
@@ -24,7 +24,7 @@ interface Props {
 
 const MAX_PROJECT_SHOWCASE_COUNT = 4;
 const MAX_JOB_SHOWCASE_COUNT = 3;
-const MAX_POST_SHOWCASE_COUNT = 3;
+const MAX_BLOG_SHOWCASE_COUNT = 3;
 
 export default async function Page({ params }: Props) {
     const dictionary = await getDictionary(params.lang);
@@ -55,13 +55,13 @@ export default async function Page({ params }: Props) {
         )
         .catch(() => [] as Job[]);
 
-    const posts = await fetch(
-        `${process.env.GITHUB_CDN ?? ''}/portfolio/development/.github/posts/metadata.json`,
+    const blog = await fetch(
+        `${process.env.GITHUB_CDN ?? ''}/portfolio/development/.github/blog/metadata.json`,
         { next: { revalidate: 10 } },
     )
         .then((_res) => _res.json())
-        .then((_posts: Post[]) => _posts.slice(0, MAX_POST_SHOWCASE_COUNT))
-        .catch(() => [] as Post[]);
+        .then((_blog: Blog[]) => _blog.slice(0, MAX_BLOG_SHOWCASE_COUNT))
+        .catch(() => [] as Blog[]);
 
     return (
         <main className='home --page --flex-column'>
@@ -139,11 +139,11 @@ export default async function Page({ params }: Props) {
                                 <h4>{dictionary['BLOG_TITLE']}</h4>
                             </div>
                             <div className='home__content__section__main'>
-                                <ul className='posts'>
-                                    {posts.map((post) => {
+                                <ul className='blog'>
+                                    {blog.map((post) => {
                                         return (
                                             <li key={v4()}>
-                                                <PostCard
+                                                <BlogCard
                                                     {...post}
                                                     dictionary={dictionary}
                                                     personalDictionary={personalDictionary}

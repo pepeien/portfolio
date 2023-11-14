@@ -8,6 +8,6 @@ export { default as ParameterizedLink } from './ParameterizedLink';
 export { default as Title } from './Title';
 
 export { default as AsyncMarkdown } from './async-markdown';
-export { default as PostCard } from './cards/post/PostCard';
-export { default as ProjectCard } from './cards/project/ProjectCard';
-export { default as JobCard } from './cards/job/JobCard';
+export { default as BlogCard } from './cards/Blog';
+export { default as ProjectCard } from './cards/Project';
+export { default as JobCard } from './cards/Job';

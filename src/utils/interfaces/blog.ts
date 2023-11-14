@@ -1,4 +1,4 @@
-export interface Post {
+export interface Blog {
     id: string;
     date: string;
 }

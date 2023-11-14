@@ -11,7 +11,7 @@ export default {
                 'IBM Watson搭載アプリケーションの強化 チャットボットス開発、Watson Assistantアルゴリズムの最適化、DevOpsの導入に注力。',
         },
     },
-    posts: {
+    blog: {
         'game-dev-a-ballad': {
             title: 'ゲーム開発、大変なスタート',
             description: 'Unreal Engine 習得の僕荒削りなスタートについてのログ',

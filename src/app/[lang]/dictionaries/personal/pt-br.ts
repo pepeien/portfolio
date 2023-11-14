@@ -11,7 +11,7 @@ export default {
                 'Aprimorei aplicativos com tecnologia IBM Watson com foco no desenvolvimento de chatbots, implementei e otimizei algoritmos do Watson Assistant em conjunto DevOps.',
         },
     },
-    posts: {
+    blog: {
         'game-dev-a-ballad': {
             title: 'Desenvolvimento de jogos, um começo complicado',
             description:

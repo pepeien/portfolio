@@ -2,10 +2,12 @@ import { Metadata } from 'next';
 import React from 'react';
 
 // Types
-import { Post } from '@utils/interfaces';
+import { Blog } from '@utils/interfaces';
 
 // Components
 import { AsyncMarkdown } from '@components';
+
+// Dictionary
 import { getAlternates, getPersonalDictionary } from '../../dictionaries';
 
 interface Params {
@@ -13,11 +15,11 @@ interface Params {
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
-    const posts: Post[] = await fetch(
-        `${process.env.GITHUB_CDN}/portfolio/master/.github/posts/metadata.json`,
+    const blog: Blog[] = await fetch(
+        `${process.env.GITHUB_CDN}/portfolio/master/.github/blogs/metadata.json`,
     ).then((res) => res.json());
 
-    const post = posts.find((_) => _.id === params.id);
+    const post = blog.find((_) => _.id === params.id);
 
     if (!post) {
         return {
@@ -33,12 +35,12 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
             canonical: '/',
             languages: getAlternates(),
         },
-        title: dictionary.posts[params.id].title,
-        description: dictionary.posts[params.id].description,
+        title: dictionary.blog[params.id].title,
+        description: dictionary.blog[params.id].description,
         openGraph: {
             siteName: 'Erick Frederick',
-            title: dictionary.posts[params.id].title,
-            description: dictionary.posts[params.id].description,
+            title: dictionary.blog[params.id].title,
+            description: dictionary.blog[params.id].description,
             type: 'article',
             authors: ['Erick Frederick'],
             publishedTime: post.date,
@@ -50,27 +52,27 @@ export default function Page({ params }: Params) {
     const { id, lang } = params;
 
     return (
-        <main className='post --page --flex-column'>
-            <section className='post__banner'>
-                <div className='post__banner__wrapper'>
+        <main className='blog --page --flex-column'>
+            <section className='blog__banner'>
+                <div className='blog__banner__wrapper'>
                     <div
-                        className='post__banner__image'
+                        className='blog__banner__image'
                         style={{
                             backgroundImage: `url("${
                                 process.env.GITHUB_CDN ?? ''
-                            }/portfolio/master/.github/posts/${id.trim()}/thumbnail.png")`,
+                            }/portfolio/master/.github/blogs/${id.trim()}/thumbnail.png")`,
                         }}
                     />
                 </div>
             </section>
-            <section className='post__content --flex-column'>
+            <section className='blog__content --flex-column'>
                 <AsyncMarkdown
                     src={`${
                         process.env.GITHUB_CDN ?? ''
-                    }/portfolio/master/.github/posts/${id.trim()}/${lang}.md`}
+                    }/portfolio/master/.github/blogs/${id.trim()}/${lang}.md`}
                 />
                 <svg
-                    className='post__content__footer'
+                    className='blog__content__footer'
                     viewBox='0 0 1440 420'
                     version='1.1'
                     xmlns='http://www.w3.org/2000/svg'

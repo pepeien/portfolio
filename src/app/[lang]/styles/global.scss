@@ -23,11 +23,11 @@
 @import 'components/specialty';
 @import 'components/title';
 
+@import 'components/cards/blog-card';
 @import 'components/cards/job-card';
-@import 'components/cards/post-card';
 @import 'components/cards/project-card';
 
 //Pages Import
+@import 'pages/blog';
 @import 'pages/home';
-@import 'pages/post';
 @import 'pages/status';

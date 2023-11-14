@@ -4,9 +4,6 @@ import { v4 } from 'uuid';
 // Types
 import { PersonalDictionary, Project, ProjectIdentity } from '@utils/interfaces';
 
-// Components
-import ProjectCardLoader from './ProjectCard.loader';
-
 export interface ProjectCardProps extends Project {
     dictionary: PersonalDictionary;
 }
@@ -17,8 +14,6 @@ export default async function ProjectCard({
     technologies,
     dictionary,
 }: ProjectCardProps) {
-    let isLoading = true;
-
     const identity: ProjectIdentity = await fetch(
         `${process.env.GITHUB_CDN ?? ''}/${repo}/master/.github/metadata.json?raw=true`,
         {
@@ -26,14 +21,7 @@ export default async function ProjectCard({
         },
     )
         .then((_res) => _res.json())
-        .catch(() => {})
-        .finally(() => {
-            isLoading = false;
-        });
-
-    if (isLoading) {
-        return <ProjectCardLoader />;
-    }
+        .catch(() => {});
 
     return (
         <a

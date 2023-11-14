@@ -1,4 +1,4 @@
-.post {
+.blog {
     background-color: $--grey-background-color;
     align-items: center;
 
@@ -49,24 +49,10 @@
             transform:         translateX(-35vh);
         }
     }
-
-    &[data-is-loading='true'] {
-        .post {
-            &__banner {
-                &__image {
-                    svg {
-                        width: 100%;
-                        height: 100%;
-                        opacity: 0.6;
-                    }
-                }
-            }
-        }
-    }
 }
 
 @media (min-width: $--min-desktop-width) {
-    .post {
+    .blog {
         &__banner {
             height: auto;
     
