@@ -8,7 +8,7 @@ import { Footer, Navbar } from '@components';
 // Dictionary
 import { getDictionary, getLocales } from './dictionaries';
 
-import './styles/global.scss';
+import '../styles/main.scss';
 
 export const metadata: Metadata = {
     title: 'Erick Frederick',
@@ -70,10 +70,11 @@ export const metadata: Metadata = {
 
 interface Props {
     params: { lang: string };
+    searchParams: string;
     children: React.ReactNode;
 }
 
-export default async function RootLayout({ params, children }: Props) {
+export default async function RootLayout({ params, searchParams, children }: Props) {
     const dictionary = await getDictionary(params.lang);
 
     return (

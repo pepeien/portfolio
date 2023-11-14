@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import React from 'react';
 
 // Types
@@ -13,7 +13,6 @@ interface Props {
 }
 
 const Navbar = ({ dictionary, locales }: Props) => {
-    const router = useRouter();
     const pathName = usePathname();
 
     const [canShowNavbar, setCanShowNavbar] = React.useState<boolean>(false);
@@ -26,12 +25,12 @@ const Navbar = ({ dictionary, locales }: Props) => {
         [dictionary],
     );
 
-    const onMainButtonClick = () => {
-        setCanShowList(!canShowList);
+    const onHamburguerButtonClick = () => {
+        setCanShowNavbar(!canShowNavbar);
     };
 
-    const onLanguageSelection = (langName: string) => {
-        router.push(`/${langName}${pathName.split(dictionary['LANGUAGE_LOCALE_URL'])[1]}`);
+    const onMainButtonClick = () => {
+        setCanShowList(!canShowList);
     };
 
     return (
@@ -66,16 +65,18 @@ const Navbar = ({ dictionary, locales }: Props) => {
                             </svg>
                         </div>
                         <ul className='navbar__language__list'>
-                            {Object.entries(locales).map(([id, name]) => {
-                                return (
-                                    <li key={id} data-is-selected={isLanguageSelected(id)}>
-                                        <button onClick={() => onLanguageSelection(id)}>
-                                            <span>{name}</span>
-                                            <div />
-                                        </button>
-                                    </li>
-                                );
-                            })}
+                            {Object.entries(locales).map(([id, name]) => (
+                                <li key={id} data-is-selected={isLanguageSelected(id)}>
+                                    <Link
+                                        href={`/${id}/${
+                                            pathName.split(dictionary['LANGUAGE_LOCALE_URL'])[1]
+                                        }`}
+                                    >
+                                        <span>{name}</span>
+                                        <div />
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>
@@ -84,7 +85,7 @@ const Navbar = ({ dictionary, locales }: Props) => {
                     <ul className='--flex-column'>
                         <li className='navbar__button --flex-column'>
                             <Link
-                                href={process.env.GITHUB_URL ?? ''}
+                                href={process.env.NEXT_PUBLIC_GITHUB_URL ?? ''}
                                 target='_blank'
                                 rel='noreferrer'
                             >
@@ -97,7 +98,7 @@ const Navbar = ({ dictionary, locales }: Props) => {
                         </li>
                         <li className='navbar__button --flex-column'>
                             <Link
-                                href={`${process.env.LINKEDIN_URL ?? ''}/?locale=${
+                                href={`${process.env.NEXT_PUBLIC_LINKEDIN_URL ?? ''}/?locale=${
                                     dictionary['LANGUAGE_LOCALE_LINKEDIN']
                                 }`}
                                 target='_blank'
@@ -128,7 +129,7 @@ const Navbar = ({ dictionary, locales }: Props) => {
                         </li>
                         <li className='navbar__button --flex-column'>
                             <Link
-                                href={process.env.EMAIL_URL ?? ''}
+                                href={process.env.NEXT_PUBLIC_EMAIL_URL ?? ''}
                                 target='_blank'
                                 rel='noreferrer'
                             >
@@ -146,7 +147,7 @@ const Navbar = ({ dictionary, locales }: Props) => {
             </div>
             <button
                 className='navbar__button navbar__hamburguer-button'
-                onClick={() => setCanShowNavbar(!canShowNavbar)}
+                onClick={onHamburguerButtonClick}
             >
                 <svg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
                     <path d='M5 6H12H19M5 12H19M5 18H19' strokeWidth='2' strokeLinecap='round' />
