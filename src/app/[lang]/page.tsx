@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import React from 'react';
 import { v4 } from 'uuid';
 
@@ -16,18 +17,50 @@ import {
 } from '@components';
 
 // Dictionary
-import { getDictionary, getPersonalDictionary } from './dictionaries';
+import { getAlternates, getDictionary, getPersonalDictionary } from './dictionaries';
 
 // Services
-import { getCurrentRepoCDN } from '@utils/services/api';
+import { getCurrentRepoCDN, getDeploymentURL } from '@utils/services/api';
 
 interface Props {
+    params: { lang: string };
+}
+
+interface Params {
     params: { lang: string };
 }
 
 const MAX_PROJECT_SHOWCASE_COUNT = 4;
 const MAX_JOB_SHOWCASE_COUNT = 3;
 const MAX_BLOG_SHOWCASE_COUNT = 3;
+
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+    const dictionary = await getDictionary(params.lang);
+
+    const title = dictionary['HOME_PAGE_TITLE'];
+    const description = dictionary['HOME_PAGE_DESCRIPTION'];
+
+    return {
+        metadataBase: getDeploymentURL(),
+        alternates: {
+            languages: getAlternates(),
+        },
+        title: title,
+        description: description,
+        openGraph: {
+            siteName: 'Erick Frederick',
+            title: title,
+            description: description,
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: title,
+            description: description,
+            creator: `@${process.env.NEXT_PUBLIC_TWITTER_HANDLE ?? ''}`,
+        },
+    };
+}
 
 export default async function Page({ params }: Props) {
     const dictionary = await getDictionary(params.lang);

@@ -10,7 +10,7 @@ import { Blog } from '@utils/interfaces';
 import { getAlternates, getPersonalDictionary } from '../../dictionaries';
 
 // Services
-import { getCurrentRepoCDN } from '@utils/services/api';
+import { getCurrentRepoCDN, getDeploymentURL } from '@utils/services/api';
 
 interface Params {
     params: { lang: string; id: string };
@@ -42,12 +42,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
         width: 1920,
         height: 1080,
     };
-
+    console.log(params.id, getAlternates(`blog/${params.id}`));
     return {
-        metadataBase: new URL('https://erickfrederick.com'),
+        metadataBase: getDeploymentURL(),
         alternates: {
-            canonical: '/',
-            languages: getAlternates(),
+            languages: getAlternates(`blog/${params.id}`),
         },
         title: title,
         description: description,

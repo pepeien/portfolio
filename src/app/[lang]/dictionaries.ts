@@ -4,12 +4,26 @@
 import { Dictionary, PersonalDictionary } from '@utils/interfaces';
 
 const alternates = {
-    'en-US': '/en-us',
-    'ja-JP': '/ja-jp',
-    'pt-BR': '/pt-br',
+    en: 'en-us',
+    ja: 'ja-jp',
+    pt: 'pt-br',
 };
 
-export const getAlternates = () => alternates;
+export const getAlternates = (path = '') => {
+    if (path.trim().length === 0) {
+        return alternates;
+    }
+
+    const result = { ...alternates };
+
+    Object.keys(result).forEach((value) => {
+        const key = value as keyof typeof result;
+
+        result[key] = `${result[key]}/${path}`;
+    });
+
+    return result;
+};
 
 const locales = {
     'en-us': 'English (US)',

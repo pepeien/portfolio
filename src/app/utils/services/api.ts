@@ -23,3 +23,7 @@ export function getCurrentRepoCDN(): string {
         process.env.GITHUB_BRANCH,
     )}`;
 }
+
+export function getDeploymentURL(): URL {
+    return new URL(process.env.DEPLOYMENT_URL ?? 'http://localhost:3000');
+}

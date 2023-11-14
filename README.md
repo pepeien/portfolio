@@ -17,6 +17,7 @@ Then open [http://localhost:3000/](http://localhost:3000/) to see your app. The 
 
 |  Variable  | Description                       |  Type   | Required |
 | :--------: | :-------------------------------  | :-----: | :------: |
+| DEPLOYMENT_URL               | Deployment URL         | String |    ✅    |
 | NEXT_PUBLIC_FORM_SERVICE_URL | Form service URL       | String |    ✅    |
 | INITIAL_VALUE                | Secret value           | String |    ✅    |
 | NEXT_PUBLIC_GIT_URL          | Git plataform URL      | String |    ✅    |
