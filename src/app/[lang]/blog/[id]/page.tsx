@@ -28,52 +28,47 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
     const dictionary = await getPersonalDictionary(params.lang);
 
+    const title = dictionary.blog[params.id].title;
+    const description = dictionary.blog[params.id].description;
+    const banner = {
+        url: new URL(
+            `${
+                process.env.GITHUB_CDN ?? ''
+            }/portfolio/development/.github/blog/${post.id.trim()}/thumbnail.png`,
+        ),
+        secureUrl: new URL(
+            `${
+                process.env.GITHUB_CDN ?? ''
+            }/portfolio/development/.github/blog/${post.id.trim()}/thumbnail.png`,
+        ),
+        alt: `${post.id} banner`,
+        width: 1920,
+        height: 1080,
+    };
+
     return {
         metadataBase: new URL('https://erickfrederick.com'),
         alternates: {
             canonical: '/',
             languages: getAlternates(),
         },
-        title: dictionary.blog[params.id].title,
-        description: dictionary.blog[params.id].description,
+        title: title,
+        description: description,
         openGraph: {
             siteName: 'Erick Frederick',
-            title: dictionary.blog[params.id].title,
-            description: dictionary.blog[params.id].description,
+            title: title,
+            description: description,
             type: 'article',
             authors: ['Erick Frederick'],
             publishedTime: post.date,
-            images: {
-                url: new URL(
-                    `${
-                        process.env.GITHUB_CDN ?? ''
-                    }/portfolio/development/.github/blog/${post.id.trim()}/thumbnail.png`,
-                ),
-                alt: `${post.id} banner`,
-                width: 1920,
-                height: 1080,
-            },
+            images: banner,
         },
         twitter: {
             card: 'summary_large_image',
-            title: dictionary.blog[params.id].title,
-            description: dictionary.blog[params.id].description,
+            title: title,
+            description: description,
             creator: '@pepeien',
-            images: {
-                url: new URL(
-                    `${
-                        process.env.GITHUB_CDN ?? ''
-                    }/portfolio/development/.github/blog/${post.id.trim()}/thumbnail.png`,
-                ),
-                secureUrl: new URL(
-                    `${
-                        process.env.GITHUB_CDN ?? ''
-                    }/portfolio/development/.github/blog/${post.id.trim()}/thumbnail.png`,
-                ),
-                alt: `${post.id} banner`,
-                width: 1920,
-                height: 1080,
-            },
+            images: banner,
         },
     };
 }
