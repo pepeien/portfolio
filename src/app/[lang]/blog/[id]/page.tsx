@@ -36,6 +36,22 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
         },
         title: dictionary.blog[params.id].title,
         description: dictionary.blog[params.id].description,
+        twitter: {
+            card: 'summary_large_image',
+            title: dictionary.blog[params.id].title,
+            description: dictionary.blog[params.id].description,
+            creator: '@pepeien',
+            images: {
+                url: new URL(
+                    `${
+                        process.env.GITHUB_CDN ?? ''
+                    }/portfolio/development/.github/blog/${post.id.trim()}/thumbnail.png`,
+                ),
+                alt: `${post.id} banner`,
+                width: 1920,
+                height: 1080,
+            },
+        },
         openGraph: {
             siteName: 'Erick Frederick',
             title: dictionary.blog[params.id].title,
