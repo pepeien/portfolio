@@ -9,6 +9,9 @@ export default {
     LANGUAGE_LOCALE_URL: 'ja-jp',
     LANGUAGE_LOCALE_LINKEDIN: 'en_US',
 
+    HOME_PAGE_TITLE: 'Erick Frederick',
+    HOME_PAGE_DESCRIPTION: "Erick Frederick's portfolio page",
+
     NOW_TEXT: '現在',
 
     ABOUT_TITLE: 'こんにちは、',
