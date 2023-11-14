@@ -1,37 +1,32 @@
-'use client';
-
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 // Type
-import { Post } from '@utils/interfaces';
-
-// Components
-import PostCardLoader from './PostCard.loader';
+import { Dictionary, PersonalDictionary, Post } from '@utils/interfaces';
 
 export interface PostCardProps extends Post {
-    isLoading?: boolean;
+    dictionary: Dictionary;
+    personalDictionary: PersonalDictionary;
 }
 
-const PostCard = ({ id, isLoading }: PostCardProps) => {
-    if (isLoading) {
-        return <PostCardLoader />;
-    }
-
+export default function PostCard({ id, dictionary, personalDictionary }: PostCardProps) {
     return (
-        <a className='post-card'>
+        <Link className='post-card' href={`${dictionary['LANGUAGE_LOCALE_URL']}/blog/${id}`}>
             <div className='post-card__thumbnail'>
                 <Image
                     src={`${
                         process.env.GITHUB_CDN ?? ''
-                    }/portfolio/master/.github/posts/${id}/thumbnail.png?raw=true`}
+                    }/portfolio/master/.github/posts/${id}/thumbnail.png`}
+                    height={1080}
+                    width={1920}
                     alt={`${id} thumbnail`}
                 />
             </div>
             <div className='post-card__data'>
                 <div className='post-card__data__info'>
-                    <h5></h5>
-                    <span></span>
+                    <h5>{personalDictionary.posts[id].title}</h5>
+                    <span>{personalDictionary.posts[id].description}</span>
                 </div>
                 <div className='post-card__data__arrow'>
                     <svg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -44,8 +39,6 @@ const PostCard = ({ id, isLoading }: PostCardProps) => {
                     </svg>
                 </div>
             </div>
-        </a>
+        </Link>
     );
-};
-
-export default PostCard;
+}

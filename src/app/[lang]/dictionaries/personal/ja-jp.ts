@@ -1,16 +1,16 @@
 import { PersonalDictionary } from '@utils/interfaces';
 
 export default {
-    jobs: [
-        {
+    jobs: {
+        Prodemge: {
             description:
                 '州政府機関の多様なプロジェクトのために、堅牢なプロダクション・コード・ベースの移植と保守を行い、その一方で、開発の途中でブレーンストーミングやフィードバック・セッションを行うために、クライアントと緊密に連絡を取り合った。',
         },
-        {
+        Kukac: {
             description:
                 'IBM Watson搭載アプリケーションの強化 チャットボットス開発、Watson Assistantアルゴリズムの最適化、DevOpsの導入に注力。',
         },
-    ],
+    },
     posts: {
         'game-dev-a-ballad': {
             title: 'ゲーム開発、大変なスタート',

@@ -12,7 +12,7 @@ export interface ProjectDictionary {
 }
 
 export interface PersonalDictionary {
-    jobs: JobDictionary[];
+    jobs: { [key: string]: JobDictionary };
     posts: { [key: string]: PostDictionary };
     projects: { [key: string]: ProjectDictionary };
 }

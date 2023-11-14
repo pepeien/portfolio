@@ -1,16 +1,16 @@
 import { PersonalDictionary } from '@utils/interfaces';
 
 export default {
-    jobs: [
-        {
+    jobs: {
+        Prodemge: {
             description:
                 'Ported and maintained robust production code bases for a diverse array of projects from state government entities while having close contact with the clients in order to have brainstorm and feedback sessions mid-development.',
         },
-        {
+        Kukac: {
             description:
                 'Enhanced IBM Watson powered applications, focusing on chatbot development, optimized Watson Assistant algorithms and implemented DevOps.',
         },
-    ],
+    },
     posts: {
         'game-dev-a-ballad': {
             title: 'Game development, a rough start',

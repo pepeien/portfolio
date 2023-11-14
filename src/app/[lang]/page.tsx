@@ -30,15 +30,8 @@ export default async function Page({ params }: Props) {
     const dictionary = await getDictionary(params.lang);
     const personalDictionary = await getPersonalDictionary(params.lang);
 
-    const isLoadingJobs = true;
-    const isLoadingPosts = true;
-
-    const posts: Post[] = new Array(MAX_POST_SHOWCASE_COUNT).fill({});
-
     const projects = await fetch(
-        `${
-            process.env.GITHUB_CDN ?? ''
-        }/portfolio/development/.github/projects/metadata.json?raw=true`,
+        `${process.env.GITHUB_CDN ?? ''}/portfolio/development/.github/projects/metadata.json`,
         { next: { revalidate: 10 } },
     )
         .then((_res) => _res.json())
@@ -46,27 +39,29 @@ export default async function Page({ params }: Props) {
         .catch(() => [] as Project[]);
 
     const jobs = await fetch(
-        `${
-            process.env._GITHUB_CDN ?? ''
-        }/portfolio/development/.github/jobs/metadata.json?raw=true`,
+        `${process.env.GITHUB_CDN ?? ''}/portfolio/development/.github/jobs/metadata.json`,
         { next: { revalidate: 10 } },
     )
         .then((_res) => _res.json())
-        .then((_jobs: Job[]) => {
-            if (!_jobs) {
-                return [] as Job[];
-            }
-
-            return _jobs.slice(0, MAX_JOB_SHOWCASE_COUNT).map(
+        .then((_jobs: Job[]) =>
+            _jobs.slice(0, MAX_JOB_SHOWCASE_COUNT).map(
                 (_job) =>
                     ({
                         ..._job,
                         startDate: _job.startDate ? new Date(_job.startDate) : new Date(),
                         endDate: _job.endDate ? new Date(_job.endDate) : undefined,
                     }) as Job,
-            );
-        })
+            ),
+        )
         .catch(() => [] as Job[]);
+
+    const posts = await fetch(
+        `${process.env.GITHUB_CDN ?? ''}/portfolio/development/.github/posts/metadata.json`,
+        { next: { revalidate: 10 } },
+    )
+        .then((_res) => _res.json())
+        .then((_posts: Post[]) => _posts.slice(0, MAX_POST_SHOWCASE_COUNT))
+        .catch(() => [] as Post[]);
 
     return (
         <main className='home --page --flex-column'>
@@ -119,9 +114,8 @@ export default async function Page({ params }: Props) {
                                             <li key={v4()}>
                                                 <JobCard
                                                     {...job}
-                                                    direction={
-                                                        dictionary['JOB_HISTORY_DATE_DIRECTION']
-                                                    }
+                                                    dictionary={dictionary}
+                                                    personalDictionary={personalDictionary}
                                                 />
                                             </li>
                                         );
@@ -149,7 +143,11 @@ export default async function Page({ params }: Props) {
                                     {posts.map((post) => {
                                         return (
                                             <li key={v4()}>
-                                                <PostCard {...post} isLoading={isLoadingPosts} />
+                                                <PostCard
+                                                    {...post}
+                                                    dictionary={dictionary}
+                                                    personalDictionary={personalDictionary}
+                                                />
                                             </li>
                                         );
                                     })}
