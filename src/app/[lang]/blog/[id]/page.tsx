@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
             card: 'summary_large_image',
             title: dictionary.blog[params.id].title,
             description: dictionary.blog[params.id].description,
-            creator: '@pepeien',
+            site: '@pepeien',
             images: {
                 url: new URL(
                     `${
