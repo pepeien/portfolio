@@ -21,6 +21,7 @@
     ],
     "paths": {
       "@components": ["./src/app/components/index.ts"],
+      "@dictionary": ["./src/app/dictionary/index.ts"],
       "@utils/*": ["./src/app/utils/*"]
     }
   },

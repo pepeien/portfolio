@@ -15,7 +15,7 @@ export default async function Page({ params }: Props) {
 
     return (
         <main className='--page'>
-            <embed src={`${getCDN()}/resumes/${pdfName}`} width='100%' height='1005'></embed>
+            <embed src={`${getCDN()}/resumes/${pdfName}`} width='100%' height='100%'></embed>
         </main>
     );
 }

@@ -17,7 +17,7 @@ import {
 } from '@components';
 
 // Dictionary
-import { getAlternates, getDictionary, getPersonalDictionary } from './dictionaries';
+import { getAlternates, getDictionary, getPersonalDictionary } from '@dictionary';
 
 // Services
 import { getCDN, getDeploymentURL } from '@utils/services/api';
