@@ -23,7 +23,7 @@ Then open [http://localhost:3000/](http://localhost:3000/) to see your app. The 
 | NEXT_PUBLIC_GIT_URL          | Git plataform URL      | String |    ✅    |
 | NEXT_PUBLIC_LINKEDIN_URL     | Linkedin URL           | String |    ✅    |
 | NEXT_PUBLIC_EMAIL_URL        | Email URL              | String |    ✅    |
-| NEXT_PUBLIC_TWITTER_HANDLE   | Twitter handle         | String |    ✅    |
+| TWITTER_HANDLE               | Twitter handle         | String |    ✅    |
 | GITHUB_CDN                   | CDN used to fetch data | String |    ✅    |
 | GITHUB_USER                  | User github handle     | String |    ✅    |
 | GITHUB_REPO                  | Current repo name      | String |    ✅    |
