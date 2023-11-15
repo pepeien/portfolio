@@ -14,8 +14,8 @@ export function getCDN(): string {
     return removeExtraSlashes(process.env.CDN);
 }
 
-export function getGithubCDN(): string {
-    return removeExtraSlashes(process.env.GIT_CND);
+export function getGitCDN(): string {
+    return removeExtraSlashes(process.env.GIT_CDN);
 }
 
 export function getDeploymentURL(): URL {
