@@ -56,7 +56,6 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
         title: title,
         description: description,
         openGraph: {
-            siteName: 'Erick Frederick',
             title: title,
             description: description,
             type: 'website',
