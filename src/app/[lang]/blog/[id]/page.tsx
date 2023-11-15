@@ -10,18 +10,16 @@ import { Blog } from '@utils/interfaces';
 import { getAlternates, getPersonalDictionary } from '../../dictionaries';
 
 // Services
-import { getCurrentRepoCDN, getDeploymentURL } from '@utils/services/api';
+import { getCDN, getDeploymentURL } from '@utils/services/api';
 
 interface Params {
     params: { lang: string; id: string };
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
-    const currentRepoCDN = getCurrentRepoCDN();
+    const cdnURL = getCDN();
 
-    const blog: Blog[] = await fetch(`${currentRepoCDN}/.github/blog/metadata.json`).then((res) =>
-        res.json(),
-    );
+    const blog: Blog[] = await fetch(`${cdnURL}/blog/metadata.json`).then((res) => res.json());
 
     const post = blog.find((_) => _.id === params.id);
 
@@ -35,7 +33,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
     const title = personalDictionary.title;
     const description = personalDictionary.description;
-    const bannerURL = new URL(`${currentRepoCDN}/.github/blog/${post.id.trim()}/thumbnail.png`);
+    const bannerURL = new URL(`${cdnURL}/blog/${post.id.trim()}/images/thumbnail.png`);
     const banner = {
         url: bannerURL,
         secureUrl: bannerURL,
@@ -72,8 +70,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function Page({ params }: Params) {
     const { id, lang } = params;
 
-    const cdnURL = getCurrentRepoCDN();
-    const data = await fetch(`${cdnURL}/.github/blog/${id.trim()}/${lang}.md`, {
+    const cdnURL = getCDN();
+    const data = await fetch(`${cdnURL}/blog/${id.trim()}/${lang}.md`, {
         next: { revalidate: 10 },
     })
         .then((_res) => _res.text())
@@ -86,7 +84,7 @@ export default async function Page({ params }: Params) {
                     <div
                         className='blog__banner__image'
                         style={{
-                            backgroundImage: `url("${cdnURL}/.github/blog/${id.trim()}/thumbnail.png")`,
+                            backgroundImage: `url("${cdnURL}/blog/${id.trim()}/images/thumbnail.png")`,
                         }}
                     />
                 </div>

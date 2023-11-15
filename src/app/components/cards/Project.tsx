@@ -5,7 +5,7 @@ import { v4 } from 'uuid';
 import { Project, ProjectDictionary, ProjectIdentity } from '@utils/interfaces';
 
 // Services
-import { getBaseCDN } from '@utils/services/api';
+import { getGithubCDN } from '@utils/services/api';
 
 export interface ProjectCardProps extends Project {
     personalDictionary: ProjectDictionary;
@@ -18,7 +18,7 @@ export default async function ProjectCard({
     personalDictionary,
 }: ProjectCardProps) {
     const identity: ProjectIdentity = await fetch(
-        `${getBaseCDN()}/${repo}/master/.github/metadata.json?raw=true`,
+        `${getGithubCDN()}/${repo}/master/.github/metadata.json?raw=true`,
         {
             next: { revalidate: 10 },
         },

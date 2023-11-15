@@ -20,13 +20,9 @@ import {
 import { getAlternates, getDictionary, getPersonalDictionary } from './dictionaries';
 
 // Services
-import { getCurrentRepoCDN, getDeploymentURL } from '@utils/services/api';
+import { getCDN, getDeploymentURL } from '@utils/services/api';
 
 interface Props {
-    params: { lang: string };
-}
-
-interface Params {
     params: { lang: string };
 }
 
@@ -34,12 +30,12 @@ const MAX_PROJECT_SHOWCASE_COUNT = 4;
 const MAX_JOB_SHOWCASE_COUNT = 3;
 const MAX_BLOG_SHOWCASE_COUNT = 3;
 
-export async function generateMetadata({ params }: Params): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const dictionary = await getDictionary(params.lang);
 
     const title = dictionary['HOME_PAGE_TITLE'];
     const description = dictionary['HOME_PAGE_DESCRIPTION'];
-    const bannerURL = new URL(`${getCurrentRepoCDN()}/.github/images/thumbnail.png`);
+    const bannerURL = new URL(`${getCDN()}/images/thumbnail.png`);
     const banner = {
         url: bannerURL,
         secureUrl: bannerURL,
@@ -75,15 +71,15 @@ export default async function Page({ params }: Props) {
     const dictionary = await getDictionary(params.lang);
     const personalDictionary = await getPersonalDictionary(params.lang);
 
-    const currentRepoCDN = getCurrentRepoCDN();
-    const projects = await fetch(`${currentRepoCDN}/.github/projects/metadata.json`, {
+    const cdnURL = getCDN();
+    const projects = await fetch(`${cdnURL}/projects/metadata.json`, {
         next: { revalidate: 10 },
     })
         .then((_res) => _res.json())
         .then((_projects: Project[]) => _projects.slice(0, MAX_PROJECT_SHOWCASE_COUNT))
         .catch(() => [] as Project[]);
 
-    const jobs = await fetch(`${currentRepoCDN}/.github/jobs/metadata.json`, {
+    const jobs = await fetch(`${cdnURL}/jobs/metadata.json`, {
         next: { revalidate: 10 },
     })
         .then((_res) => _res.json())
@@ -99,7 +95,7 @@ export default async function Page({ params }: Props) {
         )
         .catch(() => [] as Job[]);
 
-    const blog = await fetch(`${currentRepoCDN}/.github/blog/metadata.json`, {
+    const blog = await fetch(`${cdnURL}/blog/metadata.json`, {
         next: { revalidate: 10 },
     })
         .then((_res) => _res.json())
@@ -167,7 +163,7 @@ export default async function Page({ params }: Props) {
                             <div className='home__content__section__title'>
                                 <h4>{dictionary['JOB_HISTORY_TITLE']}</h4>
                                 <ExternalRedirector
-                                    href={`${getCurrentRepoCDN()}/.github/resumes/Erick-Frederick-Resume-${
+                                    href={`${getCDN()}/resumes/Erick-Frederick-Resume-${
                                         dictionary['LANGUAGE_LOCALE_URL']
                                     }.pdf`}
                                     text={dictionary['JOB_HISTORY_REDIRECTOR']}

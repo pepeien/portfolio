@@ -24,10 +24,8 @@ Then open [http://localhost:3000/](http://localhost:3000/) to see your app. The 
 | NEXT_PUBLIC_LINKEDIN_URL     | Linkedin URL           | String |    ✅    |
 | NEXT_PUBLIC_EMAIL_URL        | Email URL              | String |    ✅    |
 | TWITTER_HANDLE               | Twitter handle         | String |    ✅    |
-| GITHUB_CDN                   | CDN used to fetch data | String |    ✅    |
-| GITHUB_USER                  | User github handle     | String |    ✅    |
-| GITHUB_REPO                  | Current repo name      | String |    ✅    |
-| GITHUB_BRANCH                | Target branch name     | String |    ✅    |
+| CDN                          | App data CDN           | String |    ✅    |
+| GIT_CDN                      | Repo data CDN          | String |    ✅    |
 
 ps. _I strongly advise to use github's, as the app is coded around that structure "see below"._
 
