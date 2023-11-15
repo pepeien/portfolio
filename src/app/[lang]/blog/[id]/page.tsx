@@ -7,7 +7,7 @@ import rehypeRaw from 'rehype-raw';
 import { Blog } from '@utils/interfaces';
 
 // Dictionary
-import { getAlternates, getPersonalDictionary } from '../../dictionaries';
+import { getAlternates, getPersonalDictionary } from '@dictionary';
 
 // Services
 import { getCDN, getDeploymentURL } from '@utils/services/api';
