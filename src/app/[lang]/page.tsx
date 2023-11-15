@@ -39,6 +39,14 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
     const title = dictionary['HOME_PAGE_TITLE'];
     const description = dictionary['HOME_PAGE_DESCRIPTION'];
+    const bannerURL = new URL(`${getCurrentRepoCDN()}/.github/images/thumbnail.png`);
+    const banner = {
+        url: bannerURL,
+        secureUrl: bannerURL,
+        alt: `${dictionary['HOME_PAGE_TITLE']} banner`,
+        width: 1920,
+        height: 1080,
+    };
 
     return {
         metadataBase: getDeploymentURL(),
@@ -48,16 +56,17 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
         title: title,
         description: description,
         openGraph: {
-            siteName: 'Erick Frederick',
             title: title,
             description: description,
             type: 'website',
+            images: banner,
         },
         twitter: {
             card: 'summary_large_image',
             title: title,
             description: description,
-            creator: `@${process.env.NEXT_PUBLIC_TWITTER_HANDLE ?? ''}`,
+            images: banner,
+            site: process.env.TWITTER_HANDLE ?? undefined,
         },
     };
 }
@@ -127,7 +136,9 @@ export default async function Page({ params }: Props) {
                                             <li key={v4()}>
                                                 <ProjectCard
                                                     {...project}
-                                                    dictionary={personalDictionary}
+                                                    personalDictionary={
+                                                        personalDictionary.projects[project.repo]
+                                                    }
                                                 />
                                             </li>
                                         );
@@ -144,7 +155,9 @@ export default async function Page({ params }: Props) {
                                                 <JobCard
                                                     {...job}
                                                     dictionary={dictionary}
-                                                    personalDictionary={personalDictionary}
+                                                    personalDictionary={
+                                                        personalDictionary.jobs[job.company]
+                                                    }
                                                 />
                                             </li>
                                         );
@@ -173,7 +186,9 @@ export default async function Page({ params }: Props) {
                                                 <BlogCard
                                                     {...post}
                                                     dictionary={dictionary}
-                                                    personalDictionary={personalDictionary}
+                                                    personalDictionary={
+                                                        personalDictionary.blog[post.id]
+                                                    }
                                                 />
                                             </li>
                                         );

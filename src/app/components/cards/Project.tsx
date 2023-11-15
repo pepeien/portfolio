@@ -2,20 +2,20 @@ import React from 'react';
 import { v4 } from 'uuid';
 
 // Types
-import { PersonalDictionary, Project, ProjectIdentity } from '@utils/interfaces';
+import { Project, ProjectDictionary, ProjectIdentity } from '@utils/interfaces';
 
 // Services
 import { getBaseCDN } from '@utils/services/api';
 
 export interface ProjectCardProps extends Project {
-    dictionary: PersonalDictionary;
+    personalDictionary: ProjectDictionary;
 }
 
 export default async function ProjectCard({
     name,
     repo,
     technologies,
-    dictionary,
+    personalDictionary,
 }: ProjectCardProps) {
     const identity: ProjectIdentity = await fetch(
         `${getBaseCDN()}/${repo}/master/.github/metadata.json?raw=true`,
@@ -66,7 +66,7 @@ export default async function ProjectCard({
                             );
                         })}
                     </ul>
-                    <span>{dictionary.projects[repo].description}</span>
+                    <span>{personalDictionary.description}</span>
                 </div>
             </div>
         </a>

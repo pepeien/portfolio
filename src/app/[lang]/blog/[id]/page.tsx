@@ -31,18 +31,19 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
         };
     }
 
-    const dictionary = await getPersonalDictionary(params.lang);
+    const personalDictionary = (await getPersonalDictionary(params.lang)).blog[params.id];
 
-    const title = dictionary.blog[params.id].title;
-    const description = dictionary.blog[params.id].description;
+    const title = personalDictionary.title;
+    const description = personalDictionary.description;
+    const bannerURL = new URL(`${currentRepoCDN}/.github/blog/${post.id.trim()}/thumbnail.png`);
     const banner = {
-        url: new URL(`${currentRepoCDN}/.github/blog/${post.id.trim()}/thumbnail.png`),
-        secureUrl: new URL(`${currentRepoCDN}/.github/blog/${post.id.trim()}/thumbnail.png`),
-        alt: `${post.id} banner`,
+        url: bannerURL,
+        secureUrl: bannerURL,
+        alt: `${personalDictionary.title} banner`,
         width: 1920,
         height: 1080,
     };
-    console.log(params.id, getAlternates(`blog/${params.id}`));
+
     return {
         metadataBase: getDeploymentURL(),
         alternates: {
@@ -51,7 +52,6 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
         title: title,
         description: description,
         openGraph: {
-            siteName: 'Erick Frederick',
             title: title,
             description: description,
             type: 'article',
@@ -63,8 +63,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
             card: 'summary_large_image',
             title: title,
             description: description,
-            creator: `@${process.env.NEXT_PUBLIC_TWITTER_HANDLE ?? ''}`,
             images: banner,
+            site: process.env.TWITTER_HANDLE ?? undefined,
         },
     };
 }

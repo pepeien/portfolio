@@ -2,13 +2,13 @@ import React from 'react';
 import { v4 } from 'uuid';
 
 // Types
-import { Dictionary, Job, PersonalDictionary } from '@utils/interfaces';
+import { Dictionary, Job, JobDictionary, PersonalDictionary } from '@utils/interfaces';
 
 export type DateDirection = 'normal' | 'inverse';
 
 export interface JobCardProps extends Job {
     dictionary: Dictionary;
-    personalDictionary: PersonalDictionary;
+    personalDictionary: JobDictionary;
 }
 
 export default function JobCard({
@@ -52,9 +52,7 @@ export default function JobCard({
             </div>
             <div className='job-card__info'>
                 <div className='job-card__info__company'>{company}</div>
-                <div className='job-card__info__description'>
-                    {personalDictionary.jobs[company].description}
-                </div>
+                <div className='job-card__info__description'>{personalDictionary.description}</div>
                 <ul className='job-card__info__technologies'>
                     {technologies.map((technology) => {
                         return <li key={v4()}>{technology}</li>;
