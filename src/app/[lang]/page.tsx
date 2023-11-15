@@ -163,9 +163,7 @@ export default async function Page({ params }: Props) {
                             <div className='home__content__section__title'>
                                 <h4>{dictionary['JOB_HISTORY_TITLE']}</h4>
                                 <ExternalRedirector
-                                    href={`${getCDN()}/resumes/Erick-Frederick-Resume-${
-                                        dictionary['LANGUAGE_LOCALE_URL']
-                                    }.pdf`}
+                                    href={`${dictionary['LANGUAGE_LOCALE_URL']}/resume`}
                                     text={dictionary['JOB_HISTORY_REDIRECTOR']}
                                 />
                             </div>

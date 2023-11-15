@@ -7,6 +7,9 @@ import React from 'react';
 // Types
 import { Dictionary } from '@utils/interfaces';
 
+// Services
+import { removeExtraSlashes } from '@utils/services/api';
+
 interface Props {
     dictionary: Dictionary;
     locales: Dictionary;
@@ -68,9 +71,9 @@ const Navbar = ({ dictionary, locales }: Props) => {
                             {Object.entries(locales).map(([id, name]) => (
                                 <li key={id} data-is-selected={isLanguageSelected(id)}>
                                     <Link
-                                        href={`/${id}/${
-                                            pathName.split(dictionary['LANGUAGE_LOCALE_URL'])[1]
-                                        }`}
+                                        href={`/${id}/${removeExtraSlashes(
+                                            pathName.split(dictionary['LANGUAGE_LOCALE_URL'])[1],
+                                        )}`}
                                     >
                                         <span>{name}</span>
                                         <div />
