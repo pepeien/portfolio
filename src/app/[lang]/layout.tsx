@@ -94,6 +94,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             images: banner,
             site: process.env.TWITTER_HANDLE ?? undefined,
         },
+        other: {
+            'google-site-verification': 'mo9T2NOuRjVjb6aO-W2GVlGhX8Pb6PCVVtvSxJg7V-I',
+        },
     };
 }
 
