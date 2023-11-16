@@ -17,15 +17,16 @@ Then open [http://localhost:3000/](http://localhost:3000/) to see your app. The 
 
 |  Variable  | Description                       |  Type   | Required |
 | :--------: | :-------------------------------  | :-----: | :------: |
-| DEPLOYMENT_URL               | Deployment URL         | String |    ✅    |
-| NEXT_PUBLIC_FORM_SERVICE_URL | Form service URL       | String |    ✅    |
-| INITIAL_VALUE                | Secret value           | String |    ✅    |
-| NEXT_PUBLIC_GIT_URL          | Git plataform URL      | String |    ✅    |
-| NEXT_PUBLIC_LINKEDIN_URL     | Linkedin URL           | String |    ✅    |
-| NEXT_PUBLIC_EMAIL_URL        | Email URL              | String |    ✅    |
-| TWITTER_HANDLE               | Twitter handle         | String |    ✅    |
-| CDN                          | App data CDN           | String |    ✅    |
-| GIT_CDN                      | Repo data CDN          | String |    ✅    |
+| FETCH_REVALIDATION_INTERVAL  | Revalidation interval in seconds | String |    ✅    |
+| DEPLOYMENT_URL               | Deployment URL                   | String |    ✅    |
+| NEXT_PUBLIC_FORM_SERVICE_URL | Form service URL                 | String |    ✅    |
+| INITIAL_VALUE                | Secret value                     | String |    ✅    |
+| NEXT_PUBLIC_GIT_URL          | Git plataform URL                | String |    ✅    |
+| NEXT_PUBLIC_LINKEDIN_URL     | Linkedin URL                     | String |    ✅    |
+| NEXT_PUBLIC_EMAIL_URL        | Email URL                        | String |    ✅    |
+| TWITTER_HANDLE               | Twitter handle                   | String |    ✅    |
+| CDN                          | App data CDN                     | String |    ✅    |
+| GIT_CDN                      | Repo data CDN                    | String |    ✅    |
 
 ps. _I strongly advise to use github's, as the app is coded around that structure "see below"._
 

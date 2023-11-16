@@ -20,7 +20,7 @@ import {
 import { getAlternates, getDictionary, getPersonalDictionary } from '@dictionary';
 
 // Services
-import { getCDN, getDeploymentURL } from '@utils/services/api';
+import { getCDN, getDeploymentURL, getFetchInterval } from '@utils/services/api';
 
 interface Props {
     params: { lang: string };
@@ -71,16 +71,17 @@ export default async function Page({ params }: Props) {
     const dictionary = await getDictionary(params.lang);
     const personalDictionary = await getPersonalDictionary(params.lang);
 
+    const revalidationInterval = getFetchInterval();
     const cdnURL = getCDN();
     const projects = await fetch(`${cdnURL}/projects/metadata.json`, {
-        next: { revalidate: 10 },
+        next: { revalidate: revalidationInterval },
     })
         .then((_res) => _res.json())
         .then((_projects: Project[]) => _projects.slice(0, MAX_PROJECT_SHOWCASE_COUNT))
         .catch(() => [] as Project[]);
 
     const jobs = await fetch(`${cdnURL}/jobs/metadata.json`, {
-        next: { revalidate: 10 },
+        next: { revalidate: revalidationInterval },
     })
         .then((_res) => _res.json())
         .then((_jobs: Job[]) =>
@@ -96,7 +97,7 @@ export default async function Page({ params }: Props) {
         .catch(() => [] as Job[]);
 
     const blog = await fetch(`${cdnURL}/blog/metadata.json`, {
-        next: { revalidate: 10 },
+        next: { revalidate: revalidationInterval },
     })
         .then((_res) => _res.json())
         .then((_blog: Blog[]) => _blog.slice(0, MAX_BLOG_SHOWCASE_COUNT))

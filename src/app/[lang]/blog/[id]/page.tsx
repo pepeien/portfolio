@@ -10,7 +10,7 @@ import { Blog } from '@utils/interfaces';
 import { getAlternates, getPersonalDictionary } from '@dictionary';
 
 // Services
-import { getCDN, getDeploymentURL } from '@utils/services/api';
+import { getCDN, getDeploymentURL, getFetchInterval } from '@utils/services/api';
 
 interface Params {
     params: { lang: string; id: string };
@@ -72,7 +72,7 @@ export default async function Page({ params }: Params) {
 
     const cdnURL = getCDN();
     const data = await fetch(`${cdnURL}/blog/${id.trim()}/${lang}.md`, {
-        next: { revalidate: 10 },
+        next: { revalidate: getFetchInterval() },
     })
         .then((_res) => _res.text())
         .catch(() => '');
