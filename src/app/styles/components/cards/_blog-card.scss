@@ -13,6 +13,8 @@ $--info-padding-desktop: 2vh;
 	overflow: hidden;
 
 	&__thumbnail {
+		display: flex;
+		flex-direction: column;
 		width: 100%;
 		min-height: 25vh;
 			
@@ -20,17 +22,35 @@ $--info-padding-desktop: 2vh;
 			width: 100%;
 			height: 100%;
 		}
+
 	}
 
-	&__date {
-		width: 100%;
+	&__header {
 		display: flex;
 		align-items: center;
+		width: 100%;
 		background-color: $--selected-color;
-		padding: $--info-padding;
-		font-family: 'Inter';
-		font-weight: 500;
-		font-size: 1.1rem;
+
+		&__block {
+			height: 100%;
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: 0.7vh;
+			padding: $--info-padding;
+
+			span {
+				font-family: 'Inter';
+				font-weight: 500;
+				font-size: 1.1rem;	
+			}
+		}
+
+		&__date {
+			justify-content: flex-end;
+			opacity: 0.7;
+		}
 	}
 
     &__data {
@@ -45,17 +65,13 @@ $--info-padding-desktop: 2vh;
 		border-bottom-right-radius: $--squircle-border-radius;
 
 		&__info {
-			width: 100%;
 			height: 100%;
+			width: calc(100% - ($--info-padding * 2));
 			display: flex;
 			flex-direction: column;
 			gap: 2vh;
 			position: relative;
-			padding: calc($--info-padding * 1.4) $--info-padding;;
-	
-			.blog-card__date {
-				border-radius: 0;
-			}
+			padding: calc($--info-padding * 1.4) $--info-padding;
 
 			&__title {
 				font-family: 'Inter';
@@ -119,14 +135,18 @@ $--info-padding-desktop: 2vh;
 			}
         }
 
-		&__date {
+		&__header {
 			font-size: 1.1rem;
-			padding: $--info-padding-desktop;
+
+			&__block {
+				padding: $--info-padding-desktop;
+			}
 		}
 
 		&__thumbnail {
 			height: 100%;
-			width: calc(50% - 1.5rem);
+			width: calc(50% - 8rem);
+			flex-direction: column-reverse;
 		}
 
         &__data {
@@ -136,15 +156,19 @@ $--info-padding-desktop: 2vh;
 			border-radius: 0;
 
             &__info {
+				width: calc(100% - ($--info-padding-desktop * 3));
 				gap: 1.5vh;
 				padding: $--info-padding-desktop;
+				justify-content: center;
 
 				&__title {
 					font-size: 2.1rem;
+					max-height: 3rem;
 				}
 	
 				&__description {
 					font-size: 1rem;
+					max-height: 3rem;
 				}
 			}
 

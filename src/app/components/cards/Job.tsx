@@ -22,16 +22,16 @@ export default function JobCard({
 }: JobCardProps) {
     const direction = dictionary['JOB_HISTORY_DATE_DIRECTION'];
 
-    const getMonthYear = (date?: Date, direction = 'normal', fallback = ''): string => {
+    const getLocalizedDate = (date?: Date, direction = 'normal', fallback = ''): string => {
         if (!date || !date.toLocaleDateString) {
             return fallback;
         }
 
-        const month = date.toLocaleDateString(dictionary['LANGUAGE_LOCALE_DATE'], {
-            month: 'long',
-        });
         const year = date.toLocaleDateString(dictionary['LANGUAGE_LOCALE_DATE'], {
             year: 'numeric',
+        });
+        const month = date.toLocaleDateString(dictionary['LANGUAGE_LOCALE_DATE'], {
+            month: 'long',
         });
 
         if (direction === 'normal') {
@@ -45,12 +45,12 @@ export default function JobCard({
         <div className='job-card'>
             <div className='job-card__date'>
                 <div className='job-card__date__text'>
-                    <span>{getMonthYear(startDate, direction)}</span>
+                    <span>{getLocalizedDate(startDate, direction)}</span>
                     <div className='job-card__date__divider' />
-                    <span>{getMonthYear(endDate, direction, dictionary['NOW_TEXT'])}</span>
+                    <span>{getLocalizedDate(endDate, direction, dictionary['NOW_TEXT'])}</span>
                 </div>
             </div>
-            <div className='job-card__info'>
+            <div className='job-card__info --shadowed'>
                 <div className='job-card__info__company'>{company}</div>
                 <div className='job-card__info__description'>{personalDictionary.description}</div>
                 <ul className='job-card__info__technologies'>

@@ -309,3 +309,9 @@
 .--hidden-overflow-y {
     overflow-y: hidden;
 }
+
+.--shadowed {
+    box-shadow:         $--box-shadow;
+    -webkit-box-shadow: $--box-shadow;
+    -moz-box-shadow:    $--box-shadow;
+}

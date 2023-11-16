@@ -58,6 +58,8 @@ $--banner-height-desktop: 70vh;
             position: absolute;
             top: calc($--banner-height-desktop - 2vh);
             padding-top: 4vh;
+            border-top-left-radius: $--squircle-border-radius * 4;
+            border-top-right-radius: $--squircle-border-radius * 4;
 
             &__footer {
                height: 30vh;

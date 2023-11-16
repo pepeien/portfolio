@@ -28,7 +28,7 @@ export default async function ProjectCard({
 
     return (
         <a
-            className='project-card'
+            className='project-card --shadowed'
             style={{
                 backgroundColor: identity?.primaryColor,
                 color: identity?.accentColor,

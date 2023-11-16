@@ -9,6 +9,18 @@ export default {
     LANGUAGE_LOCALE_URL: 'en-us',
     LANGUAGE_LOCALE_LINKEDIN: 'en_US',
 
+    DATE_NOW: 'now',
+    DATE_YEAR_LONG: 'year',
+    DATE_YEAR_LONG_PLURAL: 'years',
+    DATE_MONTH_LONG: 'month',
+    DATE_MONTH_LONG_PLURAL: 'months',
+    DATE_DAY_LONG: 'Day',
+    DATE_DAY_LONG_PLURAL: 'days',
+    DATE_HOUR_LONG: 'hour',
+    DATE_HOUR_LONG_PLURAL: 'hours',
+    DATE_ELAPSED: 'ago',
+    DATE_ELAPSED_LOCATION: 'AFTER',
+
     HOME_PAGE_TITLE: 'Erick Frederick',
     HOME_PAGE_DESCRIPTION:
         'Erick Frederick is a software engineer who creates robust, responsive and aesthetic applications for users and developers.',

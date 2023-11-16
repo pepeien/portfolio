@@ -1,3 +1,6 @@
+//Themes Import
+@import 'themes/light';
+
 //Base Import
 @import 'base/reset';
 @import 'base/fonts';
@@ -6,8 +9,6 @@
 @import 'layout/animations';
 @import 'layout/mods';
 
-//Themes Import
-@import 'themes/light';
 
 //Components Import
 @import 'components/button';

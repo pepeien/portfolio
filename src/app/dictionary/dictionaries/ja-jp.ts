@@ -9,6 +9,16 @@ export default {
     LANGUAGE_LOCALE_URL: 'ja-jp',
     LANGUAGE_LOCALE_LINKEDIN: 'en_US',
 
+    DATE_NOW: '今',
+    DATE_YEAR_LONG: '年前',
+    DATE_YEAR_LONG_PLURAL: '年前',
+    DATE_MONTH_LONG: 'ヶ月前',
+    DATE_MONTH_LONG_PLURAL: 'ヶ月前',
+    DATE_DAY_LONG: '日前',
+    DATE_DAY_LONG_PLURAL: '日前',
+    DATE_HOUR_LONG: '時間前',
+    DATE_HOUR_LONG_PLURAL: '時間前',
+
     HOME_PAGE_TITLE: 'Erick Frederick',
     HOME_PAGE_DESCRIPTION:
         'Erick Frederick 「エリック・フレデリック」は、ユーザーと開発者のために、堅牢で応答性が高くアプリケーションを作成するソフトウェア・エンジニアである。',
@@ -27,7 +37,7 @@ export default {
     JOB_HISTORY_DATE_DIRECTION: 'inverse',
 
     BLOG_TITLE: 'ブログ',
-    BLOG_READ_INVITATION: 'Read the post',
+    BLOG_READ_INVITATION: '記事を読む',
 
     CONTACT_TITLE: '問い合わせ',
     CONTACT_EMAIL_LABEL: 'メール',
