@@ -27,6 +27,7 @@ export default {
     JOB_HISTORY_DATE_DIRECTION: 'normal',
 
     BLOG_TITLE: 'Blog',
+    BLOG_READ_INVITATION: 'Read the post',
 
     CONTACT_TITLE: 'Contact',
     CONTACT_EMAIL_LABEL: 'Email',

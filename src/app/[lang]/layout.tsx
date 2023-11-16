@@ -113,7 +113,6 @@ export default async function RootLayout({ params, children }: Props) {
             <body>
                 <Navbar dictionary={dictionary} locales={getLocales()} />
                 {children}
-                <Footer dictionary={dictionary} />
             </body>
         </html>
     );

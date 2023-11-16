@@ -27,6 +27,7 @@ export default {
     JOB_HISTORY_DATE_DIRECTION: 'inverse',
 
     BLOG_TITLE: 'ブログ',
+    BLOG_READ_INVITATION: 'Read the post',
 
     CONTACT_TITLE: '問い合わせ',
     CONTACT_EMAIL_LABEL: 'メール',

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import React from 'react';
 import Markdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
@@ -81,11 +82,12 @@ export default async function Page({ params }: Params) {
         <main className='blog --page --flex-column'>
             <section className='blog__banner'>
                 <div className='blog__banner__wrapper'>
-                    <div
-                        className='blog__banner__image'
-                        style={{
-                            backgroundImage: `url("${cdnURL}/blog/${id.trim()}/images/thumbnail.png")`,
-                        }}
+                    <Image
+                        src={`${cdnURL}/blog/${id.trim()}/images/thumbnail.png`}
+                        width={1920}
+                        height={1080}
+                        quality={100}
+                        alt='Blog banner'
                     />
                 </div>
             </section>

@@ -1,10 +1,13 @@
+$--banner-height: 30.5rem;
+$--banner-height-desktop: 70vh;
+
 .blog {
     background-color: $--grey-background-color;
     align-items: center;
 
     &__banner {
         width: 100%;
-        height: 30.5rem;
+        height: $--banner-height;
         overflow: hidden;
         position: relative;
 
@@ -21,24 +24,18 @@
             height: 100%;
             width: 100%;
         }
-
-        &__image {
-            position: absolute;
-            top: 0;
-            background-size: cover;
-            background-repeat: no-repeat;
-            width: 100%;
-            height: 120%;
-        }
     }
 
     &__content {
+        position: absolute;
+        top: calc($--banner-height - 1rem);
         width: 100%;
-        height: 100%;
         align-items: center;
         background-color: $--backdrop-primary-color-light;
         color: $--grey-background-color;
-        padding-top: 4vh;
+        padding-top: 2vh;
+        border-top-left-radius: $--squircle-border-radius * 3;
+        border-top-right-radius: $--squircle-border-radius * 3;
 
         &__footer {
             margin-bottom: -0.1vh;
@@ -54,16 +51,12 @@
 @media (min-width: $--min-desktop-width) {
     .blog {
         &__banner {
-            height: auto;
-    
-            &__image {
-                top: 0;
-                background-position: 50% Top;
-                background-repeat: no-repeat;
-            }
+            height: $--banner-height-desktop;
         }
     
         &__content {
+            position: absolute;
+            top: calc($--banner-height-desktop - 2vh);
             padding-top: 4vh;
 
             &__footer {

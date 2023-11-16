@@ -14,7 +14,7 @@ export default async function Page({ params }: Props) {
         .catch(() => '');
 
     return (
-        <main className='--page'>
+        <main className='resume --page'>
             <embed src={`${getCDN()}/resumes/${pdfName}`} width='100%' height='100%'></embed>
         </main>
     );
