@@ -9,7 +9,7 @@
 	font-size: 16px;
 	line-height: 1.5;
 	word-wrap: break-word;
-	width: 90%;
+	width: 100%;
 	align-items: flex-start;
 
 	-webkit-animation: fade-in $--initial-fade-duration ease-in-out 1 forwards;
@@ -1120,8 +1120,6 @@
 
 @media (min-width: $--min-desktop-width) {
 	.markdown {
-		width: 70%;
-
         h1 {
             font-size: 8vh;
         }

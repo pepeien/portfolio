@@ -29,13 +29,43 @@ $--banner-height-desktop: 70vh;
     &__content {
         position: absolute;
         top: calc($--banner-height - 1rem);
-        width: 100%;
+        width: calc(100% - 6vh);
+        padding: 3rem 3vh;
+        padding-bottom: 0;
         align-items: center;
         background-color: $--backdrop-primary-color-light;
         color: $--grey-background-color;
-        padding-top: 2vh;
         border-top-left-radius: $--squircle-border-radius * 3;
         border-top-right-radius: $--squircle-border-radius * 3;
+
+        &__header {
+            margin: 0 auto;
+            gap: 2vh 0;
+            margin-bottom: 5vh;
+
+            &__title, &__description {
+                font-family: "Inter";
+            }
+        
+            &__title {
+                font-weight: 700;
+                font-size: 2.5rem;
+            }
+    
+            &__description {
+                font-weight: 300;
+                font-size: 1.2rem;
+                opacity: 0.8;
+            }
+
+            &__tags {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 1vh;
+                color: $--accent-color;
+            }
+        }
 
         &__footer {
             margin-bottom: -0.1vh;
@@ -57,9 +87,29 @@ $--banner-height-desktop: 70vh;
         &__content {
             position: absolute;
             top: calc($--banner-height-desktop - 2vh);
-            padding-top: 4vh;
+            width: calc(100% - 40vh);
+            padding: 2.5rem 20vh;
+            padding-bottom: 0;
             border-top-left-radius: $--squircle-border-radius * 4;
             border-top-right-radius: $--squircle-border-radius * 4;
+
+            &__header {
+                width: 100%;
+                gap: 2vh 0;
+                margin-bottom: 5vh;
+            
+                &__title {
+                    font-size: 8vh;
+                }
+        
+                &__description {
+                    font-size: 2vh;
+                }
+    
+                &__tags {
+                    gap: 1vh;
+                }
+            }
 
             &__footer {
                height: 30vh;

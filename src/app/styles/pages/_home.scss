@@ -41,7 +41,7 @@
         &__section {
             display: flex;
             flex-direction: column;
-            gap: 8vh;
+            gap: 6vh;
             width: 85%;
 
             &__title {
@@ -115,10 +115,6 @@
                             display: flex;
                             flex-direction: column;
                             gap: 4vh;
-                                
-                            li {
-                                width: 100%;
-                            }
                         }
                     }
                 }

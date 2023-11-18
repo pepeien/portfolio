@@ -15,7 +15,7 @@ export default {
         'game-dev-a-rough-start': {
             title: 'Desenvolvimento de jogos, um começo complicado',
             description:
-                'Uma historia sobre o começo complicado na minha jornada com a unreal engine',
+                'Uma historia sobre o começo complicado da minha jornada com a Unreal Engine',
         },
     },
     projects: {
