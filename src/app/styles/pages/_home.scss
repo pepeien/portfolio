@@ -62,7 +62,7 @@
                 flex: 2;
                 position: relative;
 
-                ul {
+                > ul {
                     width: 100%;
                 }
             }
@@ -115,6 +115,10 @@
                             display: flex;
                             flex-direction: column;
                             gap: 4vh;
+
+                            > li {
+                                width: 100%;
+                            }
                         }
                     }
                 }

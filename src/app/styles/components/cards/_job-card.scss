@@ -54,7 +54,7 @@
 			flex-wrap: wrap;
 			margin-top: 1.5vh;
 			gap: 1.5vh 1vh;
-			width: 86%;
+			width: 100%;
 			font-family: 'Inter';
 
 			li {
@@ -115,7 +115,7 @@
 					}
 				}
 
-				&__technologies { 
+				&__technologies {
 					li {
 						padding: 0;
 						width: 10vh;
@@ -169,7 +169,7 @@
 			}
 
 			&__technologies { 
-				width: 70%;
+				width: 100%;
 				margin-top: 1.35vh;
 
 				li {

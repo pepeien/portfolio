@@ -85,7 +85,7 @@
         align-items: center;
         justify-content: center;
         width: 100%;
-        padding: 1.5vh 0;
+        padding: 2vh 0;
         position: relative;
         background-color: transparent;
         outline: transparent;
@@ -215,7 +215,7 @@
 
 @media (min-width: 801px) {
     .navbar {
-        width: 7vh;
+        width: 7.5vh;
 
         &[data-can-show='false'] {
             .navbar {
@@ -229,6 +229,7 @@
         }
 
         &__content {
+            padding-top: 2.5vh;
             backdrop-filter: $--backdrop-filter;
             background-color: $--backdrop-background-color;
 
@@ -241,7 +242,7 @@
         &__button {
             height: 2.5vh;
             width: 100%;
-            padding: 1.5vh 0;
+            padding: 2vh 0;
 
             svg {
                 path {
