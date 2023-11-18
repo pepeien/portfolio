@@ -5,7 +5,7 @@ import { v4 } from 'uuid';
 import { Project, ProjectDictionary, ProjectIdentity } from '@utils/interfaces';
 
 // Services
-import { getFetchInterval, getGitCDN } from '@utils/services/api';
+import { InternalServices } from '@utils/services';
 
 export interface ProjectCardProps extends Project {
     personalDictionary: ProjectDictionary;
@@ -18,9 +18,9 @@ export default async function ProjectCard({
     personalDictionary,
 }: ProjectCardProps) {
     const identity: ProjectIdentity = await fetch(
-        `${getGitCDN()}/${repo}/master/.github/metadata.json?raw=true`,
+        `${InternalServices.getGitCDN()}/${repo}/master/.github/metadata.json?raw=true`,
         {
-            next: { revalidate: getFetchInterval() },
+            next: { revalidate: InternalServices.getFetchInterval() },
         },
     )
         .then((_res) => _res.json())

@@ -3,6 +3,7 @@ import { v4 } from 'uuid';
 
 // Types
 import { Dictionary, Job, JobDictionary, PersonalDictionary } from '@utils/interfaces';
+import { StringServices } from '@utils/services';
 
 export type DateDirection = 'normal' | 'inverse';
 
@@ -21,33 +22,21 @@ export default function JobCard({
     personalDictionary,
 }: JobCardProps) {
     const direction = dictionary['JOB_HISTORY_DATE_DIRECTION'];
-
-    const getLocalizedDate = (date?: Date, direction = 'normal', fallback = ''): string => {
-        if (!date || !date.toLocaleDateString) {
-            return fallback;
-        }
-
-        const year = date.toLocaleDateString(dictionary['LANGUAGE_LOCALE_DATE'], {
-            year: 'numeric',
-        });
-        const month = date.toLocaleDateString(dictionary['LANGUAGE_LOCALE_DATE'], {
-            month: 'long',
-        });
-
-        if (direction === 'normal') {
-            return `${month.charAt(0).toUpperCase()}${month.slice(1)} ${year}`;
-        }
-
-        return `${year} ${month.charAt(0).toUpperCase()}${month.slice(1)}`;
-    };
+    const localizedStartDate = StringServices.getLocalizedDate(dictionary, startDate, direction);
+    const localizedEndDate = StringServices.getLocalizedDate(
+        dictionary,
+        endDate,
+        direction,
+        dictionary['NOW_TEXT'],
+    );
 
     return (
         <div className='job-card'>
             <div className='job-card__date'>
                 <div className='job-card__date__text'>
-                    <span>{getLocalizedDate(startDate, direction)}</span>
+                    <span>{localizedStartDate}</span>
                     <div className='job-card__date__divider' />
-                    <span>{getLocalizedDate(endDate, direction, dictionary['NOW_TEXT'])}</span>
+                    <span>{localizedEndDate}</span>
                 </div>
             </div>
             <div className='job-card__info --shadowed'>

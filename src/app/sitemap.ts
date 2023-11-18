@@ -1,10 +1,10 @@
 import { MetadataRoute } from 'next';
 
 // Services
-import { getDeploymentURL, removeExtraSlashes } from '@utils/services/api';
+import { InternalServices } from '@utils/services';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const deploymentURL = removeExtraSlashes(getDeploymentURL().toString());
+    const deploymentURL = InternalServices.getDeploymentURL().toString();
     const now = new Date();
 
     return [

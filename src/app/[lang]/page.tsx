@@ -21,7 +21,7 @@ import {
 import { getAlternates, getDictionary, getPersonalDictionary } from '@dictionary';
 
 // Services
-import { getCDN, getDeploymentURL, getFetchInterval } from '@utils/services/api';
+import { InternalServices } from '@utils/services';
 
 interface Props {
     params: { lang: string };
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     const title = dictionary['HOME_PAGE_TITLE'];
     const description = dictionary['HOME_PAGE_DESCRIPTION'];
-    const bannerURL = new URL(`${getCDN()}/images/thumbnail.png`);
+    const bannerURL = new URL(`${InternalServices.getCDN()}/images/thumbnail.png`);
     const banner = {
         url: bannerURL,
         secureUrl: bannerURL,
@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 
     return {
-        metadataBase: getDeploymentURL(),
+        metadataBase: InternalServices.getDeploymentURL(),
         alternates: {
             languages: getAlternates(),
         },
@@ -72,8 +72,8 @@ export default async function Page({ params }: Props) {
     const dictionary = await getDictionary(params.lang);
     const personalDictionary = await getPersonalDictionary(params.lang);
 
-    const revalidationInterval = getFetchInterval();
-    const cdnURL = getCDN();
+    const revalidationInterval = InternalServices.getFetchInterval();
+    const cdnURL = InternalServices.getCDN();
     const projects = await fetch(`${cdnURL}/projects/metadata.json`, {
         next: { revalidate: revalidationInterval },
     })

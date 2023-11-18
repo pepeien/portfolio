@@ -9,7 +9,7 @@ import { Footer, Navbar } from '@components';
 import { getAlternates, getDictionary, getLocales } from '@dictionary';
 
 import '../styles/main.scss';
-import { getCDN, getDeploymentURL } from '@utils/services/api';
+import { InternalServices } from '@utils/services';
 
 const icons = [
     {
@@ -64,7 +64,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     const title = dictionary['HOME_PAGE_TITLE'];
     const description = dictionary['HOME_PAGE_DESCRIPTION'];
-    const bannerURL = new URL(`${getCDN()}/images/thumbnail.png`);
+    const bannerURL = new URL(`${InternalServices.getCDN()}/images/thumbnail.png`);
     const banner = {
         url: bannerURL,
         secureUrl: bannerURL,
@@ -74,7 +74,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 
     return {
-        metadataBase: getDeploymentURL(),
+        metadataBase: InternalServices.getDeploymentURL(),
         alternates: {
             languages: getAlternates(),
         },

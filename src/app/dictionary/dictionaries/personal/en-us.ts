@@ -14,7 +14,7 @@ export default {
     blog: {
         'game-dev-a-rough-start': {
             title: 'Game development, a rough start',
-            description: 'A history about my rough start on learning unreal engine',
+            description: 'A history about my rough start on learning Unreal Engine',
         },
     },
     projects: {
