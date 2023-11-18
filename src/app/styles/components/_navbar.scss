@@ -1,10 +1,13 @@
+$--navbar-width-mobile: 8vh;
+$--navbar-content-padding-top-mobile: 2vh;
+
 .navbar {
     position: fixed;
     z-index: $--max-z-index;
     bottom: 0;
     right: 0;
     opacity: 0;
-    width: 8vh;
+    width: $--navbar-width-mobile;
 
     -webkit-animation: fade-in 1s ease-in-out 1 forwards;
 	-moz-animation:    fade-in 1s ease-in-out 1 forwards;
@@ -45,7 +48,7 @@
 
     &__content {
         width: 100%;
-        padding-top: 2vh;
+        padding-top: $--navbar-content-padding-top-mobile;
         background-color: $--backdrop-background-color-mobile;
         border-top-left-radius: $--pill-border-radius;
         z-index: $--max-z-index + 1;
@@ -117,8 +120,8 @@
             flex-direction: column;
             align-items: center;
             overflow: hidden;
-            top: -2vh;
-            right: 8vh;
+            top: -$--navbar-content-padding-top-mobile;
+            right: $--navbar-width-mobile;
             padding: 1.5vh 0;
             gap: 1vh;
             background-color: $--backdrop-background-color-mobile;
@@ -213,9 +216,12 @@
     }
 }
 
+$--navbar-width-desktop: 7.5vh;
+$--navbar-content-padding-top-desktop: 2.5vh;
+
 @media (min-width: 801px) {
     .navbar {
-        width: 7.5vh;
+        width: $--navbar-width-desktop;
 
         &[data-can-show='false'] {
             .navbar {
@@ -229,7 +235,7 @@
         }
 
         &__content {
-            padding-top: 2.5vh;
+            padding-top: $--navbar-content-padding-top-desktop;
             backdrop-filter: $--backdrop-filter;
             background-color: $--backdrop-background-color;
 
@@ -270,7 +276,8 @@
                 background-color: $--backdrop-background-color;
                 backdrop-filter: $--backdrop-filter;
                 width: 12vh;
-                right: 7vh;
+                right: $--navbar-width-desktop;
+                top: -$--navbar-content-padding-top-desktop;
     
                 li {
                     a {
