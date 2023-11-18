@@ -42,6 +42,7 @@ $--banner-height-desktop: 70vh;
             margin: 0 auto;
             gap: 2vh 0;
             margin-bottom: 5vh;
+            align-items: center;
 
             &__title, &__description {
                 font-family: "Inter";
@@ -64,6 +65,16 @@ $--banner-height-desktop: 70vh;
                 flex-wrap: wrap;
                 gap: 1vh;
                 color: $--accent-color;
+            }
+
+            &__divider {
+                width: 40%;
+                height: 0.3vh;
+                background-color: black;
+                border-radius: $--squircle-border-radius;
+                opacity: 0.2;
+                margin: 0 auto;
+                margin-top: 2vh;
             }
         }
 
@@ -96,7 +107,6 @@ $--banner-height-desktop: 70vh;
             &__header {
                 width: 100%;
                 gap: 2vh 0;
-                margin-bottom: 5vh;
             
                 &__title {
                     font-size: 8vh;
@@ -108,6 +118,10 @@ $--banner-height-desktop: 70vh;
     
                 &__tags {
                     gap: 1vh;
+                }
+
+                &__divider {
+                    width: 10%;
                 }
             }
 

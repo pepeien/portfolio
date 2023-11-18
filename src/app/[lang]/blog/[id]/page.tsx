@@ -181,6 +181,7 @@ export default async function Page({ params }: Params) {
                             </span>
                         </li>
                     </ul>
+                    <div className='blog__content__header__divider' />
                 </div>
                 <div className='markdown'>
                     <Markdown rehypePlugins={[rehypeRaw]}>{markdownData}</Markdown>
