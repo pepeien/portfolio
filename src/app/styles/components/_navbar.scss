@@ -177,7 +177,7 @@ $--navbar-content-padding-top-mobile: 2vh;
                         position: absolute;
                         height: 0.2vh;
                         width: 2vh;
-                        background-color: $--green-accent-color;
+                        background-color: $--green-color;
                         opacity: 0;
                         margin-top: 5.5vh;
                     }                
@@ -196,7 +196,7 @@ $--navbar-content-padding-top-mobile: 2vh;
     
     &__hamburguer-button {
         height: 7vh;
-        background-color: $--green-background-color;
+        background-color: $--dark-green-color;
         z-index: $--max-z-index + 2;
 
         box-shadow:         1px 2px 5px 0px rgba(0, 0, 0, 0.05);
@@ -222,17 +222,6 @@ $--navbar-content-padding-top-desktop: 2.5vh;
 @media (min-width: 801px) {
     .navbar {
         width: $--navbar-width-desktop;
-
-        &[data-can-show='false'] {
-            .navbar {
-                &__content {
-                    -webkit-transform: translateY(0);
-                    -moz-transform:    translateY(0);
-                    -o-transform:      translateY(0);
-                    transform:         translateY(0);
-                }
-            }
-        }
 
         &__content {
             padding-top: $--navbar-content-padding-top-desktop;
@@ -264,7 +253,7 @@ $--navbar-content-padding-top-desktop: 2.5vh;
 
                 svg {
                     path {
-                        fill: $--backdrop-primary-color-dark;
+                        fill: $--backdrop-primary-color;
                     }
                 }
             }
@@ -290,7 +279,7 @@ $--navbar-content-padding-top-desktop: 2.5vh;
 
                         &:hover {
                             span {
-                                color: $--backdrop-primary-color-dark;
+                                color: $--backdrop-primary-color;
                             }
                         }
                     }
@@ -307,7 +296,7 @@ $--navbar-content-padding-top-desktop: 2.5vh;
         }
 
         &__hamburguer-button {
-            display: none;
+            height: 6.5vh;
         }
     }
 }

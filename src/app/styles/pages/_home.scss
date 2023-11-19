@@ -29,7 +29,7 @@
         &__main {
             display: flex;
             flex-direction: column;
-            background-color: $--grey-background-color;
+            background-color: $--grey-color;
             width: 100%;
             height: 100%;
             margin-top: -5.5dvh;
@@ -84,8 +84,6 @@
             }
 
             &__job {
-                flex-direction: column-reverse;
-
                 .home__content__section {
                     &__title {
                         justify-content: center;
@@ -193,6 +191,8 @@
                 }
 
                 &__job {
+                    flex-direction: row-reverse;
+
                     .home__content__section {
                         &__title {
                             justify-content: flex-start;
