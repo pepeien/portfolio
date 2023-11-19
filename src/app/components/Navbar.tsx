@@ -74,6 +74,7 @@ const Navbar = ({ dictionary, locales }: Props) => {
                                         href={`/${id}/${StringServices.removeExtraSlashes(
                                             pathName.split(dictionary['LANGUAGE_LOCALE_URL'])[1],
                                         )}`}
+                                        scroll={false}
                                     >
                                         <span>{name}</span>
                                         <div />
