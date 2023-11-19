@@ -14,7 +14,7 @@ import {
 } from '@components';
 
 // Dictionary
-import { getAlternates, getDictionary, getPersonalDictionary } from '@dictionary';
+import { getAlternates, getCanonical, getDictionary, getPersonalDictionary } from '@dictionary';
 
 // Services
 import { InternalServices } from '@utils/services';
@@ -39,9 +39,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     return {
         metadataBase: InternalServices.getDeploymentURL(),
-        alternates: {
-            languages: getAlternates(),
-        },
         title: title,
         description: description,
         openGraph: {

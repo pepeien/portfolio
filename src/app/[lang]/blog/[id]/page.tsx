@@ -8,10 +8,12 @@ import rehypeRaw from 'rehype-raw';
 import { Blog } from '@utils/interfaces';
 
 // Dictionary
-import { getAlternates, getDictionary, getPersonalDictionary } from '@dictionary';
+import { getAlternates, getCanonical, getDictionary, getPersonalDictionary } from '@dictionary';
 
 // Services
 import { InternalServices, StringServices } from '@utils/services';
+
+// Components
 import { TagListing } from '@components';
 
 interface Params {
@@ -47,6 +49,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     return {
         metadataBase: InternalServices.getDeploymentURL(),
         alternates: {
+            canonical: getCanonical(`blog/${params.id}`),
             languages: getAlternates(`blog/${params.id}`),
         },
         title: title,

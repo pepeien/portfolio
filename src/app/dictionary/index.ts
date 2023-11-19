@@ -3,24 +3,35 @@
 // Types
 import { Dictionary, PersonalDictionary } from '@utils/interfaces';
 
+// Servicesd
+import { StringServices } from '@utils/services';
+
+const canonical = 'en';
+
 const alternates = {
     en: 'en-us',
     ja: 'ja-jp',
     pt: 'pt-br',
 };
 
-export const getAlternates = (path = '') => {
+export const getCanonical = (path = '') => {
     if (path.trim().length === 0) {
-        return alternates;
+        return alternates[canonical];
     }
 
-    const result = { ...alternates };
+    return `${alternates[canonical]}/${path}`;
+};
 
-    Object.keys(result).forEach((value) => {
-        const key = value as keyof typeof result;
+export const getAlternates = (path = '') => {
+    const result: { [key: string]: string } = {};
 
-        result[key] = `${result[key]}/${path}`;
-    });
+    Object.keys(alternates)
+        .filter((alternate) => alternate !== canonical)
+        .forEach((key) => {
+            result[key] = `${alternates[key as keyof typeof alternates]}${
+                StringServices.isStringValid(path) ? `/${path}` : ''
+            }`;
+        });
 
     return result;
 };

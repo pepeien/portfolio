@@ -6,7 +6,7 @@ import type { Metadata } from 'next';
 import { Footer, Navbar } from '@components';
 
 // Dictionary
-import { getAlternates, getDictionary, getLocales } from '@dictionary';
+import { getAlternates, getCanonical, getDictionary, getLocales } from '@dictionary';
 
 import '../styles/main.scss';
 import { InternalServices } from '@utils/services';
@@ -76,6 +76,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
         metadataBase: InternalServices.getDeploymentURL(),
         alternates: {
+            canonical: getCanonical(),
             languages: getAlternates(),
         },
         title: title,
