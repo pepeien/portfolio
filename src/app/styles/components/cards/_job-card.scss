@@ -34,7 +34,7 @@
 		gap: 1vh 0;
 		flex: 2.5;
 		padding: 3vh;
-		background-color: $--light-background-color;
+		background-color: $--dark-grey-color;
 		border-radius: 1.5vh;
 
 		&__company {
@@ -48,26 +48,9 @@
 			line-height: 1.5;
 			opacity: 0.7;
 		}
-
-		&__technologies {
-			display: flex;
-			flex-wrap: wrap;
-			margin-top: 1.5vh;
-			gap: 1.5vh 1vh;
-			width: 100%;
-			font-family: 'Inter';
-
-			li {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				background-color: #345C54;
-				min-height: 4vh;
-				padding: 0 2vh;
-				border-radius: 3vh;
-				font-weight: 600;
-				font-size: 1.5vh;
-			}
+		
+		.tags {
+			margin-top: 1vh;
 		}
 	}
 
@@ -114,22 +97,6 @@
 						border-radius: 1.5vh;
 					}
 				}
-
-				&__technologies {
-					li {
-						padding: 0;
-						width: 10vh;
-						height: 4vh;
-						background-color: transparent;
-
-						svg {
-							width: 100%;
-							height: 100%;
-							overflow: hidden;
-							border-radius: 3vh;
-						}
-					}
-				}
 			}
 		}
 	}
@@ -167,18 +134,6 @@
 				width: 100%;
 				font-size: 1.7vh;
 			}
-
-			&__technologies { 
-				width: 100%;
-				margin-top: 1.35vh;
-
-				li {
-					min-height: 3.5vh;
-					padding: 0 2vh;
-					font-size: 1.25vh;
-					backdrop-filter: $--backdrop-filter;
-				}
-			}
 		}
 
 		&[data-is-loading='true'] {
@@ -201,15 +156,6 @@
 						height: 18vh;
 						width: 80%;
 						margin-top: 1vh;
-					}
-
-					&__technologies { 
-						li {
-							padding: 0;
-							width: 10vh;
-							height: 4vh;
-							background-color: transparent;
-						}
 					}
 				}
 			}

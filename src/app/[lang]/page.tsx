@@ -1,20 +1,16 @@
 import { Metadata } from 'next';
 import React from 'react';
-import { v4 } from 'uuid';
-
-// Types
-import { Job, Blog, Project } from '@utils/interfaces';
 
 // Components
 import {
-    BlogCard,
     ContactForm,
     ExternalRedirector,
-    JobCard,
-    ProjectCard,
     Title,
     Mountains,
     Footer,
+    ProjectListing,
+    JobListing,
+    BlogListing,
 } from '@components';
 
 // Dictionary
@@ -26,10 +22,6 @@ import { InternalServices } from '@utils/services';
 interface Props {
     params: { lang: string };
 }
-
-const MAX_PROJECT_SHOWCASE_COUNT = 4;
-const MAX_JOB_SHOWCASE_COUNT = 3;
-const MAX_BLOG_SHOWCASE_COUNT = 3;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const dictionary = await getDictionary(params.lang);
@@ -72,38 +64,6 @@ export default async function Page({ params }: Props) {
     const dictionary = await getDictionary(params.lang);
     const personalDictionary = await getPersonalDictionary(params.lang);
 
-    const revalidationInterval = InternalServices.getFetchInterval();
-    const cdnURL = InternalServices.getCDN();
-    const projects = await fetch(`${cdnURL}/projects/metadata.json`, {
-        next: { revalidate: revalidationInterval },
-    })
-        .then((_res) => _res.json())
-        .then((_projects: Project[]) => _projects.slice(0, MAX_PROJECT_SHOWCASE_COUNT))
-        .catch(() => [] as Project[]);
-
-    const jobs = await fetch(`${cdnURL}/jobs/metadata.json`, {
-        next: { revalidate: revalidationInterval },
-    })
-        .then((_res) => _res.json())
-        .then((_jobs: Job[]) =>
-            _jobs.slice(0, MAX_JOB_SHOWCASE_COUNT).map(
-                (_job) =>
-                    ({
-                        ..._job,
-                        startDate: _job.startDate ? new Date(_job.startDate) : new Date(),
-                        endDate: _job.endDate ? new Date(_job.endDate) : undefined,
-                    }) as Job,
-            ),
-        )
-        .catch(() => [] as Job[]);
-
-    const blog = await fetch(`${cdnURL}/blog/metadata.json`, {
-        next: { revalidate: revalidationInterval },
-    })
-        .then((_res) => _res.json())
-        .then((_blog: Blog[]) => _blog.slice(0, MAX_BLOG_SHOWCASE_COUNT))
-        .catch(() => [] as Blog[]);
-
     return (
         <>
             <main className='home --page --flex-column'>
@@ -133,47 +93,24 @@ export default async function Page({ params }: Props) {
                                     <h4>{dictionary['PROJECTS_TITLE']}</h4>
                                 </div>
                                 <div className='home__content__section__main'>
-                                    <ul>
-                                        {projects.map((project) => {
-                                            return (
-                                                <li key={v4()}>
-                                                    <ProjectCard
-                                                        {...project}
-                                                        personalDictionary={
-                                                            personalDictionary.projects[
-                                                                project.repo
-                                                            ]
-                                                        }
-                                                    />
-                                                </li>
-                                            );
-                                        })}
-                                    </ul>
+                                    <ProjectListing
+                                        dictionary={dictionary}
+                                        personalDictionary={personalDictionary.projects}
+                                    />
                                 </div>
                             </section>
                             <section className='home__content__section home__content__section__job'>
-                                <div className='home__content__section__main'>
-                                    <ul className='jobs'>
-                                        {jobs.map((job) => {
-                                            return (
-                                                <li key={v4()}>
-                                                    <JobCard
-                                                        {...job}
-                                                        dictionary={dictionary}
-                                                        personalDictionary={
-                                                            personalDictionary.jobs[job.company]
-                                                        }
-                                                    />
-                                                </li>
-                                            );
-                                        })}
-                                    </ul>
-                                </div>
                                 <div className='home__content__section__title'>
                                     <h4>{dictionary['JOB_HISTORY_TITLE']}</h4>
                                     <ExternalRedirector
                                         href={`${dictionary['LANGUAGE_LOCALE_URL']}/resume`}
                                         text={dictionary['JOB_HISTORY_REDIRECTOR']}
+                                    />
+                                </div>
+                                <div className='home__content__section__main'>
+                                    <JobListing
+                                        dictionary={dictionary}
+                                        personalDictionary={personalDictionary.jobs}
                                     />
                                 </div>
                             </section>
@@ -182,21 +119,10 @@ export default async function Page({ params }: Props) {
                                     <h4>{dictionary['BLOG_TITLE']}</h4>
                                 </div>
                                 <div className='home__content__section__main'>
-                                    <ul className='blog'>
-                                        {blog.map((post) => {
-                                            return (
-                                                <li key={v4()}>
-                                                    <BlogCard
-                                                        {...post}
-                                                        dictionary={dictionary}
-                                                        personalDictionary={
-                                                            personalDictionary.blog[post.id]
-                                                        }
-                                                    />
-                                                </li>
-                                            );
-                                        })}
-                                    </ul>
+                                    <BlogListing
+                                        dictionary={dictionary}
+                                        personalDictionary={personalDictionary.blog}
+                                    />
                                 </div>
                             </section>
                             <section className='home__content__section home__content__section__contact'>

@@ -1,0 +1,45 @@
+.tags {
+	width: 100%;
+	flex-wrap: wrap;
+	gap: 1.5vh 1vh;
+
+	li {
+        align-items: center;
+        justify-content: center;
+		gap: 0 1vh;
+        min-height: 3vh;
+        padding: 0.25rem 1rem;
+        border-radius: 3vh;
+		background-color: $--selected-color;
+		color: $--accent-color;
+
+		svg {
+			height: 1.25rem;
+			width: 1.25rem;
+		}
+
+		span {
+			font-family: 'Inter';
+			font-weight: 700;
+			font-size: 0.65rem;
+		}
+	}
+}
+
+@media (min-width: $--min-desktop-width) {
+	.tags {
+		li {
+            padding: 0.15rem 1rem;
+            border-radius: 3vh;
+
+			svg {
+				height: 1.15rem;
+				width: 1.15rem;
+			}
+
+			span {
+				font-size: 0.75rem;
+			}
+		}
+	}
+}

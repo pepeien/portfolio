@@ -40,6 +40,7 @@ export default {
 
     BLOG_TITLE: 'Blog',
     BLOG_READ_INVITATION: 'Ler Artigo',
+    BLOG_THEME_GAME_DEV: 'Desenvolvimento de Jogos',
 
     CONTACT_TITLE: 'Contato',
     CONTACT_EMAIL_LABEL: 'Email',

@@ -2,7 +2,7 @@ $--banner-height: 30.5rem;
 $--banner-height-desktop: 70vh;
 
 .blog {
-    background-color: $--grey-background-color;
+    background-color: $--grey-color;
     align-items: center;
 
     &__banner {
@@ -34,7 +34,7 @@ $--banner-height-desktop: 70vh;
         padding-bottom: 0;
         align-items: center;
         background-color: $--backdrop-primary-color-light;
-        color: $--grey-background-color;
+        color: $--grey-color;
         border-top-left-radius: $--squircle-border-radius * 3;
         border-top-right-radius: $--squircle-border-radius * 3;
 
@@ -59,12 +59,10 @@ $--banner-height-desktop: 70vh;
                 opacity: 0.8;
             }
 
-            &__tags {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 1vh;
-                color: $--accent-color;
+            .tags {
+                width: auto;
+                margin-top: 1vh;
+                justify-content: center;
             }
 
             &__divider {
@@ -114,10 +112,6 @@ $--banner-height-desktop: 70vh;
         
                 &__description {
                     font-size: 2vh;
-                }
-    
-                &__tags {
-                    gap: 1vh;
                 }
 
                 &__divider {

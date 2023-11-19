@@ -38,6 +38,7 @@ export default {
 
     BLOG_TITLE: 'ブログ',
     BLOG_READ_INVITATION: '記事を読む',
+    BLOG_THEME_GAME_DEV: 'ゲーム開発',
 
     CONTACT_TITLE: '問い合わせ',
     CONTACT_EMAIL_LABEL: 'メール',

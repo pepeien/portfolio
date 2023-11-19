@@ -10,3 +10,4 @@ export type {
 export type { Job } from './job';
 export type { Project, ProjectIdentity } from './project';
 export type { Redirector } from './redirector';
+export type { Tag } from './tag';
