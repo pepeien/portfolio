@@ -18,7 +18,7 @@ export interface Props {
 const MAX_SHOWCASE_COUNT = 3;
 
 export default async function Component({ dictionary, personalDictionary }: Props) {
-    const data = await fetch(`${InternalServices.getCDN()}/jobs/metadata.json`, {
+    const data = await fetch(`${InternalServices.getBLOB()}/jobs/metadata.json`, {
         next: { revalidate: InternalServices.getFetchInterval() },
     })
         .then((_res) => _res.json())

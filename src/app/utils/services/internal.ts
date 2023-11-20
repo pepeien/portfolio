@@ -1,12 +1,12 @@
 import { StringServices } from '.';
 
 export class InternalServices {
-    public static getCDN(): string {
-        return StringServices.removeExtraSlashes(process.env.CDN);
+    public static getBLOB(): string {
+        return StringServices.removeExtraSlashes(process.env.BLOB);
     }
 
-    public static getGitCDN(): string {
-        return StringServices.removeExtraSlashes(process.env.GIT_CDN);
+    public static getGitBLOB(): string {
+        return StringServices.removeExtraSlashes(process.env.GIT_BLOB);
     }
 
     public static getDeploymentURL(): URL {

@@ -8,15 +8,15 @@ interface Props {
 }
 
 export default async function Page({ params }: Props) {
-    const cdnURL = InternalServices.getCDN();
-    const pdfName = await fetch(`${cdnURL}/resumes/metadata.json`)
+    const blobURL = InternalServices.getBLOB();
+    const pdfName = await fetch(`${blobURL}/resumes/metadata.json`)
         .then((_res) => _res.json())
         .then((_metadata: { [key: string]: string }) => _metadata[params.lang])
         .catch(() => '');
 
     return (
         <main className='resume --page'>
-            <embed src={`${cdnURL}/resumes/${pdfName}`} width='100%' height='100%'></embed>
+            <embed src={`${blobURL}/resumes/${pdfName}`} width='100%' height='100%'></embed>
         </main>
     );
 }

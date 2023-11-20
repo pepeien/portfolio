@@ -1,5 +1,5 @@
 .project-card {
-    display: flex;
+    flex-direction: column;
     align-items: center;
     border-radius: 1.5vh;
     width: 100%;
@@ -7,18 +7,13 @@
     position: relative;
 	text-decoration: none;
 
-    -webkit-transition: transform ease-in-out 0.2s;
-	-moz-transition:    transform ease-in-out 0.2s;
-	-o-transition:      transform ease-in-out 0.2s;
-	transition:         transform ease-in-out 0.2s;
-
     &__data {
         display: flex;
         flex-direction: column;
-        width: 100%;
+        width: calc(100% - 4vh);
         height: 100%;
         gap: 0.5vh;
-        padding: 3vh;
+        padding: 3vh 4vh;
         position: relative;
 
         &__info {
@@ -47,7 +42,7 @@
         &__arrow {
             position: absolute;
             bottom: 2vh;
-			right: 2vh;
+			right: 4vh;
 			height: 3vh;
             width: 3vh;
 
@@ -94,16 +89,17 @@
         border-radius: 1.5vh;
         align-items: flex-start;
 
-        &:hover {
-            cursor: pointer;
+        &__banner {
+            height: 25vh;
 
-			-webkit-transform: translateX(-0.25vh);
-			-moz-transform:    translateX(-0.25vh);
-			-o-transform:      translateX(-0.25vh);
-			transform:         translateY(-0.25vh);
+            &__image {
+                width: 150%;
+                height: 150%;
+            }
         }
 
         &__data {
+            width: calc(100% - 2.5vh);
             gap: 1vh;
             padding: 2.5vh;
 

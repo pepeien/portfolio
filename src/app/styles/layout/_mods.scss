@@ -315,3 +315,27 @@
     -webkit-box-shadow: $--box-shadow;
     -moz-box-shadow:    $--box-shadow;
 }
+
+.--hoverable {
+    -webkit-transition: transform ease-in-out 0.2s, box-shadow ease-in-out 0.2s;
+	-moz-transition:    transform ease-in-out 0.2s, box-shadow ease-in-out 0.2s;
+	-o-transition:      transform ease-in-out 0.2s, box-shadow ease-in-out 0.2s;
+	transition:         transform ease-in-out 0.2s, box-shadow ease-in-out 0.2s;
+
+    box-shadow:         $--box-shadow;
+    -webkit-box-shadow: $--box-shadow;
+    -moz-box-shadow:    $--box-shadow;
+
+    &:hover {
+        cursor: pointer;
+
+        -webkit-transform: translateX(-0.25vh);
+        -moz-transform:    translateX(-0.25vh);
+        -o-transform:      translateX(-0.25vh);
+        transform:         translateY(-0.25vh);
+
+        box-shadow:         $--box-shadow-light;
+        -webkit-box-shadow: $--box-shadow-light;
+        -moz-box-shadow:    $--box-shadow-light;    
+    }
+}
