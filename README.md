@@ -8,7 +8,7 @@
 git clone https://github.com/pepeien/portfolio.git
 cd portfolio/
 npm install
-npm start
+npm run dev
 ```
 
 Then open [http://localhost:3000/](http://localhost:3000/) to see your app. The initial structure of your app is setup. You may need to add a few `.env` variables read **Adding environment variables** for more.
@@ -25,12 +25,10 @@ Then open [http://localhost:3000/](http://localhost:3000/) to see your app. The 
 | NEXT_PUBLIC_LINKEDIN_URL     | Linkedin URL                     | String |    ✅    |
 | NEXT_PUBLIC_EMAIL_URL        | Email URL                        | String |    ✅    |
 | TWITTER_HANDLE               | Twitter handle                   | String |    ✅    |
-| CDN                          | App data CDN                     | String |    ✅    |
-| GIT_CDN                      | Repo data CDN                    | String |    ✅    |
+| BLOB                          | App data BLOB                     | String |    ✅    |
+| GIT_BLOB                      | Repo data BLOB                    | String |    ✅    |
 
-ps. _I strongly advise to use github's, as the app is coded around that structure "see below"._
-
-### Locales
+### Localization
 
 Locales supported by the application:
 
@@ -38,27 +36,7 @@ Locales supported by the application:
 - `ja-jp`;
 - `pt-br`.
 
-### CDN structure
-
-Blog post, project and job listings relies on github's CDN to make data dynamic.
-
-#### Jobs
-
-To make a job legible to be showcased, you'll need fulfill these steps:
-
-- A file at `.github/jobs/metadata.json` will need to follow this template:
-
-```json
-[
-    {
-        "startDate":    {JOB_START_DATE}       [string] (YYYY-MM-DD),
-        "endDate":      {JOB_START_DATE}       [string] (YYYY-MM-DD) - OPTIONAL,
-        "company":      {JOB_COMPANY_NAME}     [string],
-        "positions":    {JOB_POSITION_HISTORY} [string[]],
-        "technologies": {JOB_TECHNOLOGIES}     [string[]]
-    }
-]
-```
+#### Jobs Localization
 
 - A entry at `src/app/[lang]/dictionaries/personal/*.ts` will need to follow this template:
   
@@ -72,19 +50,7 @@ To make a job legible to be showcased, you'll need fulfill these steps:
 }
 ```
 
-#### Blog
-
-To make a post legible to be showcased, you'll need fulfill these steps:
-
-- A file at `.github/blog/metadata.json` will need to follow this template:
-
-```json
-[
-    {
-        "id": {BLOG_POST_ID} [string],
-    }
-]
-```
+#### Blog Localization
 
 - A entry at `src/app/[lang]/dictionaries/personal/*.ts` will need to follow this template:
   
@@ -99,22 +65,7 @@ To make a post legible to be showcased, you'll need fulfill these steps:
 }
 ```
 
-- Inside `.github/blog` a folder named after the `BLOG_POST_ID` needs to be created;
-
-- Create `.md` files inside `.github/blog/{BLOG_POST_ID}` named after the [Locales](#locales).
-
-#### Projects
-
-To make a project legible to be showcased, you'll need fulfill these steps:
-
-- A file on each or the projects at `.github/metadata.json` will need to follow this template:
-
-```json
-{
-    "primaryColor": {HEX_VALUE_COLOR_STRING} [string],
-    "accentColor":  {HEX_VALUE_COLOR_STRING} [string]
-}
-```
+#### Projects Localization
 
 - A entry at `src/app/[lang]/dictionaries/personal/*.ts` will need to follow this template:
   
@@ -128,7 +79,67 @@ To make a project legible to be showcased, you'll need fulfill these steps:
 }
 ```
 
-Now you are ready to use the project, just issue a `npm start` and you're good to go
+### Blob
+
+This is the Blob structure
+
+#### Jobs Blob
+
+- A file at `{BLOB}/jobs/metadata.json` will need to follow this template:
+
+```json
+[
+    {
+        "startDate":    {JOB_START_DATE}       [string] (YYYY-MM-DD),
+        "endDate":      {JOB_START_DATE}       [string] (YYYY-MM-DD) - OPTIONAL,
+        "company":      {JOB_COMPANY_NAME}     [string],
+        "positions":    {JOB_POSITION_HISTORY} [string[]],
+        "technologies": {JOB_TECHNOLOGIES}     [string[]]
+    }
+]
+```
+
+#### Blog Blob
+
+- A file at `{BLOB}/blog/metadata.json` will need to follow this template:
+
+```json
+[
+    {
+        "id":     {BLOG_POST_ID}     [string],
+        "author": {BLOG_POST_AUTHOR} [string],
+        "theme":  {BLOG_POST_THEME}  [string],
+        "date":   {BLOG_POST_DATE}   [string] (YYYY-MM-DDTHH:MM:SSSZ)
+    }
+]
+```
+
+- Create `.md` files inside `{BLOB}/blog/{BLOG_POST_ID}/{LOCALE}.md` named after the [Locales](#localization).
+
+#### Projects Blob
+
+- A file on each or the projects at `.git/metadata.json` will need to follow this template:
+
+```json
+{
+    "primaryColor": {HEX_VALUE_COLOR_STRING} [string],
+    "accentColor":  {HEX_VALUE_COLOR_STRING} [string]
+}
+```
+
+- A file at `{BLOB}/PROJECTS/metadata.json` will need to follow this template:
+
+```json
+[
+    {
+        "name":         {PROJECT_NAME}         [string],
+        "repo":         {PROEJCT_REPO}         [string],
+        "technologies": {PROJECT_TECHNOLOGIES} [string[]]
+    }
+]
+```
+
+Now you are ready to use the project, just issue a `npm run dev` and you're good to go
 
 ## About the Project
 
@@ -143,5 +154,5 @@ npm install
 ```
 
 ```sh
-npm start
+npm run dev
 ```

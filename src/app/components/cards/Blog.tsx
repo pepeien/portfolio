@@ -85,12 +85,12 @@ c-5.815,13.208,4.855,27.01,18.107,26.263H489.52C500.566,511.97,509.379,502.408,5
 
     return (
         <Link
-            className='blog-card --shadowed'
+            className='blog-card --hoverable'
             href={`${dictionary['LANGUAGE_LOCALE_URL']}/blog/${id}`}
         >
             <div className='blog-card__thumbnail'>
                 <Image
-                    src={`${InternalServices.getCDN()}/blog/${id}/images/thumbnail.png`}
+                    src={`${InternalServices.getBLOB()}/blog/${id}/images/thumbnail.png`}
                     width={910}
                     height={512}
                     quality={100}

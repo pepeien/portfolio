@@ -21,9 +21,9 @@ interface Params {
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
-    const cdnURL = InternalServices.getCDN();
+    const blobURL = InternalServices.getBLOB();
 
-    const blog: Blog[] = await fetch(`${cdnURL}/blog/metadata.json`).then((res) => res.json());
+    const blog: Blog[] = await fetch(`${blobURL}/blog/metadata.json`).then((res) => res.json());
 
     const post = blog.find((_) => _.id === params.id);
 
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
     const title = personalDictionary.title;
     const description = personalDictionary.description;
-    const bannerURL = new URL(`${cdnURL}/blog/${post.id.trim()}/images/thumbnail.png`);
+    const bannerURL = new URL(`${blobURL}/blog/${post.id.trim()}/images/thumbnail.png`);
     const banner = {
         url: bannerURL,
         secureUrl: bannerURL,
@@ -75,8 +75,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function Page({ params }: Params) {
     const { id, lang } = params;
 
-    const cdnURL = InternalServices.getCDN();
-    const data = await fetch(`${cdnURL}/blog/metadata.json`, {
+    const blobURL = InternalServices.getBLOB();
+    const data = await fetch(`${blobURL}/blog/metadata.json`, {
         next: { revalidate: InternalServices.getFetchInterval() },
     })
         .then((_res) => _res.json())
@@ -87,7 +87,7 @@ export default async function Page({ params }: Params) {
         return <></>;
     }
 
-    const markdownData = await fetch(`${cdnURL}/blog/${id.trim()}/${lang}.md`, {
+    const markdownData = await fetch(`${blobURL}/blog/${id.trim()}/${lang}.md`, {
         next: { revalidate: InternalServices.getFetchInterval() },
     })
         .then((_res) => _res.text())
@@ -164,7 +164,7 @@ c-5.815,13.208,4.855,27.01,18.107,26.263H489.52C500.566,511.97,509.379,502.408,5
             <section className='blog__banner'>
                 <div className='blog__banner__wrapper'>
                     <Image
-                        src={`${cdnURL}/blog/${id.trim()}/images/thumbnail.png`}
+                        src={`${blobURL}/blog/${id.trim()}/images/thumbnail.png`}
                         width={1920}
                         height={1080}
                         quality={100}
