@@ -16,11 +16,11 @@ import { InternalServices, StringServices } from '@utils/services';
 // Components
 import { TagListing } from '@components';
 
-interface Params {
+interface Props {
     params: { lang: string; id: string };
 }
 
-export async function generateMetadata({ params }: Params): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const blobURL = InternalServices.getBLOB();
 
     const blog: Blog[] = await fetch(`${blobURL}/blog/metadata.json`).then((res) => res.json());
@@ -33,6 +33,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
         };
     }
 
+    const dictionary = await getDictionary(params.lang);
     const personalDictionary = (await getPersonalDictionary(params.lang)).blog[params.id];
 
     const title = personalDictionary.title;
@@ -58,7 +59,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
             title: title,
             description: description,
             type: 'article',
-            authors: ['Erick Frederick'],
+            authors: [dictionary.HOME_PAGE_TITLE],
             publishedTime: post.date,
             images: banner,
         },
@@ -72,7 +73,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     };
 }
 
-export default async function Page({ params }: Params) {
+export default async function Page({ params }: Props) {
     const { id, lang } = params;
 
     const blobURL = InternalServices.getBLOB();

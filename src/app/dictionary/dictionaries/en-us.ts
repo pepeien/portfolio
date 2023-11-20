@@ -34,6 +34,7 @@ export default {
     PROJECTS_TITLE: 'Projects',
     PROEJCTS_REDIRECTOR: 'View Project Archive',
 
+    JOB_RESUME_TITLE: 'Resume',
     JOB_HISTORY_TITLE: 'Experience',
     JOB_HISTORY_REDIRECTOR: 'View Resume',
     JOB_HISTORY_DATE_DIRECTION: 'normal',

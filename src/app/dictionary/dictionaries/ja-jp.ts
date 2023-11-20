@@ -32,6 +32,7 @@ export default {
     PROJECTS_TITLE: 'プロジェクト',
     PROEJCTS_REDIRECTOR: 'プロジェクト・アーカイブ',
 
+    JOB_RESUME_TITLE: '履歴書',
     JOB_HISTORY_TITLE: '職歴',
     JOB_HISTORY_REDIRECTOR: '履歴書',
     JOB_HISTORY_DATE_DIRECTION: 'inverse',
