@@ -8,7 +8,7 @@
 git clone https://github.com/pepeien/portfolio.git
 cd portfolio/
 npm install
-npm start
+npm run dev
 ```
 
 Then open [http://localhost:3000/](http://localhost:3000/) to see your app. The initial structure of your app is setup. You may need to add a few `.env` variables read **Adding environment variables** for more.
@@ -27,8 +27,6 @@ Then open [http://localhost:3000/](http://localhost:3000/) to see your app. The 
 | TWITTER_HANDLE               | Twitter handle                   | String |    ✅    |
 | BLOB                          | App data BLOB                     | String |    ✅    |
 | GIT_BLOB                      | Repo data BLOB                    | String |    ✅    |
-
-ps. _I strongly advise to use github's, as the app is coded around that structure "see below"._
 
 ### Localization
 
@@ -54,8 +52,6 @@ Locales supported by the application:
 
 #### Blog Localization
 
-To make a post legible to be showcased, you'll need fulfill these steps:
-
 - A entry at `src/app/[lang]/dictionaries/personal/*.ts` will need to follow this template:
   
 ```js
@@ -69,22 +65,7 @@ To make a post legible to be showcased, you'll need fulfill these steps:
 }
 ```
 
-- Inside `.github/blog` a folder named after the `BLOG_POST_ID` needs to be created;
-
-- Create `.md` files inside `.github/blog/{BLOG_POST_ID}` named after the [Locales](#locales).
-
 #### Projects Localization
-
-To make a project legible to be showcased, you'll need fulfill these steps:
-
-- A file on each or the projects at `.github/metadata.json` will need to follow this template:
-
-```json
-{
-    "primaryColor": {HEX_VALUE_COLOR_STRING} [string],
-    "accentColor":  {HEX_VALUE_COLOR_STRING} [string]
-}
-```
 
 - A entry at `src/app/[lang]/dictionaries/personal/*.ts` will need to follow this template:
   
@@ -104,8 +85,6 @@ This is the Blob structure
 
 #### Jobs Blob
 
-To make a job legible to be showcased, you'll need fulfill these steps:
-
 - A file at `{BLOB}/jobs/metadata.json` will need to follow this template:
 
 ```json
@@ -122,8 +101,6 @@ To make a job legible to be showcased, you'll need fulfill these steps:
 
 #### Blog Blob
 
-To make a post legible to be showcased, you'll need fulfill these steps:
-
 - A file at `{BLOB}/blog/metadata.json` will need to follow this template:
 
 ```json
@@ -137,13 +114,9 @@ To make a post legible to be showcased, you'll need fulfill these steps:
 ]
 ```
 
-- Inside `{BLOB}/blog` a folder named after the `BLOG_POST_ID` needs to be created;
-
-- Create `.md` files inside `{BLOB}/blog/{BLOG_POST_ID}` named after the [Locales](#locales).
+- Create `.md` files inside `{BLOB}/blog/{BLOG_POST_ID}/{LOCALE}.md` named after the [Locales](#localization).
 
 #### Projects Blob
-
-To make a project legible to be showcased, you'll need fulfill these steps:
 
 - A file on each or the projects at `.git/metadata.json` will need to follow this template:
 
@@ -166,7 +139,7 @@ To make a project legible to be showcased, you'll need fulfill these steps:
 ]
 ```
 
-Now you are ready to use the project, just issue a `npm start` and you're good to go
+Now you are ready to use the project, just issue a `npm run dev` and you're good to go
 
 ## About the Project
 
@@ -181,5 +154,5 @@ npm install
 ```
 
 ```sh
-npm start
+npm run dev
 ```
