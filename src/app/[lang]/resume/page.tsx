@@ -14,7 +14,7 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const dictionary = await getDictionary(params.lang);
 
-    const title = `${dictionary['JOB_RESUME_TITLE']} - ${dictionary['HOME_PAGE_TITLE']}`;
+    const title = dictionary['JOB_RESUME_TITLE'];
     const description = dictionary['HOME_PAGE_DESCRIPTION'];
     const bannerURL = new URL(`${InternalServices.getBLOB()}/images/thumbnail.png`);
     const banner = {
