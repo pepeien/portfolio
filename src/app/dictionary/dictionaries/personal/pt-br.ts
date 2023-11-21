@@ -17,6 +17,11 @@ export default {
             description:
                 'Uma historia sobre o começo complicado da minha jornada com a Unreal Engine',
         },
+        'beyond-the-gui': {
+            title: 'Beyond the GUI',
+            description:
+                'Be the spectator of my attempt to learn game development from the ground up',
+        },
     },
     projects: {
         karikariyaki: {

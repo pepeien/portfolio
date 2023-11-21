@@ -53,4 +53,6 @@ export default {
 
     FOOTER_TEXT_1: "3rd time's a charm",
     FOOTER_TEXT_2: 'Made by Erick Frederick',
+
+    NOT_FOUND_TEXT: 'Page Not Found',
 } as Dictionary;

@@ -1,5 +1,8 @@
 import { MetadataRoute } from 'next';
 
+// Services
+import { InternalServices } from '@utils/services';
+
 export default function robots(): MetadataRoute.Robots {
     return {
         rules: {
@@ -7,5 +10,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: '/private/',
         },
+        sitemap: `${InternalServices.getDeploymentURL()}/robots.xml`,
     };
 }

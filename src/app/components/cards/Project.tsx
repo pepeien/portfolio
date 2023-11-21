@@ -40,8 +40,8 @@ export default async function Component({ name, repo, technologies, personalDict
                             (_item) =>
                                 ({
                                     text: _item,
-                                    accentColor: identity.accentColor,
-                                    primaryColor: identity.primaryColor,
+                                    backgroundColor: identity.accentColor,
+                                    accentColor: identity.primaryColor,
                                 }) as Tag,
                         )}
                     />

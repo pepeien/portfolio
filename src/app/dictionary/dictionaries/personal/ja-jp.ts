@@ -16,6 +16,11 @@ export default {
             title: 'ゲーム開発、大変なスタート',
             description: 'Unreal Engine 習得の僕荒削りなスタートについてのログ',
         },
+        'beyond-the-gui': {
+            title: 'Beyond the GUI',
+            description:
+                'Be the spectator of my attempt to learn game development from the ground up',
+        },
     },
     projects: {
         karikariyaki: {

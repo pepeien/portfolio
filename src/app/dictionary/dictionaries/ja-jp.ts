@@ -51,4 +51,6 @@ export default {
 
     FOOTER_TEXT_1: '三度目の正直',
     FOOTER_TEXT_2: 'メイド・バイ エリック・フレデリック',
+
+    NOT_FOUND_TEXT: 'お探しのページは見つかりませんでした',
 } as Dictionary;

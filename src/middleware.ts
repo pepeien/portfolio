@@ -1,23 +1,19 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-const locales = ['en-us', 'ja-jp', 'pt-br'];
-
-function getLocale(request: NextRequest): string {
-    return locales[0];
-}
+// Dictionary
+import { getCanonical, getServerLocales } from '@dictionary';
 
 export function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl;
 
-    const pathnameHasLocale = locales.some(
+    const pathnameHasLocale = Object.values(getServerLocales()).some(
         (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
     );
 
     if (pathnameHasLocale) return;
 
-    const locale = getLocale(request);
-    request.nextUrl.pathname = `/${locale}${pathname}`;
+    request.nextUrl.pathname = `/${getCanonical()}${pathname}`;
 
     return NextResponse.redirect(request.nextUrl);
 }

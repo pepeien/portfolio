@@ -2,25 +2,37 @@
 
 import React from 'react';
 
+interface Props {
+    isScrollReactive?: boolean;
+}
+
 const BLUR_COEFFICIENT = 20;
 
-const Mountains = () => {
+const Mountains = ({ isScrollReactive = true }: Props) => {
     const [scrollY, setScrollY] = React.useState<number>(0);
     const [innerHeight, setInnerHeight] = React.useState<number>(0);
 
     React.useEffect(() => {
         addEventListener('scroll', () => {
+            if (!isScrollReactive) {
+                return;
+            }
+
             setScrollY(window.scrollY);
             setInnerHeight(window.innerHeight);
         });
 
         return () => {
             removeEventListener('scroll', () => {
+                if (!isScrollReactive) {
+                    return;
+                }
+
                 setScrollY(window.scrollY);
                 setInnerHeight(window.innerHeight);
             });
         };
-    }, [scrollY]);
+    }, [scrollY, isScrollReactive]);
 
     return (
         <div className='mountains --flex-column'>

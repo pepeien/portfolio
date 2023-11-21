@@ -13,6 +13,9 @@ import { getAlternates, getCanonical, getDictionary, getPersonalDictionary } fro
 // Services
 import { InternalServices, StringServices } from '@utils/services';
 
+// Pages
+import NotFoundPage from '../../../not-found';
+
 // Components
 import { TagListing } from '@components';
 
@@ -85,7 +88,11 @@ export default async function Page({ params }: Props) {
         .catch(() => undefined);
 
     if (!data) {
-        return <></>;
+        return <NotFoundPage />;
+    }
+
+    if (data.status !== 'RELEASED') {
+        return <NotFoundPage />;
     }
 
     const markdownData = await fetch(`${blobURL}/blog/${id.trim()}/${lang}.md`, {
@@ -95,11 +102,17 @@ export default async function Page({ params }: Props) {
         .catch(() => undefined);
 
     if (!markdownData) {
-        return <></>;
+        return {
+            notfound: true,
+        };
     }
 
     const dictionary = await getDictionary(lang);
     const personalDictionary = (await getPersonalDictionary(lang)).blog[id];
+
+    if (!personalDictionary) {
+        return <NotFoundPage />;
+    }
 
     const getAuthorIcon = () => {
         return (
@@ -135,6 +148,7 @@ c-5.815,13.208,4.855,27.01,18.107,26.263H489.52C500.566,511.97,509.379,502.408,5
             </svg>
         );
     };
+
     const getElapsedTimeIcon = () => {
         return (
             <svg

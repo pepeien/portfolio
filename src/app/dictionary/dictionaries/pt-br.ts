@@ -53,4 +53,6 @@ export default {
 
     FOOTER_TEXT_1: 'Agora vai',
     FOOTER_TEXT_2: 'Feito por Erick Frederick',
+
+    NOT_FOUND_TEXT: ' Página não encontrada',
 } as Dictionary;

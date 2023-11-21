@@ -3,4 +3,5 @@ export interface Blog {
     author: string;
     theme: string;
     date: string;
+    status: 'RELEASED' | 'UPCOMING';
 }

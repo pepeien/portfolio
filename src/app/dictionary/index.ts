@@ -8,41 +8,44 @@ import { StringServices } from '@utils/services';
 
 const canonical = 'en';
 
-const alternates = {
+export const getServerLocales = () => ({
     en: 'en-us',
     ja: 'ja-jp',
     pt: 'pt-br',
-};
+});
+
+export const getClientLocales = () =>
+    ({
+        'en-us': 'English (US)',
+        'pt-br': 'Português (BR)',
+        'ja-jp': '日本語',
+    }) as Dictionary;
 
 export const getCanonical = (path = '') => {
+    const locales = getServerLocales();
+
     if (path.trim().length === 0) {
-        return alternates[canonical];
+        return locales[canonical];
     }
 
-    return `${alternates[canonical]}/${path}`;
+    return `${locales[canonical]}/${path}`;
 };
 
 export const getAlternates = (path = '') => {
+    const locales = getServerLocales();
+
     const result: { [key: string]: string } = {};
 
-    Object.keys(alternates)
+    Object.keys(locales)
         .filter((alternate) => alternate !== canonical)
         .forEach((key) => {
-            result[key] = `${alternates[key as keyof typeof alternates]}${
+            result[key] = `${locales[key as keyof typeof locales]}${
                 StringServices.isStringValid(path) ? `/${path}` : ''
             }`;
         });
 
     return result;
 };
-
-const locales = {
-    'en-us': 'English (US)',
-    'pt-br': 'Português (BR)',
-    'ja-jp': '日本語',
-} as Dictionary;
-
-export const getLocales = () => locales;
 
 const dictionaries = {
     'en-us': () => import('./dictionaries/en-us.ts').then((module) => module.default as Dictionary),

@@ -12,6 +12,20 @@ $--info-padding-desktop: 2.5vh;
 	border-radius:  $--squircle-border-radius;
 	overflow: hidden;
 
+	&[aria-disabled="true"] {
+		opacity: 0.7;
+		box-shadow: none;
+
+		&:hover {
+			cursor: default;
+
+			-webkit-transform: translate(0);
+			-moz-transform:    translate(0);
+			-o-transform:      translate(0);
+			transform:         translate(0);
+		}
+	}
+
 	&__thumbnail {
 		display: flex;
 		flex-direction: column;
