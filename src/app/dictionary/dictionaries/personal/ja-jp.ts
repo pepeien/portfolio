@@ -17,9 +17,8 @@ export default {
             description: 'Unreal Engine 習得の僕荒削りなスタートについてのログ',
         },
         'beyond-the-gui': {
-            title: 'Beyond the GUI',
-            description:
-                'Be the spectator of my attempt to learn game development from the ground up',
+            title: 'GUIを超えて',
+            description: '私が最初にOpenGLに触れたときのことを話そう。',
         },
     },
     projects: {

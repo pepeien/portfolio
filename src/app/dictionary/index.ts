@@ -8,38 +8,41 @@ import { StringServices } from '@utils/services';
 
 const canonical = 'en';
 
-export const getServerLocales = () => ({
+const serverLocales: Dictionary = {
     en: 'en-us',
     ja: 'ja-jp',
     pt: 'pt-br',
-});
+};
 
-export const getClientLocales = () =>
-    ({
-        'en-us': 'English (US)',
-        'pt-br': 'Português (BR)',
-        'ja-jp': '日本語',
-    }) as Dictionary;
+const clientLocales: Dictionary = {
+    'en-us': 'English (US)',
+    'pt-br': 'Português (BR)',
+    'ja-jp': '日本語',
+};
 
-export const getCanonical = (path = '') => {
-    const locales = getServerLocales();
+export const getCanonical = () => canonical;
 
+export const getServerDefaultLocale = () => serverLocales[canonical];
+export const getServerLocales = () => serverLocales;
+
+export const getClientDefaultLocale = () => clientLocales[getServerDefaultLocale()];
+export const getClientLocales = () => clientLocales;
+
+export const getCanonicalAlternate = (path = '') => {
     if (path.trim().length === 0) {
-        return locales[canonical];
+        return serverLocales[canonical];
     }
 
-    return `${locales[canonical]}/${path}`;
+    return `${serverLocales[canonical]}/${path}`;
 };
 
 export const getAlternates = (path = '') => {
-    const locales = getServerLocales();
-
     const result: { [key: string]: string } = {};
 
-    Object.keys(locales)
+    Object.keys(serverLocales)
         .filter((alternate) => alternate !== canonical)
         .forEach((key) => {
-            result[key] = `${locales[key as keyof typeof locales]}${
+            result[key] = `${serverLocales[key]}${
                 StringServices.isStringValid(path) ? `/${path}` : ''
             }`;
         });

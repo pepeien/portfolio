@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 // Dictionary
-import { getCanonical, getServerLocales } from '@dictionary';
+import { getCanonicalAlternate, getServerLocales } from '@dictionary';
 
 export function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl;
@@ -13,7 +13,7 @@ export function middleware(request: NextRequest) {
 
     if (pathnameHasLocale) return;
 
-    request.nextUrl.pathname = `/${getCanonical()}${pathname}`;
+    request.nextUrl.pathname = `/${getCanonicalAlternate()}${pathname}`;
 
     return NextResponse.redirect(request.nextUrl);
 }

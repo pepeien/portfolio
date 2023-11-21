@@ -18,7 +18,7 @@ export default {
         },
         'beyond-the-gui': {
             title: 'Beyond the GUI',
-            description: 'Be the spectator of my first contact with game development using OpenGL',
+            description: 'Be the spectator of my first contact with game development using OpenGL.',
         },
     },
     projects: {

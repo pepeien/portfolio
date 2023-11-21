@@ -5,7 +5,7 @@ import React from 'react';
 import { InternalServices } from '@utils/services';
 
 // Dictionary
-import { getCanonical, getAlternates, getDictionary } from '@dictionary';
+import { getCanonicalAlternate, getAlternates, getDictionary } from '@dictionary';
 
 interface Props {
     params: { lang: string };
@@ -26,9 +26,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 
     return {
-        metadataBase: InternalServices.getDeploymentURL(),
         alternates: {
-            canonical: getCanonical('resume'),
+            canonical: getCanonicalAlternate('resume'),
             languages: getAlternates('resume'),
         },
         title: title,

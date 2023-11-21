@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 import { Navbar } from '@components';
 
 // Dictionary
-import { getAlternates, getCanonicalAlternate, getDictionary, getClientLocales } from '@dictionary';
+import { getAlternates, getCanonicalAlternate, getClientLocales, getDictionary } from '@dictionary';
 
 // Services
 import { InternalServices } from '@utils/services';
@@ -16,8 +16,13 @@ import icons from '@utils/icons';
 // Styles
 import '../styles/main.scss';
 
+interface Props {
+    params: { error: string[] };
+    children: React.ReactNode;
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const dictionary = await getDictionary(params.lang);
+    const dictionary = await getDictionary(params.error[0]);
 
     const title = dictionary['HOME_PAGE_TITLE'];
     const description = dictionary['HOME_PAGE_DESCRIPTION'];
@@ -58,13 +63,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-interface Props {
-    params: { lang: string };
-    children: React.ReactNode;
-}
-
 export default async function RootLayout({ params, children }: Props) {
-    const dictionary = await getDictionary(params.lang);
+    const { error } = params;
+
+    const dictionary = await getDictionary(error[0]);
 
     return (
         <html lang={dictionary['LANGUAGE_LOCALE']}>
