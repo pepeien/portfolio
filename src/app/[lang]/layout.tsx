@@ -10,12 +10,6 @@ import { getAlternates, getCanonicalAlternate, getDictionary, getClientLocales }
 // Services
 import { InternalServices } from '@utils/services';
 
-// Icons
-import icons from '@utils/icons';
-
-// Styles
-import '../styles/main.scss';
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const dictionary = await getDictionary(params.lang);
 
@@ -38,7 +32,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         },
         title: title,
         description: description,
-        icons: icons,
         openGraph: {
             title: title,
             description: description,

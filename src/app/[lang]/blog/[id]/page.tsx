@@ -20,7 +20,7 @@ import {
 import { InternalServices, StringServices } from '@utils/services';
 
 // Pages
-import ErrorPage from '../../../[...error]/page';
+import ErrorPage from '../../../not-found';
 
 // Components
 import { TagListing } from '@components';
@@ -153,7 +153,7 @@ export default async function Page({ params }: Props) {
         .catch(() => undefined);
 
     if (!data || data.status !== 'RELEASED') {
-        return <ErrorPage params={{ error: [lang, id] }} />;
+        notFound();
     }
 
     const markdownData = await fetch(`${blobURL}/blog/${id.trim()}/${lang}.md`, {
@@ -163,7 +163,7 @@ export default async function Page({ params }: Props) {
         .catch(() => undefined);
 
     if (!markdownData) {
-        return <ErrorPage params={{ error: [lang, id] }} />;
+        notFound();
     }
 
     const dictionary = await getDictionary(lang);

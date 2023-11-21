@@ -5,7 +5,13 @@ import type { Metadata } from 'next';
 import { Navbar } from '@components';
 
 // Dictionary
-import { getAlternates, getCanonicalAlternate, getClientLocales, getDictionary } from '@dictionary';
+import {
+    getAlternates,
+    getCanonicalAlternate,
+    getClientLocales,
+    getDictionary,
+    getServerDefaultLocale,
+} from '@dictionary';
 
 // Services
 import { InternalServices } from '@utils/services';
@@ -14,15 +20,14 @@ import { InternalServices } from '@utils/services';
 import icons from '@utils/icons';
 
 // Styles
-import '../styles/main.scss';
+import './styles/main.scss';
 
 interface Props {
-    params: { error: string[] };
     children: React.ReactNode;
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const dictionary = await getDictionary(params.error[0]);
+export async function generateMetadata(): Promise<Metadata> {
+    const dictionary = await getDictionary(getServerDefaultLocale());
 
     const title = dictionary['HOME_PAGE_TITLE'];
     const description = dictionary['HOME_PAGE_DESCRIPTION'];
@@ -63,17 +68,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-export default async function RootLayout({ params, children }: Props) {
-    const { error } = params;
-
-    const dictionary = await getDictionary(error[0]);
-
-    return (
-        <html lang={dictionary['LANGUAGE_LOCALE']}>
-            <body>
-                <Navbar dictionary={dictionary} locales={getClientLocales()} />
-                {children}
-            </body>
-        </html>
-    );
+export default async function Layout({ children }: Props) {
+    return <>{children}</>;
 }
