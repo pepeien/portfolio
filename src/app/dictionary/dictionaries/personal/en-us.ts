@@ -27,7 +27,7 @@ export default {
         },
         'mechanical-weather': {
             description:
-                'Desktop application for visualizing weather flutuations throughout the day',
+                'Desktop application for visualizing weather fluctuations throughout the day',
         },
         namah: {
             description: 'Blog/E-commerce mock app',

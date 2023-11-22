@@ -15,14 +15,10 @@ export default async function Page() {
                 <Navbar dictionary={dictionary} />
                 <main className='not-found --page'>
                     <section>
-                        <div className='title'>
-                            <div className='title__text --flex-column'>
-                                <div className='--flex-row'>
-                                    <h3>{dictionary['NOT_FOUND_TEXT']}</h3>
-                                </div>
-                                <div className='title__name'>
-                                    <h2>404</h2>
-                                </div>
+                        <div className='not-found__title'>
+                            <div className='not-found__title__text --flex-column'>
+                                <h3>{dictionary['NOT_FOUND_TEXT']}</h3>
+                                <h2>404</h2>
                             </div>
                         </div>
                         <Mountains isScrollReactive={false} />

@@ -45,6 +45,7 @@
             width: 85%;
 
             &__title {
+                width: 100%;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -59,7 +60,6 @@
             }
 
             &__main {
-                flex: 2;
                 position: relative;
 
                 > ul {
@@ -151,16 +151,19 @@
             &__main {
                 margin-top: -1vh;
                 gap: 15vh 0;
+                width: 100%;
             }
 
             &__section {
-                flex-direction: row;
                 gap: 5vh;
+                align-items: center;
+                justify-content: center;
+
+                &__main {
+                    width: 80%;
+                }
 
                 &__title {
-                    min-width: 50vh;
-                    max-width: 70vh;
-                    justify-content: flex-start;
                     gap: 3vh;
 
                     h4 {
@@ -171,37 +174,19 @@
 
                 &__projects {
                     .home__content__section {
-                        &__title {
-                            justify-content: flex-start;
-                            align-items: flex-start;
-                        }
-
                         &__main {
                             > ul {
                                 display: grid;
                                 grid-template-columns: repeat(auto-fit, minmax(50vh, 1fr));
-                                gap: 2.5vh;
+                                gap: 3vh;
                             }
-                        }
-
-                        &__redirector {
-                            align-self: flex-end;
                         }
                     }
                 }
 
                 &__job {
-                    flex-direction: row-reverse;
-
                     .home__content__section {
-                        &__title {
-                            justify-content: flex-start;
-                            align-items: flex-end;
-                        }
-
                         &__main {
-                            display: flex;
-                            flex-direction: column;
                             gap: 2vh;
 
                             > ul {
@@ -213,28 +198,11 @@
                 }
 
                 &__blog {
-                    width: 70%;
-                    flex-direction: column;
-
                     .home__content__section {
-                        &__title {
-                            align-items: center;
-                            justify-content: center;
-                        }
-
                         &__main {
                             > ul {
                                 gap: 4vh;
                             }
-                        }
-                    }
-                }
-
-                &__contact {
-                    .home__content__section {
-                        &__title {
-                            align-items: flex-start;
-                            justify-content: flex-start;
                         }
                     }
                 }

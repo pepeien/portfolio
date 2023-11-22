@@ -27,6 +27,7 @@ export default {
 
     NOW_TEXT: 'Present',
 
+    ABOUT_HERO: 'Cafting seamless digital experiences',
     ABOUT_TITLE: 'hi, ',
     ABOUT_TITLE_SECOND: 'my name is',
     ABOUT_NAME: 'ERICK',

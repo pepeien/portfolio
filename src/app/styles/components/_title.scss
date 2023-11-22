@@ -2,24 +2,46 @@
 	width: 100%;
     height: 50dvh;
 
-    &__text {
+    &__hero {
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        margin-bottom: 4vh;
+
+        -webkit-animation: fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 0.1 forwards;
+        -moz-animation:    fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 0.1 forwards;
+        -o-animation:      fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 0.1 forwards;
+        animation:         fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 0.1 forwards;
+
+        h4 {
+            font-family: 'Roboto Condensed';
+            font-style: italic;
+            font-weight: bolder;
+            font-size: 5vh;
+            color: $--medium-color;
+            margin-left: 1vh;
+            line-height: 2.58rem;
+        }
+    }
+
+    &__greet {
         position: fixed;
         justify-content: center;
         align-items: flex-start;
-        top: 45dvh;
-        left: 4vh;
+        top: 35dvh;
+        left: 2.5vh;
     
         h2 {
             font-size: 15vh;
             text-transform: uppercase;
             font-family: 'Roboto Condensed';
-            color: #455657;
+            color: $--medium-color;
             opacity: 0;
     
-            -webkit-animation: fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 0.6 forwards;
-            -moz-animation:    fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 0.6 forwards;
-            -o-animation:      fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 0.6 forwards;
-            animation:         fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 0.6 forwards;
+            -webkit-animation: fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 1.9 forwards;
+            -moz-animation:    fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 1.9 forwards;
+            -o-animation:      fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 1.9 forwards;
+            animation:         fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 1.9 forwards;
         }
     
         h3 {
@@ -27,21 +49,24 @@
             font-style: italic;
             font-weight: 300;
             font-size: 5vh;
-            color: #455657;
+            color: $--medium-color;
             opacity: 0;
             margin-left: 1vh;
 
-            -webkit-animation: fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 0.2 forwards;
-            -moz-animation:    fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 0.2 forwards;
-            -o-animation:      fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 0.2 forwards;
-            animation:         fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 0.2 forwards;
+            -webkit-animation: fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 1 forwards;
+            -moz-animation:    fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 1 forwards;
+            -o-animation:      fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 1 forwards;
+            animation:         fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 1 forwards;
+        }
+    }
 
-            &:last-of-type {
-                -webkit-animation-delay: $--initial-fade-duration + 0.4;
-                -moz-animation-delay:    $--initial-fade-duration + 0.4;
-                -o-animation-delay:      $--initial-fade-duration + 0.4;
-                animation-delay:         $--initial-fade-duration + 0.4;
-            }
+            
+    &__pre {
+        .--last {
+            -webkit-animation-delay: $--initial-fade-duration + 1.4;
+            -moz-animation-delay:    $--initial-fade-duration + 1.4;
+            -o-animation-delay:      $--initial-fade-duration + 1.4;
+            animation-delay:         $--initial-fade-duration + 1.4;
         }
     }
 
@@ -55,8 +80,13 @@
                 font-size: 10vh;
             }
 
-            h3 {
+            .--last {
                 margin-left: auto;
+
+                -webkit-animation-delay: $--initial-fade-duration + 2.5;
+                -moz-animation-delay:    $--initial-fade-duration + 2.5;
+                -o-animation-delay:      $--initial-fade-duration + 2.5;
+                animation-delay:         $--initial-fade-duration + 2.5;
             }
         }
     }
@@ -66,8 +96,8 @@
 	.title {
 		height: 60vh;
 
-        &__text {
-            top: 30vh;
+        &__greet {
+            top: 23.5vh;
             left: 15vh;
 
             h2 {
@@ -75,7 +105,7 @@
             }
 
             h3 { 
-                margin-left: 2vh;
+                margin-left: 3vh;
                 font-size: 8vh;
             }
         }
@@ -91,6 +121,17 @@
                 h3 {
                     margin-top: 18vh;
                 }
+            }
+        }
+
+        &__hero {
+            top: 19dvh;
+            left: 15vh;
+            gap: 2vh;
+
+            h4 {
+                font-size: 8vh;
+                margin-left: 3vh;
             }
         }
 	}

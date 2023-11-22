@@ -53,53 +53,6 @@
 			margin-top: 1vh;
 		}
 	}
-
-	&[data-is-loading='true'] {
-		.job-card {
-			&__date {
-				margin-right: 4vh;
-
-				&__text {
-					width: 25vh;
-					height: 6vh;
-
-					svg {
-						width: 100%;
-						height: 100%;
-						overflow: hidden;
-						border-radius: 1.5vh;
-					}
-				}
-			}
-
-			&__info {
-				&__company {
-					height: 6vh;
-					width: 40%;
-
-					svg {
-						width: 100%;
-						height: 100%;
-						overflow: hidden;
-						border-radius: 1.5vh;
-					}
-				}
-
-				&__description {
-					height: 18vh;
-					width: 100%;
-					margin-top: 1vh;
-
-					svg {
-						width: 100%;
-						height: 100%;
-						overflow: hidden;
-						border-radius: 1.5vh;
-					}
-				}
-			}
-		}
-	}
 }
 
 @media (min-width: $--min-desktop-width) {
@@ -133,31 +86,6 @@
 			&__description {
 				width: 100%;
 				font-size: 1.7vh;
-			}
-		}
-
-		&[data-is-loading='true'] {
-			.job-card {
-				&__date {
-					margin-right: 4vh;
-
-					&__text {
-						height: 6vh;
-					}
-				}
-
-				&__info {
-					&__company {
-						height: 6vh;
-						width: 40%;
-					}
-
-					&__description {
-						height: 18vh;
-						width: 80%;
-						margin-top: 1vh;
-					}
-				}
 			}
 		}
 	}

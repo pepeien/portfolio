@@ -25,6 +25,7 @@ export default {
 
     NOW_TEXT: '現在',
 
+    ABOUT_HERO: 'シームレスなデジタル体験の構築',
     ABOUT_TITLE: 'こんにちは、',
     ABOUT_NAME: 'エリック',
     ABOUT_NAME_SECOND: 'です',

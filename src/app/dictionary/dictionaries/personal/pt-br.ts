@@ -24,7 +24,7 @@ export default {
     },
     projects: {
         karikariyaki: {
-            description: 'Order status portal for internal fast food management system"',
+            description: 'Sitema para gerenciamento de pedidos para restaurantes',
         },
         'mechanical-weather': {
             description: 'Programa para visualização das flutuações do clima durante o dia',
