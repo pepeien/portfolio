@@ -30,19 +30,19 @@ export default {
     ABOUT_NAME: 'エリック',
     ABOUT_NAME_SECOND: 'です',
 
-    PROJECTS_TITLE: 'プロジェクト',
+    PROJECTS_TITLE: '僕が取り組んだこと？',
     PROEJCTS_REDIRECTOR: 'プロジェクト・アーカイブ',
 
     JOB_RESUME_TITLE: '履歴書',
-    JOB_HISTORY_TITLE: '職歴',
+    JOB_HISTORY_TITLE: '僕が協力した人？',
     JOB_HISTORY_REDIRECTOR: '履歴書',
     JOB_HISTORY_DATE_DIRECTION: 'inverse',
 
-    BLOG_TITLE: 'ブログ',
+    BLOG_TITLE: '最新ニュース',
     BLOG_READ_INVITATION: '記事を読む',
     BLOG_THEME_GAME_DEV: 'ゲーム開発',
 
-    CONTACT_TITLE: '問い合わせ',
+    CONTACT_TITLE: 'ご連絡ください。',
     CONTACT_EMAIL_LABEL: 'メール',
     CONTACT_MESSAGE_LABEL: 'メッセージ',
     CONTACT_SEND_LABEL: '送信',

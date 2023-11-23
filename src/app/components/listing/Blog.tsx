@@ -34,7 +34,7 @@ export default async function Component({ dictionary, personalDictionary }: Prop
 
                 return new Date(a.date).getTime() > new Date(b.date).getTime() ? 1 : 0;
             })
-            .filter((post) => post.status === 'RELEASED')[0];
+            .filter((post) => post.status === 'UPCOMING')[0];
     };
 
     const latestPost = getLatestPost(data);

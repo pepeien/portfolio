@@ -32,19 +32,19 @@ export default {
     ABOUT_TITLE_SECOND: 'my name is',
     ABOUT_NAME: 'ERICK',
 
-    PROJECTS_TITLE: 'Projects',
+    PROJECTS_TITLE: "What I've worked on?",
     PROEJCTS_REDIRECTOR: 'View Project Archive',
 
     JOB_RESUME_TITLE: 'Resume',
-    JOB_HISTORY_TITLE: 'Experience',
+    JOB_HISTORY_TITLE: "Who I've worked with?",
     JOB_HISTORY_REDIRECTOR: 'View Resume',
     JOB_HISTORY_DATE_DIRECTION: 'normal',
 
-    BLOG_TITLE: 'Blog',
+    BLOG_TITLE: 'The latest news',
     BLOG_READ_INVITATION: 'Read the post',
     BLOG_THEME_GAME_DEV: 'Game Development',
 
-    CONTACT_TITLE: 'Contact',
+    CONTACT_TITLE: 'Get in touch.',
     CONTACT_EMAIL_LABEL: 'Email',
     CONTACT_MESSAGE_LABEL: 'Message',
     CONTACT_SEND_LABEL: 'Send',

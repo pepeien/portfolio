@@ -27,16 +27,12 @@ $--banner-height-desktop: 70vh;
     }
 
     &__content {
-        position: absolute;
-        top: calc($--banner-height - 1rem);
         width: calc(100% - 6vh);
         padding: 3rem 3vh;
         padding-bottom: 0;
         align-items: center;
         background-color: $--backdrop-primary-color-light;
         color: $--grey-color;
-        border-top-left-radius: $--squircle-border-radius * 3;
-        border-top-right-radius: $--squircle-border-radius * 3;
 
         &__header {
             margin: 0 auto;
@@ -51,12 +47,14 @@ $--banner-height-desktop: 70vh;
             &__title {
                 font-weight: 700;
                 font-size: 2.5rem;
+                text-align: center;
             }
     
             &__description {
                 font-weight: 300;
                 font-size: 1.2rem;
                 opacity: 0.8;
+                text-align: center;
             }
 
             .tags {
@@ -94,13 +92,9 @@ $--banner-height-desktop: 70vh;
         }
     
         &__content {
-            position: absolute;
-            top: calc($--banner-height-desktop - 2vh);
             width: calc(100% - 40vh);
             padding: 2.5rem 20vh;
             padding-bottom: 0;
-            border-top-left-radius: $--squircle-border-radius * 4;
-            border-top-right-radius: $--squircle-border-radius * 4;
 
             &__header {
                 width: 100%;

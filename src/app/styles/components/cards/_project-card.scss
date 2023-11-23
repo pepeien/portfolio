@@ -97,6 +97,8 @@ $--background-animation-duration: 120s;
     }
 }
 
+$--mountain-bottom-distance-desktop: 5vh;
+
 @media (min-width: $--min-desktop-width) {
     .project-card {
         border-radius: 1.5vh;
@@ -121,10 +123,10 @@ $--background-animation-duration: 120s;
 
             &__background {
                 width: 130%;
-                bottom: -10.5vh;
+                bottom: -$--mountain-bottom-distance-desktop;
 
                 &.--behind {
-                    bottom: -10vh;
+                    bottom: -$--mountain-bottom-distance-desktop - 0.5vh;
                 }
             }
         }

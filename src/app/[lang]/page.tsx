@@ -95,7 +95,7 @@ export default async function Page({ params }: Props) {
                                     />
                                 </div>
                             </section>
-                            <section className='home__content__section home__content__section__job'>
+                            <section className='home__content__section home__content__section__job --shadowed'>
                                 <div className='home__content__section__title'>
                                     <h4>{dictionary['JOB_HISTORY_TITLE']}</h4>
                                     <ExternalRedirector
@@ -121,7 +121,7 @@ export default async function Page({ params }: Props) {
                                     />
                                 </div>
                             </section>
-                            <section className='home__content__section home__content__section__contact'>
+                            <section className='home__content__section home__content__section__contact --shadowed'>
                                 <div className='home__content__section__title'>
                                     <h4>{dictionary['CONTACT_TITLE']}</h4>
                                 </div>
