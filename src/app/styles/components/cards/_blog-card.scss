@@ -106,7 +106,8 @@ $--info-padding-desktop: 2.5vh;
 
 @media (min-width: $--min-desktop-width) {
     .blog-card {
-		height: 23.5vh;
+		width: 100%;
+		height: 17vh;
 		flex-direction: row;
 		gap: 0;
 
@@ -127,9 +128,37 @@ $--info-padding-desktop: 2.5vh;
 			}
         }
 
+		&.--showcase {
+			width: 55%;
+			height: auto;
+			flex-direction: column;
+			gap: 0;
+			box-shadow: none;
+			border-radius: 0;
+
+			.blog-card {
+				&__thumbnail {
+					height: 35vh;
+					width: 100%;
+					border-radius: $--squircle-border-radius;
+					overflow: hidden;
+				}
+
+				&__data {
+					height: 20vh;
+					background-color: transparent;
+
+					&__info {
+						width: 100%;
+						padding-left: 0;
+					}
+				}
+			}
+		}
+
 		&__thumbnail {
 			height: 100%;
-			width: calc(50% - 8rem);
+			width: calc(46% - 8rem);
 			flex-direction: column-reverse;
 		}
 
@@ -144,13 +173,13 @@ $--info-padding-desktop: 2.5vh;
 				padding: $--info-padding-desktop;
 
 				&__title {
-					font-size: 2.25rem;
+					font-size: 1.8rem;
 					font-weight: 700;
 					max-height: 3rem;
 				}
 	
 				&__description {
-					font-size: 1rem;
+					font-size: 0.9rem;
 				}
 			}
         }

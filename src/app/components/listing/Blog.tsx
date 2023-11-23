@@ -25,17 +25,41 @@ export default async function Component({ dictionary, personalDictionary }: Prop
         .then((_blog: Blog[]) => _blog.slice(0, MAX_SHOWCASE_COUNT))
         .catch(() => [] as Blog[]);
 
+    const getLatestPost = (blog: Blog[]): Blog => {
+        return blog
+            .sort((a, b) => {
+                if (!a.date || !b.date) {
+                    return -1;
+                }
+
+                return new Date(a.date).getTime() > new Date(b.date).getTime() ? 1 : 0;
+            })
+            .filter((post) => post.status === 'RELEASED')[0];
+    };
+
+    const latestPost = getLatestPost(data);
+
     return (
-        <ul>
-            {data.map((_item) => (
-                <li key={v4()}>
-                    <BlogCard
-                        {..._item}
-                        dictionary={dictionary}
-                        personalDictionary={personalDictionary[_item.id]}
-                    />
-                </li>
-            ))}
-        </ul>
+        <div className='blogs'>
+            <BlogCard
+                {...latestPost}
+                dictionary={dictionary}
+                personalDictionary={personalDictionary[latestPost.id]}
+                type='showcase'
+            />
+            <ul>
+                {data
+                    .filter((post) => post.id !== latestPost.id)
+                    .map((_item) => (
+                        <li key={v4()}>
+                            <BlogCard
+                                {..._item}
+                                dictionary={dictionary}
+                                personalDictionary={personalDictionary[_item.id]}
+                            />
+                        </li>
+                    ))}
+            </ul>
+        </div>
     );
 }

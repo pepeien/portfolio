@@ -12,6 +12,7 @@ import { TagListing } from '@components';
 export interface Props extends Blog {
     dictionary: Dictionary;
     personalDictionary: BlogDictionary;
+    type?: 'showcase' | 'list';
 }
 
 export default function Component({
@@ -22,6 +23,7 @@ export default function Component({
     status,
     dictionary,
     personalDictionary,
+    type = 'list',
 }: Props) {
     const wasReleased = status === 'RELEASED';
     const accentColor = wasReleased ? '#e2e8f0' : '#313131';
@@ -87,9 +89,11 @@ c-5.815,13.208,4.855,27.01,18.107,26.263H489.52C500.566,511.97,509.379,502.408,5
         );
     };
 
+    const isList = type === 'list';
+
     return (
         <Link
-            className={'blog-card --hoverable'}
+            className={isList ? 'blog-card --hoverable' : 'blog-card --showcase'}
             href={
                 wasReleased
                     ? `${dictionary['LANGUAGE_LOCALE_URL']}/blog/${id}`
@@ -97,12 +101,12 @@ c-5.815,13.208,4.855,27.01,18.107,26.263H489.52C500.566,511.97,509.379,502.408,5
             }
             aria-disabled={wasReleased ? undefined : true}
         >
-            <div className='blog-card__thumbnail'>
+            <div className={isList ? 'blog-card__thumbnail' : 'blog-card__thumbnail --shadowed'}>
                 <Image
                     src={`${InternalServices.getBLOB()}/blog/${id}/images/thumbnail.png`}
-                    width={910}
-                    height={512}
-                    quality={75}
+                    width={isList ? 910 : 1000}
+                    height={isList ? 512 : 563}
+                    quality={100}
                     alt={`${personalDictionary.title} thumbnail`}
                 />
             </div>

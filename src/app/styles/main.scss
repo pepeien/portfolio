@@ -27,6 +27,8 @@
 @import 'components/cards/job-card';
 @import 'components/cards/project-card';
 
+@import 'components/listing/blog';
+@import 'components/listing/jobs';
 @import 'components/listing/tag';
 
 //Pages Import
@@ -35,3 +37,7 @@
 @import 'pages/not-found';
 @import 'pages/resume';
 @import 'pages/status';
+
+body {
+	background-color: $--accent-color;
+}
