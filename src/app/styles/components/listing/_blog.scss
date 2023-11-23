@@ -2,12 +2,16 @@
 	display: flex;
 	flex-direction: column;
 	gap: 4vh;
+
+	> ul {
+		gap: 4vh;
+	}
 }
 
 @media (min-width: $--min-desktop-width) {
 	.blogs {
 		flex-direction: row;
-		gap: 2vh;
+		gap: 4vh;
 
 		> ul {
 			display: flex;

@@ -48,6 +48,17 @@ $--info-padding-desktop: 2.5vh;
 		border-bottom-left-radius: $--squircle-border-radius;
 		border-bottom-right-radius: $--squircle-border-radius;
 
+		.tags {
+			span {
+				font-size: 1.2vh;
+			}
+
+			svg {
+				height: 1.2vh;
+				width: 1.2vh;
+			}
+		}
+
 		&__info {
 			height: 100%;
 			width: calc(100% - ($--info-padding * 2));
