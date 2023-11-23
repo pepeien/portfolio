@@ -74,6 +74,11 @@
             color: $--accent-color;
             pointer-events: none;
             position: absolute;
+            
+            -webkit-transition: color ease-in-out 0.2s;
+            -moz-transition:    color ease-in-out 0.2s;
+            -o-transition:      color ease-in-out 0.2s;
+            transition:         color ease-in-out 0.2s;
         }
 
         -webkit-transition: background-color ease-in-out 0.2s, border-color ease-in-out 0.2s;
@@ -84,8 +89,12 @@
         &:active,
         &:focus,
         &:hover {
-            background-color: $--dark-grey-color;
+            background-color: $--accent-color;
             border-color: transparent;
+
+            span {
+                color: $--black;
+            }
         }
     }
 

@@ -26,7 +26,7 @@ export default async function Component({ dictionary, personalDictionary }: Prop
         .catch(() => [] as Project[]);
 
     return (
-        <ul>
+        <ul className='projects'>
             {data.map((_item) => (
                 <li key={v4()}>
                     <ProjectCard {..._item} personalDictionary={personalDictionary[_item.repo]} />

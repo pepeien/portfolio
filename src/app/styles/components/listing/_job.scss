@@ -1,11 +1,10 @@
-.blogs {
+.jobs {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	gap: 4vh;
 
 	> ul {
-		width: 100%;
 		display: flex;
 		flex-direction: column;
 		gap: 4vh;
@@ -13,14 +12,14 @@
 }
 
 @media (min-width: $--min-desktop-width) {
-	.blogs {
+	.jobs {
 		flex-direction: row;
-		gap: 6vh;
+		gap: 25vh;
 
 		> ul {
-			gap: 2vh;
+			border-left: solid 1px rgba(128, 128, 128, 0.13);
 			padding: 2vh;
-			max-height: 60vh;
+			max-height: 40vh;
 			overflow-y: auto;
 		}
 	}

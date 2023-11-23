@@ -84,16 +84,6 @@
 
             &__job {
                 background-color: $--black;
-
-                .home__content__section {
-                    &__main {
-                        > ul {
-                            display: flex;
-                            flex-direction: column;
-                            gap: 6vh;
-                        }
-                    }
-                }
             }
 
             &__blog {
@@ -162,47 +152,6 @@
                         font-size: 3rem;
                         letter-spacing: 0.05ch;
                         font-weight: 700;
-                    }
-                }
-
-                &__projects {
-                    .home__content__section {
-                        &__main {
-                            > ul {
-                                display: grid;
-                                grid-template-columns: repeat(auto-fit, minmax(60vh, 1fr));
-                                gap: 3vh;
-                            }
-                        }
-                    }
-                }
-
-                &__job {
-                    .home__content__section {
-                        &__main {
-                            > ul {
-                                flex-direction: column;
-                                gap: 4vh;
-                            }
-                        }
-                    }
-                }
-
-                &__blog {
-                    .home__content__section {
-                        &__main {
-                            ul {
-                                width: 100%;
-                            }
-                        }
-                    }
-                }
-
-                &__contact {
-                    .home__content__section {
-                        &__main {
-                            width: 100%;
-                        }
                     }
                 }
             }

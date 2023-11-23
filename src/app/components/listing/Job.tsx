@@ -34,17 +34,27 @@ export default async function Component({ dictionary, personalDictionary }: Prop
         )
         .catch(() => [] as Job[]);
 
+    const latestJob = data[0];
+
     return (
-        <ul>
-            {data.map((_item) => (
-                <li key={v4()}>
-                    <JobCard
-                        {..._item}
-                        dictionary={dictionary}
-                        personalDictionary={personalDictionary[_item.company]}
-                    />
-                </li>
-            ))}
-        </ul>
+        <div className='jobs'>
+            <JobCard
+                {...latestJob}
+                dictionary={dictionary}
+                personalDictionary={personalDictionary[latestJob.company]}
+                type='showcase'
+            />
+            <ul>
+                {data.slice(1).map((_item) => (
+                    <li key={v4()}>
+                        <JobCard
+                            {..._item}
+                            dictionary={dictionary}
+                            personalDictionary={personalDictionary[_item.company]}
+                        />
+                    </li>
+                ))}
+            </ul>
+        </div>
     );
 }

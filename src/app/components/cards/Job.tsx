@@ -1,9 +1,12 @@
 import React from 'react';
-import { v4 } from 'uuid';
 
 // Types
-import { Dictionary, Job, JobDictionary, PersonalDictionary } from '@utils/interfaces';
+import { Dictionary, Job, JobDictionary } from '@utils/interfaces';
+
+// Services
 import { StringServices } from '@utils/services';
+
+// Components
 import { TagListing } from '@components';
 
 export type DateDirection = 'normal' | 'inverse';
@@ -11,6 +14,7 @@ export type DateDirection = 'normal' | 'inverse';
 export interface Props extends Job {
     dictionary: Dictionary;
     personalDictionary: JobDictionary;
+    type?: 'list' | 'showcase';
 }
 
 export default function Component({
@@ -21,6 +25,7 @@ export default function Component({
     technologies,
     dictionary,
     personalDictionary,
+    type = 'list',
 }: Props) {
     const direction = dictionary['JOB_HISTORY_DATE_DIRECTION'];
     const localizedStartDate = StringServices.getLocalizedDate(dictionary, startDate, direction);
@@ -32,7 +37,7 @@ export default function Component({
     );
 
     return (
-        <div className='job-card'>
+        <div className='job-card' data-is-showcase={type === 'showcase'}>
             <div className='job-card__date'>
                 <div className='job-card__date__text'>
                     <span>{localizedStartDate}</span>
