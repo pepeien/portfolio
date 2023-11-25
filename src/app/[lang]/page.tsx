@@ -14,7 +14,7 @@ import {
 } from '@components';
 
 // Dictionary
-import { getDictionary, getPersonalDictionary } from '@dictionary';
+import { getDictionary } from '@dictionary';
 
 // Services
 import { InternalServices } from '@utils/services';
@@ -58,7 +58,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
     const dictionary = await getDictionary(params.lang);
-    const personalDictionary = await getPersonalDictionary(params.lang);
 
     return (
         <>
@@ -89,10 +88,7 @@ export default async function Page({ params }: Props) {
                                     <h4>{dictionary['PROJECTS_TITLE']}</h4>
                                 </div>
                                 <div className='home__content__section__main'>
-                                    <ProjectListing
-                                        dictionary={dictionary}
-                                        personalDictionary={personalDictionary.projects}
-                                    />
+                                    <ProjectListing dictionary={dictionary} />
                                 </div>
                             </section>
                             <section className='home__content__section home__content__section__job --shadowed'>
@@ -104,10 +100,7 @@ export default async function Page({ params }: Props) {
                                     />
                                 </div>
                                 <div className='home__content__section__main'>
-                                    <JobListing
-                                        dictionary={dictionary}
-                                        personalDictionary={personalDictionary.jobs}
-                                    />
+                                    <JobListing dictionary={dictionary} />
                                 </div>
                             </section>
                             <section className='home__content__section home__content__section__blog'>
@@ -115,10 +108,7 @@ export default async function Page({ params }: Props) {
                                     <h4>{dictionary['BLOG_TITLE']}</h4>
                                 </div>
                                 <div className='home__content__section__main'>
-                                    <BlogListing
-                                        dictionary={dictionary}
-                                        personalDictionary={personalDictionary.blog}
-                                    />
+                                    <BlogListing dictionary={dictionary} />
                                 </div>
                             </section>
                             <section className='home__content__section home__content__section__contact --shadowed'>

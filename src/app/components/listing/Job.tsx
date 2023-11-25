@@ -2,7 +2,7 @@ import React from 'react';
 import { v4 } from 'uuid';
 
 // Types
-import { Dictionary, Job, JobDictionary } from '@utils/interfaces';
+import { Dictionary, Job } from '@utils/interfaces';
 
 // Services
 import { InternalServices } from '@utils/services';
@@ -12,12 +12,11 @@ import { JobCard } from '@components';
 
 export interface Props {
     dictionary: Dictionary;
-    personalDictionary: { [key: string]: JobDictionary };
 }
 
 const MAX_SHOWCASE_COUNT = 3;
 
-export default async function Component({ dictionary, personalDictionary }: Props) {
+export default async function Component({ dictionary }: Props) {
     const data = await fetch(`${InternalServices.getBLOB()}/jobs/metadata.json`, {
         next: { revalidate: InternalServices.getFetchInterval() },
     })
@@ -38,20 +37,11 @@ export default async function Component({ dictionary, personalDictionary }: Prop
 
     return (
         <div className='jobs'>
-            <JobCard
-                {...latestJob}
-                dictionary={dictionary}
-                personalDictionary={personalDictionary[latestJob.company]}
-                type='showcase'
-            />
+            <JobCard {...latestJob} dictionary={dictionary} type='showcase' />
             <ul>
                 {data.slice(1).map((_item) => (
                     <li key={v4()}>
-                        <JobCard
-                            {..._item}
-                            dictionary={dictionary}
-                            personalDictionary={personalDictionary[_item.company]}
-                        />
+                        <JobCard {..._item} dictionary={dictionary} />
                     </li>
                 ))}
             </ul>

@@ -25,8 +25,8 @@ Then open [http://localhost:3000/](http://localhost:3000/) to see your app. The 
 | NEXT_PUBLIC_LINKEDIN_URL     | Linkedin URL                     | String |    ✅    |
 | NEXT_PUBLIC_EMAIL_URL        | Email URL                        | String |    ✅    |
 | TWITTER_HANDLE               | Twitter handle                   | String |    ✅    |
-| BLOB                          | App data BLOB                     | String |    ✅    |
-| GIT_BLOB                      | Repo data BLOB                    | String |    ✅    |
+| BLOB                         | App data BLOB                    | String |    ✅    |
+| GIT_BLOB                     | Repo data BLOB                   | String |    ✅    |
 
 ### Localization
 
@@ -36,54 +36,11 @@ Locales supported by the application:
 - `ja-jp`;
 - `pt-br`.
 
-#### Jobs Localization
-
-- A entry at `src/app/[lang]/dictionaries/personal/*.ts` will need to follow this template:
-  
-```js
-{
-    jobs: {
-        {JOB_COMPANY_NAME}: {
-            description: string;
-        }
-    }
-}
-```
-
-#### Blog Localization
-
-- A entry at `src/app/[lang]/dictionaries/personal/*.ts` will need to follow this template:
-  
-```js
-{
-    blog: {
-        {BLOG_POST_ID}: {
-            title: string;
-            description: string;
-        }
-    }
-}
-```
-
-#### Projects Localization
-
-- A entry at `src/app/[lang]/dictionaries/personal/*.ts` will need to follow this template:
-  
-```js
-{
-    projects: {
-        {PROJECT_NAME}: {
-            description: string;
-        }
-    }
-}
-```
-
 ### Blob
 
 This is the Blob structure
 
-#### Jobs Blob
+#### Jobs
 
 - A file at `{BLOB}/jobs/metadata.json` will need to follow this template:
 
@@ -94,12 +51,15 @@ This is the Blob structure
         "endDate":      {JOB_START_DATE}       [string] (YYYY-MM-DD) - OPTIONAL,
         "company":      {JOB_COMPANY_NAME}     [string],
         "positions":    {JOB_POSITION_HISTORY} [string[]],
-        "technologies": {JOB_TECHNOLOGIES}     [string[]]
+        "technologies": {JOB_TECHNOLOGIES}     [string[]],
+        "description": {
+            {LOCALE}: {TEXT} [string]
+        }
     }
 ]
 ```
 
-#### Blog Blob
+#### Blog
 
 - A file at `{BLOB}/blog/metadata.json` will need to follow this template:
 
@@ -109,14 +69,20 @@ This is the Blob structure
         "id":     {BLOG_POST_ID}     [string],
         "author": {BLOG_POST_AUTHOR} [string],
         "theme":  {BLOG_POST_THEME}  [string],
-        "date":   {BLOG_POST_DATE}   [string] (YYYY-MM-DDTHH:MM:SSSZ)
+        "date":   {BLOG_POST_DATE}   [string] (YYYY-MM-DDTHH:MM:SSSZ),
+        "title": {
+            {LOCALE}: {TEXT} [string]
+        },
+        "description": {
+            {LOCALE}: {TEXT} [string]
+        }
     }
 ]
 ```
 
 - Create `.md` files inside `{BLOB}/blog/{BLOG_POST_ID}/{LOCALE}.md` named after the [Locales](#localization).
 
-#### Projects Blob
+#### Projects
 
 - A file on each or the projects at `.git/metadata.json` will need to follow this template:
 
@@ -134,7 +100,10 @@ This is the Blob structure
     {
         "name":         {PROJECT_NAME}         [string],
         "repo":         {PROEJCT_REPO}         [string],
-        "technologies": {PROJECT_TECHNOLOGIES} [string[]]
+        "technologies": {PROJECT_TECHNOLOGIES} [string[]],
+        "description":  {
+            {LOCALE}: {TEXT} [string]
+        }
     }
 ]
 ```

@@ -9,18 +9,10 @@ import rehypeRaw from 'rehype-raw';
 import { Blog } from '@utils/interfaces';
 
 // Dictionary
-import {
-    getAlternates,
-    getCanonicalAlternate,
-    getDictionary,
-    getPersonalDictionary,
-} from '@dictionary';
+import { getAlternates, getCanonicalAlternate, getDictionary } from '@dictionary';
 
 // Services
 import { InternalServices, StringServices } from '@utils/services';
-
-// Pages
-import ErrorPage from '../../../not-found';
 
 // Components
 import { Footer, TagListing } from '@components';
@@ -48,15 +40,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
 
     const dictionary = await getDictionary(lang);
-    const personalDictionary = (await getPersonalDictionary(lang)).blog[id];
 
-    const title = personalDictionary.title;
-    const description = personalDictionary.description;
+    const title = post.title[dictionary['LANGUAGE_LOCALE_URL']];
+    const description = post.description[dictionary['LANGUAGE_LOCALE_URL']];
     const bannerURL = new URL(`${blobURL}/blog/${post.id.trim()}/images/thumbnail.png`);
     const banner = {
         url: bannerURL,
         secureUrl: bannerURL,
-        alt: `${personalDictionary.title} banner`,
+        alt: `${title} banner`,
         width: 1920,
         height: 1080,
     };
@@ -167,7 +158,6 @@ export default async function Page({ params }: Props) {
     }
 
     const dictionary = await getDictionary(lang);
-    const personalDictionary = (await getPersonalDictionary(lang)).blog[id];
 
     return (
         <>
@@ -185,9 +175,11 @@ export default async function Page({ params }: Props) {
                 </section>
                 <section className='blog__content --flex-column'>
                     <div className='blog__content__header --flex-column'>
-                        <h1 className='blog__content__header__title'>{personalDictionary.title}</h1>
+                        <h1 className='blog__content__header__title'>
+                            {data.title[dictionary['LANGUAGE_LOCALE_URL']]}
+                        </h1>
                         <h2 className='blog__content__header__description'>
-                            {personalDictionary.description}
+                            {data.description[dictionary['LANGUAGE_LOCALE_URL']]}
                         </h2>
                         <TagListing
                             data={[

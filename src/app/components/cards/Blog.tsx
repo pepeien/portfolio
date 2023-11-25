@@ -3,15 +3,16 @@ import Link from 'next/link';
 import React from 'react';
 
 // Type
-import { Dictionary, Blog, BlogDictionary } from '@utils/interfaces';
+import { Dictionary, Blog } from '@utils/interfaces';
 
 // Services
 import { InternalServices, StringServices } from '@utils/services';
+
+// Components
 import { TagListing } from '@components';
 
 export interface Props extends Blog {
     dictionary: Dictionary;
-    personalDictionary: BlogDictionary;
     type?: 'showcase' | 'list';
 }
 
@@ -21,8 +22,9 @@ export default function Component({
     theme,
     date,
     status,
+    title,
+    description,
     dictionary,
-    personalDictionary,
     type = 'list',
 }: Props) {
     const wasReleased = status === 'RELEASED';
@@ -108,7 +110,7 @@ c-5.815,13.208,4.855,27.01,18.107,26.263H489.52C500.566,511.97,509.379,502.408,5
                     width={isList ? 910 : 1000}
                     height={isList ? 512 : 563}
                     quality={100}
-                    alt={`${personalDictionary.title} thumbnail`}
+                    alt={`${title[dictionary['LANGUAGE_LOCALE_URL']]} thumbnail`}
                 />
             </div>
             <div className='blog-card__data'>
@@ -139,9 +141,11 @@ c-5.815,13.208,4.855,27.01,18.107,26.263H489.52C500.566,511.97,509.379,502.408,5
                             },
                         ]}
                     />
-                    <h5 className='blog-card__data__info__title'>{personalDictionary.title}</h5>
+                    <h5 className='blog-card__data__info__title'>
+                        {title[dictionary['LANGUAGE_LOCALE_URL']]}
+                    </h5>
                     <p className='blog-card__data__info__description'>
-                        {personalDictionary.description}
+                        {description[dictionary['LANGUAGE_LOCALE_URL']]}
                     </p>
                 </div>
             </div>

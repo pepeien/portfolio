@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Types
-import { Dictionary, Job, JobDictionary } from '@utils/interfaces';
+import { Dictionary, Job } from '@utils/interfaces';
 
 // Services
 import { StringServices } from '@utils/services';
@@ -13,7 +13,6 @@ export type DateDirection = 'normal' | 'inverse';
 
 export interface Props extends Job {
     dictionary: Dictionary;
-    personalDictionary: JobDictionary;
     type?: 'list' | 'showcase';
 }
 
@@ -23,8 +22,8 @@ export default function Component({
     company,
     positions,
     technologies,
+    description,
     dictionary,
-    personalDictionary,
     type = 'list',
 }: Props) {
     const direction = dictionary['JOB_HISTORY_DATE_DIRECTION'];
@@ -47,7 +46,9 @@ export default function Component({
             </div>
             <div className='job-card__info --shadowed'>
                 <div className='job-card__info__company'>{company}</div>
-                <div className='job-card__info__description'>{personalDictionary.description}</div>
+                <div className='job-card__info__description'>
+                    {description[dictionary['LANGUAGE_LOCALE_URL']]}
+                </div>
                 <TagListing
                     data={technologies.map((_item) => ({
                         text: _item,

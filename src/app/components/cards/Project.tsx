@@ -1,18 +1,25 @@
 import React from 'react';
-import Image from 'next/image';
 
 // Types
-import { Project, ProjectDictionary, ProjectIdentity, Tag } from '@utils/interfaces';
+import { Dictionary, Project, ProjectIdentity, Tag } from '@utils/interfaces';
 
 // Services
 import { InternalServices } from '@utils/services';
+
+// Components
 import { TagListing } from '@components';
 
 export interface Props extends Project {
-    personalDictionary: ProjectDictionary;
+    dictionary: Dictionary;
 }
 
-export default async function Component({ name, repo, technologies, personalDictionary }: Props) {
+export default async function Component({
+    name,
+    repo,
+    technologies,
+    description,
+    dictionary,
+}: Props) {
     const repoCdnURL = `${InternalServices.getGitBLOB()}/${repo}/master/.github`;
 
     const identity: ProjectIdentity = await fetch(`${repoCdnURL}/metadata.json?raw=true`, {
@@ -82,7 +89,7 @@ export default async function Component({ name, repo, technologies, personalDict
                         </svg>
                     </div>
                     <span style={{ color: identity.primaryColor }}>
-                        {personalDictionary.description}
+                        {description[dictionary['LANGUAGE_LOCALE_URL']]}
                     </span>
                 </div>
                 <div className='project-card__arrow'>

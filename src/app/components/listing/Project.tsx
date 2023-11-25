@@ -2,7 +2,7 @@ import React from 'react';
 import { v4 } from 'uuid';
 
 // Types
-import { Dictionary, Project, ProjectDictionary } from '@utils/interfaces';
+import { Dictionary, Project } from '@utils/interfaces';
 
 // Services
 import { InternalServices } from '@utils/services';
@@ -12,12 +12,11 @@ import { ProjectCard } from '@components';
 
 export interface Props {
     dictionary: Dictionary;
-    personalDictionary: { [key: string]: ProjectDictionary };
 }
 
 const MAX_SHOWCASE_COUNT = 4;
 
-export default async function Component({ dictionary, personalDictionary }: Props) {
+export default async function Component({ dictionary }: Props) {
     const data = await fetch(`${InternalServices.getBLOB()}/projects/metadata.json`, {
         next: { revalidate: InternalServices.getFetchInterval() },
     })
@@ -29,7 +28,7 @@ export default async function Component({ dictionary, personalDictionary }: Prop
         <ul className='projects'>
             {data.map((_item) => (
                 <li key={v4()}>
-                    <ProjectCard {..._item} personalDictionary={personalDictionary[_item.repo]} />
+                    <ProjectCard {..._item} dictionary={dictionary} />
                 </li>
             ))}
         </ul>

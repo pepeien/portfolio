@@ -2,7 +2,7 @@ import React from 'react';
 import { v4 } from 'uuid';
 
 // Types
-import { Dictionary, Blog, BlogDictionary } from '@utils/interfaces';
+import { Dictionary, Blog } from '@utils/interfaces';
 
 // Services
 import { InternalServices } from '@utils/services';
@@ -12,12 +12,11 @@ import { BlogCard } from '@components';
 
 export interface Props {
     dictionary: Dictionary;
-    personalDictionary: { [key: string]: BlogDictionary };
 }
 
 const MAX_SHOWCASE_COUNT = 3;
 
-export default async function Component({ dictionary, personalDictionary }: Props) {
+export default async function Component({ dictionary }: Props) {
     const data = await fetch(`${InternalServices.getBLOB()}/blog/metadata.json`, {
         next: { revalidate: InternalServices.getFetchInterval() },
     })
@@ -41,22 +40,13 @@ export default async function Component({ dictionary, personalDictionary }: Prop
 
     return (
         <div className='blogs'>
-            <BlogCard
-                {...latestPost}
-                dictionary={dictionary}
-                personalDictionary={personalDictionary[latestPost.id]}
-                type='showcase'
-            />
+            <BlogCard {...latestPost} dictionary={dictionary} type='showcase' />
             <ul>
                 {data
                     .filter((post) => post.id !== latestPost.id)
                     .map((_item) => (
                         <li key={v4()}>
-                            <BlogCard
-                                {..._item}
-                                dictionary={dictionary}
-                                personalDictionary={personalDictionary[_item.id]}
-                            />
+                            <BlogCard {..._item} dictionary={dictionary} />
                         </li>
                     ))}
             </ul>
