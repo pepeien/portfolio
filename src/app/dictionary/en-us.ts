@@ -30,7 +30,7 @@ export default {
 
     ABOUT_HERO: 'Crafting seamless digital experiences',
     ABOUT_TITLE: 'hi, ',
-    ABOUT_TITLE_SECOND: 'my name is',
+    ABOUT_TITLE_SECOND: "I'm",
     ABOUT_NAME: 'ERICK',
 
     PROJECTS_TITLE: "What I've worked on?",

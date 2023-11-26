@@ -29,8 +29,8 @@ export default {
     UPCOMING_TEXT: 'Em Breve',
 
     ABOUT_HERO: 'Criando experiências digitais fluidas',
-    ABOUT_TITLE: 'olá, ',
-    ABOUT_TITLE_SECOND: 'meu nome é',
+    ABOUT_TITLE: 'oi, ',
+    ABOUT_TITLE_SECOND: 'sou',
     ABOUT_NAME: 'ERICK',
 
     PROJECTS_TITLE: 'O que já fiz?',

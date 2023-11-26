@@ -1,3 +1,5 @@
+$--hero-section-animation-delay: 0.1s;
+
 .title {
 	width: 100%;
     height: 50dvh;
@@ -5,21 +7,29 @@
     &__hero {
         justify-content: center;
         align-items: center;
-        opacity: 0;
+        margin-left: 1vh;
         margin-bottom: 4vh;
+        opacity: 0;
 
-        -webkit-animation: fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 0.1 forwards;
-        -moz-animation:    fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 0.1 forwards;
-        -o-animation:      fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 0.1 forwards;
-        animation:         fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 0.1 forwards;
+        -webkit-transform: translateX(-100vw);
+        -moz-transform: translateX(-100vw);
+        -o-transform: translateX(-100vw);
+        transform: translateX(-100vw);
+    
+        -webkit-animation: slide-in-reverse $--initial-fade-duration ease-in-out 1 $--hero-section-animation-delay forwards,
+                           fade-in          $--initial-fade-duration ease-in-out 1 $--hero-section-animation-delay forwards;
+        -moz-animation:    slide-in-reverse $--initial-fade-duration ease-in-out 1 $--hero-section-animation-delay forwards,
+                           fade-in          $--initial-fade-duration ease-in-out 1 $--hero-section-animation-delay forwards;
+        -o-animation:      slide-in-reverse $--initial-fade-duration ease-in-out 1 $--hero-section-animation-delay forwards,
+                           fade-in          $--initial-fade-duration ease-in-out 1 $--hero-section-animation-delay forwards;
+        animation:         slide-in-reverse $--initial-fade-duration ease-in-out 1 $--hero-section-animation-delay forwards,
+                           fade-in          $--initial-fade-duration ease-in-out 1 $--hero-section-animation-delay forwards;
 
         h4 {
             font-family: 'Roboto Condensed';
-            font-style: italic;
             font-weight: bolder;
             font-size: 5vh;
             color: $--medium-color;
-            margin-left: 1vh;
             line-height: 2.58rem;
         }
     }
@@ -60,8 +70,11 @@
         }
     }
 
-            
     &__pre {
+        h3 {
+            font-size: 1.4rem;
+        }   
+
         .--last {
             -webkit-animation-delay: $--initial-fade-duration + 1.4;
             -moz-animation-delay:    $--initial-fade-duration + 1.4;
@@ -71,6 +84,8 @@
     }
 
     &__name {
+        margin-top: -1rem;
+
         &[data-has-second='true'] {
             display: flex;
             flex-direction: column;
@@ -97,7 +112,7 @@
 		height: 60vh;
 
         &__greet {
-            top: 23.5vh;
+            top: 32vh;
             left: 15vh;
 
             h2 {
@@ -105,12 +120,31 @@
             }
 
             h3 { 
-                margin-left: 3vh;
                 font-size: 8vh;
             }
         }
 
+        &__hero {
+            gap: 2vh;
+            margin-left: 2vh;
+
+            h4 {
+                margin: 0;
+                font-size: 8vh;
+            }
+        }
+
+        &__pre {
+            margin-left: 1.5vh;
+
+            h3 {
+                font-size: 2rem;
+            }    
+        }
+
         &__name {
+            margin-top: -5vh;
+
             &[data-has-second='true'] {
                 flex-direction: row;
 
@@ -121,17 +155,6 @@
                 h3 {
                     margin-top: 18vh;
                 }
-            }
-        }
-
-        &__hero {
-            top: 19dvh;
-            left: 15vh;
-            gap: 2vh;
-
-            h4 {
-                font-size: 8vh;
-                margin-left: 3vh;
             }
         }
 	}

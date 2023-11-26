@@ -5,6 +5,10 @@ import React from 'react';
 // Types
 import { Dictionary } from '@utils/interfaces';
 
+// Services
+import { StringServices } from '@utils/services';
+
+const PARALLAX_COEFFICIENT = 0.15;
 const BLUR_COEFFICIENT = 20;
 
 interface Props {
@@ -29,13 +33,33 @@ export default function Title({ dictionary }: Props) {
         };
     }, [scrollY]);
 
+    const getParallax = () => {
+        const result = Math.max(0, -scrollY * PARALLAX_COEFFICIENT);
+
+        if (isNaN(result)) {
+            return 0;
+        }
+
+        return result;
+    };
+
+    const getScrollBlur = () => {
+        const result = Math.max(0, ((scrollY * 1.2) / innerHeight) * BLUR_COEFFICIENT);
+
+        if (isNaN(result)) {
+            return 0;
+        }
+
+        return result;
+    };
+
     return (
         <div className='title'>
             <div
                 className='title__greet --flex-column'
                 style={{
-                    transform: `translate3d(0, ${-scrollY * 0.15}px, 0)`,
-                    filter: `blur(${((scrollY * 1.2) / innerHeight) * BLUR_COEFFICIENT}px)`,
+                    transform: `translate3d(0, ${getParallax()}px, 0)`,
+                    filter: `blur(${getScrollBlur()}px)`,
                 }}
             >
                 <div className='title__hero --flex-column'>
@@ -47,7 +71,7 @@ export default function Title({ dictionary }: Props) {
                 </div>
                 <div
                     className='title__name --flex-row'
-                    data-has-second={dictionary['ABOUT_NAME_SECOND'] ? true : false}
+                    data-has-second={StringServices.isStringValid(dictionary['ABOUT_NAME_SECOND'])}
                 >
                     <h2>{dictionary['ABOUT_NAME']}</h2>
                     <h3 className='--last'>{dictionary['ABOUT_NAME_SECOND']}</h3>
