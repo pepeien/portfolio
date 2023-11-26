@@ -26,6 +26,7 @@ export default {
         'Erick Frederick é um engenheiro de software que cria aplicações robustas, responsivas pensando em usuários e desenvolvedores.',
 
     NOW_TEXT: 'Presente',
+    UPCOMING_TEXT: 'Em Breve',
 
     ABOUT_HERO: 'Criando experiências digitais fluidas',
     ABOUT_TITLE: 'olá, ',

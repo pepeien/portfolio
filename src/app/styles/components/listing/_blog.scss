@@ -15,11 +15,10 @@
 @media (min-width: $--min-desktop-width) {
 	.blogs {
 		flex-direction: row;
-		gap: 6vh;
+		gap: 4vh;
 
 		> ul {
 			gap: 2vh;
-			padding: 2vh;
 			max-height: 60vh;
 			overflow-y: auto;
 		}

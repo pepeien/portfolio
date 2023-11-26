@@ -26,6 +26,7 @@ export default {
         'Erick Frederick is a software engineer who creates robust, responsive and aesthetic applications for users and developers.',
 
     NOW_TEXT: 'Present',
+    UPCOMING_TEXT: 'Coming Soon',
 
     ABOUT_HERO: 'Crafting seamless digital experiences',
     ABOUT_TITLE: 'hi, ',

@@ -14,7 +14,7 @@ export interface Props {
     dictionary: Dictionary;
 }
 
-const MAX_SHOWCASE_COUNT = 3;
+const MAX_SHOWCASE_COUNT = 4;
 
 export default async function Component({ dictionary }: Props) {
     const data = await fetch(`${InternalServices.getBLOB()}/blog/metadata.json`, {
@@ -25,15 +25,13 @@ export default async function Component({ dictionary }: Props) {
         .catch(() => [] as Blog[]);
 
     const getLatestPost = (blog: Blog[]): Blog => {
-        return blog
-            .sort((a, b) => {
-                if (!a.date || !b.date) {
-                    return -1;
-                }
+        return blog.sort((a, b) => {
+            if (!a.date || !b.date) {
+                return 1;
+            }
 
-                return new Date(a.date).getTime() > new Date(b.date).getTime() ? 1 : 0;
-            })
-            .filter((post) => post.status === 'UPCOMING')[0];
+            return new Date(a.date).getTime() > new Date(b.date).getTime() ? 0 : -1;
+        })[0];
     };
 
     const latestPost = getLatestPost(data);

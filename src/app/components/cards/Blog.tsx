@@ -91,24 +91,24 @@ c-5.815,13.208,4.855,27.01,18.107,26.263H489.52C500.566,511.97,509.379,502.408,5
         );
     };
 
-    const isList = type === 'list';
+    const isShowcasing = type === 'showcase';
 
     return (
         <Link
-            className={'blog-card'}
+            className={wasReleased ? 'blog-card --hoverable' : 'blog-card'}
             href={
                 wasReleased
                     ? `${dictionary['LANGUAGE_LOCALE_URL']}/blog/${id}`
                     : `${dictionary['LANGUAGE_LOCALE_URL']}`
             }
             aria-disabled={!wasReleased}
-            data-is-showcase={!isList}
+            data-is-showcase={isShowcasing}
         >
             <div className='blog-card__thumbnail'>
                 <Image
                     src={`${InternalServices.getBLOB()}/blog/${id}/images/thumbnail.png`}
-                    width={isList ? 910 : 1000}
-                    height={isList ? 512 : 563}
+                    width={isShowcasing ? 1000 : 910}
+                    height={isShowcasing ? 563 : 512}
                     quality={100}
                     alt={`${title[dictionary['LANGUAGE_LOCALE_URL']]} thumbnail`}
                 />
@@ -128,7 +128,7 @@ c-5.815,13.208,4.855,27.01,18.107,26.263H489.52C500.566,511.97,509.379,502.408,5
                                 text: StringServices.getLocalizedElapsedDate(
                                     dictionary,
                                     wasReleased ? new Date(date) : undefined,
-                                    'Upcoming',
+                                    dictionary['UPCOMING_TEXT'],
                                 ),
                                 accentColor: accentColor,
                                 backgroundColor: backgroundColor,

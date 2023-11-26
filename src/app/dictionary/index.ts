@@ -51,10 +51,19 @@ export const getAlternates = (path = '') => {
 };
 
 const dictionaries = {
-    'en-us': () => import('./dictionaries/en-us.ts').then((module) => module.default as Dictionary),
-    'ja-jp': () => import('./dictionaries/ja-jp.ts').then((module) => module.default as Dictionary),
-    'pt-br': () => import('./dictionaries/pt-br.ts').then((module) => module.default as Dictionary),
+    'en-us': () => import('./en-us.ts').then((module) => module.default as Dictionary),
+    'ja-jp': () => import('./ja-jp.ts').then((module) => module.default as Dictionary),
+    'pt-br': () => import('./pt-br.ts').then((module) => module.default as Dictionary),
 };
 
-export const getDictionary = async (locale: string) =>
-    dictionaries[locale as keyof typeof dictionaries]();
+export const getDictionary = async (locale: string) => {
+    const fallbackKey = getServerDefaultLocale() as keyof typeof dictionaries;
+
+    if (!StringServices.isStringValid(locale)) {
+        return dictionaries[fallbackKey]();
+    }
+
+    const targetKey = locale as keyof typeof dictionaries;
+
+    return dictionaries[!dictionaries[targetKey] ? fallbackKey : targetKey]();
+};

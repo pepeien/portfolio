@@ -24,6 +24,7 @@ export default {
         'Erick Frederick 「エリック・フレデリック」は、ユーザーと開発者のために、堅牢で応答性が高くアプリケーションを作成するソフトウェア・エンジニアである。',
 
     NOW_TEXT: '現在',
+    UPCOMING_TEXT: '公開予定',
 
     ABOUT_HERO: 'シームレスなデジタル体験の構築',
     ABOUT_TITLE: 'こんにちは、',
