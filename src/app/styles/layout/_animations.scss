@@ -1351,3 +1351,48 @@
         transform: translateX(-100vh);
     }
 }
+
+@-webkit-keyframes focus-in {
+    from {
+        -webkit-filter: blur($--focus-in-base-blur);
+    }
+    to {
+        -webkit-filter: blur(0px);
+    }
+}
+
+@-moz-keyframes focus-in {
+    from {
+        -moz--filter: blur($--focus-in-base-blur);
+    }
+    to {
+        -moz-filter: blur(0px);
+    }
+}
+
+@-ms-keyframes focus-in {
+    from {
+        -ms-filter: blur($--focus-in-base-blur);
+    }
+    to {
+        -ms-filter: blur(0px);
+    }
+}
+
+@-o-keyframes focus-in {
+    from {
+        -o-filter: blur($--focus-in-base-blur);
+    }
+    to {
+        -o-filter: blur(0px);
+    }
+}
+
+@keyframes focus-in {
+    from {
+        filter: blur($--focus-in-base-blur);
+    }
+    to {
+        filter: blur(0px);
+    }
+}

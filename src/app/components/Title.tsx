@@ -56,7 +56,7 @@ export default function Title({ dictionary }: Props) {
     return (
         <div className='title'>
             <div
-                className='title__greet --flex-column'
+                className='title__wrapper --flex-column'
                 style={{
                     transform: `translate3d(0, ${getParallax()}px, 0)`,
                     filter: `blur(${getScrollBlur()}px)`,

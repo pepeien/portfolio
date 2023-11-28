@@ -1,8 +1,24 @@
-$--hero-section-animation-delay: 0.1s;
+$--hero-section-animation-delay: $--initial-fade-duration;
+$--hero-section-animation-duration: 0.7s;
+
+$--greet-section-animation-delay: $--hero-section-animation-delay + $--hero-section-animation-duration;
+$--greet-section-animation-duration: 0.4s;
+
+$--pre-section-animation-delay: $--greet-section-animation-delay;
+
+$--name-section-animation-delay: $--greet-section-animation-delay * 1.25;
 
 .title {
 	width: 100%;
     height: 50dvh;
+
+    &__wrapper {
+        position: fixed;
+        justify-content: center;
+        align-items: flex-start;
+        top: 35dvh;
+        left: 2.5vh;
+    }
 
     &__hero {
         justify-content: center;
@@ -10,20 +26,16 @@ $--hero-section-animation-delay: 0.1s;
         margin-left: 1vh;
         margin-bottom: 4vh;
         opacity: 0;
+        filter: blur($--focus-in-base-blur);
 
-        -webkit-transform: translateX(-100vw);
-        -moz-transform: translateX(-100vw);
-        -o-transform: translateX(-100vw);
-        transform: translateX(-100vw);
-    
-        -webkit-animation: slide-in-reverse $--initial-fade-duration ease-in-out 1 $--hero-section-animation-delay forwards,
-                           fade-in          $--initial-fade-duration ease-in-out 1 $--hero-section-animation-delay forwards;
-        -moz-animation:    slide-in-reverse $--initial-fade-duration ease-in-out 1 $--hero-section-animation-delay forwards,
-                           fade-in          $--initial-fade-duration ease-in-out 1 $--hero-section-animation-delay forwards;
-        -o-animation:      slide-in-reverse $--initial-fade-duration ease-in-out 1 $--hero-section-animation-delay forwards,
-                           fade-in          $--initial-fade-duration ease-in-out 1 $--hero-section-animation-delay forwards;
-        animation:         slide-in-reverse $--initial-fade-duration ease-in-out 1 $--hero-section-animation-delay forwards,
-                           fade-in          $--initial-fade-duration ease-in-out 1 $--hero-section-animation-delay forwards;
+        -webkit-animation: focus-in $--hero-section-animation-duration ease-in-out 1 $--hero-section-animation-delay forwards,
+                           fade-in  $--hero-section-animation-duration ease-in-out 1 $--initial-fade-duration        forwards;
+        -moz-animation:    focus-in $--hero-section-animation-duration ease-in-out 1 $--hero-section-animation-delay forwards,
+                           fade-in  $--hero-section-animation-duration ease-in-out 1 $--initial-fade-duration        forwards;
+        -o-animation:      focus-in $--hero-section-animation-duration ease-in-out 1 $--hero-section-animation-delay forwards,
+                           fade-in  $--hero-section-animation-duration ease-in-out 1 $--initial-fade-duration        forwards;
+        animation:         focus-in $--hero-section-animation-duration ease-in-out 1 $--hero-section-animation-delay forwards,
+                           fade-in  $--hero-section-animation-duration ease-in-out 1 $--initial-fade-duration        forwards;
 
         h4 {
             font-family: 'Roboto Condensed';
@@ -34,52 +46,32 @@ $--hero-section-animation-delay: 0.1s;
         }
     }
 
-    &__greet {
-        position: fixed;
-        justify-content: center;
-        align-items: flex-start;
-        top: 35dvh;
-        left: 2.5vh;
-    
-        h2 {
-            font-size: 15vh;
-            text-transform: uppercase;
-            font-family: 'Roboto Condensed';
-            color: $--medium-color;
-            opacity: 0;
-    
-            -webkit-animation: fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 1.9 forwards;
-            -moz-animation:    fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 1.9 forwards;
-            -o-animation:      fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 1.9 forwards;
-            animation:         fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 1.9 forwards;
-        }
-    
+    &__pre {
         h3 {
             font-family: 'Roboto Condensed';
             font-style: italic;
             font-weight: 300;
-            font-size: 5vh;
-            color: $--medium-color;
-            opacity: 0;
-            margin-left: 1vh;
-
-            -webkit-animation: fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 1 forwards;
-            -moz-animation:    fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 1 forwards;
-            -o-animation:      fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 1 forwards;
-            animation:         fade-in $--initial-fade-duration ease-in-out 1 $--initial-fade-duration + 1 forwards;
-        }
-    }
-
-    &__pre {
-        h3 {
             font-size: 1.4rem;
-        }   
+            color: $--medium-color;
+            margin-left: 1vh;
+            opacity: 0;
+            filter: blur($--focus-in-base-blur);
+
+            -webkit-animation: focus-in $--greet-section-animation-duration ease-in-out 1 $--pre-section-animation-delay forwards,
+                               fade-in  $--greet-section-animation-duration ease-in-out 1 $--pre-section-animation-delay forwards;
+            -moz-animation:    focus-in $--greet-section-animation-duration ease-in-out 1 $--pre-section-animation-delay forwards,
+                               fade-in  $--greet-section-animation-duration ease-in-out 1 $--pre-section-animation-delay forwards;
+            -o-animation:      focus-in $--greet-section-animation-duration ease-in-out 1 $--pre-section-animation-delay forwards,
+                               fade-in  $--greet-section-animation-duration ease-in-out 1 $--pre-section-animation-delay forwards;
+            animation:         focus-in $--greet-section-animation-duration ease-in-out 1 $--pre-section-animation-delay forwards,
+                               fade-in  $--greet-section-animation-duration ease-in-out 1 $--pre-section-animation-delay forwards;
+        } 
 
         .--last {
-            -webkit-animation-delay: $--initial-fade-duration + 1.4;
-            -moz-animation-delay:    $--initial-fade-duration + 1.4;
-            -o-animation-delay:      $--initial-fade-duration + 1.4;
-            animation-delay:         $--initial-fade-duration + 1.4;
+            -webkit-animation-delay: $--pre-section-animation-delay * 1.1;
+            -moz-animation-delay:    $--pre-section-animation-delay * 1.1;
+            -o-animation-delay:      $--pre-section-animation-delay * 1.1;
+            animation-delay:         $--pre-section-animation-delay * 1.1;
         }
     }
 
@@ -90,19 +82,45 @@ $--hero-section-animation-delay: 0.1s;
             display: flex;
             flex-direction: column;
             gap: 1vh;
+        }
 
-            h2 {
-                font-size: 10vh;
-            }
+        h2 {
+            font-size: 15vh;
+            text-transform: uppercase;
+            font-family: 'Roboto Condensed';
+            color: $--medium-color;
+            opacity: 0;
+            filter: blur($--focus-in-base-blur);
 
-            .--last {
-                margin-left: auto;
+            -webkit-animation: focus-in $--greet-section-animation-duration ease-in-out 1 $--name-section-animation-delay forwards,
+                               fade-in  $--greet-section-animation-duration ease-in-out 1 $--name-section-animation-delay forwards;
+            -moz-animation:    focus-in $--greet-section-animation-duration ease-in-out 1 $--name-section-animation-delay forwards,
+                               fade-in  $--greet-section-animation-duration ease-in-out 1 $--name-section-animation-delay forwards;
+            -o-animation:      focus-in $--greet-section-animation-duration ease-in-out 1 $--name-section-animation-delay forwards,
+                               fade-in  $--greet-section-animation-duration ease-in-out 1 $--name-section-animation-delay forwards;
+            animation:         focus-in $--greet-section-animation-duration ease-in-out 1 $--name-section-animation-delay forwards,
+                               fade-in  $--greet-section-animation-duration ease-in-out 1 $--name-section-animation-delay forwards;
+        }
 
-                -webkit-animation-delay: $--initial-fade-duration + 2.5;
-                -moz-animation-delay:    $--initial-fade-duration + 2.5;
-                -o-animation-delay:      $--initial-fade-duration + 2.5;
-                animation-delay:         $--initial-fade-duration + 2.5;
-            }
+        .--last {
+            margin-left: auto;
+            font-family: 'Roboto Condensed';
+            font-style: italic;
+            font-weight: 300;
+            font-size: 10vh;
+            color: $--medium-color;
+            margin-left: 1vh;
+            opacity: 0;
+            filter: blur($--focus-in-base-blur);
+
+            -webkit-animation: focus-in $--greet-section-animation-duration ease-in-out 1 $--name-section-animation-delay * 1.15 forwards,
+                               fade-in  $--greet-section-animation-duration ease-in-out 1 $--name-section-animation-delay * 1.15 forwards;
+            -moz-animation:    focus-in $--greet-section-animation-duration ease-in-out 1 $--name-section-animation-delay * 1.15 forwards,
+                               fade-in  $--greet-section-animation-duration ease-in-out 1 $--name-section-animation-delay * 1.15 forwards;
+            -o-animation:      focus-in $--greet-section-animation-duration ease-in-out 1 $--name-section-animation-delay * 1.15 forwards,
+                               fade-in  $--greet-section-animation-duration ease-in-out 1 $--name-section-animation-delay * 1.15 forwards;
+            animation:         focus-in $--greet-section-animation-duration ease-in-out 1 $--name-section-animation-delay * 1.15 forwards,
+                               fade-in  $--greet-section-animation-duration ease-in-out 1 $--name-section-animation-delay * 1.15 forwards;
         }
     }
 }
@@ -111,17 +129,9 @@ $--hero-section-animation-delay: 0.1s;
 	.title {
 		height: 60vh;
 
-        &__greet {
+        &__wrapper {
             top: 32vh;
             left: 15vh;
-
-            h2 {
-                font-size: 38vh;
-            }
-
-            h3 { 
-                font-size: 8vh;
-            }
         }
 
         &__hero {
@@ -151,10 +161,15 @@ $--hero-section-animation-delay: 0.1s;
                 h2 {
                     font-size: 38vh;
                 }
+            }
 
-                h3 {
-                    margin-top: 18vh;
-                }
+            h2 {
+                font-size: 38vh;
+            }
+    
+            .--last {
+                margin-top: 17vh;
+                font-size: 8vh;
             }
         }
 	}
