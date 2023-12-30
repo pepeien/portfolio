@@ -20,7 +20,7 @@ $--banner-height-desktop: 70vh;
 
         &__wrapper {
             position: absolute;
-            top: -30%;
+            top: -20%;
             left: -25%;
             height: 100%;
             width: 100%;
@@ -108,6 +108,7 @@ $--banner-height-desktop: 70vh;
             height: $--banner-height-desktop;
 
             &__wrapper {
+                top: -30%;
                 left: 0;
     
                 img {
