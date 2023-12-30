@@ -1,4 +1,4 @@
-$--banner-height: 30.5rem;
+$--banner-height: 15.5rem;
 $--banner-height-desktop: 70vh;
 
 .blog {
@@ -21,8 +21,14 @@ $--banner-height-desktop: 70vh;
         &__wrapper {
             position: absolute;
             top: -10%;
+            left: -25%;
             height: 100%;
             width: 100%;
+
+            img {
+                height: 125%;
+                width: 150%;
+            }
         }
     }
 
@@ -100,6 +106,15 @@ $--banner-height-desktop: 70vh;
     .blog {
         &__banner {
             height: $--banner-height-desktop;
+
+            &__wrapper {
+                left: 0;
+    
+                img {
+                    height: auto;
+                    width: auto;
+                }
+            }
         }
     
         &__content {

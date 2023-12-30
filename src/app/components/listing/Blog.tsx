@@ -30,7 +30,7 @@ export default async function Component({ dictionary }: Props) {
                 return 1;
             }
 
-            return new Date(a.date).getTime() > new Date(b.date).getTime() ? 0 : -1;
+            return new Date(a.date).getTime() > new Date(b.date).getTime() ? -1 : 0;
         })[0];
     };
 

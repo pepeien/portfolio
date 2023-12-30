@@ -730,13 +730,14 @@
 	
 	.highlight pre,
 	pre {
-		padding: 16px;
-		overflow: auto;
+		padding: 16px 4px;
 		font-size: 85%;
 		line-height: 1.45;
 		color: #e6edf3;
 		background-color: #161b22;
-		border-radius: 6px;
+		border-radius: $--squircle-border-radius;
+        overflow: auto;
+        width: calc(100% - (4px * 2));
 	}
 	
 	pre code,
@@ -1084,6 +1085,10 @@
 		padding: 0 0.6vh 0 0.5vh;
 	}
 
+    img {
+		margin: 2vh auto;
+    }
+
 	iframe {
 		width: 100%;
 		height: 25vh;
@@ -1150,5 +1155,11 @@
 				} 
 			}
         }
+
+        .highlight pre,
+	    pre {
+            width: auto;
+            padding-right: 32px;
+	    }
 	}
 }

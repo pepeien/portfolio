@@ -120,7 +120,7 @@ export class StringServices {
             );
         }
 
-        const months = Math.round(days / 30);
+        const months = Math.round(days / 30) - 1;
 
         if (months < MONTHS_ON_YEAR) {
             return StringServices.generateElapsedTime(
