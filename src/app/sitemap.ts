@@ -15,6 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const deploymentURL = `${StringServices.removeExtraSlashes(
         InternalServices.getDeploymentURL().toString(),
     )}/${getServerDefaultLocale()}`;
+
     const releasedBlogPosts = await fetch(`${InternalServices.getBLOB()}/blog/metadata.json`)
         .then((_res) => _res.json())
         .then((_blog: Blog[]) => _blog.filter((_post) => _post.status === 'RELEASED'))
@@ -31,7 +32,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             url: `${deploymentURL}/resume`,
             lastModified: now,
             changeFrequency: 'yearly',
-            priority: 0.8,
+            priority: 0.5,
         },
     ] as MetadataRoute.Sitemap;
 
@@ -42,7 +43,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             url: `${deploymentURL}/blog/${latestPost.id}`,
             lastModified: latestPost.date,
             changeFrequency: 'monthly',
-            priority: 0.5,
+            priority: 1,
         });
     }
 
