@@ -4,7 +4,7 @@ import { MetadataRoute } from 'next';
 import { Blog } from '@utils/interfaces';
 
 // Services
-import { InternalServices, StringServices } from '@utils/services';
+import { BlogServices, InternalServices, StringServices } from '@utils/services';
 
 // Dictionary
 import { getServerDefaultLocale } from '@dictionary';
@@ -36,9 +36,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ] as MetadataRoute.Sitemap;
 
     if (releasedBlogPosts.length > 0) {
+        const latestPost = BlogServices.getLatestPost(releasedBlogPosts);
+
         sitemap.push({
-            url: `${deploymentURL}/blog/${releasedBlogPosts[0].id}`,
-            lastModified: releasedBlogPosts[0].date,
+            url: `${deploymentURL}/blog/${latestPost.id}`,
+            lastModified: latestPost.date,
             changeFrequency: 'monthly',
             priority: 0.5,
         });

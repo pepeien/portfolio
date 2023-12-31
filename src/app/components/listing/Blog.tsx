@@ -5,7 +5,7 @@ import { v4 } from 'uuid';
 import { Dictionary, Blog } from '@utils/interfaces';
 
 // Services
-import { InternalServices } from '@utils/services';
+import { BlogServices, InternalServices } from '@utils/services';
 
 // Components
 import { BlogCard } from '@components';
@@ -24,17 +24,7 @@ export default async function Component({ dictionary }: Props) {
         .then((_blog: Blog[]) => _blog.slice(0, MAX_SHOWCASE_COUNT))
         .catch(() => [] as Blog[]);
 
-    const getLatestPost = (blog: Blog[]): Blog => {
-        return blog.sort((a, b) => {
-            if (!a.date || !b.date) {
-                return 1;
-            }
-
-            return new Date(a.date).getTime() > new Date(b.date).getTime() ? -1 : 0;
-        })[0];
-    };
-
-    const latestPost = getLatestPost(data);
+    const latestPost = BlogServices.getLatestPost(data);
 
     return (
         <div className='blogs'>
