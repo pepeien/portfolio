@@ -4,6 +4,7 @@
 	width: 100%;
 	gap: 2vh;
 	overflow-y: auto;
+    list-style: none;
 }
 
 @media (min-width: $--min-desktop-width) {
@@ -11,6 +12,6 @@
 		display: grid;
     	grid-template-columns: repeat(auto-fit, minmax(60vh, 1fr));
     	gap: 3vh;
-		max-height: 70vh;
+		max-height: 75vh;
 	}
 }

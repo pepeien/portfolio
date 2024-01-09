@@ -116,21 +116,6 @@ $--info-padding-desktop: 2.5vh;
 
 			&:hover {
 				cursor: pointer;
-
-				-webkit-transform: translateY(-0.25vh);
-				-moz-transform:    translateY(-0.25vh);
-				-o-transform:      translateY(-0.25vh);
-				transform:         translateY(-0.25vh);
-			}
-
-			&[data-is-showcase="true"] {
-				&:hover {
-					.blog-card__thumbnail {
-						box-shadow:         1px 2px 5px 2px rgba(121, 120, 120, 0.15);
-						-webkit-box-shadow: 1px 2px 5px 2px rgba(121, 120, 120, 0.15);
-						-moz-box-shadow:    1px 2px 5px 2px rgba(121, 120, 120, 0.15);
-					}
-				}	
 			}
 		}
 

@@ -95,7 +95,7 @@ c-5.815,13.208,4.855,27.01,18.107,26.263H489.52C500.566,511.97,509.379,502.408,5
 
     return (
         <Link
-            className={wasReleased ? 'blog-card --hoverable' : 'blog-card'}
+            className='blog-card'
             href={
                 wasReleased
                     ? `${dictionary['LANGUAGE_LOCALE_URL']}/blog/${id}`

@@ -5,65 +5,22 @@ $--background-animation-duration: 120s;
     align-items: center;
     gap: 1vh;
     width: 100%;
+    height: 38vh;
     overflow: hidden;
     position: relative;
 	text-decoration: none;
     border-radius: $--squircle-border-radius;
 
-    &__wrapper {
-        display: flex;
-        flex-direction: column;
+    &__background {
+        position: absolute;
         width: 100%;
         height: 100%;
-        gap: 0.5vh;
-        position: relative;
-    }
+        opacity: 0.8;
 
-    &__header {
-        width: calc(100% - 4vh);
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 2vh;
-        padding: 2vh;
-        margin-bottom: 17vh;
-
-        h5 {
-            font-family: 'Roboto Condensed';
-            font-weight: 700;
-            font-size: 6vh;
-        }
-    }
-
-    &__description {
-        position: relative;
-
-        span {
-            font-family: 'Inter';
-            font-weight: 400;
-            font-size: 2.5vh;
-            width: 80%;
+        div {
             position: absolute;
-            z-index: 1;
-            bottom: 2vh;
-            left: 2vh;
-        }
-
-        &__background {
             width: 190%;
-            position: absolute;
             bottom: -1vh;
-            z-index: 0;
-    
-            &.--behind {
-                bottom: -0.5vh;
-                opacity: 0.7;
-                
-                -webkit-animation: slide-left $--background-animation-duration * 2 cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
-                -moz-animation:    slide-left $--background-animation-duration * 2 cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
-                -o-animation:      slide-left $--background-animation-duration * 2 cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
-                animation:         slide-left $--background-animation-duration * 2 cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
-            }
 
             -webkit-animation: slide-left $--background-animation-duration cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
             -moz-animation:    slide-left $--background-animation-duration cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
@@ -79,6 +36,60 @@ $--background-animation-duration: 120s;
             -moz-animation-direction:    alternate;
             -o-animation-direction:      alternate;
             animation-direction:         alternate;
+        }
+
+        &.--behind {
+            bottom: -1.5vh;
+            opacity: 0.7;
+            
+            -webkit-animation: slide-left $--background-animation-duration * 2 cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+            -moz-animation:    slide-left $--background-animation-duration * 2 cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+            -o-animation:      slide-left $--background-animation-duration * 2 cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+            animation:         slide-left $--background-animation-duration * 2 cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        gap: 0.5vh;
+        position: relative;
+        backdrop-filter: blur(5px) saturate(1.2);
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        padding: 2vh;
+
+        &__title {
+            width: calc(100% - 4vh);
+            display: flex;
+            flex-direction: column;
+            gap: 2vh;
+
+            h5 {
+                font-family: 'Roboto Condensed';
+                font-weight: 700;
+                font-size: 6vh;
+            }
+        }
+
+        &__description {
+            width: 80%;
+            margin-top: auto;
+
+            span {
+                font-family: 'Inter';
+                font-weight: 400;
+                font-size: 2.5vh;
+                width: 100%;
+            }
         }
     }
 
@@ -97,36 +108,38 @@ $--background-animation-duration: 120s;
     }
 }
 
-$--mountain-bottom-distance-desktop: 5vh;
+$--mountain-bottom-distance-desktop: -1vh;
 
 @media (min-width: $--min-desktop-width) {
     .project-card {
         border-radius: 1.5vh;
         align-items: flex-start;
+        height: 32vh;
+        
+        &__background {
+            div {
+                width: 130%;
+                bottom: $--mountain-bottom-distance-desktop;
+            }
 
-        &__header {
-            width: calc(100% - 2.5vh);
-            padding: 2.5vh;
-            padding-bottom: 0;
-            gap: 2vh;
-            margin-bottom: 17vh;
-
-            h5 {
-                font-size: 6vh;
+            &.--behind {
+                bottom: $--mountain-bottom-distance-desktop - 0.5vh;
             }
         }
 
-        &__description {
-            span {
-                font-size: 2.25vh;
+        &__header {
+            &__title {
+                padding-bottom: 0;
+                gap: 2vh;
+
+                h5 {
+                    font-size: 6vh;
+                } 
             }
 
-            &__background {
-                width: 130%;
-                bottom: -$--mountain-bottom-distance-desktop;
-
-                &.--behind {
-                    bottom: -$--mountain-bottom-distance-desktop - 0.5vh;
+            &__description {
+                span {
+                    font-size: 2.25vh;
                 }
             }
         }
