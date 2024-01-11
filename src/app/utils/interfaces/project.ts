@@ -9,6 +9,7 @@ export interface ProjectIdentity {
 export interface Project {
     name: string;
     repo: string;
+    link: string;
     technologies: string[];
     description: Dictionary;
     identity?: ProjectIdentity;

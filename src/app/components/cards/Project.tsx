@@ -16,6 +16,7 @@ export interface Props extends Project {
 export default async function Component({
     name,
     repo,
+    link,
     technologies,
     description,
     dictionary,
@@ -35,7 +36,7 @@ export default async function Component({
                 backgroundColor: identity?.primaryColor,
                 color: identity?.accentColor,
             }}
-            href={`${process.env.NEXT_PUBLIC_GIT_URL ?? ''}/${repo}`}
+            href={link}
             target='_blank'
             rel='noreferrer'
         >
