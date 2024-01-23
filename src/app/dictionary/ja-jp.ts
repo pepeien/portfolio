@@ -34,9 +34,7 @@ export default {
     PROJECTS_TITLE: '僕が取り組んだこと？',
     PROEJCTS_REDIRECTOR: 'プロジェクト・アーカイブ',
 
-    JOB_RESUME_TITLE: '履歴書',
     JOB_HISTORY_TITLE: '僕が協力した人？',
-    JOB_HISTORY_REDIRECTOR: '履歴書',
     JOB_HISTORY_DATE_DIRECTION: 'inverse',
 
     BLOG_TITLE: '最新ニュース',
