@@ -36,9 +36,7 @@ export default {
     PROJECTS_TITLE: "What I've worked on?",
     PROEJCTS_REDIRECTOR: 'View Project Archive',
 
-    JOB_RESUME_TITLE: 'Resume',
     JOB_HISTORY_TITLE: "Who I've worked with?",
-    JOB_HISTORY_REDIRECTOR: 'View Resume',
     JOB_HISTORY_DATE_DIRECTION: 'normal',
 
     BLOG_TITLE: 'The latest news',

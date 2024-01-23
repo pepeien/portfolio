@@ -21,20 +21,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         .then((_blog: Blog[]) => _blog.filter((_post) => _post.status === 'RELEASED'))
         .catch(() => [] as Blog[]);
 
-    const sitemap = [
-        {
-            url: deploymentURL,
-            lastModified: now,
-            changeFrequency: 'yearly',
-            priority: 1,
-        },
-        {
-            url: `${deploymentURL}/resume`,
-            lastModified: now,
-            changeFrequency: 'yearly',
-            priority: 0.5,
-        },
-    ] as MetadataRoute.Sitemap;
+    const sitemap: MetadataRoute.Sitemap = [];
+
+    sitemap.push({
+        url: deploymentURL,
+        lastModified: now,
+        changeFrequency: 'yearly',
+        priority: 1,
+    });
 
     if (releasedBlogPosts.length > 0) {
         const latestPost = BlogServices.getLatestPost(releasedBlogPosts);

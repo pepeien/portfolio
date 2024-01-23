@@ -4,7 +4,6 @@ import React from 'react';
 // Components
 import {
     ContactForm,
-    ExternalRedirector,
     Title,
     Mountains,
     Footer,
@@ -94,10 +93,6 @@ export default async function Page({ params }: Props) {
                             <section className='home__content__section home__content__section__job --shadowed'>
                                 <div className='home__content__section__title'>
                                     <h4>{dictionary['JOB_HISTORY_TITLE']}</h4>
-                                    <ExternalRedirector
-                                        href={`${dictionary['LANGUAGE_LOCALE_URL']}/resume`}
-                                        text={dictionary['JOB_HISTORY_REDIRECTOR']}
-                                    />
                                 </div>
                                 <div className='home__content__section__main'>
                                     <JobListing dictionary={dictionary} />
