@@ -16,7 +16,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         InternalServices.getDeploymentURL().toString(),
     )}/${getServerDefaultLocale()}`;
 
-    const releasedBlogPosts = await fetch(`${InternalServices.getBLOB()}/blog/metadata.json`)
+    const releasedBlogPosts = await fetch(`${InternalServices.getBLOB()}/blog/metadata.json`, {
+        next: { revalidate: InternalServices.getFetchInterval() },
+    })
         .then((_res) => _res.json())
         .then((_blog: Blog[]) => _blog.filter((_post) => _post.status === 'RELEASED'))
         .catch(() => [] as Blog[]);
