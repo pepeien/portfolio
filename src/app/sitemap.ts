@@ -29,15 +29,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         changeFrequency: 'yearly',
         priority: 1,
     });
+    console.log(releasedBlogPosts);
+    if (releasedBlogPosts.length > 0) {
+        const latestPost = BlogServices.getLatestPost(releasedBlogPosts);
 
-    const latestPost = BlogServices.getLatestPost(releasedBlogPosts);
-
-    sitemap.push({
-        url: `${deploymentURL}/blog/${latestPost.id}`,
-        lastModified: latestPost.date,
-        changeFrequency: 'monthly',
-        priority: 1,
-    });
+        sitemap.push({
+            url: `${deploymentURL}/blog/${latestPost.id}`,
+            lastModified: latestPost.date,
+            changeFrequency: 'monthly',
+            priority: 1,
+        });
+    }
 
     return sitemap;
 }
