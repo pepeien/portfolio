@@ -45,7 +45,7 @@ const Navbar = ({ dictionary, locales }: Props) => {
             <div className='navbar__content --shadowed'>
                 <div className='navbar__internals --flex-row'>
                     <Link
-                        className='navbar__button --flex-column '
+                        className='navbar__button --flex-column'
                         href={`/${dictionary['LANGUAGE_LOCALE_URL']}`}
                     >
                         <svg

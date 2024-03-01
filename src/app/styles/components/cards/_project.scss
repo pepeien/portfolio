@@ -21,6 +21,7 @@ $--background-animation-duration: 120s;
             position: absolute;
             width: 190%;
             bottom: -1vh;
+            opacity: 0.3;
 
             -webkit-animation: slide-left $--background-animation-duration cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
             -moz-animation:    slide-left $--background-animation-duration cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
@@ -36,16 +37,16 @@ $--background-animation-duration: 120s;
             -moz-animation-direction:    alternate;
             -o-animation-direction:      alternate;
             animation-direction:         alternate;
-        }
 
-        &.--behind {
-            bottom: -1.5vh;
-            opacity: 0.7;
-            
-            -webkit-animation: slide-left $--background-animation-duration * 2 cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
-            -moz-animation:    slide-left $--background-animation-duration * 2 cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
-            -o-animation:      slide-left $--background-animation-duration * 2 cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
-            animation:         slide-left $--background-animation-duration * 2 cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+            &.--behind {
+                bottom: -1.5vh;
+                opacity: 0.77;
+
+                -webkit-animation: slide-left $--background-animation-duration * 2 cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+                -moz-animation:    slide-left $--background-animation-duration * 2 cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+                -o-animation:      slide-left $--background-animation-duration * 2 cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+                animation:         slide-left $--background-animation-duration * 2 cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+            }
         }
     }
 

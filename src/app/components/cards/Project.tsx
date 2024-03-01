@@ -29,6 +29,9 @@ export default async function Component({
         .then((_res) => _res.json())
         .catch(() => {});
 
+    const leftLocation = Math.max(Math.random() * 100, 22);
+    const rightLocation = (leftLocation * Math.random()) / 100;
+
     return (
         <a
             className='project-card --flex-column'
@@ -44,7 +47,7 @@ export default async function Component({
                 <div
                     className='--behind'
                     style={{
-                        left: `-${Math.max(Math.random() * 100, 22)}vh`,
+                        left: `-${leftLocation}vh`,
                     }}
                 >
                     <svg viewBox='0 0 1440 420' version='1.1' xmlns='http://www.w3.org/2000/svg'>
@@ -56,7 +59,7 @@ export default async function Component({
                 </div>
                 <div
                     style={{
-                        left: `-${Math.max(Math.random() * 100, 22)}vh`,
+                        left: `-${rightLocation}vh`,
                     }}
                 >
                     <svg viewBox='0 0 1440 420' version='1.1' xmlns='http://www.w3.org/2000/svg'>
