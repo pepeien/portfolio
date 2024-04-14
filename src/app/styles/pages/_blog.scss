@@ -1,34 +1,22 @@
 $--banner-height: 15.5rem;
-$--banner-height-desktop: 70vh;
+$--banner-height-desktop: calc(75vh - 120px);
 
 .blog {
     background-color: $--grey-color;
     align-items: center;
 
     &__banner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 100%;
         height: $--banner-height;
         overflow: hidden;
         position: relative;
 
-        &::before {
-            display: block;
-            content: "";
-            width: 100%;
-            padding-top: 32.3%;
-        }
-
-        &__wrapper {
-            position: absolute;
-            top: -20%;
-            left: -25%;
-            height: 100%;
-            width: 100%;
-
-            img {
-                height: 125%;
-                width: 150%;
-            }
+        img {
+            width: 105%;
+            height: $--banner-height;
         }
     }
 
@@ -102,19 +90,15 @@ $--banner-height-desktop: 70vh;
     }
 }
 
-@media (min-width: $--min-desktop-width) {
+@media only screen and (min-width: $--min-desktop-width) {
     .blog {
         &__banner {
             height: $--banner-height-desktop;
 
-            &__wrapper {
-                top: -30%;
-                left: 0;
-    
-                img {
-                    height: auto;
-                    width: auto;
-                }
+            img {
+                height: 100%;
+                min-height: 600px;
+                max-height: 900px;
             }
         }
     

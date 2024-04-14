@@ -12,7 +12,7 @@
 	}
 }
 
-@media (min-width: $--min-desktop-width) {
+@media only screen and (min-width: $--min-desktop-width) {
 	.jobs {
 		flex-direction: row;
 		gap: 25vh;

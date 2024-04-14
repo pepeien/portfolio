@@ -67,6 +67,7 @@ const ContactForm = ({ dictionary }: Props) => {
                 <textarea ref={textInputRef} name='message' className='contact__form-message' />
             </div>
             <button className='contact__form-button'>
+                <div className='contact__form-button__background' />
                 <span>{dictionary['CONTACT_SEND_LABEL']}</span>
             </button>
             <div className='contact__form-status --flex-row'>

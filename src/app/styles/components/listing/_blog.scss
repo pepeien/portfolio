@@ -13,7 +13,7 @@
 	}
 }
 
-@media (min-width: $--min-desktop-width) {
+@media only screen and (min-width: $--min-desktop-width) {
 	.blogs {
 		flex-direction: row;
 		gap: 4vh;

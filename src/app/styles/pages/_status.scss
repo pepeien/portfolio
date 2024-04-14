@@ -84,7 +84,7 @@
     }
 }
 
-@media (min-width: 801px) {
+@media only screen and (min-width: 801px) {
     .status {
         &__number {
             margin: 0 0 10vh 0;

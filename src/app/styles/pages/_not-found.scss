@@ -31,7 +31,7 @@
 	}
 }
 
-@media (min-width: $--min-desktop-width) {
+@media only screen and (min-width: $--min-desktop-width) {
 	.not-found {
 		&__title {
 			top: 27vh;

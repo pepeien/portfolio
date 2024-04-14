@@ -1123,7 +1123,7 @@
 	}
 }
 
-@media (min-width: $--min-desktop-width) {
+@media only screen and (min-width: $--min-desktop-width) {
 	.markdown {
         h1 {
             font-size: 8vh;

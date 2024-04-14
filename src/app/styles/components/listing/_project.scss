@@ -7,7 +7,7 @@
     list-style: none;
 }
 
-@media (min-width: $--min-desktop-width) {
+@media only screen and (min-width: $--min-desktop-width) {
 	.projects {
 		display: grid;
     	grid-template-columns: repeat(auto-fit, minmax(60vh, 1fr));

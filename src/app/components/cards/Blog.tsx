@@ -114,6 +114,7 @@ c-5.815,13.208,4.855,27.01,18.107,26.263H489.52C500.566,511.97,509.379,502.408,5
                 />
             </div>
             <div className='blog-card__data'>
+                <div className='blog-card__data__background' />
                 <div className='blog-card__data__info'>
                     <TagListing
                         data={[

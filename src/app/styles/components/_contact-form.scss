@@ -54,7 +54,7 @@
         }
     }
 
-    & button {
+    &-button {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -70,10 +70,29 @@
         font-size: 1.7rem;
         border-radius: $--squircle-border-radius;
 
+        &__background {
+            display: block;
+            width: 115%;
+            height: 100%;
+            position: absolute;
+            background-color: $--backdrop-primary-color-light;
+            z-index: 1;
+
+            -webkit-transform: translateX(-115%) skewX(-20deg);
+            -moz-transform:    translateX(-115%) skewX(-20deg);
+            -o-transform:      translateX(-115%) skewX(-20deg);
+            transform:         translateX(-115%) skewX(-20deg);
+
+            -webkit-transition: transform ease-in-out 0.2s;
+            -moz-transition:    transform ease-in-out 0.2s;
+            -o-transition:      transform ease-in-out 0.2s;
+            transition:         transform ease-in-out 0.2s;
+        }
+
         & span {
             color: $--accent-color;
             pointer-events: none;
-            position: absolute;
+            z-index: 2;
             
             -webkit-transition: color ease-in-out 0.2s;
             -moz-transition:    color ease-in-out 0.2s;
@@ -89,8 +108,14 @@
         &:active,
         &:focus,
         &:hover {
-            background-color: $--accent-color;
             border-color: transparent;
+
+            div {
+                -webkit-transform: translateX(0);
+                -moz-transform:    translateX(0);
+                -o-transform:      translateX(0);
+                transform:         translateX(0);
+            }
 
             span {
                 color: $--black;
@@ -111,7 +136,7 @@
     }
 }
 
-@media (min-width: $--min-desktop-width) {
+@media only screen and (min-width: $--min-desktop-width) {
     .contact__form {
         gap: 3vh 0;
 
@@ -142,7 +167,7 @@
             }
         }
 
-        button {
+        &-button {
             margin: 0;
             height: 8vh;
             font-size: clamp(2vh, 2vh + 0.5rem, 4vh);

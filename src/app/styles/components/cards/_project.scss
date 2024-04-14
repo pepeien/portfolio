@@ -111,7 +111,7 @@ $--background-animation-duration: 120s;
 
 $--mountain-bottom-distance-desktop: -1vh;
 
-@media (min-width: $--min-desktop-width) {
+@media only screen and (min-width: $--min-desktop-width) {
     .project-card {
         border-radius: 1.5vh;
         align-items: flex-start;

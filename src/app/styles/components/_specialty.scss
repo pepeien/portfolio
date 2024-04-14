@@ -65,7 +65,7 @@
     }
 }
 
-@media (min-width: 801px) {
+@media only screen and (min-width: 801px) {
     .specialty {
         gap: 3vh 0;
         height: auto;

@@ -163,15 +163,13 @@ export default async function Page({ params }: Props) {
         <>
             <main className='blog --page --flex-column'>
                 <section className='blog__banner'>
-                    <div className='blog__banner__wrapper'>
-                        <Image
-                            src={`${blobURL}/blog/${id.trim()}/images/thumbnail.png`}
-                            width={1920}
-                            height={1080}
-                            quality={100}
-                            alt='Blog banner'
-                        />
-                    </div>
+                    <Image
+                        src={`${blobURL}/blog/${id.trim()}/images/thumbnail.png`}
+                        width={1920}
+                        height={1080}
+                        quality={100}
+                        alt='Blog banner'
+                    />
                 </section>
                 <section className='blog__content --flex-column'>
                     <div className='blog__content__header --flex-column'>

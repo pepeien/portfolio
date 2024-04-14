@@ -37,7 +37,6 @@ const Mountains = ({ isScrollReactive = true }: Props) => {
     return (
         <div className='mountains --flex-column'>
             <svg
-                viewBox='0 0 1440 420'
                 version='1.1'
                 xmlns='http://www.w3.org/2000/svg'
                 style={{
@@ -57,7 +56,6 @@ const Mountains = ({ isScrollReactive = true }: Props) => {
                 ></path>
             </svg>
             <svg
-                viewBox='0 0 1440 420'
                 version='1.1'
                 xmlns='http://www.w3.org/2000/svg'
                 style={{

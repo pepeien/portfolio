@@ -16,7 +16,7 @@ button {
     }
 }
 
-@media (min-width: 801px) {
+@media only screen and (min-width: 801px) {
     button {
         &:hover {
             cursor: pointer;
