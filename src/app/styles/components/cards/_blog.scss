@@ -68,6 +68,7 @@ $--info-padding-desktop: 1rem;
 			gap: 2vh;
 			position: relative;
 			padding: $--info-padding;
+            z-index: 2;
 
             -webkit-transition: color ease-in-out 0.2s;
             -moz-transition:    color ease-in-out 0.2s;
@@ -218,7 +219,6 @@ $--info-padding-desktop: 1rem;
             &__info {
 				width: calc(100% - calc($--info-padding-desktop * 2));
 				gap: 2vh;
-                z-index: 2;
 
                 .tags {
                     margin: 0.3vh 0;
