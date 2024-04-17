@@ -75,27 +75,40 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         .catch(() => [] as Blog[]);
 
     if (releasedBlogPosts.length > 0) {
-        const latestPost = BlogServices.getLatestPost(releasedBlogPosts);
+        releasedBlogPosts
+            .slice(0, 3)
+            .sort((pastPost, currentPost) => {
+                if (pastPost.date === currentPost.date) {
+                    return 0;
+                }
 
-        const blogAlternates = getAlternates(defaultURL, `blog/${latestPost.id}`, true);
-        const blogSitemap = {
-            url: `${defaultURL}/blog/${latestPost.id}`,
-            lastModified: latestPost.date,
-            changeFrequency: 'monthly',
-            priority: 0.8,
-            alternates: {
-                languages: blogAlternates,
-            },
-        } as SiteMap;
+                if (pastPost.date > currentPost.date) {
+                    return 1;
+                }
 
-        result.push(blogSitemap);
+                return -1;
+            })
+            .forEach((post) => {
+                const blogAlternates = getAlternates(defaultURL, `blog/${post.id}`, true);
+                const blogSitemap = {
+                    url: `${defaultURL}/blog/${post.id}`,
+                    lastModified: post.date,
+                    changeFrequency: 'monthly',
+                    priority: 0.8,
+                    alternates: {
+                        languages: blogAlternates,
+                    },
+                } as SiteMap;
 
-        Object.values(blogAlternates).forEach((locale) => {
-            result.push({
-                ...blogSitemap,
-                url: locale,
+                result.push(blogSitemap);
+
+                Object.values(blogAlternates).forEach((locale) => {
+                    result.push({
+                        ...blogSitemap,
+                        url: locale,
+                    });
+                });
             });
-        });
     }
 
     return result;
