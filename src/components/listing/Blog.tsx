@@ -12,11 +12,12 @@ import { BlogCard } from '@components';
 
 export interface Props {
     dictionary: Dictionary;
+    isRootLocale?: boolean;
 }
 
 const MAX_SHOWCASE_COUNT = 4;
 
-export default async function Component({ dictionary }: Props) {
+export default async function Component({ dictionary, isRootLocale = false }: Props) {
     const data = await fetch(`${InternalServices.getBLOB()}/blog/metadata.json`, {
         next: { revalidate: InternalServices.getFetchInterval() },
     })
@@ -28,13 +29,22 @@ export default async function Component({ dictionary }: Props) {
 
     return (
         <div className='blogs'>
-            <BlogCard {...latestPost} dictionary={dictionary} type='showcase' />
+            <BlogCard
+                {...latestPost}
+                dictionary={dictionary}
+                type='showcase'
+                isRootLocale={isRootLocale}
+            />
             <ul>
                 {data
                     .filter((post) => post.id !== latestPost.id)
                     .map((_item) => (
                         <li key={v4()}>
-                            <BlogCard {..._item} dictionary={dictionary} />
+                            <BlogCard
+                                {..._item}
+                                dictionary={dictionary}
+                                isRootLocale={isRootLocale}
+                            />
                         </li>
                     ))}
             </ul>

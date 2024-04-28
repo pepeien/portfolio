@@ -52,7 +52,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         url: defaultURL,
         lastModified: now,
         changeFrequency: 'yearly',
-        priority: 0.9,
         alternates: {
             languages: rootAlternates,
         },
@@ -93,8 +92,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
                 const blogSitemap = {
                     url: `${defaultURL}/blog/${post.id}`,
                     lastModified: post.date,
-                    changeFrequency: 'monthly',
-                    priority: 0.8,
                     alternates: {
                         languages: blogAlternates,
                     },

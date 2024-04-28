@@ -20,9 +20,11 @@
       }
     ],
     "paths": {
-      "@components": ["./src/app/components/index.ts"],
-      "@dictionary": ["./src/app/dictionary/index.ts"],
-      "@utils/*": ["./src/app/utils/*"]
+      "@components": ["./src/components/index.ts"],
+      "@pages": ["./src/components/pages/index.ts"],
+      "@dictionary": ["./src/dictionary/index.ts"],
+      "@utils/*": ["./src/utils/*"],
+      "@styles/*": ["./src/styles/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

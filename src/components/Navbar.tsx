@@ -13,9 +13,10 @@ import { StringServices } from '@utils/services';
 interface Props {
     dictionary: Dictionary;
     locales?: Dictionary;
+    isRootLocale?: boolean;
 }
 
-const Navbar = ({ dictionary, locales }: Props) => {
+const Navbar = ({ dictionary, locales, isRootLocale }: Props) => {
     const pathName = usePathname();
 
     const [canShowNavbar, setCanShowNavbar] = React.useState<boolean>(false);
@@ -46,7 +47,7 @@ const Navbar = ({ dictionary, locales }: Props) => {
                 <div className='navbar__internals --flex-row'>
                     <Link
                         className='navbar__button --flex-column'
-                        href={`/${dictionary['LANGUAGE_LOCALE_URL']}`}
+                        href={isRootLocale ? '/' : `/${dictionary['LANGUAGE_LOCALE_URL']}`}
                     >
                         <svg
                             version='1.0'
@@ -106,9 +107,11 @@ const Navbar = ({ dictionary, locales }: Props) => {
                         </li>
                         <li className='navbar__button --flex-column'>
                             <Link
-                                href={`${process.env.NEXT_PUBLIC_LINKEDIN_URL ?? ''}/?locale=${
-                                    dictionary['LANGUAGE_LOCALE_LINKEDIN']
-                                }`}
+                                href={
+                                    process.env.NEXT_PUBLIC_LINKEDIN_URL
+                                        ? ''
+                                        : `${process.env.NEXT_PUBLIC_LINKEDIN_URL}/?locale=${dictionary['LANGUAGE_LOCALE_LINKEDIN']}`
+                                }
                                 target='_blank'
                                 rel='noreferrer'
                             >

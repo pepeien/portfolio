@@ -29,11 +29,7 @@ export const getClientDefaultLocale = () => clientLocales[getServerDefaultLocale
 export const getClientLocales = () => clientLocales;
 
 export const getCanonicalAlternate = (path = '') => {
-    if (path.trim().length === 0) {
-        return serverLocales[canonical];
-    }
-
-    return `${serverLocales[canonical]}/${path}`;
+    return path.trim().length === 0 ? '' : path;
 };
 
 export const getAlternates = (path = '') => {
@@ -66,4 +62,8 @@ export const getDictionary = async (locale: string) => {
     const targetKey = locale as keyof typeof dictionaries;
 
     return dictionaries[!dictionaries[targetKey] ? fallbackKey : targetKey]();
+};
+
+export const isValidLocale = (locale: string): boolean => {
+    return Object.values(serverLocales).find((_) => _ === locale) !== undefined;
 };
