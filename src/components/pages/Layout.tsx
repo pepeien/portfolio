@@ -32,7 +32,7 @@ async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
         metadataBase: InternalServices.getDeploymentURL(),
         alternates: {
-            canonical: getCanonicalAlternate(),
+            //canonical: getCanonicalAlternate(),
             languages: getAlternates(),
         },
         title: title,

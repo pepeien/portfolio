@@ -33,7 +33,7 @@ async function generateMetadata({ params }: Props): Promise<Metadata> {
     if (!post || post.status === 'UPCOMING') {
         return {
             alternates: {
-                canonical: getCanonicalAlternate(`blog/${id}`),
+                //canonical: getCanonicalAlternate(`blog/${id}`),
                 languages: getAlternates(`blog/${id}`),
             },
         };
@@ -54,7 +54,7 @@ async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     return {
         alternates: {
-            canonical: getCanonicalAlternate(`blog/${id}`),
+            //canonical: getCanonicalAlternate(`blog/${id}`),
             languages: getAlternates(`blog/${id}`),
         },
         title: title,
