@@ -19,7 +19,7 @@ import { getDictionary } from '@dictionary';
 import { InternalServices } from '@utils/services';
 
 interface Props {
-    params: { lang: string; isRootLocale?: boolean };
+    params: { lang: string };
 }
 
 async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -99,10 +99,7 @@ async function generatePage({ params }: Props) {
                                     <h4>{dictionary['BLOG_TITLE']}</h4>
                                 </div>
                                 <div className='home__content__section__main'>
-                                    <BlogListing
-                                        dictionary={dictionary}
-                                        isRootLocale={params.isRootLocale}
-                                    />
+                                    <BlogListing dictionary={dictionary} />
                                 </div>
                             </section>
                             <section className='home__content__section home__content__section__contact --shadowed'>

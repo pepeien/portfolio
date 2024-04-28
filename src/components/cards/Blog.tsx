@@ -13,7 +13,6 @@ import { TagListing } from '@components';
 
 export interface Props extends Blog {
     dictionary: Dictionary;
-    isRootLocale?: boolean;
     type?: 'showcase' | 'list';
 }
 
@@ -27,7 +26,6 @@ export default function Component({
     description,
     dictionary,
     type = 'list',
-    isRootLocale = false,
 }: Props) {
     const wasReleased = status === 'RELEASED';
     const accentColor = wasReleased ? '#e2e8f0' : '#313131';
@@ -100,7 +98,7 @@ c-5.815,13.208,4.855,27.01,18.107,26.263H489.52C500.566,511.97,509.379,502.408,5
     return (
         <Link
             className='blog-card'
-            href={isRootLocale ? baseLink : `${dictionary['LANGUAGE_LOCALE_URL']}${baseLink}`}
+            href={`${dictionary['LANGUAGE_LOCALE_URL']}${baseLink}`}
             aria-disabled={!wasReleased}
             data-is-showcase={isShowcasing}
         >

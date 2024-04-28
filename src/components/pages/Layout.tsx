@@ -11,7 +11,7 @@ import { getAlternates, getCanonicalAlternate, getDictionary, getClientLocales }
 import { InternalServices } from '@utils/services';
 
 interface Props {
-    params: { lang: string; isRootLocale?: boolean };
+    params: { lang: string };
     children: React.ReactNode;
 }
 
@@ -62,11 +62,7 @@ async function generatePage({ params, children }: Props) {
     return (
         <html lang={dictionary['LANGUAGE_LOCALE']}>
             <body suppressHydrationWarning={true}>
-                <Navbar
-                    dictionary={dictionary}
-                    locales={getClientLocales()}
-                    isRootLocale={params.isRootLocale}
-                />
+                <Navbar dictionary={dictionary} locales={getClientLocales()} />
                 {children}
             </body>
         </html>

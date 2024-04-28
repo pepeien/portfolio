@@ -13,10 +13,9 @@ import { StringServices } from '@utils/services';
 interface Props {
     dictionary: Dictionary;
     locales?: Dictionary;
-    isRootLocale?: boolean;
 }
 
-const Navbar = ({ dictionary, locales, isRootLocale }: Props) => {
+const Navbar = ({ dictionary, locales }: Props) => {
     const pathName = usePathname();
 
     const [canShowNavbar, setCanShowNavbar] = React.useState<boolean>(false);
@@ -47,7 +46,7 @@ const Navbar = ({ dictionary, locales, isRootLocale }: Props) => {
                 <div className='navbar__internals --flex-row'>
                     <Link
                         className='navbar__button --flex-column'
-                        href={isRootLocale ? '/' : `/${dictionary['LANGUAGE_LOCALE_URL']}`}
+                        href={`/${dictionary['LANGUAGE_LOCALE_URL']}`}
                     >
                         <svg
                             version='1.0'
