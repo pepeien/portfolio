@@ -11,7 +11,7 @@ export default async function Page() {
 
     return (
         <html lang={dictionary['LANGUAGE_LOCALE']}>
-            <body>
+            <body suppressHydrationWarning={true}>
                 <Navbar dictionary={dictionary} />
                 <main className='not-found --page'>
                     <section>

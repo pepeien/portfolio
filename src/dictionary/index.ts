@@ -35,13 +35,11 @@ export const getCanonicalAlternate = (path = '') => {
 export const getAlternates = (path = '') => {
     const result: { [key: string]: string } = {};
 
-    Object.keys(serverLocales)
-        .filter((alternate) => alternate !== canonical)
-        .forEach((key) => {
-            result[key] = `${serverLocales[key]}${
-                StringServices.isStringValid(path) ? `/${path}` : ''
-            }`;
-        });
+    Object.keys(serverLocales).forEach((key) => {
+        result[key] = `${serverLocales[key]}${
+            StringServices.isStringValid(path) ? `/${path}` : ''
+        }`;
+    });
 
     return result;
 };

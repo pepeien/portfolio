@@ -61,7 +61,7 @@ async function generatePage({ params, children }: Props) {
 
     return (
         <html lang={dictionary['LANGUAGE_LOCALE']}>
-            <body>
+            <body suppressHydrationWarning={true}>
                 <Navbar
                     dictionary={dictionary}
                     locales={getClientLocales()}
