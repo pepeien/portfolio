@@ -11,8 +11,7 @@ import { getAlternates, getCanonicalAlternate, getDictionary, getClientLocales }
 import { InternalServices } from '@utils/services';
 
 interface Props {
-    params: { lang: string };
-    isRootLocale?: boolean;
+    params: { lang: string; isRootLocale?: boolean };
     children: React.ReactNode;
 }
 
@@ -57,7 +56,7 @@ async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-async function generatePage({ params, isRootLocale, children }: Props) {
+async function generatePage({ params, children }: Props) {
     const dictionary = await getDictionary(params.lang);
 
     return (
@@ -66,7 +65,7 @@ async function generatePage({ params, isRootLocale, children }: Props) {
                 <Navbar
                     dictionary={dictionary}
                     locales={getClientLocales()}
-                    isRootLocale={isRootLocale}
+                    isRootLocale={params.isRootLocale}
                 />
                 {children}
             </body>

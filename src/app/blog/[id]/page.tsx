@@ -16,8 +16,7 @@ const getDefaultProps = (props: Blog.Props): Blog.Props => {
 export async function generateMetadata(props: Blog.Props): Promise<Metadata> {
     const layoutMetadata = await Layout.generateMetadata({
         children: [],
-        isRootLocale: true,
-        params: { lang: getServerDefaultLocale() },
+        params: { lang: getServerDefaultLocale(), isRootLocale: true },
     });
     const blogMetadata = await Blog.generateMetadata(getDefaultProps(props));
 
@@ -27,7 +26,6 @@ export async function generateMetadata(props: Blog.Props): Promise<Metadata> {
 export default async function Page(props: Blog.Props) {
     return Layout.generatePage({
         children: [await Blog.generatePage(getDefaultProps(props))],
-        isRootLocale: true,
-        params: { lang: getServerDefaultLocale() },
+        params: { lang: getServerDefaultLocale(), isRootLocale: true },
     } as Layout.Props);
 }

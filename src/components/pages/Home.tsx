@@ -19,8 +19,7 @@ import { getDictionary } from '@dictionary';
 import { InternalServices } from '@utils/services';
 
 interface Props {
-    params: { lang: string };
-    isRootLocale?: boolean;
+    params: { lang: string; isRootLocale?: boolean };
 }
 
 async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -56,7 +55,7 @@ async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-async function generatePage({ params, isRootLocale = false }: Props) {
+async function generatePage({ params }: Props) {
     const dictionary = await getDictionary(params.lang);
 
     return (
@@ -102,7 +101,7 @@ async function generatePage({ params, isRootLocale = false }: Props) {
                                 <div className='home__content__section__main'>
                                     <BlogListing
                                         dictionary={dictionary}
-                                        isRootLocale={isRootLocale}
+                                        isRootLocale={params.isRootLocale}
                                     />
                                 </div>
                             </section>
