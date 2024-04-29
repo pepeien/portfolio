@@ -224,8 +224,8 @@ $--navbar-content-padding-top-mobile: 2vh;
     }
 }
 
-$--navbar-width-desktop: 7.5vh;
-$--navbar-content-padding-top-desktop: 2.5vh;
+$--navbar-width-desktop: 4rem;
+$--navbar-content-padding-top-desktop: 1.5rem;
 
 @media only screen and (min-width: 801px) {
     .navbar {
@@ -243,9 +243,9 @@ $--navbar-content-padding-top-desktop: 2.5vh;
         }
 
         &__button {
-            height: 2.5vh;
+            height: 1.5rem;
             width: 100%;
-            padding: 2vh 0;
+            padding: 1rem 0;
 
             svg {
                 path {
@@ -304,7 +304,7 @@ $--navbar-content-padding-top-desktop: 2.5vh;
         }
 
         &__hamburguer-button {
-            height: 6.5vh;
+            height: 3.5rem;
         }
     }
 }

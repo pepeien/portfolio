@@ -7,8 +7,8 @@
         align-items: center;
         justify-content: center;
 		gap: 0 1vh;
-        min-height: 3vh;
-        padding: 0.25rem 1rem;
+        min-height: 1rem;
+        padding: 0.35rem 1rem;
         border-radius: 3vh;
 		background-color: $--selected-color;
 		color: $--accent-color;
@@ -20,31 +20,31 @@
         transition:         background-color ease-in-out 0.2s;
 
 		svg {
-			height: 1.25rem;
-			width: 1.25rem;
+			height: 1rem;
+			width: 1rem;
 		}
 
 		span {
 			font-family: 'Inter';
 			font-weight: 700;
-			font-size: 0.65rem;
+			font-size: 0.6rem;
 		}
 	}
 }
 
-@media only screen and (min-width: $--min-desktop-width) {
+@media only screen and (orientation: landscape) {
 	.tags {
 		li {
-            padding: 0.15rem 1rem;
+            padding: 0.4rem 1rem;
             border-radius: 3vh;
 
 			svg {
-				height: 1.15rem;
-				width: 1.15rem;
+				height: 0.85rem;
+				width: 0.85rem;
 			}
 
 			span {
-				font-size: 0.75rem;
+				font-size: 0.7rem;
 			}
 		}
 	}

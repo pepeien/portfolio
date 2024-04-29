@@ -7,11 +7,10 @@
     list-style: none;
 }
 
-@media only screen and (min-width: $--min-desktop-width) {
+@media only screen and (orientation: landscape) {
 	.projects {
 		display: grid;
     	grid-template-columns: repeat(auto-fit, minmax(60vh, 1fr));
     	gap: 3vh;
-		max-height: 75vh;
 	}
 }
