@@ -108,8 +108,8 @@ const Navbar = ({ dictionary, locales }: Props) => {
                             <Link
                                 href={
                                     process.env.NEXT_PUBLIC_LINKEDIN_URL
-                                        ? ''
-                                        : `${process.env.NEXT_PUBLIC_LINKEDIN_URL}/?locale=${dictionary['LANGUAGE_LOCALE_LINKEDIN']}`
+                                        ? `${process.env.NEXT_PUBLIC_LINKEDIN_URL}?locale=${dictionary['LANGUAGE_LOCALE_LINKEDIN']}`
+                                        : ''
                                 }
                                 target='_blank'
                                 rel='noreferrer'
@@ -122,7 +122,6 @@ const Navbar = ({ dictionary, locales }: Props) => {
                                 >
                                     <g stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
                                         <g
-                                            id='Dribbble-Light-Preview'
                                             transform='translate(-180.000000, -7479.000000)'
                                             fill='#000000'
                                         >
