@@ -11,17 +11,11 @@ export function middleware(request: NextRequest) {
         (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
     );
 
-    if (pathnameHasLocale) {
-        return;
-    }
+    if (pathnameHasLocale) return;
 
-    if (pathname.trim() === '/') {
-        request.nextUrl.pathname = getCanonicalAlternate(pathname);
+    request.nextUrl.pathname = `/${getCanonicalAlternate()}${pathname}`;
 
-        return NextResponse.redirect(request.nextUrl);
-    }
-
-    return;
+    return NextResponse.redirect(request.nextUrl);
 }
 
 export const config = {
