@@ -101,10 +101,24 @@ $--background-animation-duration: 120s;
         height: 3vh;
         width: 3vh;
 
+        -webkit-transition: transform ease-in-out 0.05s;
+        -moz-transition:    transform ease-in-out 0.05s;
+        -o-transition:      transform ease-in-out 0.05s;
+        transition:         transform ease-in-out 0.05s;
+
         svg {
             height: 100%;
             width: 100%;
             border-radius: 1.5vh;
+        }
+    }
+
+    &:hover {
+        .project-card__arrow {
+            -webkit-transform: scale(1.1);
+            -moz-transform:    scale(1.1);
+            -o-transform:      scale(1.1);
+            transform:         scale(1.1);
         }
     }
 }
