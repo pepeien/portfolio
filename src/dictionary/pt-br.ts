@@ -36,7 +36,7 @@ export default {
     PROJECTS_TITLE: 'O que já fiz?',
     PROEJCTS_REDIRECTOR: 'Acessar Arquivo de Projetos',
 
-    JOB_HISTORY_TITLE: 'Com quem já trablhei?',
+    JOB_HISTORY_TITLE: 'Com quem já trabalhei?',
     JOB_HISTORY_DATE_DIRECTION: 'normal',
 
     BLOG_TITLE: 'Notícias quentes',
