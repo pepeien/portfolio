@@ -6,11 +6,8 @@ interface Props {
     isScrollReactive?: boolean;
 }
 
-const BLUR_COEFFICIENT = 20;
-
 const Mountains = ({ isScrollReactive = true }: Props) => {
     const [scrollY, setScrollY] = React.useState<number>(0);
-    const [innerHeight, setInnerHeight] = React.useState<number>(0);
 
     React.useEffect(() => {
         addEventListener('scroll', () => {
@@ -19,7 +16,6 @@ const Mountains = ({ isScrollReactive = true }: Props) => {
             }
 
             setScrollY(window.scrollY);
-            setInnerHeight(window.innerHeight);
         });
 
         return () => {
@@ -29,7 +25,6 @@ const Mountains = ({ isScrollReactive = true }: Props) => {
                 }
 
                 setScrollY(window.scrollY);
-                setInnerHeight(window.innerHeight);
             });
         };
     }, [scrollY, isScrollReactive]);
@@ -41,7 +36,6 @@ const Mountains = ({ isScrollReactive = true }: Props) => {
                 xmlns='http://www.w3.org/2000/svg'
                 style={{
                     transform: `translate3d(0, ${scrollY * 0.5}px, 0)`,
-                    filter: `blur(${((scrollY * 0.3) / innerHeight) * BLUR_COEFFICIENT}px)`,
                 }}
             >
                 <defs>
@@ -60,7 +54,6 @@ const Mountains = ({ isScrollReactive = true }: Props) => {
                 xmlns='http://www.w3.org/2000/svg'
                 style={{
                     transform: `translate3d(0, ${scrollY * 0.25}px, 0)`,
-                    filter: `blur(${((scrollY * 0.22) / innerHeight) * BLUR_COEFFICIENT}px)`,
                 }}
             >
                 <defs>
