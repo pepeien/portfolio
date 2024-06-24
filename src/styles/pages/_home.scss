@@ -112,6 +112,14 @@
 
             &__contact {
                 background-color: $--black;
+                gap: 6vh 0;
+                
+                .home__content__section {
+                    &__main {
+                        width: calc(100% - 4vh);
+                        margin: 0 auto;
+                    }
+                }
             }
         }
     }
@@ -164,6 +172,14 @@
                         font-size: 3rem;
                         letter-spacing: 0.05ch;
                         font-weight: 700;
+                    }
+                }
+
+                &__contact {
+                    .home__content__section {
+                        &__main {
+                            width: 100%;
+                        }
                     }
                 }
             }
