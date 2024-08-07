@@ -14,25 +14,18 @@ export interface Props {
     dictionary: Dictionary;
 }
 
-const MAX_SHOWCASE_COUNT = 4;
-
 export default async function Component({ dictionary }: Props) {
-    const data = await fetch(`${InternalServices.getBLOB()}/projects/metadata.json`, {
+    const data: Project[] = await fetch(`${InternalServices.getBLOB()}/projects/metadata.json`, {
         next: { revalidate: InternalServices.getFetchInterval() },
     })
         .then((_res) => _res.json())
-        .then((_projects: Project[]) => _projects.slice(0, MAX_SHOWCASE_COUNT))
         .catch(() => [] as Project[]);
 
     return (
         <ul className='projects'>
             {data.map((_item) => (
                 <li key={v4()}>
-                    <ProjectCard
-                        {..._item}
-                        dictionary={dictionary}
-                        repo={`${InternalServices.getGitBLOB()}/${_item.repo}`}
-                    />
+                    <ProjectCard {..._item} dictionary={dictionary} />
                 </li>
             ))}
         </ul>

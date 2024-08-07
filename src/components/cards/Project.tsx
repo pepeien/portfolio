@@ -3,37 +3,13 @@
 import React, { useEffect, useState } from 'react';
 
 // Types
-import { Dictionary, Project, ProjectIdentity, Tag } from '@utils/interfaces';
-
-// Components
-import { TagListing } from '@components';
+import { Dictionary, Project, ProjectIdentity } from '@utils/interfaces';
 
 export interface Props extends Project {
     dictionary: Dictionary;
 }
 
-export default function Component({
-    name,
-    repo,
-    link,
-    technologies,
-    description,
-    dictionary,
-}: Props) {
-    const [isExpanded, setIsExpanded] = useState<boolean>(false);
-    const [identity, setIdentity] = useState<ProjectIdentity>();
-
-    useEffect(() => {
-        fetch(`${repo}/master/.github/metadata.json?raw=true`)
-            .then((_res) => _res.json())
-            .then((_result) => setIdentity(_result))
-            .catch(() => {});
-    }, [repo]);
-
-    if (!identity) {
-        return <></>;
-    }
-
+export default function Component({ name, link, description, dictionary }: Props) {
     return (
         <div className='project-card --flex-column'>
             <a
