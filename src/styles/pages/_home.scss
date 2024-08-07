@@ -84,6 +84,7 @@ $--height-desktop: calc(100dvh - ($--home-margin * 2))  - 0.2dvh;
         &__content {
             margin: 0;
             flex: 1.25;
+            gap: 7vh;
         }
     }
 }
