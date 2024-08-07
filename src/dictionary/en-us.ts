@@ -31,17 +31,17 @@ export default {
     ABOUT_HERO: 'Software Developer',
     ABOUT_NAME: 'Erick Frederick',
 
-    PROJECTS_TITLE: "What I've worked on?",
+    PROJECTS_TITLE: 'Projects',
     PROEJCTS_REDIRECTOR: 'View Project Archive',
 
-    JOB_HISTORY_TITLE: "Who I've worked with?",
+    JOB_HISTORY_TITLE: 'Experience',
     JOB_HISTORY_DATE_DIRECTION: 'normal',
 
-    BLOG_TITLE: 'The latest news',
+    BLOG_TITLE: 'Blog',
     BLOG_READ_INVITATION: 'Read the post',
     BLOG_THEME_GAME_DEV: 'Game Development',
 
-    CONTACT_TITLE: 'Get in touch',
+    CONTACT_TITLE: 'Contact me',
     CONTACT_EMAIL_LABEL: 'Email',
     CONTACT_MESSAGE_LABEL: 'Message',
     CONTACT_SEND_LABEL: 'Send',

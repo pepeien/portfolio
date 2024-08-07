@@ -31,13 +31,13 @@ export default {
     ABOUT_HERO: 'Desenvolvedor De Software',
     ABOUT_NAME: 'Erick Frederick',
 
-    PROJECTS_TITLE: 'O que já fiz?',
+    PROJECTS_TITLE: 'Projetos',
     PROEJCTS_REDIRECTOR: 'Acessar Arquivo de Projetos',
 
-    JOB_HISTORY_TITLE: 'Com quem já trabalhei?',
+    JOB_HISTORY_TITLE: 'Experiência',
     JOB_HISTORY_DATE_DIRECTION: 'normal',
 
-    BLOG_TITLE: 'Notícias quentes',
+    BLOG_TITLE: 'Blog',
     BLOG_READ_INVITATION: 'Ler Artigo',
     BLOG_THEME_GAME_DEV: 'Desenvolvimento de Jogos',
 

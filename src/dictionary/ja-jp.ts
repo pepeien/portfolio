@@ -29,17 +29,17 @@ export default {
     ABOUT_HERO: 'ソフトウエア開発者',
     ABOUT_NAME: 'Erick Frederick',
 
-    PROJECTS_TITLE: '僕が取り組んだこと？',
+    PROJECTS_TITLE: 'プロジェクト',
     PROEJCTS_REDIRECTOR: 'プロジェクト・アーカイブ',
 
-    JOB_HISTORY_TITLE: '僕が協力した人？',
+    JOB_HISTORY_TITLE: '職歴',
     JOB_HISTORY_DATE_DIRECTION: 'inverse',
 
-    BLOG_TITLE: '新着ニュース',
+    BLOG_TITLE: 'ブログ',
     BLOG_READ_INVITATION: '記事を読む',
     BLOG_THEME_GAME_DEV: 'ゲーム開発',
 
-    CONTACT_TITLE: 'ご連絡ください',
+    CONTACT_TITLE: '連絡先',
     CONTACT_EMAIL_LABEL: 'メール',
     CONTACT_MESSAGE_LABEL: 'メッセージ',
     CONTACT_SEND_LABEL: '送信',
