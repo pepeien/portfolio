@@ -1,0 +1,78 @@
+.menu {
+    margin-top: auto;
+    gap: 1.5vh;
+    list-style: none;
+
+    li {
+        display: flex;
+        align-items: center;
+        height: 5vh;
+        position: relative;
+
+        &:hover {
+            cursor: pointer;
+
+            span {
+                color: $--accent-color;
+                background-color: $--backdrop-background-color-mobile;
+            }
+            
+            div {
+                width: 100%;
+            }
+        }
+
+        span {
+            display: flex;
+            align-items: center;
+            min-height: 4vh;
+            padding: 1vh 2vh;
+            font-family: 'Roboto Condensed';
+            font-size: 2vh;
+            margin-left: 0.5vh;
+            z-index: 1;
+
+            -webkit-transition: background-color ease-in-out 0.1s, color ease-in-out 0.1s;
+            -moz-transition:    background-color ease-in-out 0.1s, color ease-in-out 0.1s;
+            -o-transition:      background-color ease-in-out 0.1s, color ease-in-out 0.1s;
+            transition:         background-color ease-in-out 0.1s, color ease-in-out 0.1s;
+        }
+
+        div {
+            position: absolute;
+            width: 0.25vh;
+            height: 100%;
+            background-color: $--green-color;
+            z-index: 0;
+
+            -webkit-transition: width ease-in-out 0.2s;
+            -moz-transition:    width ease-in-out 0.2s;
+            -o-transition:      width ease-in-out 0.2s;
+            transition:         width ease-in-out 0.2s;
+        }
+    }
+}
+
+@media only screen and (orientation: landscape) {
+    .menu {
+        li {
+            &:hover {
+                cursor: pointer;
+
+                span {
+                    color: $--accent-color;
+                    background-color: $--medium-color;
+                }
+
+                div {
+                    width: 100%;
+                }
+            }
+
+            span {
+                font-size: 2.25vh;
+                color: $--backdrop-background-color-mobile;
+            }
+        }
+    }
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 
 // Components
-import { Navbar } from '@components';
+import { Language, Socials } from '@components';
 
 // Dictionary
 import { getAlternates, getCanonicalAlternate, getDictionary, getClientLocales } from '@dictionary';
@@ -62,7 +62,7 @@ async function generatePage({ params, children }: Props) {
     return (
         <html lang={dictionary['LANGUAGE_LOCALE']}>
             <body suppressHydrationWarning={true}>
-                <Navbar dictionary={dictionary} locales={getClientLocales()} />
+                <Language dictionary={dictionary} locales={getClientLocales()} />
                 {children}
             </body>
         </html>

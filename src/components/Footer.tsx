@@ -10,7 +10,7 @@ interface Props {
 const Footer = ({ dictionary }: Props) => {
     return (
         <footer>
-            <span>{dictionary['FOOTER_TEXT_2']} 2023-2024</span>
+            <span>{dictionary['FOOTER_TEXT_2']}</span>
         </footer>
     );
 };

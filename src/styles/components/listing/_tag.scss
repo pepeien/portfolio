@@ -1,18 +1,16 @@
 .tags {
 	width: 100%;
 	flex-wrap: wrap;
-	gap: 1.5vh 1vh;
+	gap: 1vh;
 
 	li {
         align-items: center;
         justify-content: center;
 		gap: 0 1vh;
         min-height: 1rem;
-        padding: 0.35rem 1rem;
-        border-radius: 3vh;
+        padding: 0.35rem 0.5rem;
 		background-color: $--selected-color;
 		color: $--accent-color;
-        border: 1px solid transparent;
 
         -webkit-transition: background-color ease-in-out 0.2s;
         -moz-transition:    background-color ease-in-out 0.2s;
@@ -35,16 +33,15 @@
 @media only screen and (orientation: landscape) {
 	.tags {
 		li {
-            padding: 0.4rem 1rem;
-            border-radius: 3vh;
+            padding: 0.5vh 1vh;
 
 			svg {
-				height: 0.85rem;
-				width: 0.85rem;
+				height: 1.2vh;
+				width: 1.2vh;
 			}
 
 			span {
-				font-size: 0.7rem;
+				font-size: 1.2vh;
 			}
 		}
 	}

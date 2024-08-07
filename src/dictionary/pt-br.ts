@@ -28,10 +28,8 @@ export default {
     NOW_TEXT: 'Presente',
     UPCOMING_TEXT: 'Em Breve',
 
-    ABOUT_HERO: 'Criando experiências digitais fluidas',
-    ABOUT_TITLE: 'oi, ',
-    ABOUT_TITLE_SECOND: 'sou',
-    ABOUT_NAME: 'ERICK',
+    ABOUT_HERO: 'Desenvolvedor De Software',
+    ABOUT_NAME: 'Erick Frederick',
 
     PROJECTS_TITLE: 'O que já fiz?',
     PROEJCTS_REDIRECTOR: 'Acessar Arquivo de Projetos',
@@ -43,7 +41,7 @@ export default {
     BLOG_READ_INVITATION: 'Ler Artigo',
     BLOG_THEME_GAME_DEV: 'Desenvolvimento de Jogos',
 
-    CONTACT_TITLE: 'Entre em contato.',
+    CONTACT_TITLE: 'Entre em contato',
     CONTACT_EMAIL_LABEL: 'Email',
     CONTACT_MESSAGE_LABEL: 'Mensagem',
     CONTACT_SEND_LABEL: 'Enviar',

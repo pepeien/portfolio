@@ -28,10 +28,8 @@ export default {
     NOW_TEXT: 'Present',
     UPCOMING_TEXT: 'Coming Soon',
 
-    ABOUT_HERO: 'Crafting seamless digital experiences',
-    ABOUT_TITLE: 'hi, ',
-    ABOUT_TITLE_SECOND: "I'm",
-    ABOUT_NAME: 'ERICK',
+    ABOUT_HERO: 'Software Developer',
+    ABOUT_NAME: 'Erick Frederick',
 
     PROJECTS_TITLE: "What I've worked on?",
     PROEJCTS_REDIRECTOR: 'View Project Archive',
@@ -43,7 +41,7 @@ export default {
     BLOG_READ_INVITATION: 'Read the post',
     BLOG_THEME_GAME_DEV: 'Game Development',
 
-    CONTACT_TITLE: 'Get in touch.',
+    CONTACT_TITLE: 'Get in touch',
     CONTACT_EMAIL_LABEL: 'Email',
     CONTACT_MESSAGE_LABEL: 'Message',
     CONTACT_SEND_LABEL: 'Send',

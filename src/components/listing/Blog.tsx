@@ -28,15 +28,12 @@ export default async function Component({ dictionary }: Props) {
 
     return (
         <div className='blogs'>
-            <BlogCard {...latestPost} dictionary={dictionary} type='showcase' />
             <ul>
-                {data
-                    .filter((post) => post.id !== latestPost.id)
-                    .map((_item) => (
-                        <li key={v4()}>
-                            <BlogCard {..._item} dictionary={dictionary} />
-                        </li>
-                    ))}
+                {data.map((_item) => (
+                    <li key={v4()}>
+                        <BlogCard {..._item} dictionary={dictionary} />
+                    </li>
+                ))}
             </ul>
         </div>
     );

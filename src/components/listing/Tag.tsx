@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { v4 } from 'uuid';
 
@@ -7,7 +9,8 @@ import { Tag } from '@utils/interfaces';
 export interface Props {
     data: Tag[];
 }
-export default async function Component({ data }: Props) {
+
+export default function Component({ data }: Props) {
     return (
         <ul className='tags --flex-row'>
             {data.map(({ icon, accentColor, backgroundColor, text }) => (

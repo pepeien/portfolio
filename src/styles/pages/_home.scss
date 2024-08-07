@@ -1,188 +1,89 @@
+$--width: calc(100vw - ($--home-margin-mobile * 2));
+$--height: calc(100dvh - ($--home-margin-mobile * 2)) - 0.2dvh;
+
 .home {
-    align-items: center;
-    overflow-x: hidden;
+    width: calc($--width - 4dvh);
+    height: calc($--height - 4dvh);
+    margin: $--home-margin-mobile;
+    border: 1px solid $--backdrop-background-color;
+    padding: 2dvh;
+    overflow: hidden;
+    overflow-y: auto;
+
+    &__header { 
+        height: calc($--height - 4dvh);
+
+        &__title {
+            h1, h2 {
+                font-family: 'Roboto Condensed';
+            }
+
+            h1 {
+                font-size: 4rem;
+            }
+
+            h2 {
+                font-weight: 200;
+            }
+        }
+    }
 
     &__content {
-        align-items: center;
-        width: 100vw;
-        position: relative;
-        background-color: transparent;
-        margin-top: -40vh;
-        opacity: 0;
-    
-        -webkit-animation: fade-in $--initial-fade-duration ease-in-out 1 forwards;
-        -moz-animation:    fade-in $--initial-fade-duration ease-in-out 1 forwards;
-        -o-animation:      fade-in $--initial-fade-duration ease-in-out 1 forwards;
-        animation:         fade-in $--initial-fade-duration ease-in-out 1 forwards;
+        margin-top: 8vh;
+        gap: 6vh;
+        overflow-y: auto;
 
-        &__header {
-            width: 100%;
-            height: 450px;
-
-            -webkit-transform: translateX(-50vw);
-            -moz-transform:    translateX(-50vw);
-            -o-transform:      translateX(-50vw);
-            transform:         translateX(-50vw);
-        }
-
-        &__main {
+        article {
             display: flex;
             flex-direction: column;
-            background-color: $--grey-color;
-            width: 100%;
-            height: 100%;
-            margin-top: -5.5dvh;
-            padding: 8vh 0;
-            padding-bottom: 0;
-            align-items: center;
-        }
 
-        &__section {
-            display: flex;
-            flex-direction: column;
-            gap: 4vh;
-            width: calc(100% - 8vh);
-            padding: 12vh 4vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            &__title, &__main {
-                max-width: 1920px;
-            }
-
-            &__title {
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 1.5vh;
-
-                h4 {
-                    font-family: 'Inter';
-                    font-size: 3rem;
-                    font-weight: bolder;
-                    color: $--accent-color;
-                    text-align: center;
-                }
-            }
-
-            &__main {
-                position: relative;
-
-                > ul {
-                    width: 100%;
-                }
-            }
-
-            &__projects {
-                .home__content__section {
-                    &__main {
-                        > ul {
-                            display: grid;
-                            grid-template-columns: repeat(auto-fit, 1fr);
-                            gap: 3vh;
-                        }
-                    }
-                }
-            }
-
-            &__job {
-                background-color: $--black;
-            }
-
-            &__blog {
-                flex-direction: column;
-
-                .home__content__section {
-                    &__main {
-                        > ul {
-                            display: flex;
-                            flex-direction: column;
-                            gap: 4vh;
-
-                            > li {
-                                width: 100%;
-                            }
-                        }
-                    }
-                }
-            }
-
-            &__contact {
-                background-color: $--black;
-                gap: 6vh 0;
-                
-                .home__content__section {
-                    &__main {
-                        width: calc(100% - 4vh);
-                        margin: 0 auto;
-                    }
-                }
+            h3 {
+                font-family: 'Roboto Condensed';
+                font-size: 4vh;
+                color: $--backdrop-background-color-mobile;
+                padding: 1vh 0;
+                margin-bottom: 2vh;
             }
         }
     }
 }
 
-@media only screen and (min-width: $--min-tablet-width) {
-    .home {
-        .mountain {
-            height: 38vh;
-        }
-    }
-}
+$--width-desktop: calc(100vw - ($--home-margin * 2));
+$--height-desktop: calc(100dvh - ($--home-margin * 2))  - 0.2dvh;
 
 @media only screen and (orientation: landscape) {
     .home {
-        &__hero {
-            width: 100%;
-            height: 100vh;
+        display: flex;
+        flex-direction: column;
+        width: calc($--width-desktop - 4dvh);
+        height: calc($--height-desktop - 4dvh);
+        margin: $--home-margin;
+        flex-direction: row;
+        overflow: hidden;
+        gap: 1vh;
+
+        &__header {
+            flex: 0.75;
+    
+            &__title {
+                h1, h2 {
+                    font-family: 'Roboto Condensed';
+                    color: $--backdrop-background-color-mobile;
+                }
+    
+                h1 {
+                    font-size: 4rem;
+                }
+    
+                h2 {
+                    font-weight: 200;
+                }
+            }
         }
 
         &__content {
-            margin-top: -50vh;
-
-            &__header {
-                width: 100%;
-                height: 400px;
-            }
-
-            &__main {
-                margin-top: -1vh;
-                gap: 0;
-                width: 100%;
-                padding: 0;
-            }
-
-            &__section {
-                gap: 7vh;
-                width: calc(100% - 16vh);
-                padding: 12vh 8vh;
-
-                &__main {
-                    width: 100%;
-                }
-
-                &__title {
-                    align-items: flex-start;
-                    gap: 1.7vh;
-
-                    h4 {
-                        font-size: 3rem;
-                        letter-spacing: 0.05ch;
-                        font-weight: 700;
-                    }
-                }
-
-                &__contact {
-                    .home__content__section {
-                        &__main {
-                            width: 100%;
-                        }
-                    }
-                }
-            }
+            margin: 0;
+            flex: 1.25;
         }
     }
 }

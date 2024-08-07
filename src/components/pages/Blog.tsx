@@ -169,6 +169,7 @@ async function generatePage({ params }: Props) {
                         height={1080}
                         quality={100}
                         alt='Blog banner'
+                        priority={true}
                     />
                 </section>
                 <section className='blog__content --flex-column'>

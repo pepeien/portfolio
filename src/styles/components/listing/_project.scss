@@ -9,8 +9,8 @@
 
 @media only screen and (orientation: landscape) {
 	.projects {
-		display: grid;
-    	grid-template-columns: repeat(auto-fit, minmax(60vh, 1fr));
-    	gap: 3vh;
+        flex-direction: row;
+    	flex-wrap: wrap;
+    	gap: 2vh;
 	}
 }

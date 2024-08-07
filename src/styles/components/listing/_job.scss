@@ -1,8 +1,5 @@
 .jobs {
 	width: 100%;
-	display: flex;
-	flex-direction: column;
-	gap: 4vh;
 
 	> ul {
 		display: flex;
@@ -14,14 +11,14 @@
 
 @media only screen and (orientation: landscape) {
 	.jobs {
-		flex-direction: row;
-		gap: 25vh;
+        > ul {
+		    flex-direction: row;
+            flex-wrap: wrap;
+		    gap: 5vh;
 
-		> ul {
-			border-left: solid 1px rgba(128, 128, 128, 0.13);
-			padding: 2vh;
-			max-height: 40vh;
-			overflow-y: auto;
-		}
+            > li {
+                width: calc(50% - 5vh);
+            }
+        }
 	}
 }

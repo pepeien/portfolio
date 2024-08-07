@@ -33,15 +33,12 @@ export default async function Component({ dictionary }: Props) {
         )
         .catch(() => [] as Job[]);
 
-    const latestJob = data[0];
-
     return (
         <div className='jobs'>
-            <JobCard {...latestJob} dictionary={dictionary} type='showcase' />
             <ul>
-                {data.slice(1).map((_item) => (
+                {data.map((_item, index) => (
                     <li key={v4()}>
-                        <JobCard {..._item} dictionary={dictionary} />
+                        <JobCard {..._item} dictionary={dictionary} inCurrentJob={index === 0} />
                     </li>
                 ))}
             </ul>

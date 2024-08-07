@@ -1,0 +1,63 @@
+.language {
+    position: absolute;
+    bottom: 1.25dvh;
+
+    &__list {
+        list-style: none;
+        gap: 1vh;
+
+        li {
+            &[data-is-selected="true"] {
+                background-color: $--backdrop-background-color-mobile;
+
+                a {
+                    color: $--backdrop-primary-color-light;
+                }
+            }
+
+            a {
+                width: 100%;
+                padding: 1vh 1.6vh;
+                text-decoration: none;
+                font-family: 'Inter';
+                font-weight: 700;
+                font-size: 1.25vh;
+                color: $--backdrop-background-color-mobile;
+                text-align: center;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 801px) {
+    .language {
+        bottom: initial;
+        top: 1vh;
+
+        li {
+            a {
+                padding: 0.6vh 1.5vh;
+                font-size: 1.35vh;
+
+                -webkit-transition: color ease-in-out 0.3s;
+                -moz-transition:    color ease-in-out 0.3s;
+                -o-transition:      color ease-in-out 0.3s;
+                transition:         color ease-in-out 0.3s;
+            }
+
+            &:hover {
+                &[data-is-selected="true"] {
+                    a {
+                        cursor: default;
+                    }
+                }
+
+                &[data-is-selected="false"] {
+                    a {
+                        color: $--backdrop-primary-color;
+                    }
+                }
+            }
+        }
+    }
+}

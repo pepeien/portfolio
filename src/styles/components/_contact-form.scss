@@ -6,6 +6,7 @@
     width: 100%;
     height: 100%;
     gap: 1.5rem 0;
+    overflow: hidden;
 
     &-input {
         display: flex;
@@ -15,12 +16,12 @@
         label,
         input,
         textarea {  
-            color: $--accent-color;
+            color: $--backdrop-background-color-mobile;
         }
 
         & label {
-            font-family: 'Inter';
-            font-weight: 700;
+            font-family: 'Roboto Condensed';
+            font-weight: 400;
             font-size: 1.5rem;
         }
 
@@ -28,14 +29,13 @@
         & textarea {
             background-color: transparent;
             resize: none;
-            font-family: 'Inter';
+            font-family: 'Roboto Condensed';
             font-size: 1.4rem;
             font-weight: 300;
             padding: 0.3rem 1rem;
             min-height: 3rem;
             max-height: 12rem;
-            border: $--dark-grey-color solid 1px;
-            border-radius: $--squircle-border-radius;
+            border: 1px solid $--backdrop-background-color-mobile;
 
             -webkit-transition: border-color ease-in-out 0.2s;
             -moz-transition:    border-color ease-in-out 0.2s;
@@ -44,7 +44,6 @@
 
             &:focus {
                 outline: none;
-                border-color: $--accent-color;
             }
         }
 
@@ -62,20 +61,19 @@
         background-color: transparent;
         border: none;
         outline: none;
-        font-family: 'Inter';
-        font-weight: 700;
+        font-family: 'Roboto Condensed';
+        font-weight: 400;
         padding: 0;
-        border: $--dark-grey-color solid 1px;
+        border: 1px solid $--backdrop-background-color-mobile;
         height: 3.6rem;
         font-size: 1.7rem;
-        border-radius: $--squircle-border-radius;
 
         &__background {
             display: block;
             width: 115%;
-            height: 100%;
+            height: 115%;
             position: absolute;
-            background-color: $--backdrop-primary-color-light;
+            background-color: $--medium-color;
             z-index: 1;
 
             -webkit-transform: translateX(-115%) skewX(-20deg);
@@ -90,7 +88,7 @@
         }
 
         & span {
-            color: $--accent-color;
+            color: $--backdrop-background-color-mobile;
             pointer-events: none;
             z-index: 2;
             
@@ -108,8 +106,6 @@
         &:active,
         &:focus,
         &:hover {
-            border-color: transparent;
-
             div {
                 -webkit-transform: translateX(0);
                 -moz-transform:    translateX(0);
@@ -118,7 +114,7 @@
             }
 
             span {
-                color: $--black;
+                color: $--accent-color;
             }
         }
     }
@@ -131,8 +127,8 @@
         font-weight: 700;
         font-size: 3vh;
         color: $--green-color;
-        margin-top: 3vh;
-        height: 3vh;
+        min-height: 3vh;
+        text-align: center;
     }
 }
 
@@ -176,6 +172,11 @@
             &:hover {
                 cursor: pointer;
             }
+        }
+
+        &-status {
+            justify-content: flex-start;
+            text-align: left;
         }
     }
 }

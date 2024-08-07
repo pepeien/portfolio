@@ -91,8 +91,6 @@ c-5.815,13.208,4.855,27.01,18.107,26.263H489.52C500.566,511.97,509.379,502.408,5
         );
     };
 
-    const isShowcasing = type === 'showcase';
-
     const baseLink = wasReleased ? `/blog/${id}` : '';
 
     return (
@@ -100,17 +98,7 @@ c-5.815,13.208,4.855,27.01,18.107,26.263H489.52C500.566,511.97,509.379,502.408,5
             className='blog-card'
             href={`${dictionary['LANGUAGE_LOCALE_URL']}${baseLink}`}
             aria-disabled={!wasReleased}
-            data-is-showcase={isShowcasing}
         >
-            <div className='blog-card__thumbnail'>
-                <Image
-                    src={`${InternalServices.getBLOB()}/blog/${id}/images/thumbnail.png`}
-                    width={isShowcasing ? 1000 : 910}
-                    height={isShowcasing ? 563 : 512}
-                    quality={100}
-                    alt={`${title[dictionary['LANGUAGE_LOCALE_URL']]} thumbnail`}
-                />
-            </div>
             <div className='blog-card__data'>
                 <div className='blog-card__data__background' />
                 <div className='blog-card__data__info'>
@@ -147,6 +135,16 @@ c-5.815,13.208,4.855,27.01,18.107,26.263H489.52C500.566,511.97,509.379,502.408,5
                         {description[dictionary['LANGUAGE_LOCALE_URL']]}
                     </p>
                 </div>
+            </div>
+            <div className='blog-card__thumbnail'>
+                <Image
+                    src={`${InternalServices.getBLOB()}/blog/${id}/images/thumbnail.png`}
+                    width={910}
+                    height={512}
+                    quality={100}
+                    alt={`${title[dictionary['LANGUAGE_LOCALE_URL']]} thumbnail`}
+                    priority={true}
+                />
             </div>
         </Link>
     );

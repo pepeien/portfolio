@@ -26,10 +26,8 @@ export default {
     NOW_TEXT: '現在',
     UPCOMING_TEXT: '公開予定',
 
-    ABOUT_HERO: 'シームレスなデジタル体験の構築',
-    ABOUT_TITLE: 'こんにちは、',
-    ABOUT_NAME: 'エリック',
-    ABOUT_NAME_SECOND: 'です',
+    ABOUT_HERO: 'ソフトウエア開発者',
+    ABOUT_NAME: 'Erick Frederick',
 
     PROJECTS_TITLE: '僕が取り組んだこと？',
     PROEJCTS_REDIRECTOR: 'プロジェクト・アーカイブ',
@@ -37,11 +35,11 @@ export default {
     JOB_HISTORY_TITLE: '僕が協力した人？',
     JOB_HISTORY_DATE_DIRECTION: 'inverse',
 
-    BLOG_TITLE: '最新ニュース',
+    BLOG_TITLE: '新着ニュース',
     BLOG_READ_INVITATION: '記事を読む',
     BLOG_THEME_GAME_DEV: 'ゲーム開発',
 
-    CONTACT_TITLE: 'ご連絡ください。',
+    CONTACT_TITLE: 'ご連絡ください',
     CONTACT_EMAIL_LABEL: 'メール',
     CONTACT_MESSAGE_LABEL: 'メッセージ',
     CONTACT_SEND_LABEL: '送信',

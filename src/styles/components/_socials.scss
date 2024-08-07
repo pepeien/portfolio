@@ -1,0 +1,90 @@
+$--navbar-width-mobile: 8vh;
+
+.socials {
+    align-items: center;
+    gap: 1vh;
+    margin-top: 2vh;
+
+    &__button {
+        background-color: transparent;
+        outline: transparent;
+        border: 1px solid $--backdrop-background-color-mobile;
+
+        -webkit-transition: background-color ease-in-out 0.3s;
+        -moz-transition:    background-color ease-in-out 0.3s;
+        -o-transition:      background-color ease-in-out 0.3s;
+        transition:         background-color ease-in-out 0.3s;
+
+        &:active,
+        &:focus,
+        &:hover {
+            background-color: $--backdrop-background-color-mobile;
+
+            svg {
+                path {
+                    fill: $--accent-color;
+                }
+            }
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 4dvh;
+            height: 4dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        svg {
+            width: 2dvh;
+		    height: 2dvh;
+
+            path {
+                fill: $--backdrop-background-color-mobile;
+
+                -webkit-transition: fill ease-in-out 0.3s;
+                -moz-transition:    fill ease-in-out 0.3s;
+                -o-transition:      fill ease-in-out 0.3s;
+                transition:         fill ease-in-out 0.3s;
+            }
+        }
+    }
+}
+
+$--navbar-width-desktop: 4rem;
+
+@media only screen and (min-width: 801px) {
+    .navbar {
+        &__button {
+            svg {
+                path {
+                    -webkit-transition: fill ease-in-out 0.3s;
+                    -moz-transition:    fill ease-in-out 0.3s;
+                    -o-transition:      fill ease-in-out 0.3s;
+                    transition:         fill ease-in-out 0.3s;
+                }
+            }
+
+            &:hover {
+                cursor: pointer;
+
+                svg {
+                    path {
+                        fill: $--backdrop-primary-color;
+                    }
+                }
+            }
+        }
+
+        &__socials {
+            width: 100%;
+
+            ul {
+                width: 100%;
+            }
+        }
+    }
+}

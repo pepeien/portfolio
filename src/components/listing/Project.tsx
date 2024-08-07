@@ -28,7 +28,11 @@ export default async function Component({ dictionary }: Props) {
         <ul className='projects'>
             {data.map((_item) => (
                 <li key={v4()}>
-                    <ProjectCard {..._item} dictionary={dictionary} />
+                    <ProjectCard
+                        {..._item}
+                        dictionary={dictionary}
+                        repo={`${InternalServices.getGitBLOB()}/${_item.repo}`}
+                    />
                 </li>
             ))}
         </ul>

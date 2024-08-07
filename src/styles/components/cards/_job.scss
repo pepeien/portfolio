@@ -1,45 +1,52 @@
 .job-card {
+	width: calc(100% - 6vh);
+	position: relative;
 	display: flex;
 	flex-direction: column;
-	width: 100%;
-	position: relative;
 	gap: 2vh;
-	font-family: 'Inter';
+	font-family: 'Roboto Condensed';
 	color: $--accent-color;
 	line-height: 1.25;
+    padding: 2.5vh;
+    color: $--backdrop-background-color-mobile;
+    border: 1px solid $--backdrop-background-color-mobile;
 
-	&__date {
-		margin: 0 0 0 1vh;
+    &[data-is-current="true"] {
+        background-color: $--backdrop-background-color-mobile;
+        color: $--accent-color;
+    }
 
-		&__text {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			gap: 0 1vh;
-			font-weight: 500;
-			font-size: 2vh;
-		}
+    &__header {
+        height: 5vh;
+        gap: 1vh;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
 
-		span {
-			opacity: 0.4;
-		}
+        &__title {
+            font-size: 2.4vh;
+        }
 
-		&__divider {
-			height: 0.2vh;
-			width: 2vh;
-			background-color: $--accent-color;
-			opacity: 0.4;
-		}
-	}
+        &__date {
+            align-items: center;
+            gap: 0 1vh;
+            font-size: 1.2vh;
+            font-style: italic;
+
+            &__divider {
+                height: 1px;
+                width: 1vh;
+                background-color: $--accent-color;
+                opacity: 0.4;
+            }
+        }
+    }
 	
 	&__info {
 		display: flex;
 		flex-direction: column;
-		gap: 1vh 0;
+		gap: 2vh;
 		flex: 2.5;
-		padding: 3vh;
-		background-color: $--dark-grey-color;
-		border-radius: $--squircle-border-radius;
 
 		&__company {
 			font-size: 3vh;
@@ -54,64 +61,15 @@
 		}
 		
 		.tags {
-			margin-top: 1vh;
+			margin-top: auto;
 		}
 	}
 }
 
 @media only screen and (orientation: landscape) {
 	.job-card {
-        width: calc(100% - 6vh);
-		flex-direction: column;
-		position: relative;
+        min-height: 25vh;
 		gap: 1vh;
-		background-color: $--dark-grey-color;
-		border-radius: $--squircle-border-radius;
-		padding: 3vh;
-
-		&[data-is-showcase="true"] {
-			width: 30vw;
-			flex-direction: column;
-			padding: 0;
-			border-radius: $--squircle-border-radius;
-			background-color: transparent;
-
-			.job-card {
-				&__date {
-					margin: 0;
-					width: 100%;
-
-					& span:last-of-type {
-						opacity: 1;
-						color: $--green-color;
-						text-decoration: underline;
-					}
-				}
-
-				&__info {
-					width: 100%;
-					background-color: transparent;
-					box-shadow: none;
-					padding: 0;
-
-					&__company {
-						font-size: 2.8rem;
-					}
-				}
-			}
-		}
-
-		&__date { 
-			width: 28vh;
-			margin:0;
-
-			&__text {
-				flex-direction: row;
-				gap: 0 1vh;
-				width: 100%;
-				font-size: 1.65vh;
-			}
-		}
 
 		&__info {
 			flex-direction: column;
@@ -120,11 +78,6 @@
 			max-width: 40vw;
 			background-color: transparent;
 			box-shadow: none;
-			padding: 0;
-
-			&__company {
-				font-size: 2.4vh;
-			}
 
 			&__description {
 				width: 100%;

@@ -5,12 +5,12 @@ $--info-padding-desktop: 1rem;
     display: flex;
 	flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: calc(100% - 2vh);
 	color: $--accent-color;
     position: relative;
 	text-decoration: none;
-	border-radius: $--squircle-border-radius;
 	overflow: hidden;
+    border: 1px solid $--backdrop-background-color-mobile;
 
 	&[aria-disabled="true"] {
 		opacity: 0.7;
@@ -34,10 +34,8 @@ $--info-padding-desktop: 1rem;
 		justify-content: center;
         width: 100%;
 		height: 100%;
-		color: $--accent-color;
-		background-color: $--dark-grey-color;
-		border-bottom-left-radius: $--squircle-border-radius;
-		border-bottom-right-radius: $--squircle-border-radius;
+		color: $--backdrop-background-color-mobile;
+        background-color: transparent;
         position: relative;
         overflow: hidden;
 
@@ -46,13 +44,13 @@ $--info-padding-desktop: 1rem;
             width: 115%;
             height: 100%;
             position: absolute;
-            background-color: $--backdrop-primary-color-light;
+            background-color: $--backdrop-background-color-mobile;
             z-index: 1;
 
-            -webkit-transform: translateX(-115%) skewX(-20deg);
-            -moz-transform:    translateX(-115%) skewX(-20deg);
-            -o-transform:      translateX(-115%) skewX(-20deg);
-            transform:         translateX(-115%) skewX(-20deg);
+            -webkit-transform: translateX(-130%) skewX(-20deg);
+            -moz-transform:    translateX(-130%) skewX(-20deg);
+            -o-transform:      translateX(-130%) skewX(-20deg);
+            transform:         translateX(-130%) skewX(-20deg);
 
             -webkit-transition: transform ease-in-out 0.2s;
             -moz-transition:    transform ease-in-out 0.2s;
@@ -65,7 +63,7 @@ $--info-padding-desktop: 1rem;
 			width: calc(100% - ($--info-padding * 2));
 			display: flex;
 			flex-direction: column;
-			gap: 2vh;
+			gap: 1vh;
 			position: relative;
 			padding: $--info-padding;
             z-index: 2;
@@ -112,7 +110,6 @@ $--info-padding-desktop: 1rem;
 			background-color: $--selected-color;
 			padding: 0 1.5vh;
 			height: 4vh;
-			border-radius: 3vh;
 
 			span {
 				font-family: 'Inter';
@@ -125,23 +122,39 @@ $--info-padding-desktop: 1rem;
     &:active,
     &:focus,
     &:hover {
-        .blog-card {
-            &__data {
-                &__background {
-                    -webkit-transform: translateX(0);
-                    -moz-transform:    translateX(0);
-                    -o-transform:      translateX(0);
-                    transform:         translateX(0);
-                }
+        &[aria-disabled="true"] {
+			cursor: default;
+		}
 
-                .tags {
-                    li {
-                        background-color: $--black;
+        &[aria-disabled="false"] {
+            cursor: pointer;
+
+            .blog-card {
+                &__data {
+                    &__background {
+                        -webkit-transform: translateX(0);
+                        -moz-transform:    translateX(0);
+                        -o-transform:      translateX(0);
+                        transform:         translateX(0);
                     }
-                }
+    
+                    .tags {
+                        li {
+                            background-color: $--accent-color;
 
-                &__info {
-                    color: $--black;
+                            span {
+                                color: $--backdrop-background-color-mobile;
+                            }
+
+                            svg {
+                                fill: $--backdrop-background-color-mobile;
+                            }
+                        }
+                    }
+
+                    &__info {
+                        color: $--accent-color;
+                    }
                 }
             }
         }
@@ -150,89 +163,40 @@ $--info-padding-desktop: 1rem;
 
 @media only screen and (orientation: landscape) {
     .blog-card {
-		width: 100%;
-		height: 11.5rem;
+		height: 13vh;
 		flex-direction: row;
 		gap: 0;
 
-		&[aria-disabled="true"] {
-			&:hover {
-				cursor: default;
-			}
-		}
-
-		&[aria-disabled="false"] {
-			-webkit-transition: transform ease-in-out 0.2s;
-			-moz-transition:    transform ease-in-out 0.2s;
-			-o-transition:      transform ease-in-out 0.2s;
-			transition:         transform ease-in-out 0.2s;
-
-			&:hover {
-				cursor: pointer;
-			}
-		}
-
-		&[data-is-showcase="true"] {
-			width: 55%;
-            max-width: 500px;
-			height: auto;
-            max-height: 500px;
-			flex-direction: column;
-			gap: 0;
-			box-shadow: none;
-
-			.blog-card {
-				&__thumbnail {
-					height: 60vh;
-					width: 100%;
-					overflow: hidden;
-
-					-webkit-transition: box-shadow ease-in-out 0.2s;
-					-moz-transition:    box-shadow ease-in-out 0.2s;
-					-o-transition:      box-shadow ease-in-out 0.2s;
-					transition:         box-shadow ease-in-out 0.2s;
-				}
-
-				&__data {
-					&__info {
-
-						&__title {
-                            font-size: 4vh;
-							max-height: 6rem;
-						}
-
-                        &__description {
-                            font-size: 1.6vh;
-                            ;
-                        }
-					}
-				}
-			}
-		}
-
 		&__thumbnail {
-			height: 100%;
-			width: 25rem;
+			height: 23vh;
+			width: 22rem;
+            overflow: hidden;
 			flex-direction: column-reverse;
+
+            img {
+                -webkit-transform: scale(1.2);
+                -moz-transform:    scale(1.2);
+                -o-transform:      scale(1.2);
+                transform:         scale(1.2);
+            }
 		}
 
         &__data {
             width: 100%;
             height: 100%;
-			border-radius: 0;
 
             &__info {
 				width: calc(100% - calc($--info-padding-desktop * 2));
-				gap: 1vh;
+				gap: 0vh;
 
 				&__title {
-					font-size: 3vh;
+					font-size: 2vh;
 					font-weight: 700;
-					max-height: 3rem;
+					max-height: 6rem;
 				}
 
 				&__description {
-					font-size: 1.8vh;
+					font-size: 1.3vh;
 				}
 			}
         }

@@ -1,23 +1,23 @@
 // Backdrop
 $--backdrop-filter: blur(20px) saturate(1.7);
 $--backdrop-background-color: rgba(61, 61, 61, 0.8);
-$--backdrop-background-color-mobile: #3d3d3d;
-		
+$--backdrop-background-color-mobile: #303030;
+
 $--backdrop-primary-color:rgb(188, 195, 204);
 $--backdrop-primary-color-light: #e2e8f0;
-		
+
 $--accent-color: #e2e8f0;
 $--selected-color: #345C54;
-		
+
 $--green-color: #0b997d;
 $--medium-color: #455657;
 $--dark-green-color: #345C54;
-		
+
 $--grey-color: #343434;
 $--dark-grey-color: #303030;
 
 $--black: #222222;
-		
+	
 $--box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.55);
 $--box-shadow-light: 1px 2px 5px 0px rgba(77, 77, 77, 0.025);	
 
@@ -32,3 +32,6 @@ $--min-tablet-width: 768px;
 $--min-desktop-width: 992px;
 
 $--focus-in-base-blur: 20px;
+
+$--home-margin: 5dvh;
+$--home-margin-mobile: 6dvh;

@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 // Types
@@ -13,18 +15,17 @@ export type DateDirection = 'normal' | 'inverse';
 
 export interface Props extends Job {
     dictionary: Dictionary;
-    type?: 'list' | 'showcase';
+    inCurrentJob?: boolean;
 }
 
 export default function Component({
     startDate,
     endDate,
     company,
-    positions,
     technologies,
     description,
     dictionary,
-    type = 'list',
+    inCurrentJob = false,
 }: Props) {
     const direction = dictionary['JOB_HISTORY_DATE_DIRECTION'];
     const localizedStartDate = StringServices.getLocalizedDate(dictionary, startDate, direction);
@@ -36,16 +37,16 @@ export default function Component({
     );
 
     return (
-        <div className='job-card' data-is-showcase={type === 'showcase'}>
-            <div className='job-card__date'>
-                <div className='job-card__date__text'>
+        <div className='job-card' data-is-current={inCurrentJob}>
+            <div className='job-card__header --flex-row'>
+                <div className='job-card__header__title'>{company}</div>
+                <div className='job-card__header__date --flex-row'>
                     <span>{localizedStartDate}</span>
-                    <div className='job-card__date__divider' />
+                    <div className='job-card__header__date__divider' />
                     <span>{localizedEndDate}</span>
                 </div>
             </div>
-            <div className='job-card__info --shadowed'>
-                <div className='job-card__info__company'>{company}</div>
+            <div className='job-card__info'>
                 <div className='job-card__info__description'>
                     {description[dictionary['LANGUAGE_LOCALE_URL']]}
                 </div>
