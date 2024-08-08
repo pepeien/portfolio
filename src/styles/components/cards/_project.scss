@@ -1,35 +1,58 @@
 $--background-animation-duration: 120s;
 
 .project-card {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+    min-height: 5rem;
     overflow: hidden;
     position: relative;
+    justify-content: center;
+    text-decoration: none;
+    color: $--backdrop-background-color-mobile;
+    border: 1px solid $--backdrop-background-color-mobile;
+    padding: 1.5vh 1.25vh;
+    gap: 1vh;
+
+    -webkit-transition: color ease-in-out 0.2s;
+    -moz-transition:    color ease-in-out 0.2s;
+    -o-transition:      color ease-in-out 0.2s;
+    transition:         color ease-in-out 0.2s;
 
     &:active,
     &:focus,
     &:hover {
+        color: $--accent-color;
+
         div {
             -webkit-transform: translateX(0);
             -moz-transform:    translateX(0);
             -o-transform:      translateX(0);
             transform:         translateX(0);
         }
+    }
 
-        .project-card {
-            &__header {
-                color: $--accent-color;
-            }
-        }
+    h5, span {
+        font-family: 'Roboto Condensed';
+        z-index: 2;
+    }
+
+    h5 {
+        font-family: 'Roboto Condensed';
+        font-weight: 700;
+        font-size: 3vh;
+    }
+
+    span {
+        font-weight: 200;
+        font-style: italic;
     }
 
     div {
         position: absolute;
         width: 100%;
-        height: 100%;
+        height: 101%;
         background-color: $--backdrop-background-color-mobile;
         z-index: 1;
+        top: 0;
+        left: 0;
 
         -webkit-transform: translateX(-120%) skewX(-20deg);
         -moz-transform:    translateX(-120%) skewX(-20deg);
@@ -41,58 +64,17 @@ $--background-animation-duration: 120s;
         -o-transition:      transform ease-in-out 0.2s;
         transition:         transform ease-in-out 0.2s;
     }
-
-    &__header {
-        justify-content: center;
-        gap: 1vh;
-        width: calc(100% - 1.8rem);
-        min-height: 5rem;
-        padding: 1.5vh 1.25vh;
-        background-color: transparent;
-        border: 1px solid $--backdrop-background-color-mobile;
-        text-decoration: none;
-        color: $--backdrop-background-color-mobile;
-        z-index: 2;
-
-        -webkit-transition: color ease-in-out 0.2s;
-        -moz-transition:    color ease-in-out 0.2s;
-        -o-transition:      color ease-in-out 0.2s;
-        transition:         color ease-in-out 0.2s;
-
-        h5, span {
-            font-family: 'Roboto Condensed';
-        }
-
-        h5 {
-            font-family: 'Roboto Condensed';
-            font-weight: 700;
-            font-size: 3vh;
-        }
-
-        span {
-            font-weight: 200;
-            font-style: italic;
-        }
-    }
 }
 
 $--mountain-bottom-distance-desktop: -1vh;
 
 @media only screen and (orientation: landscape) {
     .project-card {
-        align-items: flex-start;
-        width: 18vw;
+        min-width: 10vw;
+        padding: 1vh 1.8vh;
 
-        &__header {
-            padding: 0.5vh 1.25vh;
-
-            div {
-                min-height: 5rem;
-
-                h5 {
-                    font-size: 3vh;
-                }
-            }
+        h5 {
+            font-size: 3vh;
         }
     }
 }

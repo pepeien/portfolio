@@ -14,10 +14,10 @@
         > ul {
 		    flex-direction: row;
             flex-wrap: wrap;
-		    gap: 5vh;
+		    gap: 4vh;
 
             > li {
-                width: calc(50% - 5vh);
+                flex: 0.5;
             }
         }
 	}

@@ -1,5 +1,5 @@
 .job-card {
-	width: calc(100% - 6vh);
+	width: auto;
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -14,30 +14,33 @@
     &[data-is-current="true"] {
         background-color: $--backdrop-background-color-mobile;
         color: $--accent-color;
+
+        .job-card {
+            &__header__date__divider {
+                background-color: $--accent-color;
+            }
+        }
     }
 
     &__header {
-        height: 5vh;
         gap: 1vh;
-        margin: 0;
         align-items: center;
         justify-content: center;
 
         &__title {
-            font-size: 2.4vh;
+            font-size: 1.5rem;
         }
 
         &__date {
             align-items: center;
             gap: 0 1vh;
-            font-size: 1.2vh;
+            font-size: 0.6rem;
             font-style: italic;
 
             &__divider {
                 height: 1px;
                 width: 1vh;
-                background-color: $--accent-color;
-                opacity: 0.4;
+                background-color: $--backdrop-background-color-mobile;
             }
         }
     }
@@ -57,7 +60,6 @@
 			width: 100%;
 			font-size: 1.8vh;
 			line-height: 1.5;
-			opacity: 0.7;
 		}
 		
 		.tags {
@@ -71,13 +73,25 @@
         min-height: 25vh;
 		gap: 1vh;
 
+        &__header {
+            gap: 3vh;
+
+            &__title {
+                font-size: 2.5rem;
+            }
+
+            &__date {
+                font-size: 0.8rem;
+
+                &__divider {
+                    height: 0.2vh;
+                }
+            }
+        }
+
 		&__info {
-			flex-direction: column;
 			gap: 1vh 0;
 			flex: 1;
-			max-width: 40vw;
-			background-color: transparent;
-			box-shadow: none;
 
 			&__description {
 				width: 100%;

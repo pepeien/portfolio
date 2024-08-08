@@ -61,14 +61,14 @@ async function generatePage({ params }: Props) {
     return (
         <>
             <main className='home'>
-                <section className='home__header --fade-in --flex-column'>
+                <div className='home__header --fade-in --flex-column'>
                     <div className='home__header__title --flex-column'>
                         <h1>{dictionary['ABOUT_NAME']}</h1>
                         <h2>{dictionary['ABOUT_HERO']}</h2>
                     </div>
                     <Socials dictionary={dictionary} />
                     <MenuListing dictionary={dictionary} />
-                </section>
+                </div>
                 <section id='content' className='home__content --fade-in --flex-column'>
                     <article id='PROJECTS_TITLE'>
                         <h3>{dictionary['PROJECTS_TITLE']}</h3>

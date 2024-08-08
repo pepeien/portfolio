@@ -32,8 +32,7 @@
             font-family: 'Roboto Condensed';
             font-size: 1.4rem;
             font-weight: 300;
-            padding: 0.3rem 1rem;
-            min-height: 3rem;
+            padding: 0.8rem 1rem;
             max-height: 12rem;
             border: 1px solid $--backdrop-background-color-mobile;
 
@@ -73,7 +72,7 @@
             width: 115%;
             height: 115%;
             position: absolute;
-            background-color: $--medium-color;
+            background-color: $--backdrop-background-color-mobile;;
             z-index: 1;
 
             -webkit-transform: translateX(-115%) skewX(-20deg);
@@ -147,9 +146,8 @@
             textarea {
                 font-size: clamp(1.2vh, 1.2vh + 0.5rem, 4vh);
                 margin: 0;
-                min-height: 5vh;
                 max-height: 20vh;
-                padding: 1vh 1.5vh;
+                padding: 1.5vh 1.5vh;
             }
 
             input {
@@ -165,7 +163,7 @@
 
         &-button {
             margin: 0;
-            height: 8vh;
+            height: 7vh;
             font-size: clamp(2vh, 2vh + 0.5rem, 4vh);
             width: 20%;
 

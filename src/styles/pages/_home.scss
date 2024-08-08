@@ -1,17 +1,17 @@
-$--width: calc(100vw - ($--home-margin-mobile * 2));
+$--width: calc(100vw - $--home-margin-mobile);
 $--height: calc(100dvh - ($--home-margin-mobile * 2)) - 0.2dvh;
 
 .home {
-    width: calc($--width - 4dvh);
-    height: calc($--height - 4dvh);
-    margin: $--home-margin-mobile;
+    width: $--width;
+    height: $--height;
+    margin: $--home-margin-mobile ($--home-margin-mobile / 2);
     border: 1px solid $--backdrop-background-color;
-    padding: 2dvh;
     overflow: hidden;
     overflow-y: auto;
 
-    &__header { 
-        height: calc($--height - 4dvh);
+    &__header {
+        height: calc($--height - 5vh);
+        padding: 2dvh;
 
         &__title {
             h1, h2 {
@@ -26,12 +26,16 @@ $--height: calc(100dvh - ($--home-margin-mobile * 2)) - 0.2dvh;
                 font-weight: 200;
             }
         }
+
+        .menu {
+            margin-top: auto;
+        }
     }
 
     &__content {
         margin-top: 8vh;
         gap: 6vh;
-        overflow-y: auto;
+        padding: 2dvh;
 
         article {
             display: flex;
@@ -39,7 +43,7 @@ $--height: calc(100dvh - ($--home-margin-mobile * 2)) - 0.2dvh;
 
             h3 {
                 font-family: 'Roboto Condensed';
-                font-size: 4vh;
+                font-size: 3rem;
                 color: $--backdrop-background-color-mobile;
                 padding: 1vh 0;
                 margin-bottom: 2vh;
@@ -54,16 +58,17 @@ $--height-desktop: calc(100dvh - ($--home-margin * 2))  - 0.2dvh;
 @media only screen and (orientation: landscape) {
     .home {
         display: flex;
-        flex-direction: column;
-        width: calc($--width-desktop - 4dvh);
-        height: calc($--height-desktop - 4dvh);
-        margin: $--home-margin;
         flex-direction: row;
-        overflow: hidden;
         gap: 1vh;
+        width: $--width-desktop;
+        height: $--height-desktop;
+        margin: $--home-margin;
+        overflow: hidden;
 
         &__header {
+            height: auto;
             flex: 0.75;
+            padding-right: 0;
     
             &__title {
                 h1, h2 {
@@ -84,6 +89,14 @@ $--height-desktop: calc(100dvh - ($--home-margin * 2))  - 0.2dvh;
         &__content {
             margin: 0;
             flex: 1.25;
+            padding-left: 0;
+            overflow-y: auto;
+
+            article {
+                h3 {
+                    font-size: 3.5rem;
+                }
+            }
         }
     }
 }

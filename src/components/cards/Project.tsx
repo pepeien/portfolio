@@ -11,17 +11,10 @@ export interface Props extends Project {
 
 export default function Component({ name, link, description, dictionary }: Props) {
     return (
-        <div className='project-card --flex-column'>
-            <a
-                className='project-card__header --flex-column'
-                href={link}
-                target='_blank'
-                rel='noreferrer'
-            >
-                <h5>{name}</h5>
-                <span>{description[dictionary['LANGUAGE_LOCALE_URL']]}</span>
-            </a>
+        <a className='project-card --flex-column' href={link} target='_blank' rel='noreferrer'>
+            <h5>{name}</h5>
+            <span>{description[dictionary['LANGUAGE_LOCALE_URL']]}</span>
             <div />
-        </div>
+        </a>
     );
 }
