@@ -7,12 +7,10 @@ interface Props {
     dictionary: Dictionary;
 }
 
-const Footer = ({ dictionary }: Props) => {
+export default function Component({ dictionary }: Props) {
     return (
         <footer>
             <span>{dictionary['FOOTER_TEXT_2']}</span>
         </footer>
     );
-};
-
-export default Footer;
+}

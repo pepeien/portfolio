@@ -5,7 +5,7 @@
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
 	margin: 0;
-	font-family: "Inter";
+	font-family: "Roboto Condensed";
 	font-size: 16px;
 	line-height: 1.5;
 	word-wrap: break-word;
@@ -40,7 +40,7 @@
 	h1 {
 		margin: .67em 0;
 		padding-bottom: .3em;
-		font-family: "Inter";
+		font-family: "Roboto Condensed";
 		font-weight: 700;
 	}
 
@@ -735,7 +735,6 @@
 		line-height: 1.45;
 		color: #e6edf3;
 		background-color: #161b22;
-		border-radius: $--squircle-border-radius;
         overflow: auto;
         width: calc(100% - (4px * 2));
 	}

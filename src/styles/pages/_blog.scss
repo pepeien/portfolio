@@ -4,7 +4,6 @@
     align-items: center;
     gap: 3vh;
     color: $--grey-color;
-    overflow: hidden;
     overflow-y: auto;
     padding-bottom: $--home-margin-mobile;
 
@@ -12,11 +11,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: 5dvh;
+        margin-top: 4dvh;
 
         img {
             width: calc(100% - 4vh);
-            height: 20vh;
+            height: 40vw;
             padding: 2vh;
             border: 1px solid $--backdrop-background-color-mobile;
         }
@@ -30,7 +29,7 @@
             align-items: center;
 
             &__title, &__description {
-                font-family: "Inter";
+                font-family: "Roboto Condensed";
             }
         
             &__title {
@@ -41,7 +40,8 @@
             }
     
             &__description {
-                font-weight: 300;
+                margin-top: 1vh;
+                font-weight: 400;
                 font-size: 1.2rem;
                 opacity: 0.8;
                 text-align: center;
@@ -97,11 +97,11 @@
         gap: 6vh;
 
         &__banner {
-            margin-top: 6vh;
+            margin-top: 4vh;
 
             img {
                 width: 55vw;
-                height: 55vh;
+                height: 27vw;
                 padding: 2vh;
             }
         }
@@ -109,14 +109,14 @@
         &__content {
             &__header {
                 width: 100%;
-                gap: 2vh 0;
+                gap: 2vh;
 
                 &__title {
                     font-size: 8vh;
                 }
 
                 &__description {
-                    font-size: 2vh;
+                    font-size: 3vh;
                 }
 
                 &__divider {

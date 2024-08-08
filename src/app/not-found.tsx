@@ -12,7 +12,7 @@ export default async function Page() {
     return (
         <html lang={dictionary['LANGUAGE_LOCALE']}>
             <body suppressHydrationWarning={true}>
-                <main className='not-found --page'>
+                <main className='not-found --page --hidden-overflow-all'>
                     <HomeButton dictionary={dictionary} />
                     <section>
                         <div className='not-found__title'>
@@ -21,7 +21,7 @@ export default async function Page() {
                                 <h2>404</h2>
                             </div>
                         </div>
-                        <Mountains isScrollReactive={false} />
+                        <Mountains />
                     </section>
                 </main>
             </body>

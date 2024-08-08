@@ -95,48 +95,46 @@ c-5.815,13.208,4.855,27.01,18.107,26.263H489.52C500.566,511.97,509.379,502.408,5
 
     return (
         <Link
-            className='blog-card'
+            className='blog-card --hidden-overflow-all'
             href={`${dictionary['LANGUAGE_LOCALE_URL']}${baseLink}`}
             aria-disabled={!wasReleased}
         >
-            <div className='blog-card__data'>
-                <div className='blog-card__data__background' />
-                <div className='blog-card__data__info'>
-                    <TagListing
-                        data={[
-                            {
-                                icon: getAuthorIcon(),
-                                text: author,
-                                accentColor: accentColor,
-                                backgroundColor: backgroundColor,
-                            },
-                            {
-                                icon: getElapsedTimeIcon(),
-                                text: StringServices.getLocalizedElapsedDate(
-                                    dictionary,
-                                    wasReleased ? new Date(date) : undefined,
-                                    dictionary['UPCOMING_TEXT'],
-                                ),
-                                accentColor: accentColor,
-                                backgroundColor: backgroundColor,
-                            },
-                            {
-                                icon: getThemeIcon(),
-                                text: dictionary[theme],
-                                accentColor: accentColor,
-                                backgroundColor: backgroundColor,
-                            },
-                        ]}
-                    />
-                    <h5 className='blog-card__data__info__title'>
-                        {title[dictionary['LANGUAGE_LOCALE_URL']]}
-                    </h5>
-                    <p className='blog-card__data__info__description'>
-                        {description[dictionary['LANGUAGE_LOCALE_URL']]}
-                    </p>
-                </div>
+            <div className='blog-card__info --flex-column --hidden-overflow-all'>
+                <div className='blog-card__info__background --skewd-background' />
+                <TagListing
+                    data={[
+                        {
+                            icon: getAuthorIcon(),
+                            text: author,
+                            accentColor: accentColor,
+                            backgroundColor: backgroundColor,
+                        },
+                        {
+                            icon: getElapsedTimeIcon(),
+                            text: StringServices.getLocalizedElapsedDate(
+                                dictionary,
+                                wasReleased ? new Date(date) : undefined,
+                                dictionary['UPCOMING_TEXT'],
+                            ),
+                            accentColor: accentColor,
+                            backgroundColor: backgroundColor,
+                        },
+                        {
+                            icon: getThemeIcon(),
+                            text: dictionary[theme],
+                            accentColor: accentColor,
+                            backgroundColor: backgroundColor,
+                        },
+                    ]}
+                />
+                <h4 className='blog-card__info__title --color-ease-in'>
+                    {title[dictionary['LANGUAGE_LOCALE_URL']]}
+                </h4>
+                <span className='blog-card__info__description --color-ease-in'>
+                    {description[dictionary['LANGUAGE_LOCALE_URL']]}
+                </span>
             </div>
-            <div className='blog-card__thumbnail'>
+            <div className='blog-card__thumbnail --hidden-overflow-all'>
                 <Image
                     src={`${InternalServices.getBLOB()}/blog/${id}/images/thumbnail.png`}
                     width={910}

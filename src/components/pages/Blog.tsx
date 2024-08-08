@@ -162,7 +162,7 @@ async function generatePage({ params }: Props) {
 
     return (
         <>
-            <main className='blog'>
+            <main className='blog --hidden-overflow-all'>
                 <HomeButton dictionary={dictionary} />
                 <div className='blog__banner'>
                     <Image

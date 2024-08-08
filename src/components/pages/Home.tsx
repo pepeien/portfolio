@@ -60,7 +60,7 @@ async function generatePage({ params }: Props) {
 
     return (
         <>
-            <main className='home'>
+            <main className='home --hidden-overflow-all'>
                 <div className='home__header --fade-in --flex-column'>
                     <div className='home__header__title --flex-column'>
                         <h1>{dictionary['ABOUT_NAME']}</h1>

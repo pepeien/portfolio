@@ -1,6 +1,5 @@
-'use client';
-
 import React from 'react';
+import Link from 'next/link';
 import { v4 } from 'uuid';
 
 // Types
@@ -42,22 +41,14 @@ export default function Component({ dictionary }: Props) {
         },
     ];
 
-    const onClick = (id: string) => {
-        const element = window.document.getElementById(id);
-
-        if (!element) {
-            return;
-        }
-
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    };
-
     return (
         <ul className='menu --flex-column'>
             {sectors.map((sector) => (
-                <li key={v4()} onClick={() => onClick(sector.id)}>
-                    <span>{dictionary[sector.id]}</span>
-                    <div />
+                <li key={v4()}>
+                    <Link href={`/#${sector.id}`} className='--flex-row'>
+                        <span className='--bg-color-ease-in'>{dictionary[sector.id]}</span>
+                        <div />
+                    </Link>
                 </li>
             ))}
         </ul>

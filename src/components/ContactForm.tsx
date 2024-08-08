@@ -9,7 +9,7 @@ interface Props {
     dictionary: Dictionary;
 }
 
-const ContactForm = ({ dictionary }: Props) => {
+export default function Component({ dictionary }: Props) {
     const emailInputRef = React.useRef<HTMLInputElement>(null);
     const textInputRef = React.useRef<HTMLTextAreaElement>(null);
 
@@ -47,7 +47,7 @@ const ContactForm = ({ dictionary }: Props) => {
 
     return (
         <form
-            className='contact__form'
+            className='contact__form --hidden-overflow-all'
             onSubmit={submitContactForm}
             onFocus={() => setStatus('')}
             action={process.env.NEXT_PUBLIC_FORM_SERVICE_URL}
@@ -67,14 +67,12 @@ const ContactForm = ({ dictionary }: Props) => {
                 <textarea ref={textInputRef} name='message' className='contact__form-message' />
             </div>
             <button className='contact__form-button'>
-                <div className='contact__form-button__background' />
-                <span>{dictionary['CONTACT_SEND_LABEL']}</span>
+                <div className='contact__form-button__background --skewd-background' />
+                <span className='--color-ease-in'>{dictionary['CONTACT_SEND_LABEL']}</span>
             </button>
             <div className='contact__form-status --flex-row'>
                 <span>{status}</span>
             </div>
         </form>
     );
-};
-
-export default ContactForm;
+}

@@ -9,9 +9,10 @@
         height: 5vh;
         position: relative;
 
+        &:active,
+        &:focus,
+        &:focus-within,
         &:hover {
-            cursor: pointer;
-
             span {
                 color: $--accent-color;
                 background-color: $--backdrop-background-color-mobile;
@@ -35,11 +36,7 @@
             font-size: 2vh;
             margin-left: 0.5vh;
             z-index: 1;
-
-            -webkit-transition: background-color ease-in-out 0.1s, color ease-in-out 0.1s;
-            -moz-transition:    background-color ease-in-out 0.1s, color ease-in-out 0.1s;
-            -o-transition:      background-color ease-in-out 0.1s, color ease-in-out 0.1s;
-            transition:         background-color ease-in-out 0.1s, color ease-in-out 0.1s;
+            color: $--backdrop-background-color-mobile;
         }
 
         div {
@@ -54,10 +51,15 @@
             -o-transition:      width ease-in-out 0.2s;
             transition:         width ease-in-out 0.2s;
         }
+
+        a {
+            align-items: center;
+            text-decoration: none;
+        }
     }
 }
 
-@media only screen and (orientation: landscape) {
+@media only screen and (min-width:1025px){
     .menu {
         li {
             &:hover {
@@ -70,7 +72,6 @@
 
             span {
                 font-size: 2.25vh;
-                color: $--backdrop-background-color-mobile;
             }
         }
     }

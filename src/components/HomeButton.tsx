@@ -8,9 +8,12 @@ interface Props {
     dictionary: Dictionary;
 }
 
-const HomeButton = ({ dictionary }: Props) => {
+export default function Component({ dictionary }: Props) {
     return (
-        <Link className='home-button --flex-column' href={`/${dictionary['LANGUAGE_LOCALE_URL']}`}>
+        <Link
+            className='home-button --flex-column --bg-color-ease-in'
+            href={`/${dictionary['LANGUAGE_LOCALE_URL']}`}
+        >
             <svg
                 version='1.0'
                 xmlns='http://www.w3.org/2000/svg'
@@ -25,6 +28,4 @@ c2.211,0,4-1.789,4-4V33.695l1.195,1.195c1.562,1.562,3.949,1.422,5.516-0.141C64.2
             </svg>
         </Link>
     );
-};
-
-export default HomeButton;
+}

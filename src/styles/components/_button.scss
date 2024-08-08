@@ -169,7 +169,9 @@ button {
         }
 
         &:active,
-        &:hover {
+        &:focus,
+        &:focus-within,
+        &:hover  {
             & .background {
                 &[data-hover-animation='default'] {
                     opacity: 1;

@@ -13,7 +13,7 @@
 	}
 }
 
-@media only screen and (orientation: landscape) {
+@media only screen and (min-width:1025px){
 	.blogs {
 		> ul {
 			gap: 2vh;

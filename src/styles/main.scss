@@ -13,17 +13,11 @@
 //Components Import
 @import 'components/button';
 @import 'components/contact-form';
-@import 'components/external-redirector';
 @import 'components/home-button';
 @import 'components/footer';
-@import 'components/language';
 @import 'components/markdown';
-@import 'components/modal';
 @import 'components/mountains';
-@import 'components/rect-button';
-@import 'components/specialty';
 @import 'components/socials';
-@import 'components/title';
 
 @import 'components/cards/blog';
 @import 'components/cards/job';
@@ -31,6 +25,7 @@
 
 @import 'components/listing/blog';
 @import 'components/listing/job';
+@import 'components/listing/language';
 @import 'components/listing/menu';
 @import 'components/listing/project';
 @import 'components/listing/tag';
@@ -39,7 +34,6 @@
 @import 'pages/blog';
 @import 'pages/home';
 @import 'pages/not-found';
-@import 'pages/status';
 
 body {
 	background-color: $--accent-color;

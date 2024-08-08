@@ -1,9 +1,8 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import Link from 'next/link';
 
 // Types
-import { Dictionary, Project, ProjectIdentity } from '@utils/interfaces';
+import { Dictionary, Project } from '@utils/interfaces';
 
 export interface Props extends Project {
     dictionary: Dictionary;
@@ -11,10 +10,17 @@ export interface Props extends Project {
 
 export default function Component({ name, link, description, dictionary }: Props) {
     return (
-        <a className='project-card --flex-column' href={link} target='_blank' rel='noreferrer'>
-            <h5>{name}</h5>
-            <span>{description[dictionary['LANGUAGE_LOCALE_URL']]}</span>
-            <div />
-        </a>
+        <Link
+            className='project-card --flex-column --hidden-overflow-all --color-ease-in'
+            href={link}
+            target='_blank'
+            rel='noreferrer'
+        >
+            <h4 className='project-card__title'>{name}</h4>
+            <span className='project-card__description'>
+                {description[dictionary['LANGUAGE_LOCALE_URL']]}
+            </span>
+            <div className='--skewd-background' />
+        </Link>
     );
 }

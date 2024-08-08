@@ -6,7 +6,6 @@ $--height: calc(100dvh - ($--home-margin-mobile * 2)) - 0.2dvh;
     height: $--height;
     margin: $--home-margin-mobile ($--home-margin-mobile / 2);
     border: 1px solid $--backdrop-background-color;
-    overflow: hidden;
     overflow-y: auto;
 
     &__header {
@@ -55,7 +54,7 @@ $--height: calc(100dvh - ($--home-margin-mobile * 2)) - 0.2dvh;
 $--width-desktop: calc(100vw - ($--home-margin * 2));
 $--height-desktop: calc(100dvh - ($--home-margin * 2))  - 0.2dvh;
 
-@media only screen and (orientation: landscape) {
+@media only screen and (min-width:1025px){
     .home {
         display: flex;
         flex-direction: row;
@@ -63,23 +62,22 @@ $--height-desktop: calc(100dvh - ($--home-margin * 2))  - 0.2dvh;
         width: $--width-desktop;
         height: $--height-desktop;
         margin: $--home-margin;
-        overflow: hidden;
 
         &__header {
             height: auto;
             flex: 0.75;
             padding-right: 0;
-    
+
             &__title {
                 h1, h2 {
                     font-family: 'Roboto Condensed';
                     color: $--backdrop-background-color-mobile;
                 }
-    
+
                 h1 {
                     font-size: 4rem;
                 }
-    
+
                 h2 {
                     font-weight: 200;
                 }

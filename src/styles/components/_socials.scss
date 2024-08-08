@@ -10,14 +10,10 @@ $--navbar-width-mobile: 8vh;
         outline: transparent;
         border: 1px solid $--backdrop-background-color-mobile;
 
-        -webkit-transition: background-color ease-in-out 0.3s;
-        -moz-transition:    background-color ease-in-out 0.3s;
-        -o-transition:      background-color ease-in-out 0.3s;
-        transition:         background-color ease-in-out 0.3s;
-
         &:active,
         &:focus,
-        &:hover {
+        &:focus-within,
+        &:hover  {
             background-color: $--backdrop-background-color-mobile;
 
             svg {
@@ -57,28 +53,7 @@ $--navbar-width-mobile: 8vh;
 $--navbar-width-desktop: 4rem;
 
 @media only screen and (min-width: 801px) {
-    .navbar {
-        &__button {
-            svg {
-                path {
-                    -webkit-transition: fill ease-in-out 0.3s;
-                    -moz-transition:    fill ease-in-out 0.3s;
-                    -o-transition:      fill ease-in-out 0.3s;
-                    transition:         fill ease-in-out 0.3s;
-                }
-            }
-
-            &:hover {
-                cursor: pointer;
-
-                svg {
-                    path {
-                        fill: $--backdrop-primary-color;
-                    }
-                }
-            }
-        }
-
+    .socials {
         &__socials {
             width: 100%;
 

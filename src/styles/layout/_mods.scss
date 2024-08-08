@@ -276,6 +276,13 @@
     transition: transform ease-in-out 0.2s;
 }
 
+.--color-ease-in {
+    -webkit-transition: color ease-in-out 0.2s;
+    -moz-transition: color ease-in-out 0.2s;
+    -o-transition: color ease-in-out 0.2s;
+    transition: color ease-in-out 0.2s;
+}
+
 .--flex-center {
     display: flex;
     align-items: center;
@@ -326,6 +333,8 @@
     -webkit-box-shadow: $--box-shadow;
     -moz-box-shadow:    $--box-shadow;
 
+    &:active,
+    &:focus,
     &:hover {
         cursor: pointer;
 
@@ -338,4 +347,25 @@
         -webkit-box-shadow: $--box-shadow-light;
         -moz-box-shadow:    $--box-shadow-light;    
     }
+}
+
+.--skewd-background {
+    display: block;
+    width: 115%;
+    height: 115%;
+    position: absolute;
+    background-color: $--backdrop-background-color-mobile;;
+    z-index: 1;
+    top: 0;
+    left: 0;
+
+    -webkit-transform: translateX(-115%) skewX(-20deg);
+    -moz-transform:    translateX(-115%) skewX(-20deg);
+    -o-transform:      translateX(-115%) skewX(-20deg);
+    transform:         translateX(-115%) skewX(-20deg);
+
+    -webkit-transition: transform ease-in-out 0.2s;
+    -moz-transition:    transform ease-in-out 0.2s;
+    -o-transition:      transform ease-in-out 0.2s;
+    transition:         transform ease-in-out 0.2s;
 }

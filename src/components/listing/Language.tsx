@@ -15,7 +15,7 @@ interface Props {
     locales?: Dictionary;
 }
 
-const Language = ({ dictionary, locales }: Props) => {
+export default function Component({ dictionary, locales }: Props) {
     const pathName = usePathname();
 
     const isLanguageSelected = React.useCallback(
@@ -26,14 +26,14 @@ const Language = ({ dictionary, locales }: Props) => {
     );
 
     return (
-        <nav className='language --flex-column'>
+        <nav className='languages --flex-column'>
             <ul className='--flex-row'>
                 {locales ? (
-                    <ul className='language__list --flex-row'>
-                        {Object.entries(locales).map(([id, name], index) => (
+                    <ul className='languages__list --flex-row'>
+                        {Object.entries(locales).map(([id, name]) => (
                             <li
                                 key={id}
-                                className='--flex-row'
+                                className='--flex-row --bg-color-ease-in'
                                 data-is-selected={isLanguageSelected(id)}
                             >
                                 <Link
@@ -42,7 +42,7 @@ const Language = ({ dictionary, locales }: Props) => {
                                     )}`}
                                     scroll={false}
                                 >
-                                    <span>{name}</span>
+                                    <span className='--color-ease-in'>{name}</span>
                                 </Link>
                             </li>
                         ))}
@@ -51,6 +51,4 @@ const Language = ({ dictionary, locales }: Props) => {
             </ul>
         </nav>
     );
-};
-
-export default Language;
+}

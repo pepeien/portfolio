@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { v4 } from 'uuid';
 
@@ -16,11 +14,11 @@ export default function Component({ data }: Props) {
             {data.map(({ icon, accentColor, backgroundColor, text }) => (
                 <li
                     key={v4()}
-                    className='--flex-row'
+                    className='--flex-row --bg-color-ease-in'
                     style={{ color: accentColor, backgroundColor: backgroundColor }}
                 >
                     {icon}
-                    <span>{text}</span>
+                    <span className='--color-ease-in'>{text}</span>
                 </li>
             ))}
         </ul>

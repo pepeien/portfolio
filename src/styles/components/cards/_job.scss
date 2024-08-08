@@ -68,7 +68,7 @@
 	}
 }
 
-@media only screen and (orientation: landscape) {
+@media only screen and (min-width:1025px){
 	.job-card {
         min-height: 25vh;
 		gap: 1vh;

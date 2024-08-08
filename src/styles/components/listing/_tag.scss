@@ -11,25 +11,20 @@
 		background-color: $--selected-color;
 		color: $--accent-color;
 
-        -webkit-transition: background-color ease-in-out 0.2s;
-        -moz-transition:    background-color ease-in-out 0.2s;
-        -o-transition:      background-color ease-in-out 0.2s;
-        transition:         background-color ease-in-out 0.2s;
-
 		svg {
 			height: 1rem;
 			width: 1rem;
 		}
 
 		span {
-			font-family: 'Inter';
-			font-weight: 700;
+			font-family: 'Roboto Condensed';
+			font-weight: 500;
 			font-size: 0.5rem;
 		}
 	}
 }
 
-@media only screen and (orientation: landscape) {
+@media only screen and (min-width:1025px){
 	.tags {
 		li {
             padding: 0.8vh 1.2vh;
@@ -40,7 +35,7 @@
 			}
 
 			span {
-				font-size: 1.2vh;
+				font-size: 1.4vh;
 			}
 		}
 	}

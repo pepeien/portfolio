@@ -1,7 +1,4 @@
-'use client';
-
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import React from 'react';
 
 // Types
@@ -11,12 +8,10 @@ interface Props {
     dictionary: Dictionary;
 }
 
-const Socials = ({ dictionary }: Props) => {
-    const pathName = usePathname();
-
+export default function Component({ dictionary }: Props) {
     return (
         <ul className='socials --flex-row'>
-            <li className='socials__button --flex-column'>
+            <li className='socials__button --flex-column --bg-color-ease-in'>
                 <Link href={process.env.NEXT_PUBLIC_GIT_URL ?? ''} target='_blank' rel='noreferrer'>
                     <svg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'>
                         <g>
@@ -25,7 +20,7 @@ const Socials = ({ dictionary }: Props) => {
                     </svg>
                 </Link>
             </li>
-            <li className='socials__button --flex-column'>
+            <li className='socials__button --flex-column --bg-color-ease-in'>
                 <Link
                     href={
                         process.env.NEXT_PUBLIC_LINKEDIN_URL
@@ -51,7 +46,7 @@ const Socials = ({ dictionary }: Props) => {
                     </svg>
                 </Link>
             </li>
-            <li className='socials__button --flex-column'>
+            <li className='socials__button --flex-column --bg-color-ease-in'>
                 <Link
                     href={process.env.NEXT_PUBLIC_EMAIL_URL ?? ''}
                     target='_blank'
@@ -64,6 +59,4 @@ const Socials = ({ dictionary }: Props) => {
             </li>
         </ul>
     );
-};
-
-export default Socials;
+}
