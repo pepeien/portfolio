@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 
 // Components
-import { Language, Socials } from '@components';
+import { LanguageListing, SocialListing } from '@components';
 
 // Dictionary
 import { getAlternates, getCanonicalAlternate, getDictionary, getClientLocales } from '@dictionary';
@@ -62,7 +62,7 @@ async function generatePage({ params, children }: Props) {
     return (
         <html lang={dictionary['LANGUAGE_LOCALE']}>
             <body suppressHydrationWarning={true}>
-                <Language dictionary={dictionary} locales={getClientLocales()} />
+                <LanguageListing dictionary={dictionary} locales={getClientLocales()} />
                 {children}
             </body>
         </html>

@@ -41,10 +41,10 @@ $--navbar-width-mobile: 8vh;
             path {
                 fill: $--backdrop-background-color-mobile;
 
-                -webkit-transition: fill ease-in-out 0.3s;
-                -moz-transition:    fill ease-in-out 0.3s;
-                -o-transition:      fill ease-in-out 0.3s;
-                transition:         fill ease-in-out 0.3s;
+                -webkit-transition: fill ease-in-out 0.2s;
+                -moz-transition:    fill ease-in-out 0.2s;
+                -o-transition:      fill ease-in-out 0.2s;
+                transition:         fill ease-in-out 0.2s;
             }
         }
     }

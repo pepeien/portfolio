@@ -9,7 +9,7 @@ import {
     JobListing,
     BlogListing,
     MenuListing,
-    Socials,
+    SocialListing,
 } from '@components';
 
 // Dictionary
@@ -66,7 +66,7 @@ async function generatePage({ params }: Props) {
                         <h1>{dictionary['ABOUT_NAME']}</h1>
                         <h2>{dictionary['ABOUT_HERO']}</h2>
                     </div>
-                    <Socials dictionary={dictionary} />
+                    <SocialListing dictionary={dictionary} />
                     <MenuListing dictionary={dictionary} />
                 </div>
                 <section id='content' className='home__content --fade-in --flex-column'>

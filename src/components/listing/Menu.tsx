@@ -46,7 +46,7 @@ export default function Component({ dictionary }: Props) {
             {sectors.map((sector) => (
                 <li key={v4()}>
                     <Link href={`/#${sector.id}`} className='--flex-row'>
-                        <span className='--bg-color-ease-in'>{dictionary[sector.id]}</span>
+                        <span>{dictionary[sector.id]}</span>
                         <div />
                     </Link>
                 </li>

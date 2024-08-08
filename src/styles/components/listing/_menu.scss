@@ -37,6 +37,11 @@
             margin-left: 0.5vh;
             z-index: 1;
             color: $--backdrop-background-color-mobile;
+
+            -webkit-transition: background-color ease-in-out 0.2s, box-shadow ease-in-out 0.2s;
+            -moz-transition:    background-color ease-in-out 0.2s, box-shadow ease-in-out 0.2s;
+            -o-transition:      background-color ease-in-out 0.2s, box-shadow ease-in-out 0.2s;
+            transition:         background-color ease-in-out 0.2s, box-shadow ease-in-out 0.2s;        
         }
 
         div {

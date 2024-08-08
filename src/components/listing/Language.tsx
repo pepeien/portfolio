@@ -27,28 +27,26 @@ export default function Component({ dictionary, locales }: Props) {
 
     return (
         <nav className='languages --flex-column'>
-            <ul className='--flex-row'>
-                {locales ? (
-                    <ul className='languages__list --flex-row'>
-                        {Object.entries(locales).map(([id, name]) => (
-                            <li
-                                key={id}
-                                className='--flex-row --bg-color-ease-in'
-                                data-is-selected={isLanguageSelected(id)}
+            {locales ? (
+                <ul className='languages__list --flex-row'>
+                    {Object.entries(locales).map(([id, name]) => (
+                        <li
+                            key={id}
+                            className='--flex-row --bg-color-ease-in'
+                            data-is-selected={isLanguageSelected(id)}
+                        >
+                            <Link
+                                href={`/${id}/${StringServices.removeExtraSlashes(
+                                    pathName.split(dictionary['LANGUAGE_LOCALE_URL'])[1],
+                                )}`}
+                                scroll={false}
                             >
-                                <Link
-                                    href={`/${id}/${StringServices.removeExtraSlashes(
-                                        pathName.split(dictionary['LANGUAGE_LOCALE_URL'])[1],
-                                    )}`}
-                                    scroll={false}
-                                >
-                                    <span className='--color-ease-in'>{name}</span>
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                ) : undefined}
-            </ul>
+                                <span className='--color-ease-in'>{name}</span>
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+            ) : undefined}
         </nav>
     );
 }
