@@ -2,11 +2,11 @@
     align-items: center;
     justify-content: center;
     position: fixed;
-    left: 2vh;
-    bottom: 2dvh;
+    left: 1.25vh;
+    bottom: 1vh;
     width: 2vh;
     height: 2vh;
-    padding: 1vh;
+    padding: 0.8vh;
     background-color: $--backdrop-background-color-mobile;
     z-index: 4;
 
@@ -24,8 +24,8 @@
     .home-button {
         width: 2vh;
         height: 2vh;
-        left: 2vh;
-        bottom: 2vh;
+        left: 1vh;
+        bottom: 1vh;
         padding: 1vh;
     }
 }

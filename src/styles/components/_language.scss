@@ -1,6 +1,11 @@
 .language {
-    position: absolute;
-    bottom: 1.25dvh;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+	background-color: $--accent-color;
+    align-items: center;
+    z-index: 2;
+    padding: ($--home-margin-mobile / 5) 0;
 
     &__list {
         list-style: none;
@@ -32,7 +37,8 @@
 @media only screen and (min-width: 801px) {
     .language {
         bottom: initial;
-        top: 1vh;
+        top: 0;
+        padding: ($--home-margin / 4) 0;
 
         li {
             a {

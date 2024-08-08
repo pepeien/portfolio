@@ -162,9 +162,9 @@ async function generatePage({ params }: Props) {
 
     return (
         <>
-            <main className='blog --page --flex-column'>
+            <main className='blog'>
                 <HomeButton dictionary={dictionary} />
-                <section className='blog__banner'>
+                <div className='blog__banner'>
                     <Image
                         src={`${blobURL}/blog/${id.trim()}/images/thumbnail.png`}
                         width={1920}
@@ -173,40 +173,38 @@ async function generatePage({ params }: Props) {
                         alt='Blog banner'
                         priority={true}
                     />
-                </section>
-                <section className='blog__content --flex-column'>
-                    <div className='blog__content__header --flex-column'>
-                        <h1 className='blog__content__header__title'>
-                            {data.title[dictionary['LANGUAGE_LOCALE_URL']]}
-                        </h1>
-                        <h2 className='blog__content__header__description'>
-                            {data.description[dictionary['LANGUAGE_LOCALE_URL']]}
-                        </h2>
-                        <TagListing
-                            data={[
-                                {
-                                    icon: getAuthorIcon(),
-                                    text: data.author,
-                                },
-                                {
-                                    icon: getElapsedTimeIcon(),
-                                    text: StringServices.getLocalizedElapsedDate(
-                                        dictionary,
-                                        new Date(data.date),
-                                    ),
-                                },
-                                {
-                                    icon: getThemeIcon(),
-                                    text: dictionary[data.theme],
-                                },
-                            ]}
-                        />
-                        <div className='blog__content__header__divider' />
-                    </div>
-                    <div className='markdown'>
-                        <Markdown rehypePlugins={[rehypeRaw]}>{markdownData}</Markdown>
-                    </div>
-                </section>
+                </div>
+                <div className='blog__content__header --flex-column'>
+                    <h1 className='blog__content__header__title'>
+                        {data.title[dictionary['LANGUAGE_LOCALE_URL']]}
+                    </h1>
+                    <h2 className='blog__content__header__description'>
+                        {data.description[dictionary['LANGUAGE_LOCALE_URL']]}
+                    </h2>
+                    <TagListing
+                        data={[
+                            {
+                                icon: getAuthorIcon(),
+                                text: data.author,
+                            },
+                            {
+                                icon: getElapsedTimeIcon(),
+                                text: StringServices.getLocalizedElapsedDate(
+                                    dictionary,
+                                    new Date(data.date),
+                                ),
+                            },
+                            {
+                                icon: getThemeIcon(),
+                                text: dictionary[data.theme],
+                            },
+                        ]}
+                    />
+                    <div className='blog__content__header__divider' />
+                </div>
+                <div className='markdown'>
+                    <Markdown rehypePlugins={[rehypeRaw]}>{markdownData}</Markdown>
+                </div>
             </main>
         </>
     );

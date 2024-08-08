@@ -1,18 +1,21 @@
 .blog {
-    width: 75vw;
-    height: 100dvh;
+    width: calc(100vw - $--home-margin-mobile);
+    padding: 0 $--home-margin-mobile / 2;
     align-items: center;
-    margin: $--home-margin-mobile 0;
     gap: 3vh;
+    color: $--grey-color;
+    overflow: hidden;
     overflow-y: auto;
+    padding-bottom: $--home-margin-mobile;
 
     &__banner {
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-top: 5dvh;
 
         img {
-            width: 100%;
+            width: calc(100% - 4vh);
             height: 20vh;
             padding: 2vh;
             border: 1px solid $--backdrop-background-color-mobile;
@@ -20,11 +23,6 @@
     }
 
     &__content {
-        width: 100%;
-        padding-bottom: 0;
-        align-items: center;
-        color: $--grey-color;
-
         &__header {
             margin: 0 auto;
             gap: 2vh 0;
@@ -37,8 +35,9 @@
         
             &__title {
                 font-weight: 700;
-                font-size: 2.5rem;
+                font-size: 2rem;
                 text-align: center;
+                margin-top: 2vh;
             }
     
             &__description {
@@ -87,12 +86,15 @@
     }
 }
 
+
 @media only screen and (min-width: $--min-desktop-width) {
     .blog {
-        width: calc(100vw - 20dvh);
-        height: calc(100vh - 4dvh);
-        margin: $--home-margin;
-        gap: 8vh;
+        height: calc(100vh - $--home-margin);
+        width: 70vw;
+        padding: 0 15vw;
+        margin: 0;
+        margin-top: $--home-margin;
+        gap: 6vh;
 
         &__banner {
             margin-top: 6vh;
@@ -108,11 +110,11 @@
             &__header {
                 width: 100%;
                 gap: 2vh 0;
-            
+
                 &__title {
                     font-size: 8vh;
                 }
-        
+
                 &__description {
                     font-size: 2vh;
                 }
