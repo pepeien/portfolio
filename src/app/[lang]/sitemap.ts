@@ -44,7 +44,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     if (releasedBlogPosts.length > 0) {
         releasedBlogPosts
-            .slice(0, 3)
             .sort((pastPost, currentPost) => {
                 if (pastPost.date === currentPost.date) {
                     return 0;
