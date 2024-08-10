@@ -40,7 +40,7 @@ async function generateMetadata({ params }: Props): Promise<Metadata> {
     if (!post || post.status === 'UPCOMING') {
         return {
             alternates: {
-                //canonical: getCanonicalAlternate(`blog/${id}`),
+                canonical: `${headers().get(LOCALE_HEADER_KEY)}/blog/${id}`,
                 languages: getAlternates(`blog/${id}`),
             },
         };
