@@ -6,7 +6,7 @@ import { StringServices, InternalServices } from '@utils/services';
 
 const now = new Date();
 
-export const getAlternates = (prefix = '', suffix = '', hasCanonical = false) => {
+const getAlternates = (prefix = '', suffix = '', hasCanonical = false) => {
     const result: { [key: string]: string } = {};
 
     const canonical = getCanonical();

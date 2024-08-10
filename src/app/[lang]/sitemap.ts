@@ -6,7 +6,7 @@ import { headers } from 'next/headers';
 import { Blog } from '@utils/interfaces';
 
 // Services
-import { BlogServices, InternalServices, StringServices } from '@utils/services';
+import { InternalServices, StringServices } from '@utils/services';
 
 type SiteMap = {
     url: string;
