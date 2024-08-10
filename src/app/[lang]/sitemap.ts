@@ -8,6 +8,9 @@ import { Blog } from '@utils/interfaces';
 // Services
 import { InternalServices, StringServices } from '@utils/services';
 
+// Dictionary
+import { LOCALE_HEADER_KEY } from '@dictionary';
+
 type SiteMap = {
     url: string;
     lastModified?: string | Date;
@@ -23,7 +26,7 @@ const now = new Date();
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const url = `${StringServices.removeExtraSlashes(
         `${InternalServices.getDeploymentURL().toString()}`,
-    )}/${headers().get('locale')}`;
+    )}/${headers().get(LOCALE_HEADER_KEY)}`;
 
     const result: MetadataRoute.Sitemap = [];
 

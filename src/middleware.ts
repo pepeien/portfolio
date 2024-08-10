@@ -2,7 +2,12 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 // Dictionary
-import { getCanonicalAlternate, getClientDefaultLocale, getServerLocales } from '@dictionary';
+import {
+    getCanonicalAlternate,
+    getClientDefaultLocale,
+    getServerLocales,
+    LOCALE_HEADER_KEY,
+} from '@dictionary';
 
 export function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl;
@@ -16,9 +21,9 @@ export function middleware(request: NextRequest) {
     if (pathnameHasLocale) {
         const splittedPathName = pathname.split('/');
 
-        newHeaders.append('locale', splittedPathName[1]);
+        newHeaders.append(LOCALE_HEADER_KEY, splittedPathName[1]);
     } else {
-        newHeaders.append('locale', getClientDefaultLocale());
+        newHeaders.append(LOCALE_HEADER_KEY, getClientDefaultLocale());
     }
 
     if (pathnameHasLocale) {
