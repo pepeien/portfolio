@@ -9,7 +9,12 @@ import rehypeRaw from 'rehype-raw';
 import { Blog } from '@utils/interfaces';
 
 // Dictionary
-import { getAlternates, getCanonicalAlternate, getDictionary } from '@dictionary';
+import {
+    getAlternates,
+    getCanonicalAlternate,
+    getDictionary,
+    LOCALE_HEADER_KEY,
+} from '@dictionary';
 
 // Services
 import { InternalServices, StringServices } from '@utils/services';
@@ -17,6 +22,7 @@ import { InternalServices, StringServices } from '@utils/services';
 // Components
 import { Footer, HomeButton, TagListing } from '@components';
 import Link from 'next/link';
+import { headers } from 'next/headers';
 
 interface Props {
     params: { lang: string; id: string };
@@ -55,7 +61,7 @@ async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     return {
         alternates: {
-            //canonical: getCanonicalAlternate(`blog/${id}`),
+            canonical: `${headers().get(LOCALE_HEADER_KEY)}/blog/${id}`,
             languages: getAlternates(`blog/${id}`),
         },
         title: title,

@@ -28,6 +28,8 @@ export const getServerLocales = () => serverLocales;
 export const getClientDefaultLocale = () => clientLocales[getServerDefaultLocale()];
 export const getClientLocales = () => clientLocales;
 
+export const LOCALE_HEADER_KEY = 'locale';
+
 export const getCanonicalAlternate = (path = '') => {
     return path.trim().length === 0
         ? serverLocales[canonical]

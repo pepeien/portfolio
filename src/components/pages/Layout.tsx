@@ -5,10 +5,17 @@ import type { Metadata } from 'next';
 import { LanguageListing, SocialListing } from '@components';
 
 // Dictionary
-import { getAlternates, getCanonicalAlternate, getDictionary, getClientLocales } from '@dictionary';
+import {
+    getAlternates,
+    getCanonicalAlternate,
+    getDictionary,
+    getClientLocales,
+    LOCALE_HEADER_KEY,
+} from '@dictionary';
 
 // Services
 import { InternalServices } from '@utils/services';
+import { headers } from 'next/headers';
 
 interface Props {
     params: { lang: string };
@@ -32,7 +39,7 @@ async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
         metadataBase: InternalServices.getDeploymentURL(),
         alternates: {
-            //canonical: getCanonicalAlternate(),
+            canonical: headers().get(LOCALE_HEADER_KEY),
             languages: getAlternates(),
         },
         title: title,
