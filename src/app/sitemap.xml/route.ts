@@ -1,5 +1,5 @@
 // Dictionary
-import { getCanonical, getServerLocales } from '@dictionary';
+import { getCanonicalLocale, getServerLocales } from '@dictionary';
 
 // Services
 import { StringServices, InternalServices } from '@utils/services';
@@ -9,7 +9,7 @@ const now = new Date();
 const getAlternates = (prefix = '', suffix = '', hasCanonical = false) => {
     const result: { [key: string]: string } = {};
 
-    const canonical = getCanonical();
+    const canonical = getCanonicalLocale();
     const serverLocales = getServerLocales();
     const locales = hasCanonical
         ? Object.keys(serverLocales)
