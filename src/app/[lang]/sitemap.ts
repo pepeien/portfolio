@@ -9,7 +9,7 @@ import { Blog } from '@utils/interfaces';
 import { InternalServices, StringServices } from '@utils/services';
 
 // Dictionary
-import { LOCALE_HEADER_KEY } from '@dictionary';
+import { getCanonicalLocale, getServerLocales, LOCALE_HEADER_KEY } from '@dictionary';
 
 type SiteMap = {
     url: string;
@@ -23,20 +23,40 @@ type SiteMap = {
 
 const now = new Date();
 
+const getAlternates = (prefix = '', suffix = '', includeCanonical = true) => {
+    const result: { [key: string]: string } = {};
+
+    const canonicalLocale = getCanonicalLocale();
+    const availableLocales = getServerLocales();
+
+    const locales = includeCanonical
+        ? Object.keys(availableLocales)
+        : Object.keys(availableLocales).filter((alternate) => alternate !== canonicalLocale);
+
+    locales.forEach((key) => {
+        const locale = availableLocales[key];
+
+        result[locale] = StringServices.removeExtraSlashes(`${prefix}/${locale}/${suffix}`);
+    });
+
+    return result;
+};
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const url = `${StringServices.removeExtraSlashes(
+    const baseUrl = `${StringServices.removeExtraSlashes(
         `${InternalServices.getDeploymentURL().toString()}`,
-    )}/${headers().get(LOCALE_HEADER_KEY)}`;
+    )}`;
+    const url = `${baseUrl}/${headers().get(LOCALE_HEADER_KEY)}`;
 
     const result: MetadataRoute.Sitemap = [];
-
-    const rootSitemap = {
+    result.push({
         url: url,
         lastModified: now,
         changeFrequency: 'yearly',
-    } as SiteMap;
-
-    result.push(rootSitemap);
+        alternates: {
+            languages: getAlternates(baseUrl),
+        },
+    } as SiteMap);
 
     const releasedBlogPosts = await fetch(`${InternalServices.getBLOB()}/blog/metadata.json`, {
         next: { revalidate: InternalServices.getFetchInterval() },
@@ -59,9 +79,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
                 return -1;
             })
             .forEach((post) => {
+                const path = `blog/${post.id}`;
+
                 const blogSitemap = {
-                    url: `${url}/blog/${post.id}`,
+                    url: `${baseUrl}/${path}`,
                     lastModified: post.date,
+                    alternates: {
+                        languages: getAlternates(baseUrl, path),
+                    },
                 } as SiteMap;
 
                 result.push(blogSitemap);

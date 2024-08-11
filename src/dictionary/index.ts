@@ -20,7 +20,7 @@ const clientLocales: Dictionary = {
     'ja-jp': '日本語',
 };
 
-export const getCanonical = () => canonical;
+export const getCanonicalLocale = () => canonical;
 
 export const getServerDefaultLocale = () => serverLocales[canonical];
 export const getServerLocales = () => serverLocales;
