@@ -2,7 +2,10 @@
     width: 100%;
     position: fixed;
     bottom: 0;
-	background-color: $--accent-color;
+    background-color: adjust-color(
+        $color: $--accent-color,
+        $alpha: -0.2
+    );
     align-items: center;
     z-index: 2;
     padding: ($--home-margin-mobile / 6) 0;
