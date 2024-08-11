@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { headers } from 'next/headers';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import React from 'react';
@@ -9,20 +10,13 @@ import rehypeRaw from 'rehype-raw';
 import { Blog } from '@utils/interfaces';
 
 // Dictionary
-import {
-    getAlternates,
-    getCanonicalAlternate,
-    getDictionary,
-    LOCALE_HEADER_KEY,
-} from '@dictionary';
+import { getAlternates, getDictionary, LOCALE_HEADER_KEY } from '@dictionary';
 
 // Services
 import { InternalServices, StringServices } from '@utils/services';
 
 // Components
-import { Footer, HomeButton, TagListing } from '@components';
-import Link from 'next/link';
-import { headers } from 'next/headers';
+import { HomeButton, TagListing } from '@components';
 
 interface Props {
     params: { lang: string; id: string };
@@ -170,8 +164,9 @@ async function generatePage({ params }: Props) {
         <>
             <main className='blog --hidden-overflow-all'>
                 <HomeButton dictionary={dictionary} />
-                <div className='blog__banner'>
+                <section className='blog__banner --flex-center'>
                     <Image
+                        className='blog__banner__image --fade-in'
                         src={`${blobURL}/blog/${id.trim()}/images/thumbnail.png`}
                         width={1920}
                         height={1080}
@@ -179,38 +174,40 @@ async function generatePage({ params }: Props) {
                         alt='Blog banner'
                         priority={true}
                     />
-                </div>
-                <div className='blog__content__header --flex-column'>
-                    <h1 className='blog__content__header__title'>
-                        {data.title[dictionary['LANGUAGE_LOCALE_URL']]}
-                    </h1>
-                    <h2 className='blog__content__header__description'>
-                        {data.description[dictionary['LANGUAGE_LOCALE_URL']]}
-                    </h2>
-                    <TagListing
-                        data={[
-                            {
-                                icon: getAuthorIcon(),
-                                text: data.author,
-                            },
-                            {
-                                icon: getElapsedTimeIcon(),
-                                text: StringServices.getLocalizedElapsedDate(
-                                    dictionary,
-                                    new Date(data.date),
-                                ),
-                            },
-                            {
-                                icon: getThemeIcon(),
-                                text: dictionary[data.theme],
-                            },
-                        ]}
-                    />
-                    <div className='blog__content__header__divider' />
-                </div>
-                <div className='markdown'>
-                    <Markdown rehypePlugins={[rehypeRaw]}>{markdownData}</Markdown>
-                </div>
+                    <div className='blog__banner__content --flex-center'>
+                        <h1 className='blog__banner__content__title --descend-in'>
+                            {data.title[dictionary['LANGUAGE_LOCALE_URL']]}
+                        </h1>
+                        <h2 className='blog__banner__content__description --descend-in'>
+                            {data.description[dictionary['LANGUAGE_LOCALE_URL']]}
+                        </h2>
+                        <TagListing
+                            className='--descend-in'
+                            data={[
+                                {
+                                    icon: getAuthorIcon(),
+                                    text: data.author,
+                                },
+                                {
+                                    icon: getElapsedTimeIcon(),
+                                    text: StringServices.getLocalizedElapsedDate(
+                                        dictionary,
+                                        new Date(data.date),
+                                    ),
+                                },
+                                {
+                                    icon: getThemeIcon(),
+                                    text: dictionary[data.theme],
+                                },
+                            ]}
+                        />
+                    </div>
+                </section>
+                <section className='blog__content --fade-in'>
+                    <div className='markdown'>
+                        <Markdown rehypePlugins={[rehypeRaw]}>{markdownData}</Markdown>
+                    </div>
+                </section>
             </main>
         </>
     );

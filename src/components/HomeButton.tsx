@@ -13,6 +13,7 @@ export default function Component({ dictionary }: Props) {
         <Link
             className='home-button --flex-column --bg-color-ease-in'
             href={`/${dictionary['LANGUAGE_LOCALE_URL']}`}
+            scroll={true}
         >
             <svg
                 version='1.0'

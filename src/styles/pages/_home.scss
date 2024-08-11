@@ -5,7 +5,7 @@ $--height: calc(100dvh - ($--home-margin-mobile * 2)) - 0.2dvh;
     width: $--width;
     height: $--height;
     margin: $--home-margin-mobile ($--home-margin-mobile / 2);
-    border: 1px solid $--backdrop-background-color;
+    border: 1px solid $--dark-grey-color;
     overflow-y: auto;
 
     &__header {
@@ -43,7 +43,7 @@ $--height: calc(100dvh - ($--home-margin-mobile * 2)) - 0.2dvh;
             h3 {
                 font-family: 'Roboto Condensed';
                 font-size: 3rem;
-                color: $--backdrop-background-color-mobile;
+                color: $--dark-grey-color;
                 padding: 1vh 0;
                 margin-bottom: 2vh;
             }
@@ -54,7 +54,7 @@ $--height: calc(100dvh - ($--home-margin-mobile * 2)) - 0.2dvh;
 $--width-desktop: calc(100vw - ($--home-margin * 2));
 $--height-desktop: calc(100dvh - ($--home-margin * 2))  - 0.2dvh;
 
-@media only screen and (min-width:1025px){
+@media only screen and (min-width: $--min-desktop-width){
     .home {
         display: flex;
         flex-direction: row;
@@ -71,7 +71,7 @@ $--height-desktop: calc(100dvh - ($--home-margin * 2))  - 0.2dvh;
             &__title {
                 h1, h2 {
                     font-family: 'Roboto Condensed';
-                    color: $--backdrop-background-color-mobile;
+                    color: $--dark-grey-color;
                 }
 
                 h1 {

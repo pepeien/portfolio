@@ -12,7 +12,7 @@
         gap: 1vh;
 
         li {
-            border: 1px solid $--backdrop-background-color-mobile;
+            border: 1px solid $--dark-grey-color;
 
             &[data-is-selected="true"] {
                 background-color: $--selected-color;
@@ -30,7 +30,7 @@
                 font-family: 'Roboto Condensed';
                 font-weight: 500;
                 font-size: 1.25vh;
-                color: $--backdrop-background-color-mobile;
+                color: $--dark-grey-color;
                 text-align: center;
             }
 
@@ -39,7 +39,7 @@
             &:focus-within,
             &:hover  {
                 &[data-is-selected="false"] {
-                    background-color: $--backdrop-background-color-mobile;
+                    background-color: $--dark-grey-color;
 
                     a {
                         color: $--accent-color;
@@ -50,7 +50,7 @@
     }
 }
 
-@media only screen and (min-width: 801px) {
+@media only screen and (min-width: $--min-desktop-width) {
     .languages {
         bottom: initial;
         top: 0;

@@ -8,7 +8,7 @@ $--info-padding: 2vh;
 	color: $--accent-color;
     position: relative;
 	text-decoration: none;
-    border: 1px solid $--backdrop-background-color-mobile;
+    border: 1px solid $--dark-grey-color;
 
 	&[aria-disabled="true"] {
 		opacity: 0.7;
@@ -34,7 +34,7 @@ $--info-padding: 2vh;
         background-color: transparent;
         gap: 1vh;
         padding: $--info-padding;
-		color: $--backdrop-background-color-mobile;
+		color: $--dark-grey-color;
 
         &__title, &__description, .tags {
             z-index: 2;
@@ -85,11 +85,11 @@ $--info-padding: 2vh;
                             background-color: $--accent-color;
 
                             span {
-                                color: $--backdrop-background-color-mobile;
+                                color: $--dark-grey-color;
                             }
 
                             svg {
-                                fill: $--backdrop-background-color-mobile;
+                                fill: $--dark-grey-color;
                             }
                         }
                     }
@@ -99,7 +99,7 @@ $--info-padding: 2vh;
     }
 }
 
-@media only screen and (min-width:1025px){
+@media only screen and (min-width: $--min-desktop-width){
     .blog-card {
 		height: 16vh;
 		flex-direction: row;

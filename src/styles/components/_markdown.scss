@@ -12,11 +12,6 @@
 	width: 100%;
 	align-items: flex-start;
 
-	-webkit-animation: fade-in $--initial-fade-duration ease-in-out 1 forwards;
-	-moz-animation:    fade-in $--initial-fade-duration ease-in-out 1 forwards;
-	-o-animation:      fade-in $--initial-fade-duration ease-in-out 1 forwards;
-	animation:         fade-in $--initial-fade-duration ease-in-out 1 forwards;
-
 	.octicon {
 		display: inline-block;
 		fill: currentColor;
@@ -58,7 +53,7 @@
 
 	a {
 		background-color: transparent;
-		color: #2f81f7;
+		color: $--green-color;
 		text-decoration: none;
 
 		:hover {
@@ -228,7 +223,6 @@
 		background-color: #161b22;
 		border: solid 1px rgba(110,118,129,0.4);
 		border-bottom-color: rgba(110,118,129,0.4);
-		border-radius: 6px;
 		box-shadow: inset 0 -1px 0 rgba(110,118,129,0.4);
 	}
 
@@ -690,7 +684,7 @@
 		font-size: 85%;
 		white-space: break-spaces;
 		background-color: rgba(110,118,129,0.4);
-		border-radius: 6px;
+        margin: 0 0.35vh;
 	}
 
 	code br,
@@ -734,7 +728,7 @@
 		font-size: 85%;
 		line-height: 1.45;
 		color: #e6edf3;
-		background-color: #161b22;
+		background-color: $--dark-grey-color;
         overflow: auto;
         width: calc(100% - (4px * 2));
 	}
@@ -1045,7 +1039,7 @@
 	}
 
 	p {
-		font-weight: 500;
+		font-weight: 400;
 	}
 
 	em {
@@ -1080,12 +1074,14 @@
 	b, strong {
 		color: $--accent-color;
 		background-color: $--grey-color;
-		font-weight: 600;
-		padding: 0 0.6vh 0 0.5vh;
+		font-weight: 400;
+		padding: 0.4vh 0.8vh;
+        margin: 0 0.35vh;
 	}
 
     img {
-		margin: 2vh auto;
+		margin: 1vh auto;
+        background-color: transparent;
     }
 
 	iframe {
