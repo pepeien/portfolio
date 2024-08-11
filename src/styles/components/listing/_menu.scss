@@ -15,7 +15,7 @@
         &:hover {
             span {
                 color: $--accent-color;
-                background-color: $--backdrop-background-color-mobile;
+                background-color: $--dark-grey-color;
 
                 box-shadow:         $--box-shadow;
                 -webkit-box-shadow: $--box-shadow;
@@ -36,7 +36,7 @@
             font-size: 2vh;
             margin-left: 0.5vh;
             z-index: 1;
-            color: $--backdrop-background-color-mobile;
+            color: $--dark-grey-color;
 
             -webkit-transition: background-color ease-in-out 0.2s, box-shadow ease-in-out 0.2s;
             -moz-transition:    background-color ease-in-out 0.2s, box-shadow ease-in-out 0.2s;
@@ -58,13 +58,14 @@
         }
 
         a {
+            width: 100%;
             align-items: center;
             text-decoration: none;
         }
     }
 }
 
-@media only screen and (min-width:1025px){
+@media only screen and (min-width: $--min-desktop-width){
     .menu {
         li {
             &:hover {

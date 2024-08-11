@@ -13,7 +13,7 @@
 	}
 }
 
-@media only screen and (min-width:1025px){
+@media only screen and (min-width: $--min-desktop-width){
 	.blogs {
 		> ul {
 			gap: 2vh;

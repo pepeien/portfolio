@@ -1,7 +1,7 @@
 footer {
     font-family: 'Roboto Condensed';
     font-size: 1.5vh;
-    color: $--backdrop-background-color-mobile;
+    color: $--dark-grey-color;
     position: absolute;
     top: ($--home-margin-mobile / 2) - 1dvh;
 
@@ -15,7 +15,7 @@ footer {
     }
 }
 
-@media only screen and (min-width: 801px) {
+@media only screen and (min-width: $--min-desktop-width) {
     footer {
         top: initial;
         bottom: ($--home-margin / 2) - 1dvh

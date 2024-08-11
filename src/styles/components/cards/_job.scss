@@ -8,11 +8,11 @@
 	color: $--accent-color;
 	line-height: 1.25;
     padding: 2.5vh;
-    color: $--backdrop-background-color-mobile;
-    border: 1px solid $--backdrop-background-color-mobile;
+    color: $--dark-grey-color;
+    border: 1px solid $--dark-grey-color;
 
     &[data-is-current="true"] {
-        background-color: $--backdrop-background-color-mobile;
+        background-color: $--dark-grey-color;
         color: $--accent-color;
 
         .job-card {
@@ -40,7 +40,7 @@
             &__divider {
                 height: 1px;
                 width: 1vh;
-                background-color: $--backdrop-background-color-mobile;
+                background-color: $--dark-grey-color;
             }
         }
     }
@@ -68,7 +68,7 @@
 	}
 }
 
-@media only screen and (min-width:1025px){
+@media only screen and (min-width: $--min-desktop-width){
 	.job-card {
         min-height: 25vh;
 		gap: 1vh;

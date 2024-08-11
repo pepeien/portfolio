@@ -128,16 +128,16 @@
 
     -webkit-animation:
         descend-in 0.5s ease-in-out 1 0s forwards,
-        fade-in 0.5s ease-in-out 1 0.1s forwards;
+        fade-in 0.8s ease-in-out 1 0.1s forwards;
     -moz-animation:
         descend-in 0.5s ease-in-out 1 0s forwards,
-        fade-in 0.5s ease-in-out 1 0.1s forwards;
+        fade-in 0.8s ease-in-out 1 0.1s forwards;
     -o-animation:
         descend-in 0.5s ease-in-out 1 0s forwards,
-        fade-in 0.5s ease-in-out 1 0.1s forwards;
+        fade-in 0.8s ease-in-out 1 0.1s forwards;
     animation:
         descend-in 0.5s ease-in-out 1 0s forwards,
-        fade-in 0.5s ease-in-out 1 0.1s forwards;
+        fade-in 0.8s ease-in-out 1 0.1s forwards;
 }
 
 .--descend-out {
@@ -354,7 +354,7 @@
     width: 115%;
     height: 115%;
     position: absolute;
-    background-color: $--backdrop-background-color-mobile;;
+    background-color: $--dark-grey-color;;
     z-index: 1;
     top: 0;
     left: 0;

@@ -8,13 +8,13 @@ $--navbar-width-mobile: 8vh;
     &__button {
         background-color: transparent;
         outline: transparent;
-        border: 1px solid $--backdrop-background-color-mobile;
+        border: 1px solid $--dark-grey-color;
 
         &:active,
         &:focus,
         &:focus-within,
         &:hover  {
-            background-color: $--backdrop-background-color-mobile;
+            background-color: $--dark-grey-color;
 
             svg {
                 path {
@@ -39,7 +39,7 @@ $--navbar-width-mobile: 8vh;
 		    height: 2dvh;
 
             path {
-                fill: $--backdrop-background-color-mobile;
+                fill: $--dark-grey-color;
 
                 -webkit-transition: fill ease-in-out 0.2s;
                 -moz-transition:    fill ease-in-out 0.2s;
@@ -52,7 +52,7 @@ $--navbar-width-mobile: 8vh;
 
 $--navbar-width-desktop: 4rem;
 
-@media only screen and (min-width: 801px) {
+@media only screen and (min-width: $--min-desktop-width) {
     .socials {
         &__socials {
             width: 100%;

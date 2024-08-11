@@ -15,7 +15,7 @@
         label,
         input,
         textarea {  
-            color: $--backdrop-background-color-mobile;
+            color: $--dark-grey-color;
         }
 
         & label {
@@ -33,7 +33,7 @@
             font-weight: 300;
             padding: 0.8rem 1rem;
             max-height: 12rem;
-            border: 1px solid $--backdrop-background-color-mobile;
+            border: 1px solid $--dark-grey-color;
 
             -webkit-transition: border-color ease-in-out 0.2s;
             -moz-transition:    border-color ease-in-out 0.2s;
@@ -62,12 +62,12 @@
         font-family: 'Roboto Condensed';
         font-weight: 400;
         padding: 0;
-        border: 1px solid $--backdrop-background-color-mobile;
+        border: 1px solid $--dark-grey-color;
         height: 3.6rem;
         font-size: 1.7rem;
 
         & span {
-            color: $--backdrop-background-color-mobile;
+            color: $--dark-grey-color;
             pointer-events: none;
             z-index: 2;
         }

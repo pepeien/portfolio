@@ -9,13 +9,13 @@
     padding: 0.8vh;
     background-color: transparent;
     z-index: $--max-z-index;
-    border: 1px solid $--backdrop-background-color-mobile;
+    border: 1px solid $--dark-grey-color;
 
     &:active,
     &:focus,
     &:hover {
         cursor: pointer; 
-        background-color: $--backdrop-background-color-mobile;
+        background-color: $--dark-grey-color;
 
         svg {
             path {
@@ -29,7 +29,7 @@
         height: 100%;
 
         path {
-            fill: $--backdrop-background-color-mobile;
+            fill: $--dark-grey-color;
 
             -webkit-transition: fill ease-in-out 0.2s;
             -moz-transition:    fill ease-in-out 0.2s;
