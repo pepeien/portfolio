@@ -82,7 +82,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
                 const path = `blog/${post.id}`;
 
                 const blogSitemap = {
-                    url: `${baseUrl}/${path}`,
+                    url: `${url}/${path}`,
                     lastModified: post.date,
                     alternates: {
                         languages: getAlternates(baseUrl, path),
