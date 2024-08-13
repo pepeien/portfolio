@@ -3,8 +3,12 @@
 @import 'base/fonts';
 @import 'base/variables';
 
-// Theme
-@import 'themes/light';
+html.dark {
+    @import 'themes/dark';
+    @import 'main';
+}
 
-// Components
-@import 'main';
+html.light {
+    @import 'themes/light';
+    @import 'main';
+}

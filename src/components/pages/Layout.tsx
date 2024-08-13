@@ -3,7 +3,7 @@ import { headers } from 'next/headers';
 import type { Metadata } from 'next';
 
 // Components
-import { Footer, HomeButton, LanguageListing } from '@components';
+import { Footer, HomeButton, LanguageListing, Providers, ThemeButton } from '@components';
 
 // Dictionary
 import { getAlternates, getDictionary, getClientLocales, LOCALE_HEADER_KEY } from '@dictionary';
@@ -61,16 +61,23 @@ async function generatePage({ params, children }: Props) {
     const dictionary = await getDictionary(params.lang);
 
     return (
-        <html lang={dictionary['LANGUAGE_LOCALE']}>
-            <body suppressHydrationWarning={true}>
-                <header>
-                    <LanguageListing dictionary={dictionary} locales={getClientLocales()} />
-                </header>
-                <HomeButton dictionary={dictionary} />
-                {children}
-                <footer>
-                    <Footer dictionary={dictionary} />
-                </footer>
+        <html
+            lang={dictionary['LANGUAGE_LOCALE']}
+            className='--bg-color-ease-in'
+            suppressHydrationWarning
+        >
+            <body suppressHydrationWarning>
+                <Providers>
+                    <header>
+                        <LanguageListing dictionary={dictionary} locales={getClientLocales()} />
+                    </header>
+                    <HomeButton dictionary={dictionary} />
+                    <ThemeButton />
+                    {children}
+                    <footer>
+                        <Footer dictionary={dictionary} />
+                    </footer>
+                </Providers>
             </body>
         </html>
     );

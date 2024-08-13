@@ -38,10 +38,10 @@
             z-index: 1;
             color: $--dark-grey-color;
 
-            -webkit-transition: background-color ease-in-out 0.2s, box-shadow ease-in-out 0.2s;
-            -moz-transition:    background-color ease-in-out 0.2s, box-shadow ease-in-out 0.2s;
-            -o-transition:      background-color ease-in-out 0.2s, box-shadow ease-in-out 0.2s;
-            transition:         background-color ease-in-out 0.2s, box-shadow ease-in-out 0.2s;        
+            -webkit-transition: color ease-in-out 0.2s, background-color ease-in-out 0.2s, box-shadow ease-in-out 0.2s;
+            -moz-transition:    color ease-in-out 0.2s, background-color ease-in-out 0.2s, box-shadow ease-in-out 0.2s;
+            -o-transition:      color ease-in-out 0.2s, background-color ease-in-out 0.2s, box-shadow ease-in-out 0.2s;
+            transition:         color ease-in-out 0.2s, background-color ease-in-out 0.2s, box-shadow ease-in-out 0.2s;        
         }
 
         div {

@@ -54,7 +54,9 @@ export default function Component({ dictionary }: Props) {
             method='POST'
         >
             <div className='contact__form-input'>
-                <label htmlFor='email'>{dictionary['CONTACT_EMAIL_LABEL']}</label>
+                <label className='--color-ease-in' htmlFor='email'>
+                    {dictionary['CONTACT_EMAIL_LABEL']}
+                </label>
                 <input
                     id='email'
                     ref={emailInputRef}
@@ -64,7 +66,9 @@ export default function Component({ dictionary }: Props) {
                 />
             </div>
             <div className='contact__form-input'>
-                <label htmlFor='message'>{dictionary['CONTACT_MESSAGE_LABEL']}</label>
+                <label className='--color-ease-in' htmlFor='message'>
+                    {dictionary['CONTACT_MESSAGE_LABEL']}
+                </label>
                 <textarea
                     id='message'
                     ref={textInputRef}

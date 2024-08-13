@@ -62,27 +62,27 @@ async function generatePage({ params }: Props) {
         <main className='home --hidden-overflow-all --fade-in'>
             <div className='home__header --flex-column'>
                 <div className='home__header__title --flex-column'>
-                    <h1>{dictionary['ABOUT_NAME']}</h1>
-                    <h2>{dictionary['ABOUT_HERO']}</h2>
+                    <h1 className='--color-ease-in'>{dictionary['ABOUT_NAME']}</h1>
+                    <h2 className='--color-ease-in'>{dictionary['ABOUT_HERO']}</h2>
                 </div>
                 <SocialListing dictionary={dictionary} />
                 <MenuListing dictionary={dictionary} />
             </div>
             <section id='content' className='home__content --flex-column'>
                 <article id='PROJECTS_TITLE'>
-                    <h3>{dictionary['PROJECTS_TITLE']}</h3>
+                    <h3 className='--color-ease-in'>{dictionary['PROJECTS_TITLE']}</h3>
                     <ProjectListing dictionary={dictionary} />
                 </article>
                 <article id='JOB_HISTORY_TITLE'>
-                    <h3>{dictionary['JOB_HISTORY_TITLE']}</h3>
+                    <h3 className='--color-ease-in'>{dictionary['JOB_HISTORY_TITLE']}</h3>
                     <JobListing dictionary={dictionary} />
                 </article>
                 <article id='BLOG_TITLE'>
-                    <h3>{dictionary['BLOG_TITLE']}</h3>
+                    <h3 className='--color-ease-in'>{dictionary['BLOG_TITLE']}</h3>
                     <BlogListing dictionary={dictionary} />
                 </article>
                 <article id='CONTACT_TITLE'>
-                    <h3>{dictionary['CONTACT_TITLE']}</h3>
+                    <h3 className='--color-ease-in'>{dictionary['CONTACT_TITLE']}</h3>
                     <ContactForm dictionary={dictionary} />
                 </article>
             </section>
