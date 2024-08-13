@@ -11,6 +11,7 @@
 	word-wrap: break-word;
 	width: 100%;
 	align-items: flex-start;
+    color: $--black;
 
 	.octicon {
 		display: inline-block;
@@ -726,8 +727,8 @@
 	pre {
 		font-size: 85%;
 		line-height: 1.45;
-		color: #e6edf3;
-		background-color: $--dark-grey-color;
+		color: #d2d2d2;
+		background-color: #151515;
         overflow: auto;
 		padding: 1rem 0.5rem;
         padding-left: 0;
@@ -1073,8 +1074,8 @@
 	}
 
 	b, strong {
-		color: $--accent-color;
-		background-color: $--grey-color;
+		color: $--white;
+		background-color: $--black;
 		font-weight: 400;
 		padding: 0.4vh 0.8vh;
         margin: 0 0.35vh;
