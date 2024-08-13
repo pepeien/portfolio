@@ -56,7 +56,21 @@ $--info-padding: 2vh;
 	    	line-height: 1.25;
 	    	overflow: auto;
 	    }
-        
+
+        .tags {
+            li {
+                background-color: $--dark-grey-color;
+
+                span {
+                    color: $--background-color;
+                }
+
+                svg path {
+                    fill: $--accent-color;
+                    stroke: $--dark-grey-color;;
+                }
+            }
+        }
     }
 
     &:active,
@@ -82,14 +96,15 @@ $--info-padding: 2vh;
     
                     .tags {
                         li {
-                            background-color: $--accent-color;
+                            background-color: $--white;
 
                             span {
-                                color: $--dark-grey-color;
+                                color: $--black;
                             }
 
-                            svg {
-                                fill: $--dark-grey-color;
+                            svg path {
+                                fill: $--black;
+                                stroke: $--white;
                             }
                         }
                     }

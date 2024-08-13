@@ -13,7 +13,6 @@ import { TagListing } from '@components';
 
 export interface Props extends Blog {
     dictionary: Dictionary;
-    type?: 'showcase' | 'list';
 }
 
 export default function Component({
@@ -25,34 +24,20 @@ export default function Component({
     title,
     description,
     dictionary,
-    type = 'list',
 }: Props) {
     const wasReleased = status === 'RELEASED';
-    const accentColor = wasReleased ? '#e2e8f0' : '#313131';
-    const backgroundColor = wasReleased ? undefined : '#737272';
 
     const getAuthorIcon = () => {
         return (
-            <svg
-                version='1.1'
-                xmlns='http://www.w3.org/2000/svg'
-                xmlnsXlink='http://www.w3.org/1999/xlink'
-                viewBox='0 0 550 550'
-                xmlSpace='preserve'
-                fill={accentColor}
-            >
+            <svg version='1.1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
                 <path
-                    d='M421.578,190.264l-99.847-99.847c-2.439-2.439-6.391-2.439-8.829,0L82.824,320.495c-2.439,2.439-2.439,6.392,0,8.829
-l99.847,99.847c2.439,2.439,6.391,2.439,8.829,0l230.078-230.078C424.017,196.655,424.017,192.703,421.578,190.264z'
+                    d='M458.159,404.216c-18.93-33.65-49.934-71.764-100.409-93.431c-28.868,20.196-63.938,32.087-101.745,32.087
+		c-37.828,0-72.898-11.89-101.767-32.087c-50.474,21.667-81.479,59.782-100.398,93.431C28.731,448.848,48.417,512,91.842,512
+		c43.426,0,164.164,0,164.164,0s120.726,0,164.153,0C463.583,512,483.269,448.848,458.159,404.216z'
                 />
                 <path
-                    d='M506.511,87.672L424.323,5.484c-7.308-7.31-19.175-7.315-26.488,0l-49.616,49.616c-2.439,2.439-2.439,6.391,0,8.829
-l99.847,99.847c2.439,2.437,6.391,2.437,8.829,0l49.616-49.616C513.826,106.847,513.826,94.987,506.511,87.672z'
-                />
-                <path
-                    d='M508.133,491.11c-1.054-9.556-9.489-16.599-19.104-16.599H111.633l36.058-15.163c4.088-1.719,5.131-7.034,1.994-10.17
-l-86.854-86.854c-3.137-3.135-8.451-2.094-10.17,1.994C52.224,365.359,2.052,484.66,1.627,485.707
-c-5.815,13.208,4.855,27.01,18.107,26.263H489.52C500.566,511.97,509.379,502.408,508.133,491.11z'
+                    d='M256.005,300.641c74.144,0,134.231-60.108,134.231-134.242v-32.158C390.236,60.108,330.149,0,256.005,0
+		c-74.155,0-134.252,60.108-134.252,134.242V166.4C121.753,240.533,181.851,300.641,256.005,300.641z'
                 />
             </svg>
         );
@@ -60,7 +45,7 @@ c-5.815,13.208,4.855,27.01,18.107,26.263H489.52C500.566,511.97,509.379,502.408,5
 
     const getThemeIcon = () => {
         return (
-            <svg fill={accentColor} viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+            <svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
                 <path d='M3,8h18c0.6,0,1-0.4,1-1s-0.4-1-1-1H3C2.4,6,2,6.4,2,7S2.4,8,3,8z M13,16H3c-0.6,0-1,0.4-1,1s0.4,1,1,1h10c0.6,0,1-0.4,1-1S13.6,16,13,16z M21,11H3c-0.6,0-1,0.4-1,1s0.4,1,1,1h18c0.6,0,1-0.4,1-1S21.6,11,21,11z' />
             </svg>
         );
@@ -68,21 +53,9 @@ c-5.815,13.208,4.855,27.01,18.107,26.263H489.52C500.566,511.97,509.379,502.408,5
 
     const getElapsedTimeIcon = () => {
         return (
-            <svg
-                viewBox='0 0 24 24'
-                fill='none'
-                stroke={accentColor}
-                xmlns='http://www.w3.org/2000/svg'
-            >
+            <svg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <path
-                    d='M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z'
-                    strokeWidth='2'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                />
-                <path d='M12 6V12' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
-                <path
-                    d='M16.24 16.24L12 12'
+                    d='M12 7V12L14.5 10.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z'
                     strokeWidth='2'
                     strokeLinecap='round'
                     strokeLinejoin='round'
@@ -106,8 +79,6 @@ c-5.815,13.208,4.855,27.01,18.107,26.263H489.52C500.566,511.97,509.379,502.408,5
                         {
                             icon: getAuthorIcon(),
                             text: author,
-                            accentColor: accentColor,
-                            backgroundColor: backgroundColor,
                         },
                         {
                             icon: getElapsedTimeIcon(),
@@ -116,14 +87,10 @@ c-5.815,13.208,4.855,27.01,18.107,26.263H489.52C500.566,511.97,509.379,502.408,5
                                 wasReleased ? new Date(date) : undefined,
                                 dictionary['UPCOMING_TEXT'],
                             ),
-                            accentColor: accentColor,
-                            backgroundColor: backgroundColor,
                         },
                         {
                             icon: getThemeIcon(),
                             text: dictionary[theme],
-                            accentColor: accentColor,
-                            backgroundColor: backgroundColor,
                         },
                     ]}
                 />

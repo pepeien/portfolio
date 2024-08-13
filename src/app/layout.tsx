@@ -8,7 +8,7 @@ import { getDictionary, getServerDefaultLocale } from '@dictionary';
 import icons from '@utils/icons';
 
 // Styles
-import '@styles/main.scss';
+import '@styles/index.scss';
 
 interface Props {
     children: React.ReactNode;

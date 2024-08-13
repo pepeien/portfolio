@@ -1,13 +1,9 @@
 .languages {
-    width: 100%;
-    position: fixed;
-    bottom: 0;
     background-color: adjust-color(
-        $color: $--accent-color,
-        $alpha: -0.2
+        $color: $--background-color,
+        $alpha: -0.15
     );
     align-items: center;
-    z-index: 2;
     padding: ($--home-margin-mobile / 6) 0;
 
     &__list {
@@ -18,11 +14,11 @@
             border: 1px solid $--dark-grey-color;
 
             &[data-is-selected="true"] {
-                background-color: $--selected-color;
-                border-color: $--selected-color;
+                background-color: $--selected-background-color;
+                border-color: $--selected-background-color;
 
                 a {
-                    color: $--accent-color;
+                    color: $--selected-color;
                 }
             }
 
@@ -55,8 +51,6 @@
 
 @media only screen and (min-width: $--min-desktop-width) {
     .languages {
-        bottom: initial;
-        top: 0;
         padding: ($--home-margin / 5) 0;
 
         li {

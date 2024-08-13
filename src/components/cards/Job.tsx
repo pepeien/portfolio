@@ -35,7 +35,7 @@ export default function Component({
     );
 
     return (
-        <div className='job-card' data-is-current={inCurrentJob}>
+        <div className='job-card --color-ease-in' data-is-current={inCurrentJob}>
             <div className='job-card__header --flex-row'>
                 <div className='job-card__header__title'>{company}</div>
                 <div className='job-card__header__date --flex-row'>

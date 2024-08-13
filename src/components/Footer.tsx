@@ -9,8 +9,8 @@ interface Props {
 
 export default function Component({ dictionary }: Props) {
     return (
-        <footer>
+        <div className='footer --fade-in'>
             <span>{dictionary['FOOTER_TEXT_2']}</span>
-        </footer>
+        </div>
     );
 }

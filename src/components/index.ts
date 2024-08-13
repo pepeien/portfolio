@@ -2,6 +2,8 @@ export { default as ContactForm } from './ContactForm';
 export { default as HomeButton } from './HomeButton';
 export { default as Footer } from './Footer';
 export { default as Mountains } from './Mountains';
+export { default as Providers } from './Providers';
+export { default as ThemeButton } from './ThemeButton';
 
 export { default as BlogCard } from './cards/Blog';
 export { default as ProjectCard } from './cards/Project';

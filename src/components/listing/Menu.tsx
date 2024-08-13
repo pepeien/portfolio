@@ -45,7 +45,7 @@ export default function Component({ dictionary }: Props) {
         <ul className='menu --flex-column'>
             {sectors.map((sector) => (
                 <li key={v4()}>
-                    <Link href={`/#${sector.id}`} className='--flex-row'>
+                    <Link href={`#${sector.id}`} className='--flex-row'>
                         <span>{dictionary[sector.id]}</span>
                         <div />
                     </Link>

@@ -1,11 +1,11 @@
-.home-button {
+.theme-button {
     align-items: center;
     justify-content: center;
     position: fixed;
-    left: 1.25vh;
+    right: 1.25vh;
     bottom: 0.8vh;
-    width: 2vh;
-    height: 2vh;
+    width: 4vh;
+    height: 4vh;
     padding: 0.8vh;
     background-color: transparent;
     z-index: $--max-z-index;
@@ -14,14 +14,7 @@
     &:active,
     &:focus,
     &:hover {
-        cursor: pointer; 
-        background-color: $--dark-grey-color;
-
-        svg {
-            path {
-                fill: $--accent-color;
-            }
-        }
+        cursor: pointer;
     }
 
     svg {
@@ -30,18 +23,19 @@
 
         path {
             fill: $--dark-grey-color;
+            stroke: $--dark-grey-color;
 
-            -webkit-transition: fill ease-in-out 0.2s;
-            -moz-transition:    fill ease-in-out 0.2s;
-            -o-transition:      fill ease-in-out 0.2s;
-            transition:         fill ease-in-out 0.2s;
+            -webkit-transition: fill ease-in-out 0.2s stroke ease-in-out 0.2s;
+            -moz-transition:    fill ease-in-out 0.2s stroke ease-in-out 0.2s;
+            -o-transition:      fill ease-in-out 0.2s stroke ease-in-out 0.2s;
+            transition:         fill ease-in-out 0.2s stroke ease-in-out 0.2s;
         }
     }
 }
 
 @media only screen and (min-width: $--min-desktop-width) {
-    .home-button {
-        left: 0.5vh;
+    .theme-button {
+        right: 0.5vh;
         bottom: 0.5vh;
         padding: 1vh;
     }
