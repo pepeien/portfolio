@@ -1,10 +1,15 @@
 .languages {
+    align-items: center;
+    padding: ($--home-margin-mobile / 6) 0;
     background-color: adjust-color(
         $color: $--background-color,
         $alpha: -0.15
     );
-    align-items: center;
-    padding: ($--home-margin-mobile / 6) 0;
+
+    -webkit-transition: opacity ease-in-out 0.2s, background-color ease-in-out 0.2s;
+    -moz-transition:    opacity ease-in-out 0.2s, background-color ease-in-out 0.2s;
+    -o-transition:      opacity ease-in-out 0.2s, background-color ease-in-out 0.2s;
+    transition:         opacity ease-in-out 0.2s, background-color ease-in-out 0.2s;
 
     &__list {
         list-style: none;

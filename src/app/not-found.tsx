@@ -14,7 +14,7 @@ export default async function Page() {
 
     return (
         <Layout.generatePage params={{ lang: getServerDefaultLocale() }}>
-            <main className='not-found --page --hidden-overflow-all'>
+            <main className='not-found --page --hidden-overflow-all --fade-in'>
                 <section>
                     <div className='not-found__title'>
                         <div className='not-found__title__text --flex-column'>

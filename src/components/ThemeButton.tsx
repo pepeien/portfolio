@@ -24,7 +24,6 @@ export default function Component() {
                         strokeWidth='2'
                         strokeLinecap='round'
                         strokeLinejoin='round'
-                        suppressHydrationWarning
                     />
                 </svg>
             ) : (
@@ -34,7 +33,6 @@ export default function Component() {
                         strokeWidth='2'
                         strokeLinecap='round'
                         strokeLinejoin='round'
-                        suppressHydrationWarning
                     />
                 </svg>
             )}

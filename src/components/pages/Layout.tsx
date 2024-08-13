@@ -61,11 +61,7 @@ async function generatePage({ params, children }: Props) {
     const dictionary = await getDictionary(params.lang);
 
     return (
-        <html
-            lang={dictionary['LANGUAGE_LOCALE']}
-            className='--bg-color-ease-in'
-            suppressHydrationWarning
-        >
+        <html lang={dictionary['LANGUAGE_LOCALE']} suppressHydrationWarning>
             <body suppressHydrationWarning>
                 <Providers>
                     <header>
