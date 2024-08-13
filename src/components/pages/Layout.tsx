@@ -1,21 +1,15 @@
 import React from 'react';
+import { headers } from 'next/headers';
 import type { Metadata } from 'next';
 
 // Components
-import { LanguageListing, SocialListing } from '@components';
+import { Footer, HomeButton, LanguageListing } from '@components';
 
 // Dictionary
-import {
-    getAlternates,
-    getCanonicalAlternate,
-    getDictionary,
-    getClientLocales,
-    LOCALE_HEADER_KEY,
-} from '@dictionary';
+import { getAlternates, getDictionary, getClientLocales, LOCALE_HEADER_KEY } from '@dictionary';
 
 // Services
 import { InternalServices } from '@utils/services';
-import { headers } from 'next/headers';
 
 interface Props {
     params: { lang: string };
@@ -69,8 +63,14 @@ async function generatePage({ params, children }: Props) {
     return (
         <html lang={dictionary['LANGUAGE_LOCALE']}>
             <body suppressHydrationWarning={true}>
-                <LanguageListing dictionary={dictionary} locales={getClientLocales()} />
+                <header>
+                    <LanguageListing dictionary={dictionary} locales={getClientLocales()} />
+                </header>
+                <HomeButton dictionary={dictionary} />
                 {children}
+                <footer>
+                    <Footer dictionary={dictionary} />
+                </footer>
             </body>
         </html>
     );

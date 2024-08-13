@@ -26,7 +26,7 @@ export default function Component({ dictionary, locales }: Props) {
     );
 
     return (
-        <nav className='languages --flex-column'>
+        <nav className='languages --flex-column --fade-in'>
             {locales ? (
                 <ul className='languages__list --flex-row'>
                     {Object.entries(locales).map(([id, name]) => (

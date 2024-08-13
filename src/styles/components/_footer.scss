@@ -1,23 +1,5 @@
-footer {
+.footer {
     font-family: 'Roboto Condensed';
     font-size: 1.5vh;
-    color: $--dark-grey-color;
-    position: absolute;
-    top: ($--home-margin-mobile / 2) - 1dvh;
-
-	-webkit-animation: fade-in $--initial-fade-duration ease-in-out 1 forwards;
-	-moz-animation:    fade-in $--initial-fade-duration ease-in-out 1 forwards;
-	-o-animation:      fade-in $--initial-fade-duration ease-in-out 1 forwards;
-	animation:         fade-in $--initial-fade-duration ease-in-out 1 forwards;
-
-    span {
-        opacity: 0.4;
-    }
-}
-
-@media only screen and (min-width: $--min-desktop-width) {
-    footer {
-        top: initial;
-        bottom: ($--home-margin / 2) - 1dvh
-    }
+    color: $--light-grey-color;
 }

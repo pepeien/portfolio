@@ -15,6 +15,7 @@ $--height: calc(100dvh - ($--home-margin-mobile * 2)) - 0.2dvh;
         &__title {
             h1, h2 {
                 font-family: 'Roboto Condensed';
+                color: $--dark-grey-color;
             }
 
             h1 {
@@ -69,11 +70,6 @@ $--height-desktop: calc(100dvh - ($--home-margin * 2))  - 0.2dvh;
             padding-right: 0;
 
             &__title {
-                h1, h2 {
-                    font-family: 'Roboto Condensed';
-                    color: $--dark-grey-color;
-                }
-
                 h1 {
                     font-size: 4rem;
                 }

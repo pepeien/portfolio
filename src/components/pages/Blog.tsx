@@ -161,55 +161,52 @@ async function generatePage({ params }: Props) {
     const dictionary = await getDictionary(lang);
 
     return (
-        <>
-            <main className='blog --hidden-overflow-all'>
-                <HomeButton dictionary={dictionary} />
-                <section className='blog__banner --flex-center'>
-                    <Image
-                        className='blog__banner__image --fade-in'
-                        src={`${blobURL}/blog/${id.trim()}/images/thumbnail.png`}
-                        width={1920}
-                        height={1080}
-                        quality={100}
-                        alt='Blog banner'
-                        priority={true}
+        <main className='blog --hidden-overflow-all'>
+            <section className='blog__banner --flex-center'>
+                <Image
+                    className='blog__banner__image --fade-in'
+                    src={`${blobURL}/blog/${id.trim()}/images/thumbnail.png`}
+                    width={1920}
+                    height={1080}
+                    quality={100}
+                    alt='Blog banner'
+                    priority={true}
+                />
+                <div className='blog__banner__content --flex-center'>
+                    <h1 className='blog__banner__content__title --descend-in'>
+                        {data.title[dictionary['LANGUAGE_LOCALE_URL']]}
+                    </h1>
+                    <h2 className='blog__banner__content__description --descend-in'>
+                        {data.description[dictionary['LANGUAGE_LOCALE_URL']]}
+                    </h2>
+                    <TagListing
+                        className='--descend-in'
+                        data={[
+                            {
+                                icon: getAuthorIcon(),
+                                text: data.author,
+                            },
+                            {
+                                icon: getElapsedTimeIcon(),
+                                text: StringServices.getLocalizedElapsedDate(
+                                    dictionary,
+                                    new Date(data.date),
+                                ),
+                            },
+                            {
+                                icon: getThemeIcon(),
+                                text: dictionary[data.theme],
+                            },
+                        ]}
                     />
-                    <div className='blog__banner__content --flex-center'>
-                        <h1 className='blog__banner__content__title --descend-in'>
-                            {data.title[dictionary['LANGUAGE_LOCALE_URL']]}
-                        </h1>
-                        <h2 className='blog__banner__content__description --descend-in'>
-                            {data.description[dictionary['LANGUAGE_LOCALE_URL']]}
-                        </h2>
-                        <TagListing
-                            className='--descend-in'
-                            data={[
-                                {
-                                    icon: getAuthorIcon(),
-                                    text: data.author,
-                                },
-                                {
-                                    icon: getElapsedTimeIcon(),
-                                    text: StringServices.getLocalizedElapsedDate(
-                                        dictionary,
-                                        new Date(data.date),
-                                    ),
-                                },
-                                {
-                                    icon: getThemeIcon(),
-                                    text: dictionary[data.theme],
-                                },
-                            ]}
-                        />
-                    </div>
-                </section>
-                <section className='blog__content --fade-in'>
-                    <div className='markdown'>
-                        <Markdown rehypePlugins={[rehypeRaw]}>{markdownData}</Markdown>
-                    </div>
-                </section>
-            </main>
-        </>
+                </div>
+            </section>
+            <section className='blog__content --fade-in'>
+                <div className='markdown'>
+                    <Markdown rehypePlugins={[rehypeRaw]}>{markdownData}</Markdown>
+                </div>
+            </section>
+        </main>
     );
 }
 
