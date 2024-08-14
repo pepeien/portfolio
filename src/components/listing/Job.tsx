@@ -34,14 +34,12 @@ export default async function Component({ dictionary }: Props) {
         .catch(() => [] as Job[]);
 
     return (
-        <div className='jobs'>
-            <ul>
-                {data.map((_item, index) => (
-                    <li key={v4()}>
-                        <JobCard {..._item} dictionary={dictionary} inCurrentJob={index === 0} />
-                    </li>
-                ))}
-            </ul>
-        </div>
+        <ul className='jobs'>
+            {data.map((_item, index) => (
+                <li key={v4()}>
+                    <JobCard {..._item} dictionary={dictionary} inCurrentJob={index === 0} />
+                </li>
+            ))}
+        </ul>
     );
 }

@@ -1,15 +1,12 @@
-$--width: calc(100vw - $--home-margin-mobile);
-$--height: calc(100dvh - ($--home-margin-mobile * 2)) - 0.2dvh;
-
 .home {
-    width: $--width;
-    height: $--height;
+    width: calc(100vw - $--home-margin-mobile);
+    height: calc(100dvh - ($--home-margin-mobile * 2)) - 0.2dvh;
     margin: $--home-margin-mobile ($--home-margin-mobile / 2);
     border: 1px solid $--dark-grey-color;
     overflow-y: auto;
 
     &__header {
-        height: calc($--height - 5vh);
+        height: calc(100% - 5vh);
         padding: 2dvh;
 
         &__title {
@@ -53,17 +50,14 @@ $--height: calc(100dvh - ($--home-margin-mobile * 2)) - 0.2dvh;
     }
 }
 
-$--width-desktop: calc(100vw - ($--home-margin * 2));
-$--height-desktop: calc(100dvh - ($--home-margin * 2))  - 0.2dvh;
-
 @media only screen and (min-width: $--min-desktop-width){
     .home {
         display: flex;
         flex-direction: row;
-        gap: 1vh;
-        width: $--width-desktop;
-        height: $--height-desktop;
+        width: calc(100vw - ($--home-margin * 2));
+        height: calc(100dvh - ($--home-margin * 2)) - 0.2dvh;
         margin: $--home-margin;
+        gap: 1vh;
 
         &__header {
             height: auto;

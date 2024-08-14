@@ -11,7 +11,7 @@ interface Props {
 export default function Component({ dictionary }: Props) {
     return (
         <Link
-            className='home-button --flex-column --bg-color-ease-in'
+            className='home-button --side-button'
             href={`/${dictionary['LANGUAGE_LOCALE_URL']}`}
             scroll={true}
         >

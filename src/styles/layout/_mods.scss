@@ -336,3 +336,34 @@
     -o-transition:      transform ease-in-out 0.2s;
     transition:         transform ease-in-out 0.2s;
 }
+
+.--side-button {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1vh;
+    border: 1px solid $--dark-grey-color;
+    background-color: transparent;
+    z-index: $--max-z-index;
+
+    -webkit-transition: background-color ease-in-out 0.2s;
+    -moz-transition:    background-color ease-in-out 0.2s;
+    -o-transition:      background-color ease-in-out 0.2s;
+    transition:         background-color ease-in-out 0.2s;
+
+    svg {
+        width: 2vh;
+        height: 2vh;
+
+        path {
+            fill: $--dark-grey-color;
+            stroke: $--dark-grey-color;
+
+            -webkit-transition: fill ease-in-out 0.2s;
+            -moz-transition:    fill ease-in-out 0.2s;
+            -o-transition:      fill ease-in-out 0.2s;
+            transition:         fill ease-in-out 0.2s;
+        }
+    }
+}

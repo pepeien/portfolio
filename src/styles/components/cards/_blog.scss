@@ -22,7 +22,7 @@ $--info-padding: 2vh;
         z-index: 2;
 
         img {
-            width: 18rem;
+            width: 100%;
             height: auto;
         }
 	}
@@ -119,12 +119,8 @@ $--info-padding: 2vh;
 
 @media only screen and (min-width: $--min-tablet-width){
     .blog-card {
+        height: calc(100% - ($--info-padding * 2));
         gap: 1rem;
-        &__thumbnail {
-            img {
-                width: 100%;
-            }
-        }
 
         &__info {
             &__title {

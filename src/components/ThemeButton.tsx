@@ -14,7 +14,7 @@ export default function Component() {
 
     return (
         <button
-            className='theme-button --flex-column --bg-color-ease-in'
+            className='theme-button --side-button'
             onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
         >
             {isSunny ? (

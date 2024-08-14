@@ -78,11 +78,15 @@
     }
 }
 
+@media only screen and (min-width: $--min-tablet-width) {
+    .blog {
+        padding-bottom: $--home-margin;
+    }
+}
 
 @media only screen and (min-width: $--min-desktop-width) {
     .blog {
         gap: 6vh;
-        padding-bottom: $--home-margin;
 
         &__banner {
             min-height: 40vh;

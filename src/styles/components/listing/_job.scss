@@ -1,24 +1,14 @@
 .jobs {
+    list-style: none;
 	width: 100%;
-
-	> ul {
-		display: flex;
-		flex-direction: column;
-		gap: 4vh;
-        list-style: none;
-	}
+    display: flex;
+	flex-direction: column;
+	gap: 2vh;
 }
 
 @media only screen and (min-width: $--min-tablet-width){
 	.jobs {
-        > ul {
-		    flex-direction: row;
-            flex-wrap: wrap;
-		    gap: 4vh;
-
-            > li {
-                flex: 0.5;
-            }
-        }
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(20vw, 1fr));
 	}
 }
