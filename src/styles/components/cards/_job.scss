@@ -16,8 +16,20 @@
         color: $--accent-color;
 
         .job-card {
-            &__header__date__divider {
-                background-color: $--accent-color;
+            &__header__date {
+                background-color: $--white;
+                color: $--black;
+
+                &__divider {
+                    background-color: $--black;
+                }
+            }
+
+            &__info {
+                .tags li {
+                    background-color: $--white;
+                    color: $--black;
+                }
             }
         }
     }
@@ -26,21 +38,29 @@
         gap: 1vh;
         align-items: center;
         justify-content: center;
+        margin-bottom: 0.6rem;
 
         &__title {
-            font-size: 1.5rem;
+            font-size: 2rem;
         }
 
         &__date {
             align-items: center;
             gap: 0 1vh;
             font-size: 0.6rem;
-            font-style: italic;
+            color: $--white;
+            background-color: $--black;
+            padding: 0.2rem 0.4rem;
+
+            -webkit-transition: background-color ease-in-out 0.2s, color ease-in-out 0.2s;
+            -moz-transition:    background-color ease-in-out 0.2s, color ease-in-out 0.2s;
+            -o-transition:      background-color ease-in-out 0.2s, color ease-in-out 0.2s;
+            transition:         background-color ease-in-out 0.2s, color ease-in-out 0.2s;
 
             &__divider {
                 height: 1px;
-                width: 1vh;
-                background-color: $--dark-grey-color;
+                width: 0.5rem;
+                background-color: $--white;
             }
         }
     }
@@ -68,24 +88,20 @@
 	}
 }
 
-@media only screen and (min-width: $--min-desktop-width){
+@media only screen and (min-width: $--min-tablet-width){
 	.job-card {
-        min-height: 25vh;
-		gap: 1vh;
+		gap: 1rem;
+        padding: min(1.5rem, 2vw);
 
         &__header {
-            gap: 3vh;
+            gap: 0.6rem;
 
             &__title {
-                font-size: 2.5rem;
+                font-size: min(6vh, 2.5rem);
             }
 
             &__date {
-                font-size: 0.8rem;
-
-                &__divider {
-                    height: 0.2vh;
-                }
+                font-size: 0.7rem;
             }
         }
 
@@ -94,8 +110,7 @@
 			flex: 1;
 
 			&__description {
-				width: 100%;
-				font-size: 1.7vh;
+                font-size: min(2.5vh, 0.9rem);
 			}
 		}
 	}

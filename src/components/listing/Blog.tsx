@@ -27,14 +27,12 @@ export default async function Component({ dictionary }: Props) {
     const latestPost = BlogServices.getLatestPost(data);
 
     return (
-        <div className='blogs'>
-            <ul>
-                {data.map((_item) => (
-                    <li key={v4()}>
-                        <BlogCard {..._item} dictionary={dictionary} />
-                    </li>
-                ))}
-            </ul>
-        </div>
+        <ul className='blogs'>
+            {data.map((_item) => (
+                <li key={v4()}>
+                    <BlogCard {..._item} dictionary={dictionary} />
+                </li>
+            ))}
+        </ul>
     );
 }

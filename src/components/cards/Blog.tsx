@@ -66,14 +66,31 @@ export default function Component({
 
     const baseLink = wasReleased ? `/blog/${id}` : '';
 
+    const trimText = (text: string, maxLength: number): string => {
+        if (text.length > maxLength) {
+            return `${text.slice(0, maxLength)}...`;
+        }
+
+        return text;
+    };
+
     return (
         <Link
-            className='blog-card --hidden-overflow-all'
+            className='blog-card --hidden-overflow-all --flex-column'
             href={`${dictionary['LANGUAGE_LOCALE_URL']}${baseLink}`}
             aria-disabled={!wasReleased}
         >
+            <div className='blog-card__thumbnail --hidden-overflow-all'>
+                <Image
+                    src={`${InternalServices.getBLOB()}/blog/${id}/images/thumbnail.png`}
+                    width={1920}
+                    height={1080}
+                    quality={100}
+                    alt={`${title[dictionary['LANGUAGE_LOCALE_URL']]} thumbnail`}
+                    priority={true}
+                />
+            </div>
             <div className='blog-card__info --flex-column --hidden-overflow-all'>
-                <div className='blog-card__info__background --skewd-background' />
                 <TagListing
                     data={[
                         {
@@ -94,23 +111,20 @@ export default function Component({
                         },
                     ]}
                 />
-                <h4 className='blog-card__info__title --color-ease-in'>
-                    {title[dictionary['LANGUAGE_LOCALE_URL']]}
+                <h4 className='blog-card__info__title --color-ease-in --flex-center'>
+                    {trimText(
+                        title[dictionary['LANGUAGE_LOCALE_URL']],
+                        dictionary['LANGUAGE_LOCALE_URL'].includes('jp') ? 30 : 58,
+                    )}
                 </h4>
                 <span className='blog-card__info__description --color-ease-in'>
-                    {description[dictionary['LANGUAGE_LOCALE_URL']]}
+                    {trimText(
+                        description[dictionary['LANGUAGE_LOCALE_URL']],
+                        dictionary['LANGUAGE_LOCALE_URL'].includes('jp') ? 60 : 150,
+                    )}
                 </span>
             </div>
-            <div className='blog-card__thumbnail --hidden-overflow-all'>
-                <Image
-                    src={`${InternalServices.getBLOB()}/blog/${id}/images/thumbnail.png`}
-                    width={910}
-                    height={512}
-                    quality={100}
-                    alt={`${title[dictionary['LANGUAGE_LOCALE_URL']]} thumbnail`}
-                    priority={true}
-                />
-            </div>
+            <div className='blog-card__info__background --skewd-background' />
         </Link>
     );
 }

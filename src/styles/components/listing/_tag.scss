@@ -8,8 +8,8 @@
         justify-content: center;
 		gap: 0 1vh;
         padding: 0.35rem 0.5rem;
-		background-color: $--selected-background-color;
-		color: $--selected-color;
+		background-color: $--black;
+		color: $--white;
 
 		svg {
 			height: 0.7rem;
@@ -24,18 +24,18 @@
 	}
 }
 
-@media only screen and (min-width: $--min-desktop-width){
+@media only screen and (min-width: $--min-tablet-width){
 	.tags {
 		li {
-            padding: 0.8vh 1.2vh;
+            padding: min(0.8vh, 0.6rem) min(1.2vh, 1rem);
 
 			svg {
-				height: 1.5vh;
-				width: 1.5vh;
+				height: min(1.5vh, 0.6rem);
+				width: min(1.5vh, 0.6rem);
 			}
 
 			span {
-				font-size: 1.4vh;
+				font-size: min(3vh, 0.75rem);
 			}
 		}
 	}

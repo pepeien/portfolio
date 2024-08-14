@@ -1,6 +1,5 @@
 .blog {
     width: 100vw;
-    align-items: center;
     gap: 3vh;
     color: $--grey-color;
     overflow-y: auto;
@@ -86,6 +85,7 @@
         padding-bottom: $--home-margin;
 
         &__banner {
+            min-height: 40vh;
             height: 27vw;
 
             &__image {

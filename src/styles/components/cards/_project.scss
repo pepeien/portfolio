@@ -1,13 +1,12 @@
 $--background-animation-duration: 120s;
 
 .project-card {
-    min-height: 5rem;
     position: relative;
     justify-content: center;
     text-decoration: none;
     color: $--dark-grey-color;
     border: 1px solid $--dark-grey-color;
-    padding: 1.5vh 1.25vh;
+    padding: 2vw 1.25vh;
     gap: 1vh;
 
     &:active,
@@ -42,13 +41,17 @@ $--background-animation-duration: 120s;
 
 $--mountain-bottom-distance-desktop: -1vh;
 
-@media only screen and (min-width: $--min-desktop-width){
+@media only screen and (min-width: $--min-tablet-width){
     .project-card {
-        min-width: 10vw;
-        padding: 1vh 1.8vh;
+        min-width: 12vw;
+        padding: min(2vh, 2rem) min(4vh, 1rem);
 
         &__title {
-            font-size: 3vh;
+            font-size: min(2rem, 3vh);
+        }
+
+        &__description {
+            font-size: min(1.25rem, 2vh);
         }
     }
 }

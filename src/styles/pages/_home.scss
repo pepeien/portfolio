@@ -19,10 +19,11 @@ $--height: calc(100dvh - ($--home-margin-mobile * 2)) - 0.2dvh;
             }
 
             h1 {
-                font-size: 4rem;
+                font-size: min(12vw, 3rem);
             }
 
             h2 {
+                font-size: min(6vw, 1.5rem);
                 font-weight: 200;
             }
         }
@@ -43,7 +44,7 @@ $--height: calc(100dvh - ($--home-margin-mobile * 2)) - 0.2dvh;
 
             h3 {
                 font-family: 'Roboto Condensed';
-                font-size: 3rem;
+                font-size: min(8vw, 2rem);
                 color: $--dark-grey-color;
                 padding: 1vh 0;
                 margin-bottom: 2vh;

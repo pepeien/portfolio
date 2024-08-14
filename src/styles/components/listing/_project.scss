@@ -7,7 +7,7 @@
     list-style: none;
 }
 
-@media only screen and (min-width: $--min-desktop-width){
+@media only screen and (min-width: $--min-tablet-width){
 	.projects {
         flex-direction: row;
     	flex-wrap: wrap;

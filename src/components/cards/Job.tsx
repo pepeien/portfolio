@@ -36,11 +36,11 @@ export default function Component({
 
     return (
         <div className='job-card --color-ease-in' data-is-current={inCurrentJob}>
-            <div className='job-card__header --flex-row'>
+            <div className='job-card__header --flex-column'>
                 <div className='job-card__header__title'>{company}</div>
                 <div className='job-card__header__date --flex-row'>
                     <span>{localizedStartDate}</span>
-                    <div className='job-card__header__date__divider' />
+                    <div className='job-card__header__date__divider --bg-color-ease-in' />
                     <span>{localizedEndDate}</span>
                 </div>
             </div>

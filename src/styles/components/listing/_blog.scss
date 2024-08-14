@@ -3,20 +3,17 @@
 	display: flex;
 	flex-direction: column;
 	gap: 4vh;
-
-	> ul {
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		gap: 4vh;
-        list-style: none;
-	}
+    list-style: none;
 }
 
-@media only screen and (min-width: $--min-desktop-width){
+@media only screen and (min-width: $--min-tablet-width){
 	.blogs {
-		> ul {
-			gap: 2vh;
-		}
+		gap: 2vh;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        > li {
+            width: calc(50% - 1vh);
+        }
 	}
 }
