@@ -1,13 +1,17 @@
-$--info-padding: 2vh;
+$--mobile-padding: 2vh;
 
 .blog-card {
-    align-items: center;
-	color: $--accent-color;
     position: relative;
-	text-decoration: none;
+    width: calc(100% - ($--mobile-padding * 2));
+    height: calc(100% - ($--mobile-padding * 2));
+    align-items: center;
     border: 1px solid $--dark-grey-color;
-    padding: $--info-padding;
+    padding: $--mobile-padding;
     gap: 2vh;
+
+    font-family: 'Roboto Condensed';
+	color: $--accent-color;
+	text-decoration: none;
 
 	&[aria-disabled="true"] {
 		opacity: 0.7;
@@ -38,10 +42,8 @@ $--info-padding: 2vh;
         z-index: 2;
 
         &__title, &__description {
-	    	font-family: 'Roboto Condensed';
             letter-spacing: .01em;
             overflow-wrap: break-word;
-            text-overflow: ellipsis;
         }
 
 	    &__title {
@@ -117,9 +119,13 @@ $--info-padding: 2vh;
     }
 }
 
+$--desktop-padding: min(1.5rem, 2vw);
+
 @media only screen and (min-width: $--min-tablet-width){
     .blog-card {
-        height: calc(100% - ($--info-padding * 2));
+        width: calc(100% - ($--desktop-padding * 2));
+        height: calc(100% - ($--desktop-padding * 2));
+        padding: $--desktop-padding;
         gap: 1rem;
 
         &__info {

@@ -1,16 +1,18 @@
+$--mobile-padding: 2.5vh;
+
 .job-card {
-	width: auto;
-    height: calc(100% - 4vh);
-	position: relative;
 	display: flex;
 	flex-direction: column;
+    width: calc(100% - ($--mobile-padding * 2));
+    height: calc(100% - ($--mobile-padding * 2));
+	position: relative;
 	gap: 2vh;
-	font-family: 'Roboto Condensed';
-	color: $--accent-color;
-	line-height: 1.25;
-    padding: 2.5vh;
-    color: $--dark-grey-color;
+    padding: $--mobile-padding;
     border: 1px solid $--dark-grey-color;
+
+	font-family: 'Roboto Condensed';
+    color: $--dark-grey-color;
+	line-height: 1.25;
 
     &[data-is-current="true"] {
         background-color: $--dark-grey-color;
@@ -89,10 +91,14 @@
 	}
 }
 
+$--desktop-padding: min(1.5rem, 2vw);
+
 @media only screen and (min-width: $--min-tablet-width){
 	.job-card {
+        width: calc(100% - ($--desktop-padding * 2));
+        height: calc(100% - ($--desktop-padding * 2));
+        padding: $--desktop-padding;
 		gap: 1rem;
-        padding: min(1.5rem, 2vw);
 
         &__header {
             gap: 0.6rem;
