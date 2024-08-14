@@ -16,6 +16,6 @@ $--gap: 3vh;
 @media only screen and (min-width: $--min-tablet-width){
 	.blogs {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(55vh, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(45vh, 1fr));
 	}
 }
