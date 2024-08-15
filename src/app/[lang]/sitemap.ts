@@ -83,7 +83,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
                 const blogSitemap = {
                     url: `${url}/${path}`,
-                    lastModified: post.date,
+                    lastModified: post.updateDate ?? post.date,
                     alternates: {
                         languages: getAlternates(baseUrl, path),
                     },

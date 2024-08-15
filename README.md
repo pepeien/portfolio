@@ -66,10 +66,11 @@ This is the Blob structure
 ```json
 [
     {
-        "id":     {BLOG_POST_ID}     [string],
-        "author": {BLOG_POST_AUTHOR} [string],
-        "theme":  {BLOG_POST_THEME}  [string],
-        "date":   {BLOG_POST_DATE}   [string] (YYYY-MM-DDTHH:MM:SSSZ),
+        "id":         {BLOG_POST_ID}     [string],
+        "author":     {BLOG_POST_AUTHOR} [string],
+        "theme":      {BLOG_POST_THEME}  [string],
+        "date":       {BLOG_POST_DATE}   [string] (YYYY-MM-DDTHH:MM:SSSZ),
+        "updateDate": {BLOG_POST_DATE}   [string] (YYYY-MM-DDTHH:MM:SSSZ),
         "title": {
             {LOCALE}: {TEXT} [string]
         },

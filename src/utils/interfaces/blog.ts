@@ -6,6 +6,7 @@ export interface Blog {
     author: string;
     theme: string;
     date: string;
+    updateDate?: string;
     status: 'RELEASED' | 'UPCOMING';
     title: Dictionary;
     description: Dictionary;
