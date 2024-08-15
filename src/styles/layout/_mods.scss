@@ -343,9 +343,9 @@
     align-items: center;
     justify-content: center;
     padding: 1vh;
-    border: 1px solid $--dark-grey-color;
     background-color: transparent;
     z-index: $--max-z-index;
+    border: 1px solid $--black;
 
     -webkit-transition: background-color ease-in-out 0.2s;
     -moz-transition:    background-color ease-in-out 0.2s;
@@ -357,13 +357,20 @@
         height: 2vh;
 
         path {
-            fill: $--dark-grey-color;
-            stroke: $--dark-grey-color;
+            fill: $--black;
+            stroke: $--black;
+        }
+    }
 
-            -webkit-transition: fill ease-in-out 0.2s;
-            -moz-transition:    fill ease-in-out 0.2s;
-            -o-transition:      fill ease-in-out 0.2s;
-            transition:         fill ease-in-out 0.2s;
+    &:active,
+    &:focus,
+    &:focus-within,
+    &:hover {
+        background-color: $--dark-grey-color;
+
+        svg path {
+            fill: $--accent-color;
+            stroke: $--accent-color;
         }
     }
 }

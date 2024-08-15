@@ -12,8 +12,15 @@
 		color: $--white;
 
 		svg {
-			height: 0.7rem;
-			width: 0.7rem;
+			height: 0.8rem;
+			width: 0.8rem;
+
+            path {
+                -webkit-transition: fill ease-in-out 0.2s, stroke ease-in-out 0.2s;
+                -moz-transition:    fill ease-in-out 0.2s, stroke ease-in-out 0.2s;
+                -o-transition:      fill ease-in-out 0.2s, stroke ease-in-out 0.2s;
+                transition:         fill ease-in-out 0.2s, stroke ease-in-out 0.2s;
+            }
 		}
 
 		span {
@@ -30,12 +37,12 @@
             padding: min(0.8vh, 0.6rem) min(1.2vh, 1rem);
 
 			svg {
-				height: min(1.5vh, 0.6rem);
-				width: min(1.5vh, 0.6rem);
+				height: min(1.5vh, 0.8rem);
+				width: min(1.5vh, 0.8rem);
 			}
 
 			span {
-				font-size: min(3vh, 0.75rem);
+				font-size: min(2vh, 0.75rem);
 			}
 		}
 	}
