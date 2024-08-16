@@ -67,12 +67,12 @@ async function generatePage({ params, children }: Props) {
                     <header>
                         <LanguageListing dictionary={dictionary} locales={getClientLocales()} />
                     </header>
-                    <HomeButton dictionary={dictionary} />
-                    <ThemeButton />
                     {children}
                     <footer>
                         <Footer dictionary={dictionary} />
                     </footer>
+                    <HomeButton dictionary={dictionary} />
+                    <ThemeButton />
                 </Providers>
             </body>
         </html>
