@@ -23,7 +23,7 @@ export default {
 
     HOME_PAGE_TITLE: 'Erick Frederick',
     HOME_PAGE_DESCRIPTION:
-        'Erick Frederick is a software engineer who creates robust, responsive and aesthetic applications for users and developers.',
+        'Erick Frederick is a software developer who creates robust, responsive and aesthetic applications for users and developers.',
 
     NOW_TEXT: 'Present',
     UPCOMING_TEXT: 'Coming Soon',

@@ -23,7 +23,7 @@ export default {
 
     HOME_PAGE_TITLE: 'Erick Frederick',
     HOME_PAGE_DESCRIPTION:
-        'Erick Frederick é um engenheiro de software que cria aplicações robustas, responsivas pensando em usuários e desenvolvedores.',
+        'Erick Frederick é um desenvolvedor de software que cria aplicações robustas, responsivas pensando em usuários e desenvolvedores.',
 
     NOW_TEXT: 'Presente',
     UPCOMING_TEXT: 'Em Breve',
