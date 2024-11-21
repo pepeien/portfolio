@@ -63,19 +63,6 @@ $--mobile-padding: 2vh;
 
         .tags {
             margin-bottom: 2vh;
-
-            li {
-                background-color: $--dark-grey-color;
-
-                span {
-                    color: $--background-color;
-                }
-
-                svg path {
-                    fill: $--accent-color;
-                    stroke: $--dark-grey-color;;
-                }
-            }
         }
     }
 

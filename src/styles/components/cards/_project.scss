@@ -15,16 +15,6 @@ $--background-animation-duration: 120s;
         color: $--accent-color;
 
         .project-card {
-            &__tags {
-                li {
-                    background-color: $--white !important;
-    
-                    span {
-                        color: $--black !important;
-                    }
-                }
-            }
-
             &__description {
                 svg {
                     stroke: $--white;
@@ -36,6 +26,11 @@ $--background-animation-duration: 120s;
                 -moz-transform:    translateX(0.05vh);
                 -o-transform:      translateX(0.05vh);
                 transform:         translateX(0.05vh);
+            }
+
+            &__tags li {
+                background-color: $--white;
+                color: $--black;
             }
         }
     }

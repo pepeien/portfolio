@@ -16,6 +16,9 @@
 			width: 0.8rem;
 
             path {
+                fill: $--white;
+                stroke: $--black;
+
                 -webkit-transition: fill ease-in-out 0.2s, stroke ease-in-out 0.2s;
                 -moz-transition:    fill ease-in-out 0.2s, stroke ease-in-out 0.2s;
                 -o-transition:      fill ease-in-out 0.2s, stroke ease-in-out 0.2s;

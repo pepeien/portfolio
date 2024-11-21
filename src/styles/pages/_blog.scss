@@ -56,18 +56,6 @@
                 margin-top: 1vh;
                 justify-content: center;
                 animation-delay: 0.4s;
-
-                li {
-                    color: $--black;
-                    background-color: $--white;
-
-                    svg {
-                        path {
-                            fill: $--black;
-                            stroke: $--white;
-                        }
-                    }
-                }
             }
         }
     }
