@@ -131,7 +131,7 @@ export class StringServices {
             );
         }
 
-        const years = months / 12;
+        const years = Math.ceil(months / 12);
 
         return StringServices.generateElapsedTime(
             dictionary,
