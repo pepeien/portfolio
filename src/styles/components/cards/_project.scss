@@ -90,7 +90,7 @@ $--mountain-bottom-distance-desktop: -1vh;
         &:hover {
             .project-card {
                 &__thumbnail {
-                    height: 14vw;
+                    height: 14.25vw;
                     opacity: 1;
                 }
 
@@ -100,17 +100,16 @@ $--mountain-bottom-distance-desktop: -1vh;
         &__thumbnail {
             display: block;
             width: 100%;
-            height: 0.5px;
+            height: 0;
             max-height: 350px;
-            background-color: black;
             z-index: 3;
             opacity: 0;
             margin: 0 auto;
 
-            -webkit-transition: height ease-in-out 0.2s, opacity ease-in-out 0.1s;
-            -moz-transition:    height ease-in-out 0.2s, opacity ease-in-out 0.1s;
-            -o-transition:      height ease-in-out 0.2s, opacity ease-in-out 0.1s;
-            transition:         height ease-in-out 0.2s, opacity ease-in-out 0.1s;
+            -webkit-transition: height ease-in-out 0.2s, opacity ease-in-out 0.15s;
+            -moz-transition:    height ease-in-out 0.2s, opacity ease-in-out 0.15s;
+            -o-transition:      height ease-in-out 0.2s, opacity ease-in-out 0.15s;
+            transition:         height ease-in-out 0.2s, opacity ease-in-out 0.15s;
         }
 
         &__title {
