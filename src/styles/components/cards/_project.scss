@@ -6,20 +6,42 @@ $--background-animation-duration: 120s;
     text-decoration: none;
     color: $--dark-grey-color;
     border: 1px solid $--dark-grey-color;
-    padding: 2vw 1.25vh;
-    gap: 1vh;
+    padding: $--mobile-padding;
+    gap: 1.25vh;
 
     &:active,
     &:focus,
     &:hover {
         color: $--accent-color;
 
-        div {
-            -webkit-transform: translateX(0);
-            -moz-transform:    translateX(0);
-            -o-transform:      translateX(0);
-            transform:         translateX(0);
+        .project-card {
+            &__tags {
+                li {
+                    background-color: $--white !important;
+    
+                    span {
+                        color: $--black !important;
+                    }
+                }
+            }
+
+            &__description {
+                svg {
+                    stroke: $--white;
+                }
+            }
+
+            &__background {
+                -webkit-transform: translateX(0.05vh);
+                -moz-transform:    translateX(0.05vh);
+                -o-transform:      translateX(0.05vh);
+                transform:         translateX(0.05vh);
+            }
         }
+    }
+
+    &__thumbnail {
+        display: none;
     }
 
     &__title, &__description {
@@ -33,25 +55,82 @@ $--background-animation-duration: 120s;
         font-size: 3vh;
     }
 
+    &__tags {
+        z-index: 3;
+    }
+
     &__description {
-        font-weight: 200;
-        font-style: italic;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        span {  
+            font-weight: 200;
+            font-style: italic;
+        }
+
+        svg {
+            width: 1rem;
+            height: 1rem;
+            stroke: $--black;
+            margin-left: auto;
+
+            -webkit-transition: stroke ease-in-out 0.1s;
+            -moz-transition:    stroke ease-in-out 0.1s;
+            -o-transition:      stroke ease-in-out 0.1s;
+            transition:         stroke ease-in-out 0.1s;
+        }
     }
 }
 
 $--mountain-bottom-distance-desktop: -1vh;
 
-@media only screen and (min-width: $--min-tablet-width){
+@media only screen and (min-width: $--min-desktop-width){
     .project-card {
         min-width: 12vw;
         padding: min(2vh, 2rem) min(4vh, 1rem);
+
+        &:active,
+        &:focus,
+        &:hover {
+            .project-card {
+                &__thumbnail {
+                    height: 14vw;
+                    opacity: 1;
+                }
+
+            }
+        }
+
+        &__thumbnail {
+            display: block;
+            width: 100%;
+            height: 0.5px;
+            max-height: 350px;
+            background-color: black;
+            z-index: 3;
+            opacity: 0;
+            margin: 0 auto;
+
+            -webkit-transition: height ease-in-out 0.2s, opacity ease-in-out 0.1s;
+            -moz-transition:    height ease-in-out 0.2s, opacity ease-in-out 0.1s;
+            -o-transition:      height ease-in-out 0.2s, opacity ease-in-out 0.1s;
+            transition:         height ease-in-out 0.2s, opacity ease-in-out 0.1s;
+        }
 
         &__title {
             font-size: min(2rem, 3vh);
         }
 
         &__description {
-            font-size: min(1.25rem, 2vh);
+            span {
+                font-size: min(1.25rem, 2vh);
+            }
+
+            svg { 
+                width: 1.25rem;
+                height: 1.25rem;
+            }
         }
     }
 }
