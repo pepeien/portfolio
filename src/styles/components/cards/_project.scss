@@ -1,5 +1,3 @@
-$--background-animation-duration: 120s;
-
 .project-card {
     position: relative;
     justify-content: center;
@@ -36,7 +34,11 @@ $--background-animation-duration: 120s;
     }
 
     &__thumbnail {
-        display: none;
+        width: 100%;
+        height: 38vw;
+        max-height: 150px;
+        z-index: 3;
+        margin: 0 auto;
     }
 
     &__title, &__description {
@@ -58,6 +60,7 @@ $--background-animation-duration: 120s;
         display: flex;
         flex-direction: row;
         align-items: center;
+        gap: 1vh;
 
         span {  
             font-weight: 200;
@@ -78,7 +81,11 @@ $--background-animation-duration: 120s;
     }
 }
 
-$--mountain-bottom-distance-desktop: -1vh;
+@media only screen and (min-width: $--min-tablet-width){
+    .project-card {
+        padding: min(2vh, 2rem) min(4vh, 1rem);
+    }
+}
 
 @media only screen and (min-width: $--min-desktop-width){
     .project-card {
@@ -98,14 +105,10 @@ $--mountain-bottom-distance-desktop: -1vh;
         }
 
         &__thumbnail {
-            display: block;
-            width: 100%;
             height: 0;
-            max-height: 350px;
-            z-index: 3;
+            max-height: 450px;
             opacity: 0;
-            margin: 0 auto;
-
+    
             -webkit-transition: height ease-in-out 0.2s, opacity ease-in-out 0.15s;
             -moz-transition:    height ease-in-out 0.2s, opacity ease-in-out 0.15s;
             -o-transition:      height ease-in-out 0.2s, opacity ease-in-out 0.15s;
