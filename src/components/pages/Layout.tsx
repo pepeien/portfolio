@@ -43,6 +43,7 @@ async function generateMetadata({ params }: Props): Promise<Metadata> {
             description: description,
             type: 'website',
             images: banner,
+            url: InternalServices.getDeploymentURL(`${url}/${dictionary['LANGUAGE_LOCALE_URL']}`),
         },
         twitter: {
             card: 'summary_large_image',

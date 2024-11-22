@@ -9,8 +9,20 @@ export class InternalServices {
         return StringServices.removeExtraSlashes(process.env.GIT_BLOB);
     }
 
-    public static getDeploymentURL(): URL {
-        return new URL(process.env.DEPLOYMENT_URL ?? 'http://localhost:3000');
+    public static getDeploymentURL(path = ''): URL {
+        if (path.trim().length === 0) {
+            return new URL(
+                StringServices.removeExtraSlashes(
+                    process.env.DEPLOYMENT_URL ?? 'http://localhost:3000',
+                ),
+            );
+        }
+
+        return new URL(
+            StringServices.removeExtraSlashes(
+                `${process.env.DEPLOYMENT_URL ?? 'http://localhost:3000'}/${path}`,
+            ),
+        );
     }
 
     public static getFetchInterval(): number {
