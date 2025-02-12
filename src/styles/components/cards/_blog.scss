@@ -2,8 +2,8 @@ $--mobile-padding: 2vh;
 
 .blog-card {
     position: relative;
-    width: calc(100% - ($--mobile-padding * 2));
-    height: calc(100% - ($--mobile-padding * 2));
+    width: calc(34.5vh - ($--mobile-padding * 2));
+    height: calc(90% - ($--mobile-padding * 2));
     align-items: center;
     border: 1px solid $--dark-grey-color;
     padding: $--mobile-padding;
@@ -109,9 +109,9 @@ $--mobile-padding: 2vh;
 
 $--desktop-padding: min(1.5rem, 2vw);
 
-@media only screen and (min-width: $--min-tablet-width){
+@media only screen and (min-width: $--min-desktop-width){
     .blog-card {
-        width: calc(100% - ($--desktop-padding * 2));
+        width: calc(28vw - ($--desktop-padding * 2));
         height: calc(100% - ($--desktop-padding * 2));
         padding: $--desktop-padding;
         gap: 1rem;
