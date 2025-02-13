@@ -14,7 +14,7 @@ export default {
     DATE_YEAR_LONG_PLURAL: 'years',
     DATE_MONTH_LONG: 'month',
     DATE_MONTH_LONG_PLURAL: 'months',
-    DATE_DAY_LONG: 'Day',
+    DATE_DAY_LONG: 'day',
     DATE_DAY_LONG_PLURAL: 'days',
     DATE_HOUR_LONG: 'hour',
     DATE_HOUR_LONG_PLURAL: 'hours',

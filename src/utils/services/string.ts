@@ -114,9 +114,7 @@ export class StringServices {
         if (days < DAYS_ON_MONTH) {
             return StringServices.generateElapsedTime(
                 dictionary,
-                `${days} ${
-                    hours <= 1 ? dictionary.DATE_DAY_LONG : dictionary.DATE_DAY_LONG_PLURAL
-                }`,
+                `${days} ${days <= 1 ? dictionary.DATE_DAY_LONG : dictionary.DATE_DAY_LONG_PLURAL}`,
             );
         }
 

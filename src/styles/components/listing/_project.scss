@@ -1,22 +1,9 @@
 .projects {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	width: 100%;
-	gap: 2vh;
-	overflow-y: auto;
+	gap: 3vh;
+	overflow-x: auto;
     list-style: none;
-}
-
-@media only screen and (min-width: $--min-tablet-width){
-	.projects {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(35vw, 1fr));
-	}
-}
-
-@media only screen and (min-width: $--min-desktop-width){
-	.projects {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(19vw, 1fr));
-	}
+    padding-bottom: 1vw;
 }
