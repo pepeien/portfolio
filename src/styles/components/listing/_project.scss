@@ -9,5 +9,9 @@
 @media only screen and (min-width: $--min-desktop-width) {
     .projects {
         flex-direction: row;
+
+        > li {
+            flex: 1;
+        }
     }
 }

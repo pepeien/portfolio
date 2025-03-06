@@ -13,7 +13,7 @@ $--gap: 3vh;
     }
 }
 
-@media only screen and (min-width: $--min-tablet-width){
+@media only screen and (min-width: $--min-tablet-width) {
 	.jobs {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(45vh, 1fr));

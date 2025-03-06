@@ -326,10 +326,10 @@
     top: 0;
     left: 0;
 
-    -webkit-transform: translateX(calc((135% + 10.5rem) * -1)) skewX(-20deg);
-    -moz-transform:    translateX(calc((135% + 10.5rem) * -1)) skewX(-20deg);
-    -o-transform:      translateX(calc((135% + 10.5rem) * -1)) skewX(-20deg);
-    transform:         translateX(calc((135% + 10.5rem) * -1)) skewX(-20deg);
+    -webkit-transform: translateX(calc((135% + 10.5em) * -1)) skewX(-20deg);
+    -moz-transform:    translateX(calc((135% + 10.5em) * -1)) skewX(-20deg);
+    -o-transform:      translateX(calc((135% + 10.5em) * -1)) skewX(-20deg);
+    transform:         translateX(calc((135% + 10.5em) * -1)) skewX(-20deg);
 
     -webkit-transition: transform ease-in-out 0.2s;
     -moz-transition:    transform ease-in-out 0.2s;

@@ -50,7 +50,7 @@ $--navbar-width-mobile: 8vh;
     }
 }
 
-$--navbar-width-desktop: 4rem;
+$--navbar-width-desktop: 4em;
 
 @media only screen and (min-width: $--min-desktop-width) {
     .socials {

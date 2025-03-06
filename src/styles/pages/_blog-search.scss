@@ -6,16 +6,17 @@
     overflow-y: auto;
 
     &__content {
-        width: 100%;
+        width: calc(100% - ($--mobile-padding * 2));
         height: auto;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        gap: 2rem;
+        gap: 2em;
+        padding: $--mobile-padding;
 
         h1 {
             font-family: 'Roboto Condensed';
-            font-size: min(12vw, 5rem);
+            font-size: min(12vw, 5em);
             color: $--dark-grey-color;
         }
 
@@ -40,7 +41,7 @@
     }
 }
 
-@media only screen and (min-width: $--min-desktop-width){
+@media only screen and (min-width: $--min-desktop-width) {
     .blog-search {
         display: flex;
         flex-direction: row;
@@ -50,27 +51,23 @@
         gap: 1vh;
 
         &__content {
+            width: calc(100% - ($--desktop-padding * 2));
             padding: $--desktop-padding;
 
             h1 {
-                font-size: 4rem;
+                font-size: 4em;
             }
 
             > .blogs {
                 padding: 0 0 $--desktop-padding 0;
-                gap: 1.45rem;
+                gap: 1.45em;
     
-                > li {
-                    .blog-card {
-                        width: 100%;
-                        height: 100%;
-                        flex-direction: row;
-                        padding: 0;
-    
-                        &__thumbnail {
-                            width: 30rem;
-                        }
-                    }
+                .blog-card {
+                    width: 100%;
+                    height: 100%;
+                    flex-direction: row;
+                    padding: 0;
+                    font-size: 1em;
                 }
             }
         }

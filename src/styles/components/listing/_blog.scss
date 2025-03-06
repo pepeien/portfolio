@@ -1,7 +1,53 @@
 .blogs {
     display: flex;
-	flex-direction: column;
-	width: 100%;
-	gap: 3vh;
-    list-style: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 1.25em;
+
+    &__list {
+        display: flex;
+	    flex-direction: column;
+	    width: 100%;
+	    gap: 1.25em;
+        list-style: none;
+    }
+}
+
+@media only screen and (min-width: $--min-desktop-width) {
+    .blogs {
+        &[data-is-showcasing="true"] {
+            flex-direction: row;
+
+            > .blog-card {
+                width: 60%;
+                max-width: 35em;
+                flex-direction: column;
+                font-size: 0.9em;
+
+                .blog-card {
+                    &__info {
+                        flex: 1;
+                    }
+
+                    &__thumbnail {
+                        width: 100%;
+                        height: auto;
+                        max-width: 25vw;
+                    }
+                }
+            }
+
+           .blogs {
+                &__list {
+                    .blog-card {
+                        font-size: 0.75em;
+
+                        &__info {
+                            padding: $--desktop-padding * 0.5;
+                        }
+                    }
+                }
+           }
+        }
+    }
 }

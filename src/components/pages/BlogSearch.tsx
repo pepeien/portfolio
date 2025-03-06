@@ -64,7 +64,7 @@ async function generatePage({ params }: Props) {
         <main className='blog-search --hidden-overflow-all --fade-in'>
             <section className='blog-search__content --flex-center'>
                 <h1>{dictionary['BLOG_TITLE']}</h1>
-                <BlogListing dictionary={dictionary}></BlogListing>
+                <BlogListing isShowcasing={false} dictionary={dictionary}></BlogListing>
             </section>
         </main>
     );

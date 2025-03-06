@@ -87,7 +87,7 @@ async function generatePage({ params }: Props) {
                 </article>
                 <article id='BLOG_TITLE'>
                     <h3 className='--color-ease-in'>{dictionary['BLOG_TITLE']}</h3>
-                    <BlogListing dictionary={dictionary} />
+                    <BlogListing isShowcasing={true} dictionary={dictionary} />
                     <Link
                         className='--redirector'
                         href={`/${dictionary['LANGUAGE_LOCALE_URL']}/blog`}

@@ -14,7 +14,7 @@
 		-o-animation:      fade-in $--initial-fade-duration ease-in-out 1 forwards;
 		animation:         fade-in $--initial-fade-duration ease-in-out 1 forwards;
 
-		&:nth-of-type(1){
+		&:nth-of-type(1) {
 			-webkit-animation-delay: $--initial-fade-duration * 0.6;
 			-moz-animation-delay:    $--initial-fade-duration * 0.6;
 			-o-animation-delay:      $--initial-fade-duration * 0.6;
@@ -38,7 +38,7 @@
 	}
 }
 
-@media only screen and (min-width: $--min-desktop-width){
+@media only screen and (min-width: $--min-desktop-width) {
 	.mountains {
 		height: 58vh;
 
