@@ -31,6 +31,8 @@ export default {
 
     PROJECTS_TITLE: 'プロジェクト',
     PROJECTS_REDIRECTOR: 'プロジェクト・アーカイブ',
+    PROJECTS_PAGE_TITLE: 'プロジェクト',
+    PROJECTS_PAGE_DESCRIPTION: 'Erick Frederickの個人プロジェク。',
 
     JOB_HISTORY_TITLE: '職歴',
     JOB_HISTORY_DATE_DIRECTION: 'inverse',
@@ -39,6 +41,9 @@ export default {
     BLOG_READ_INVITATION: '記事を読む',
     BLOG_THEME_GAME_DEV: 'ゲーム開発',
     BLOG_REDIRECTOR: 'ブログ・アーカイブ',
+    BLOG_PAGE_TITLE: 'ブログ',
+    BLOG_PAGE_DESCRIPTION:
+        'Erick Frederickのソフトウェア開発から旅行記まで、様々なブログ記事を掲載。',
 
     CONTACT_TITLE: '連絡先',
     CONTACT_EMAIL_LABEL: 'メール',

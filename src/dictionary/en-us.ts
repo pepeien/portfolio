@@ -33,6 +33,8 @@ export default {
 
     PROJECTS_TITLE: 'Projects',
     PROJECTS_REDIRECTOR: 'View Full Project Archive',
+    PROJECTS_PAGE_TITLE: 'Projects',
+    PROJECTS_PAGE_DESCRIPTION: "Erick Frederick's personal projects.",
 
     JOB_HISTORY_TITLE: 'Experience',
     JOB_HISTORY_DATE_DIRECTION: 'normal',
@@ -41,6 +43,8 @@ export default {
     BLOG_READ_INVITATION: 'Read the post',
     BLOG_THEME_GAME_DEV: 'Game Development',
     BLOG_REDIRECTOR: 'View Full Blog Archive',
+    BLOG_PAGE_TITLE: 'Blog',
+    BLOG_PAGE_DESCRIPTION: "Erick Frederick's blog posts from software development to travel logs.",
 
     CONTACT_TITLE: 'Contact me',
     CONTACT_EMAIL_LABEL: 'Email',

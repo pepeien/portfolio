@@ -20,7 +20,8 @@ async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     const dictionary = await getDictionary(lang);
 
-    const title = `${dictionary['HOME_PAGE_TITLE']} - ${dictionary['PROJECTS_TITLE']}`;
+    const title = `${dictionary['HOME_PAGE_TITLE']} - ${dictionary['PROJECTS_PAGE_TITLE']}`;
+    const description = dictionary['PROJECTS_PAGE_DESCRIPTION'];
     const bannerURL = new URL(`${InternalServices.getBLOB()}/images/thumbnail.png`);
     const banner = {
         url: bannerURL,
@@ -36,8 +37,10 @@ async function generateMetadata({ params }: Props): Promise<Metadata> {
             languages: getAlternates('project'),
         },
         title: title,
+        description: description,
         openGraph: {
             title: title,
+            description: description,
             type: 'website',
             images: banner,
             url: InternalServices.getDeploymentURL(`${dictionary['LANGUAGE_LOCALE_URL']}/project`),
@@ -45,6 +48,7 @@ async function generateMetadata({ params }: Props): Promise<Metadata> {
         twitter: {
             card: 'summary_large_image',
             title: title,
+            description: description,
             images: banner,
             site: process.env.TWITTER_HANDLE ?? undefined,
         },
