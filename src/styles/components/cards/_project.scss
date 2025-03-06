@@ -1,38 +1,46 @@
 $--mobile-padding: 2vh;
 
 .project-card {
-    width: calc(34.5vh - ($--mobile-padding * 2));
-    height: calc(90% - ($--mobile-padding * 2));
     position: relative;
-    justify-content: center;
-    text-decoration: none;
-    color: $--dark-grey-color;
+    width: calc(100% - ($--mobile-padding * 2));
+    height: auto;
+    align-items: center;
     border: 1px solid $--dark-grey-color;
     padding: $--mobile-padding;
-    gap: 1.25vh;
+    gap: 2vh;
+
+    font-family: 'Roboto Condensed';
+	color: $--accent-color;
+	text-decoration: none;
 
     &:active,
     &:focus,
     &:hover {
-        color: $--accent-color;
-
         .project-card {
-            &__description {
-                svg {
-                    stroke: $--white;
+            &__info {
+                color: $--accent-color;
+
+                .tags {
+                    li {
+                        background-color: $--white;
+
+                        span {
+                            color: $--black;
+                        }
+
+                        svg path {
+                            fill: $--black;
+                            stroke: $--white;
+                        }
+                    }
                 }
             }
-
+    
             &__background {
-                -webkit-transform: translateX(0.05vh);
-                -moz-transform:    translateX(0.05vh);
-                -o-transform:      translateX(0.05vh);
-                transform:         translateX(0.05vh);
-            }
-
-            &__tags li {
-                background-color: $--white;
-                color: $--black;
+                -webkit-transform: translateX(0);
+                -moz-transform:    translateX(0);
+                -o-transform:      translateX(0);
+                transform:         translateX(0);
             }
         }
     }
@@ -50,42 +58,37 @@ $--mobile-padding: 2vh;
         }
     }
 
-    &__title, &__description {
-        font-family: 'Roboto Condensed';
+    &__info {
+        position: relative;
+        width: 100%;
+		justify-content: center;
+        background-color: transparent;
+        gap: 0.7rem;
+		color: $--dark-grey-color;
         z-index: 2;
-    }
 
-    &__title {
-        font-family: 'Roboto Condensed';
-        font-weight: 700;
-        font-size: 3vh;
-    }
-
-    &__tags {
-        z-index: 3;
-    }
-
-    &__description {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 1vh;
-
-        span {  
-            font-weight: 200;
-            font-style: italic;
+        &__title, &__description {
+            letter-spacing: .01em;
+            overflow-wrap: break-word;
         }
 
-        svg {
-            width: 1rem;
-            height: 1rem;
-            stroke: $--black;
-            margin-left: auto;
+	    &__title {
+	    	font-weight: 700;
+	    	font-size: 1.4rem;
+	    	line-height: 1.1;
+            justify-content: flex-start;
+	    }
+	    
+	    &__description {
+	    	font-weight: 300;
+	    	font-size: 0.9rem;
+	    	opacity: 0.7;
+	    	line-height: 1.25;
+            height: 5rem;
+	    }
 
-            -webkit-transition: stroke ease-in-out 0.1s;
-            -moz-transition:    stroke ease-in-out 0.1s;
-            -o-transition:      stroke ease-in-out 0.1s;
-            transition:         stroke ease-in-out 0.1s;
+        .tags {
+            margin-bottom: 1rem;
         }
     }
 }
@@ -94,22 +97,19 @@ $--desktop-padding: min(1.5rem, 2vw);
 
 @media only screen and (min-width: $--min-desktop-width){
     .project-card {
-        width: calc(28vw - ($--desktop-padding * 2));
+        width: calc(100% - ($--desktop-padding * 2));
         height: calc(100% - ($--desktop-padding * 2));
         padding: $--desktop-padding;
+        gap: 1rem;
 
-        &__title {
-            font-size: min(2rem, 3vh);
-        }
-
-        &__description {
-            span {
-                font-size: min(1.25rem, 2vh);
+        &__info {
+            &__title {
+                font-size: min(2.5vw, 2rem);
             }
 
-            svg { 
-                width: 1.25rem;
-                height: 1.25rem;
+            &__description {
+                font-size: min(1vw, 1rem);
+                height: 3rem;
             }
         }
     }

@@ -1,9 +1,7 @@
 .blogs {
     display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	width: 100%;
 	gap: 3vh;
-    overflow-x: auto;
     list-style: none;
-    padding-bottom: 1vw;
 }

@@ -32,7 +32,7 @@ export default {
     ABOUT_NAME: 'Erick Frederick',
 
     PROJECTS_TITLE: 'Projetos',
-    PROEJCTS_REDIRECTOR: 'Acessar Arquivo de Projetos',
+    PROJECTS_REDIRECTOR: 'Acessar Arquivo de Projetos',
 
     JOB_HISTORY_TITLE: 'Experiência',
     JOB_HISTORY_DATE_DIRECTION: 'normal',
@@ -40,6 +40,7 @@ export default {
     BLOG_TITLE: 'Blog',
     BLOG_READ_INVITATION: 'Ler Artigo',
     BLOG_THEME_GAME_DEV: 'Desenvolvimento de Jogos',
+    BLOG_REDIRECTOR: 'Acessar Arquivo do Blog',
 
     CONTACT_TITLE: 'Entre em contato',
     CONTACT_EMAIL_LABEL: 'Email',

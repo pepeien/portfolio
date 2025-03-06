@@ -14,7 +14,7 @@ export interface Props {
     dictionary: Dictionary;
 }
 
-const MAX_SHOWCASE_COUNT = 4;
+const MAX_SHOWCASE_COUNT = 3;
 
 export default async function Component({ dictionary }: Props) {
     const data = await fetch(`${InternalServices.getBLOB()}/blog/metadata.json`, {
@@ -23,8 +23,6 @@ export default async function Component({ dictionary }: Props) {
         .then((_res) => _res.json())
         .then((_blog: Blog[]) => _blog.slice(0, MAX_SHOWCASE_COUNT))
         .catch(() => [] as Blog[]);
-
-    const latestPost = BlogServices.getLatestPost(data);
 
     return (
         <ul className='blogs'>

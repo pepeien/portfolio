@@ -24,9 +24,11 @@
 @import 'components/listing/tag';
 
 //Pages Import
+@import 'pages/blog-search';
 @import 'pages/blog';
 @import 'pages/home';
 @import 'pages/not-found';
+@import 'pages/project-search';
 
 body {
 	background-color: $--background-color;

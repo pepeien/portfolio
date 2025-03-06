@@ -43,7 +43,7 @@ export default function Component({
     return (
         <Link
             className='blog-card --hidden-overflow-all --flex-column'
-            href={`${dictionary['LANGUAGE_LOCALE_URL']}${baseLink}`}
+            href={`/${dictionary['LANGUAGE_LOCALE_URL']}${baseLink}`}
             aria-disabled={!wasReleased}
         >
             <div className='blog-card__thumbnail --hidden-overflow-all'>
@@ -90,7 +90,7 @@ export default function Component({
                     )}
                 </span>
             </div>
-            <div className='blog-card__info__background --skewd-background' />
+            <div className='blog-card__background --skewd-background' />
         </Link>
     );
 }

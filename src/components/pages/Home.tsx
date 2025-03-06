@@ -4,7 +4,6 @@ import React from 'react';
 // Components
 import {
     ContactForm,
-    Footer,
     ProjectListing,
     JobListing,
     BlogListing,
@@ -17,6 +16,7 @@ import { getDictionary } from '@dictionary';
 
 // Services
 import { InternalServices } from '@utils/services';
+import Link from 'next/link';
 
 interface Props {
     params: { lang: string };
@@ -73,6 +73,13 @@ async function generatePage({ params }: Props) {
                 <article id='PROJECTS_TITLE'>
                     <h3 className='--color-ease-in'>{dictionary['PROJECTS_TITLE']}</h3>
                     <ProjectListing dictionary={dictionary} />
+                    <Link
+                        className='--redirector'
+                        href={`/${dictionary['LANGUAGE_LOCALE_URL']}/projects`}
+                    >
+                        <span className='--color-ease-in'>{dictionary['PROJECTS_REDIRECTOR']}</span>
+                        <div className='--skewd-background' />
+                    </Link>
                 </article>
                 <article id='JOB_HISTORY_TITLE'>
                     <h3 className='--color-ease-in'>{dictionary['JOB_HISTORY_TITLE']}</h3>
@@ -81,6 +88,13 @@ async function generatePage({ params }: Props) {
                 <article id='BLOG_TITLE'>
                     <h3 className='--color-ease-in'>{dictionary['BLOG_TITLE']}</h3>
                     <BlogListing dictionary={dictionary} />
+                    <Link
+                        className='--redirector'
+                        href={`/${dictionary['LANGUAGE_LOCALE_URL']}/blog`}
+                    >
+                        <span className='--color-ease-in'>{dictionary['BLOG_REDIRECTOR']}</span>
+                        <div className='--skewd-background' />
+                    </Link>
                 </article>
                 <article id='CONTACT_TITLE'>
                     <h3 className='--color-ease-in'>{dictionary['CONTACT_TITLE']}</h3>

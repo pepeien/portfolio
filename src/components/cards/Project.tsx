@@ -28,36 +28,26 @@ export default function Component({
             target='_blank'
             rel='noreferrer'
         >
-            <Image
-                className='project-card__thumbnail'
-                src={`${InternalServices.getGitBLOB()}/${repo}/refs/heads/master/.github/images/project-thumbnail.png`}
-                width={1920}
-                height={1080}
-                quality={100}
-                alt={`${name} project thumbnail`}
-                priority={true}
-            />
-            <h4 className='project-card__title'>{name}</h4>
-            <TagListing
-                className='project-card__tags'
-                data={technologies.map((technology) => {
-                    return { text: technology } as Tag;
-                })}
-            />
-            <div className='project-card__description'>
-                <span>{description[dictionary['LANGUAGE_LOCALE_URL']]}</span>
-                <svg
-                    viewBox='0 0 24 24'
-                    xmlns='http://www.w3.org/2000/svg'
-                    fill='none'
-                    strokeWidth='1'
-                    strokeLinecap='round'
-                    strokeLinejoin='miter'
-                >
-                    <polyline points='20 13 20 22 2 22 2 4 11 4'></polyline>
-                    <polyline points='16 2 22 2 22 8'></polyline>
-                    <line x1='12' y1='12' x2='21.6' y2='2.4'></line>
-                </svg>
+            <div className='project-card__thumbnail --hidden-overflow-all'>
+                <Image
+                    src={`${InternalServices.getGitBLOB()}/${repo}/refs/heads/master/.github/images/project-thumbnail.png`}
+                    width={1920}
+                    height={1080}
+                    quality={100}
+                    alt={`${name} project thumbnail`}
+                    priority={true}
+                />
+            </div>
+            <div className='project-card__info --flex-column --hidden-overflow-all'>
+                <h4 className='project-card__info__title --color-ease-in'>{name}</h4>
+                <TagListing
+                    data={technologies.map((technology) => {
+                        return { text: technology } as Tag;
+                    })}
+                />
+                <span className='project-card__info__description --color-ease-in'>
+                    {description[dictionary['LANGUAGE_LOCALE_URL']]}
+                </span>
             </div>
             <div className='project-card__background --skewd-background' />
         </Link>

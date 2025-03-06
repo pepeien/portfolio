@@ -30,7 +30,7 @@ export default {
     ABOUT_NAME: 'Erick Frederick',
 
     PROJECTS_TITLE: 'プロジェクト',
-    PROEJCTS_REDIRECTOR: 'プロジェクト・アーカイブ',
+    PROJECTS_REDIRECTOR: 'プロジェクト・アーカイブ',
 
     JOB_HISTORY_TITLE: '職歴',
     JOB_HISTORY_DATE_DIRECTION: 'inverse',
@@ -38,6 +38,7 @@ export default {
     BLOG_TITLE: 'ブログ',
     BLOG_READ_INVITATION: '記事を読む',
     BLOG_THEME_GAME_DEV: 'ゲーム開発',
+    BLOG_REDIRECTOR: 'ブログ・アーカイブ',
 
     CONTACT_TITLE: '連絡先',
     CONTACT_EMAIL_LABEL: 'メール',

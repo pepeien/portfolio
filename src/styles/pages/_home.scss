@@ -48,6 +48,41 @@
             }
         }
     }
+
+    .--redirector {
+        position: relative;
+        margin-top: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        font-family: 'Roboto Condensed';
+        font-weight: 400;
+        border: 1px solid $--dark-grey-color;
+        height: 3.6rem;
+        font-size: 1rem;
+        text-decoration: none;
+        color: $--dark-grey-color;
+        overflow: hidden;
+
+        &:active,
+        &:focus,
+        &:hover {
+            color: $--accent-color;
+
+            .--skewd-background {
+                -webkit-transform: translateX(0);
+                -moz-transform:    translateX(0);
+                -o-transform:      translateX(0);
+                transform:         translateX(0);
+            }
+        }
+
+        span {
+            z-index: 2;
+        }
+    }
 }
 
 @media only screen and (min-width: $--min-desktop-width){

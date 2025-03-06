@@ -1,9 +1,13 @@
 .projects {
 	display: flex;
-	flex-direction: row;
+    flex-direction: column;
 	width: 100%;
 	gap: 3vh;
-	overflow-x: auto;
     list-style: none;
-    padding-bottom: 1vw;
+}
+
+@media only screen and (min-width: $--min-desktop-width) {
+    .projects {
+        flex-direction: row;
+    }
 }
