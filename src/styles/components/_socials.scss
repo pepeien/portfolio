@@ -2,8 +2,8 @@ $--navbar-width-mobile: 8vh;
 
 .socials {
     align-items: center;
-    gap: 1vh;
-    margin-top: 2vh;
+    gap: 0.5em;
+    margin-top: 1em;
 
     &__button {
         background-color: transparent;
@@ -27,16 +27,16 @@ $--navbar-width-mobile: 8vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 4dvh;
-            height: 4dvh;
+            width: 2em;
+            height: 2em;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         svg {
-            width: 2dvh;
-		    height: 2dvh;
+            width: 1em;
+		    height: 1em;
 
             path {
                 fill: $--dark-grey-color;

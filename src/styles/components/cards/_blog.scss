@@ -34,7 +34,7 @@
         width: 100%;
         height: calc(100% - $--mobile-padding);
         padding-top: $--mobile-padding;
-        gap: 0.25em;
+        gap: calc($--mobile-padding * 0.5);
         background-color: transparent;
 		color: $--dark-grey-color;
         justify-content: center;
@@ -49,7 +49,7 @@
 	    	font-size: 1.4em;
 	    	line-height: 1.1;
             justify-content: flex-start;
-            padding-top: 0.8rem;
+            padding-top: calc($--mobile-padding * 0.5);
 	    }
 	    
 	    &__description {
@@ -57,7 +57,6 @@
 	    	font-size: 0.9em;
 	    	opacity: 0.7;
 	    	line-height: 1.25;
-            height: 5em;
 	    }
     }
 
@@ -119,13 +118,13 @@
             }
 
             &__description {
-                font-size: 1rem;
+                font-size: 0.9rem;
                 height: 3rem;
             }
         }
 
         &__thumbnail {
-            width: 65%;
+            width: 55%;
             height: 100%;
             max-width: 22.5em;
 

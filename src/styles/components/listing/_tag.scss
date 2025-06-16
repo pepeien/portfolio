@@ -1,7 +1,7 @@
 .tags {
 	width: 100%;
 	flex-wrap: wrap;
-	gap: 0.5em;
+	gap: 0.25em;
 
 	li {
         align-items: center;
@@ -29,24 +29,26 @@
 		span {
 			font-family: 'Roboto Condensed';
 			font-weight: 500;
-			font-size: 0.7em;
+			font-size: 0.6em;
 		}
 	}
 }
 
 @media only screen and (min-width: $--min-tablet-width) {
 	.tags {
-		li {
-            padding: 0.6em 1em;
+        gap: 0.35em;
 
-			svg {
-				height: 0.8em;
-				width: 0.8em;
-			}
+		li {
+            padding: 0.4rem 0.8rem;
 
 			span {
-				font-size: 0.8em;
+				font-size: 0.7rem;
 			}
+
+            svg {
+                height: 0.7rem;
+                width: 0.7rem;
+            }
 		}
 	}
 }
