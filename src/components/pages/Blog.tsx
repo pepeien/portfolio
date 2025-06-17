@@ -83,7 +83,12 @@ async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const getAuthorIcon = () => {
     return (
-        <svg version='1.1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 612 612'>
+        <svg
+            version='1.1'
+            xmlns='http://www.w3.org/2000/svg'
+            viewBox='0 0 612 612'
+            aria-hidden='true'
+        >
             <g transform='translate(42.666667, 42.666667)'>
                 <path
                     d='M458.159,404.216c-18.93-33.65-49.934-71.764-100.409-93.431c-28.868,20.196-63.938,32.087-101.745,32.087
@@ -105,6 +110,7 @@ const getElapsedTimeIcon = () => {
             viewBox='0 0 24 24'
             xmlns='http://www.w3.org/2000/svg'
             xmlnsXlink='http://www.w3.org/1999/xlink'
+            aria-hidden='true'
         >
             <path
                 d='M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z'
@@ -130,6 +136,7 @@ const getThemeIcon = () => {
             version='1.1'
             xmlns='http://www.w3.org/2000/svg'
             xmlnsXlink='http://www.w3.org/1999/xlink'
+            aria-hidden='true'
         >
             <path
                 transform='translate(42.666667, 42.666667)'

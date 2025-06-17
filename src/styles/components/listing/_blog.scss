@@ -20,7 +20,7 @@
 
             > .blog-card {
                 width: 60%;
-                max-width: 24em;
+                max-width: 34em;
                 flex-direction: column;
                 font-size: 0.9em;
 
@@ -29,10 +29,6 @@
                         flex: 1;
                         gap: 1em;
                         padding-top: $--desktop-padding * 0.2;
-
-                        .tags {
-                            display: none;
-                        }
                     }
 
                     &__thumbnail {

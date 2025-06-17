@@ -18,6 +18,7 @@ export default function Component({ dictionary }: Props) {
                         version='1.1'
                         xmlns='http://www.w3.org/2000/svg'
                         xmlnsXlink='http://www.w3.org/1999/xlink'
+                        aria-hidden='true'
                     >
                         <g stroke='none' strokeWidth='1'>
                             <g transform='translate(-140.000000, -7559.000000)'>
@@ -44,6 +45,7 @@ export default function Component({ dictionary }: Props) {
                         version='1.1'
                         xmlns='http://www.w3.org/2000/svg'
                         xmlnsXlink='http://www.w3.org/1999/xlink'
+                        aria-hidden='true'
                     >
                         <g stroke='none' strokeWidth='1'>
                             <g transform='translate(-180.000000, -7479.000000)'>
@@ -61,7 +63,12 @@ export default function Component({ dictionary }: Props) {
                     target='_blank'
                     rel='noreferrer'
                 >
-                    <svg viewBox='0 0 32 32' version='1.1' xmlns='http://www.w3.org/2000/svg'>
+                    <svg
+                        viewBox='0 0 32 32'
+                        version='1.1'
+                        xmlns='http://www.w3.org/2000/svg'
+                        aria-hidden='true'
+                    >
                         <path d='M30.996 7.824v17.381c0 0 0 0 0 0.001 0 1.129-0.915 2.044-2.044 2.044-0 0-0 0-0.001 0h-4.772v-11.587l-8.179 6.136-8.179-6.136v11.588h-4.772c0 0 0 0-0 0-1.129 0-2.044-0.915-2.044-2.044 0-0 0-0.001 0-0.001v0-17.381c0-0 0-0.001 0-0.001 0-1.694 1.373-3.067 3.067-3.067 0.694 0 1.334 0.231 1.848 0.619l-0.008-0.006 10.088 7.567 10.088-7.567c0.506-0.383 1.146-0.613 1.84-0.613 1.694 0 3.067 1.373 3.067 3.067v0z'></path>
                     </svg>
                 </Link>
