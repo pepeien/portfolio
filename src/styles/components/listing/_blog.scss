@@ -20,13 +20,19 @@
 
             > .blog-card {
                 width: 60%;
-                max-width: 35em;
+                max-width: 24em;
                 flex-direction: column;
                 font-size: 0.9em;
 
                 .blog-card {
                     &__info {
                         flex: 1;
+                        gap: 1em;
+                        padding-top: $--desktop-padding * 0.2;
+
+                        .tags {
+                            display: none;
+                        }
                     }
 
                     &__thumbnail {
@@ -36,18 +42,20 @@
                     }
                 }
             }
+        }
 
-           .blogs {
-                &__list {
-                    .blog-card {
-                        font-size: 0.75em;
+        &__list {
+            .blog-card {
+                font-size: 0.75em;
 
-                        &__info {
-                            padding: $--desktop-padding * 0.5;
-                        }
-                    }
+                &__info {
+                    gap: 1em;
+                    max-height: 8vw;
+                    overflow-y: auto;
+                    padding: $--desktop-padding * 0.5;
+                    padding-top: $--desktop-padding * 0.25;
                 }
-           }
+            }
         }
     }
 }

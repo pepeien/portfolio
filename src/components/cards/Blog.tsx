@@ -57,6 +57,12 @@ export default function Component({
                 />
             </div>
             <div className='blog-card__info --flex-column --hidden-overflow-all'>
+                <h4 className='blog-card__info__title --color-ease-in --flex-center'>
+                    {trimText(
+                        title[dictionary['LANGUAGE_LOCALE_URL']],
+                        dictionary['LANGUAGE_LOCALE_URL'].includes('jp') ? 30 : 58,
+                    )}
+                </h4>
                 <TagListing
                     data={[
                         {
@@ -77,12 +83,6 @@ export default function Component({
                         },
                     ]}
                 />
-                <h4 className='blog-card__info__title --color-ease-in --flex-center'>
-                    {trimText(
-                        title[dictionary['LANGUAGE_LOCALE_URL']],
-                        dictionary['LANGUAGE_LOCALE_URL'].includes('jp') ? 30 : 58,
-                    )}
-                </h4>
                 <span className='blog-card__info__description --color-ease-in'>
                     {trimText(
                         description[dictionary['LANGUAGE_LOCALE_URL']],
