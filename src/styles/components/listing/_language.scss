@@ -1,5 +1,5 @@
 .languages {
-    height: $--home-margin-mobile - .1dvh;
+    height: $--home-margin-mobile;
     align-items: center;
     justify-content: center;
     background-color: adjust-color(
@@ -14,10 +14,10 @@
 
     &__list {
         list-style: none;
-        gap: 1vh;
+        gap: 0.5em;
 
         li {
-            border: 1px solid $--dark-grey-color;
+            border: 0.01em solid $--dark-grey-color;
 
             &[data-is-selected="true"] {
                 background-color: $--selected-background-color;
@@ -30,11 +30,11 @@
 
             a {
                 width: 100%;
-                padding: 1vh 1.6vh;
+                padding: 0.6em 1.2em;
                 text-decoration: none;
                 font-family: 'Roboto Condensed';
                 font-weight: 500;
-                font-size: 1.25vh;
+                font-size: 0.7em;
                 color: $--dark-grey-color;
                 text-align: center;
             }
@@ -60,11 +60,6 @@
         height: $--home-margin;
 
         li {
-            a {
-                padding: 0.5em 1.2em;
-                font-size: 0.8em;
-            }
-
             &:hover {
                 &[data-is-selected="true"] {
                     a {

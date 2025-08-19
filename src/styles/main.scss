@@ -48,7 +48,7 @@ body {
 
     footer {
         position: absolute;
-        top: ($--home-margin-mobile / 2) - 1dvh;
+        top: ($--home-margin-mobile / 2) - 0.5em;
     }
 }
 
@@ -61,7 +61,7 @@ body {
 
         footer {
             top: initial;
-            bottom: ($--home-margin / 2) - 1dvh
+            bottom: calc(calc(($--home-margin / 2)) - 0.5em);
         }
     }
 }

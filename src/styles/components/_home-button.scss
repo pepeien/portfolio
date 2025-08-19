@@ -1,11 +1,21 @@
 .home-button {
-    left: 1.25vh;
-    bottom: 0.8vh;
+    left: 0.7em;
+    bottom: 0.6em;
+
+    svg {
+        width: 0.8em;
+        height: 0.8em;
+    }
 }
 
 @media only screen and (min-width: $--min-desktop-width) {
     .home-button {
-        left: 0.5vh;
-        bottom: 0.5vh;
+        left: 0.35rem;
+        bottom: 0.5rem;
+
+        svg {
+            width: 0.9em;
+            height: 0.9em;
+        }
     }
 }

@@ -1,6 +1,6 @@
 .home {
     width: calc(100vw - $--home-margin-mobile);
-    height: calc(100dvh - ($--home-margin-mobile * 2)) - 0.2dvh;
+    height: calc(calc(100dvh - ($--home-margin-mobile * 2)) - 0.1em);
     margin: $--home-margin-mobile ($--home-margin-mobile / 2);
     border: 1px solid $--dark-grey-color;
     overflow-y: auto;
@@ -25,13 +25,17 @@
             }
         }
 
+        .socials {
+            margin-bottom: 1em;
+        }
+
         .menu {
             margin-top: auto;
         }
     }
 
     &__content {
-        margin-top: 8vh;
+        margin-top: 5.5em;
         gap: 3em;
         padding: 2dvh;
 
@@ -90,7 +94,7 @@
         flex-direction: row;
         width: calc(100vw - ($--home-margin * 2));
         max-width: 1920px;
-        height: calc(100dvh - ($--home-margin * 2)) - 0.2dvh;
+        height: calc(calc(100dvh - ($--home-margin * 2)) - 0.1em);
         margin: $--home-margin;
         gap: 0.5em;
 
