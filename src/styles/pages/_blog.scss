@@ -75,11 +75,11 @@
 
 @media only screen and (min-width: $--min-desktop-width) {
     .blog {
-        gap: 6vh;
+        gap: 3em;
+        align-items: center;
 
         &__banner {
-            min-height: 40vh;
-            height: 27vw;
+            height: 35em;
 
             &__image {
                 -webkit-transform: scale(1);
@@ -98,11 +98,17 @@
                     padding: 0;
                 }
             }
+
+            .tags {
+                span {
+                    font-size: 0.8em;
+                }
+            }
         }
 
         &__content {
-            padding: 0 15vw;
-            padding-top: 5vh;
+            padding-top: 2em;
+            max-width: 1080px;
         }
     }
 }

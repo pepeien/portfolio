@@ -35,7 +35,7 @@ export default async function Component({ isShowcasing, dictionary }: Props) {
 
         return {
             showcase: isShowcasing ? list[0] : undefined,
-            list: isShowcasing ? list.slice(1, MAX_SHOWCASE_COUNT - 1) : list,
+            list: isShowcasing ? list.slice(1, MAX_SHOWCASE_COUNT) : list,
         };
     };
 

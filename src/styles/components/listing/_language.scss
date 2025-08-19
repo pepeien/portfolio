@@ -57,12 +57,12 @@
 
 @media only screen and (min-width: $--min-desktop-width) {
     .languages {
-        height: $--home-margin - 0.1dvh;
+        height: $--home-margin;
 
         li {
             a {
-                padding: 0.6vh 1.5vh;
-                font-size: 1.35vh;
+                padding: 0.5em 1.2em;
+                font-size: 0.8em;
             }
 
             &:hover {

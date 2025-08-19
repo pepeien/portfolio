@@ -269,6 +269,7 @@
 	p {
 		margin-top: 0;
 		margin-bottom: 10px;
+        font-size: 1.2em;
 	}
 	
 	blockquote {
@@ -1053,11 +1054,11 @@
 	}
 
 	h1 {
-		font-size: 5vh;
+		font-size: 2.25em;
 	}
 
 	h2 {
-		font-size: 4vh;
+		font-size: 1.75em;
 	}
 
 	em {
@@ -1123,11 +1124,11 @@
 @media only screen and (min-width: $--min-desktop-width) {
 	.markdown {
         h1 {
-            font-size: 8vh;
+            font-size: 4em;
         }
 
         h2 {
-            font-size: 5vh;
+            font-size: 2.5em;
         }
 
         iframe {
@@ -1155,8 +1156,8 @@
 
         .highlight pre,
 	    pre {
-            width: auto;
-            padding-right: 32px;
+            width: calc(100% - 1em);
+            padding-right: 1em;
 	    }
 	}
 }

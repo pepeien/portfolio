@@ -1,4 +1,4 @@
-$--gap: 3vh;
+$--gap: 1.5em;
 
 .jobs {
     list-style: none;
@@ -16,6 +16,6 @@ $--gap: 3vh;
 @media only screen and (min-width: $--min-tablet-width) {
 	.jobs {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(45vh, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(25em, 1fr));
 	}
 }

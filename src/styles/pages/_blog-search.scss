@@ -46,6 +46,7 @@
         display: flex;
         flex-direction: row;
         width: calc(100vw - ($--home-margin * 2));
+        max-width: 1920px;
         height: calc(100dvh - ($--home-margin * 2)) - 0.2dvh;
         margin: $--home-margin;
         gap: 1vh;

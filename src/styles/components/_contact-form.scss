@@ -96,7 +96,7 @@
         justify-content: center;
         font-family: 'Roboto Condensed';
         font-weight: 700;
-        font-size: 3vh;
+        font-size: 1.25em;
         color: $--green-color;
         min-height: 3vh;
         text-align: center;
@@ -105,21 +105,22 @@
 
 @media only screen and (min-width: $--min-tablet-width) {
     .contact__form {
-        gap: 3vh 0;
+        gap: 1.8em 0;
 
         &-input {
-            gap: 2vh 0;
+            gap: 1.5em 0;
 
             label {
-                font-size: clamp(1.5vh, 1.5vh + 0.5em, 4vh);
+                font-size: 2em;
             }
 
             input,
             textarea {
-                font-size: clamp(1.2vh, 1.2vh + 0.5em, 4vh);
+                height: auto;
+                font-size: 1.26em;
                 margin: 0;
                 max-height: 20vh;
-                padding: 1.5vh 1.5vh;
+                padding: 0.7em;
             }
 
             input {
@@ -127,15 +128,16 @@
             }
 
             textarea {
+                min-height: 6em;
                 width: 45%;
-                height: 15vh;
-                padding: 1.5vh;
+                padding: 0.7em;
             }
         }
 
         &-button {
-            height: 7vh;
-            font-size: clamp(2vh, 2vh + 0.5em, 4vh);
+            height: auto;
+            padding: 0.6em;
+            font-size: 1.5em;
             width: 20%;
 
             &:hover {

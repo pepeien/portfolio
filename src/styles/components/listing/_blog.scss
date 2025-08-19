@@ -19,8 +19,8 @@
             flex-direction: row;
 
             > .blog-card {
-                width: 60%;
-                max-width: 34em;
+                width: 80%;
+                max-width: 40em;
                 flex-direction: column;
                 font-size: 0.9em;
 
@@ -34,7 +34,7 @@
                     &__thumbnail {
                         width: 100%;
                         height: auto;
-                        max-width: 25vw;
+                        max-width: 35vw;
                     }
                 }
             }

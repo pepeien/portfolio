@@ -32,7 +32,7 @@
 
     &__content {
         margin-top: 8vh;
-        gap: 6vh;
+        gap: 3em;
         padding: 2dvh;
 
         article {
@@ -43,8 +43,7 @@
                 font-family: 'Roboto Condensed';
                 font-size: min(8vw, 2em);
                 color: $--dark-grey-color;
-                padding: 1vh 0;
-                margin-bottom: 2vh;
+                padding: 0.8em 0;
             }
         }
     }
@@ -90,15 +89,16 @@
         display: flex;
         flex-direction: row;
         width: calc(100vw - ($--home-margin * 2));
+        max-width: 1920px;
         height: calc(100dvh - ($--home-margin * 2)) - 0.2dvh;
         margin: $--home-margin;
-        gap: 1vh;
+        gap: 0.5em;
 
         &__header {
             height: auto;
             flex: 0.75;
             padding-right: 0;
-            max-width: 80vh;
+            max-width: 60vh;
 
             &__title {
                 h1 {
