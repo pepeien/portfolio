@@ -10,11 +10,7 @@ interface Props {
 
 export default function Component({ dictionary }: Props) {
     return (
-        <Link
-            className='home-button --side-button'
-            href={`/${dictionary['LANGUAGE_LOCALE_URL']}`}
-            scroll={true}
-        >
+        <Link className='home-action' href={`/${dictionary['LANGUAGE_LOCALE_URL']}`} scroll={true}>
             <svg
                 version='1.0'
                 xmlns='http://www.w3.org/2000/svg'

@@ -1,0 +1,238 @@
+.actions {
+    width: 100%;
+    position: fixed;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    bottom: 0.5em;
+    gap: 0.5em;
+
+    > button, > a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.6em;
+        background-color: transparent;
+        border: 0.01em solid $--black;
+
+        -webkit-transition: background-color ease-in-out 0.2s;
+        -moz-transition:    background-color ease-in-out 0.2s;
+        -o-transition:      background-color ease-in-out 0.2s;
+        transition:         background-color ease-in-out 0.2s;
+
+        svg {
+            path {
+                fill: $--black;
+                stroke: $--black;
+            }
+        }
+
+        &:active,
+        &:focus,
+        &:focus-within,
+        &:hover {
+            background-color: $--dark-grey-color;
+
+            svg path {
+                fill: $--accent-color;
+                stroke: $--accent-color;
+            }
+        }
+    }
+
+    .home-action {
+        svg {
+            width: 0.8em;
+            height: 0.8em;
+        }
+    }
+
+    .language-action {
+        svg {
+            width: 1.1em;
+            height: 1.1em;
+        }
+    }
+
+    .language-action__list {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        width: calc(calc(100vw - $--home-margin-mobile) + 0.1em);
+        height: 0;
+        z-index: 2;
+        overflow: hidden;
+        background-color: $--black;
+        margin: $--home-margin-mobile 0 0 -0.05em;
+        top: 0;
+        align-items: center;
+
+        -webkit-transition: height ease-in-out 0.2s;
+        -moz-transition:    height ease-in-out 0.2s;
+        -o-transition:      height ease-in-out 0.2s;
+        transition:         height ease-in-out 0.2s;
+
+        .world-map {
+            position: absolute;
+            margin: 3em 1.5em 0 0;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            align-self: flex-start;
+            justify-content: flex-end;
+            gap: 1em;
+            margin: auto 1em 1em 1em;
+            width: calc(100% - $--home-margin-mobile / 2);
+
+            li {
+                height: 2.5em;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                position: relative;
+
+                &:active,
+                &:focus,
+                &:focus-within,
+                &:hover,
+                &[data-is-selected="true"] {
+                    span {
+                        color: $--selected-color;
+                        background-color: $--selected-background-color;
+
+                        box-shadow:         $--box-shadow;
+                        -webkit-box-shadow: $--box-shadow;
+                        -moz-box-shadow:    $--box-shadow;
+                    }
+
+                    div {
+                        width: 100%;
+                    }
+                }
+
+                &[data-is-selected="true"] {
+                    span {
+                        color: $--accent-color;
+                        background-color: $--green-color;
+                    }
+
+                    div {
+                        background-color: transparent;
+                    }
+                }
+
+                span {
+                    display: flex;
+                    align-items: center;
+                    min-height: 1.5em;
+                    padding: 0.8em 1em;
+                    font-family: 'Roboto Condensed';
+                    font-size: 1em;
+                    margin-left: 0.25em;
+                    z-index: 1;
+                    color: $--white;
+
+                    -webkit-transition: color ease-in-out 0.2s, background-color ease-in-out 0.2s, box-shadow ease-in-out 0.2s;
+                    -moz-transition:    color ease-in-out 0.2s, background-color ease-in-out 0.2s, box-shadow ease-in-out 0.2s;
+                    -o-transition:      color ease-in-out 0.2s, background-color ease-in-out 0.2s, box-shadow ease-in-out 0.2s;
+                    transition:         color ease-in-out 0.2s, background-color ease-in-out 0.2s, box-shadow ease-in-out 0.2s;
+                }
+
+                div {
+                    position: absolute;
+                    width: 0.15em;
+                    height: 100%;
+                    background-color: $--selected-background-color;
+                    z-index: 0;
+
+                    -webkit-transition: width ease-in-out 0.2s;
+                    -moz-transition:    width ease-in-out 0.2s;
+                    -o-transition:      width ease-in-out 0.2s;
+                    transition:         width ease-in-out 0.2s;
+                }
+
+                a {
+                    width: 100%;
+                    align-items: center;
+                    text-decoration: none;
+                }
+            }
+
+        }
+
+        &[data-is-visible="true"] {
+            height: calc(100dvh - calc($--home-margin-mobile * 2));
+        }
+    }
+
+    .theme-action {
+        svg {
+            width: 1.2em;
+            height: 1.2em;
+        }
+    }
+}
+
+@media only screen and (min-width: $--min-tablet-width) {
+    .actions {
+        .language-action__list {
+            .world-map {
+                width: 90vh;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: $--min-desktop-width) {
+    .actions {
+        width: 2.2em;
+        position: relative;
+        flex-direction: column;
+        bottom: initial;
+        left: initial;
+        gap: 0.5em;
+
+        .language-action__list {
+            margin: calc($--home-margin + 0.05em) 0 0 2.7em;
+            width: 0;
+            max-width: 40em;
+            height: calc(calc(100dvh - ($--home-margin * 2)) - 0.1em);
+
+            -webkit-transition: width ease-in-out 0.2s;
+            -moz-transition:    width ease-in-out 0.2s;
+            -o-transition:      width ease-in-out 0.2s;
+            transition:         width ease-in-out 0.2s;
+
+            .world-map {
+                width: auto;
+            }
+
+            ul {
+                gap: 0.8em;
+                margin: auto 1em 1em 1em;
+                width: calc(100% - calc($--home-margin / 2));
+
+                li {
+                    &:hover {
+                        cursor: pointer;
+
+                        div {
+                            width: 100%;
+                        }
+                    }
+
+                    span {
+                        font-size: 0.95em;
+                    }
+                }
+            }
+
+            &[data-is-visible="true"] {
+                height: calc(calc(100dvh - ($--home-margin * 2)) - 0.1em);
+                width: 28vw;
+            }
+        }
+    }
+}

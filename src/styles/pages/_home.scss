@@ -39,7 +39,7 @@
         gap: 3em;
         padding: 2dvh;
 
-        article {
+        section {
             display: flex;
             flex-direction: column;
 
@@ -95,7 +95,7 @@
         width: calc(100vw - ($--home-margin * 2));
         max-width: 1920px;
         height: calc(calc(100dvh - ($--home-margin * 2)) - 0.1em);
-        margin: $--home-margin;
+        margin: $--home-margin 0;
         gap: 0.5em;
 
         &__header {
@@ -121,7 +121,7 @@
             padding-left: 0;
             overflow-y: auto;
 
-            article {
+            section {
                 h3 {
                     font-size: 3.5em;
                 }

@@ -61,12 +61,12 @@ async function generatePage({ params }: Props) {
     const dictionary = await getDictionary(lang);
 
     return (
-        <main className='project-search --hidden-overflow-all --fade-in'>
+        <article className='project-search --hidden-overflow-all --fade-in'>
             <section className='project-search__content --flex-center'>
                 <h1>{dictionary['PROJECTS_TITLE']}</h1>
                 <ProjectListing dictionary={dictionary}></ProjectListing>
             </section>
-        </main>
+        </article>
     );
 }
 

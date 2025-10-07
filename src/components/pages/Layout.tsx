@@ -3,7 +3,14 @@ import { headers } from 'next/headers';
 import type { Metadata } from 'next';
 
 // Components
-import { Footer, HomeButton, LanguageListing, Providers, ThemeButton } from '@components';
+import {
+    Footer,
+    HomeAction,
+    LanguageAction,
+    LanguageListing,
+    Providers,
+    ThemeAction,
+} from '@components';
 
 // Dictionary
 import { getAlternates, getDictionary, getClientLocales, LOCALE_HEADER_KEY } from '@dictionary';
@@ -65,15 +72,17 @@ async function generatePage({ params, children }: Props) {
         <html lang={dictionary['LANGUAGE_LOCALE']} suppressHydrationWarning>
             <body suppressHydrationWarning>
                 <Providers>
-                    <header>
-                        <LanguageListing dictionary={dictionary} locales={getClientLocales()} />
+                    <header className='--fade-in'>
+                        <nav className='actions'>
+                            <LanguageAction dictionary={dictionary} locales={getClientLocales()} />
+                            <ThemeAction />
+                            <HomeAction dictionary={dictionary} />
+                        </nav>
                     </header>
-                    {children}
+                    <main>{children}</main>
                     <footer>
                         <Footer dictionary={dictionary} />
                     </footer>
-                    <HomeButton dictionary={dictionary} />
-                    <ThemeButton />
                 </Providers>
             </body>
         </html>

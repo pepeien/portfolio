@@ -14,7 +14,7 @@ export default function Component() {
 
     return (
         <button
-            className='theme-button --side-button'
+            className='theme-action'
             onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
         >
             {isSunny ? (

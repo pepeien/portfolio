@@ -60,17 +60,17 @@ async function generatePage({ params }: Props) {
     const dictionary = await getDictionary(params.lang);
 
     return (
-        <main className='home --hidden-overflow-all --fade-in'>
-            <div className='home__header --flex-column'>
+        <article className='home --hidden-overflow-all --fade-in'>
+            <section className='home__header --flex-column'>
                 <div className='home__header__title --flex-column'>
                     <h1 className='--color-ease-in'>{dictionary['ABOUT_NAME']}</h1>
                     <h2 className='--color-ease-in'>{dictionary['ABOUT_HERO']}</h2>
                 </div>
                 <SocialListing dictionary={dictionary} />
                 <MenuListing dictionary={dictionary} />
-            </div>
+            </section>
             <section id='content' className='home__content --flex-column'>
-                <article id='PROJECTS_TITLE'>
+                <section id='PROJECTS_TITLE'>
                     <h3 className='--color-ease-in'>{dictionary['PROJECTS_TITLE']}</h3>
                     <ProjectListing dictionary={dictionary} />
                     <Link
@@ -80,12 +80,12 @@ async function generatePage({ params }: Props) {
                         <span className='--color-ease-in'>{dictionary['PROJECTS_REDIRECTOR']}</span>
                         <div className='--skewd-background' />
                     </Link>
-                </article>
-                <article id='JOB_HISTORY_TITLE'>
+                </section>
+                <section id='JOB_HISTORY_TITLE'>
                     <h3 className='--color-ease-in'>{dictionary['JOB_HISTORY_TITLE']}</h3>
                     <JobListing dictionary={dictionary} />
-                </article>
-                <article id='BLOG_TITLE'>
+                </section>
+                <section id='BLOG_TITLE'>
                     <h3 className='--color-ease-in'>{dictionary['BLOG_TITLE']}</h3>
                     <BlogListing isShowcasing={true} dictionary={dictionary} />
                     <Link
@@ -95,13 +95,13 @@ async function generatePage({ params }: Props) {
                         <span className='--color-ease-in'>{dictionary['BLOG_REDIRECTOR']}</span>
                         <div className='--skewd-background' />
                     </Link>
-                </article>
-                <article id='CONTACT_TITLE'>
+                </section>
+                <section id='CONTACT_TITLE'>
                     <h3 className='--color-ease-in'>{dictionary['CONTACT_TITLE']}</h3>
                     <ContactForm dictionary={dictionary} />
-                </article>
+                </section>
             </section>
-        </main>
+        </article>
     );
 }
 

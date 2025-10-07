@@ -174,7 +174,7 @@ async function generatePage({ params }: Props) {
     const dictionary = await getDictionary(lang);
 
     return (
-        <main className='blog --hidden-overflow-all --fade-in --flex-column'>
+        <article className='blog --hidden-overflow-all --fade-in --flex-column'>
             <section className='blog__banner --flex-center'>
                 <Image
                     className='blog__banner__image'
@@ -219,7 +219,7 @@ async function generatePage({ params }: Props) {
                     <Markdown rehypePlugins={[rehypeRaw]}>{markdownData}</Markdown>
                 </div>
             </section>
-        </main>
+        </article>
     );
 }
 
