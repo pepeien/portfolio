@@ -74,7 +74,7 @@
 
         .world-map {
             position: absolute;
-            margin: 3em 1.5em 0 0;
+            margin: 1em 1.5em 0 0;
         }
 
         ul {
@@ -198,7 +198,7 @@
         .language-action__list {
             margin: calc($--home-margin + 0.05em) 0 0 2.7em;
             width: 0;
-            max-width: 40em;
+            max-width: 18vw;
             height: calc(calc(100dvh - ($--home-margin * 2)) - 0.1em);
 
             -webkit-transition: width ease-in-out 0.2s;
@@ -231,8 +231,8 @@
             }
 
             &[data-is-visible="true"] {
+                width: calc(25em + calc($--home-margin * 2));
                 height: calc(calc(100dvh - ($--home-margin * 2)) - 0.1em);
-                width: 28vw;
             }
         }
     }
