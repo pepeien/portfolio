@@ -3,14 +3,7 @@ import { headers } from 'next/headers';
 import type { Metadata } from 'next';
 
 // Components
-import {
-    Footer,
-    HomeAction,
-    LanguageAction,
-    LanguageListing,
-    Providers,
-    ThemeAction,
-} from '@components';
+import { Footer, HomeAction, LanguageAction, Providers, ThemeAction } from '@components';
 
 // Dictionary
 import { getAlternates, getDictionary, getClientLocales, LOCALE_HEADER_KEY } from '@dictionary';
