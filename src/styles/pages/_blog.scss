@@ -151,7 +151,7 @@
                     }
 
                     &[data-is-visible="true"] {
-                        width: 100%;
+                        width: calc(100% - 3em);
                         height: 100vh;
                     }
                 }
