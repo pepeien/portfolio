@@ -5,6 +5,22 @@
     border: 1px solid $--dark-grey-color;
     overflow-y: auto;
 
+    .actions {
+        margin: 0 0 0 calc(calc($--home-margin-mobile / 2) * -1);
+
+        .language-action {
+            &__list {
+                height: 0;
+                width: calc(calc(100vw - $--home-margin-mobile) + 0.1em);
+                margin: calc(calc(calc(100dvh - calc($--home-margin-mobile * 2)) * -1) - 0.55em) 0 0 0;
+
+                &[data-is-visible="true"] {
+                    height: calc(100dvh - calc($--home-margin-mobile * 2));
+                }
+            }
+        }
+    }
+
     &__content {
         width: calc(100% - ($--mobile-padding * 2));
         height: auto;
@@ -50,6 +66,24 @@
         height: calc(calc(100dvh - ($--home-margin * 2)) - 0.1em);
         margin: $--home-margin;
         gap: 1vh;
+
+        .actions {
+            height: 100%;
+            margin: 0 0 0 -2.7em;
+
+            .language-action {
+                &__list {
+                    width: 0;
+                    height: calc(calc(100dvh - ($--home-margin * 2)) - 0.1em);
+                    margin: 0 0 0 2.7em;
+                    max-width: 1920px;
+
+                    &[data-is-visible="true"] {
+                        width: calc(100vw - calc($--home-margin * 2));
+                    }
+                }
+            }
+        }
 
         &__content {
             width: calc(100% - ($--desktop-padding * 2));

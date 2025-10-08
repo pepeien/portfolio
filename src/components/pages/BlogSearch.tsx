@@ -3,13 +3,13 @@ import { headers } from 'next/headers';
 import React from 'react';
 
 // Dictionary
-import { getAlternates, getDictionary, LOCALE_HEADER_KEY } from '@dictionary';
+import { getAlternates, getClientLocales, getDictionary, LOCALE_HEADER_KEY } from '@dictionary';
 
 // Services
 import { InternalServices } from '@utils/services';
 
 // Components
-import { BlogListing } from '@components';
+import { Actions, BlogListing } from '@components';
 
 interface Props {
     params: { lang: string };
@@ -61,11 +61,12 @@ async function generatePage({ params }: Props) {
     const dictionary = await getDictionary(lang);
 
     return (
-        <article className='blog-search --hidden-overflow-all --fade-in'>
+        <article className='blog-search --fade-in'>
             <section className='blog-search__content --flex-center'>
                 <h1>{dictionary['BLOG_TITLE']}</h1>
                 <BlogListing isShowcasing={false} dictionary={dictionary}></BlogListing>
             </section>
+            <Actions dictionary={dictionary} locales={getClientLocales()} />
         </article>
     );
 }

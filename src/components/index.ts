@@ -4,6 +4,7 @@ export { default as Mountains } from './Mountains';
 export { default as Providers } from './Providers';
 export { default as WorldMap } from './WorldMap';
 
+export { default as Actions } from './Actions';
 export { default as HomeAction } from './actions/Home';
 export { default as LanguageAction } from './actions/Language';
 export { default as ThemeAction } from './actions/Theme';

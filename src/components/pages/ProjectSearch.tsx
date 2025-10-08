@@ -3,13 +3,13 @@ import { headers } from 'next/headers';
 import React from 'react';
 
 // Dictionary
-import { getAlternates, getDictionary, LOCALE_HEADER_KEY } from '@dictionary';
+import { getAlternates, getClientLocales, getDictionary, LOCALE_HEADER_KEY } from '@dictionary';
 
 // Services
 import { InternalServices } from '@utils/services';
 
 // Components
-import { ProjectListing } from '@components';
+import { Actions, ProjectListing } from '@components';
 
 interface Props {
     params: { lang: string };
@@ -66,6 +66,7 @@ async function generatePage({ params }: Props) {
                 <h1>{dictionary['PROJECTS_TITLE']}</h1>
                 <ProjectListing dictionary={dictionary}></ProjectListing>
             </section>
+            <Actions dictionary={dictionary} locales={getClientLocales()} />
         </article>
     );
 }

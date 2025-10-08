@@ -24,7 +24,10 @@ export default function Component({ dictionary, locales }: Props) {
         dictionary['LANGUAGE_LOCALE_URL'],
     );
 
-    const pathName = usePathname();
+    const fullPathname = usePathname();
+    const strippedPathname = StringServices.removeExtraSlashes(
+        fullPathname.split(dictionary['LANGUAGE_LOCALE_URL'])[1],
+    );
 
     const isLanguageSelected = React.useCallback(
         (langName: string) => {
@@ -100,17 +103,6 @@ export default function Component({ dictionary, locales }: Props) {
                 </svg>
             </button>
             <nav className='language-action__list' data-is-visible={isListVisible}>
-                <WorldMap
-                    activeRegions={
-                        WorldMapLanguages[
-                            Object.keys(WorldMapLanguages).find(
-                                (_) =>
-                                    currentLanguage.includes(_.toLowerCase()) ||
-                                    currentLanguage.includes(_.toUpperCase()),
-                            ) ?? 'EN'
-                        ]
-                    }
-                />
                 {locales ? (
                     <ul className='--flex-row'>
                         {Object.entries(locales).map(([id, name]) => (
@@ -126,9 +118,7 @@ export default function Component({ dictionary, locales }: Props) {
                             >
                                 <Link
                                     className='--flex-row'
-                                    href={`/${id}/${StringServices.removeExtraSlashes(
-                                        pathName.split(dictionary['LANGUAGE_LOCALE_URL'])[1],
-                                    )}`}
+                                    href={`/${id}/${strippedPathname}`}
                                     scroll={false}
                                 >
                                     <span className='--color-ease-in'>{name}</span>
@@ -138,6 +128,17 @@ export default function Component({ dictionary, locales }: Props) {
                         ))}
                     </ul>
                 ) : undefined}
+                <WorldMap
+                    activeRegions={
+                        WorldMapLanguages[
+                            Object.keys(WorldMapLanguages).find(
+                                (_) =>
+                                    currentLanguage.includes(_.toLowerCase()) ||
+                                    currentLanguage.includes(_.toUpperCase()),
+                            ) ?? 'EN'
+                        ]
+                    }
+                />
             </nav>
         </React.Fragment>
     );

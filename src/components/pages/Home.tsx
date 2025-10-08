@@ -9,10 +9,11 @@ import {
     BlogListing,
     MenuListing,
     SocialListing,
+    Actions,
 } from '@components';
 
 // Dictionary
-import { getDictionary } from '@dictionary';
+import { getClientLocales, getDictionary } from '@dictionary';
 
 // Services
 import { InternalServices } from '@utils/services';
@@ -60,7 +61,7 @@ async function generatePage({ params }: Props) {
     const dictionary = await getDictionary(params.lang);
 
     return (
-        <article className='home --hidden-overflow-all --fade-in'>
+        <article className='home --fade-in'>
             <section className='home__header --flex-column'>
                 <div className='home__header__title --flex-column'>
                     <h1 className='--color-ease-in'>{dictionary['ABOUT_NAME']}</h1>
@@ -101,6 +102,7 @@ async function generatePage({ params }: Props) {
                     <ContactForm dictionary={dictionary} />
                 </section>
             </section>
+            <Actions dictionary={dictionary} locales={getClientLocales()} />
         </article>
     );
 }

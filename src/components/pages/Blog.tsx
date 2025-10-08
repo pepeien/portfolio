@@ -10,13 +10,13 @@ import rehypeRaw from 'rehype-raw';
 import { Blog } from '@utils/interfaces';
 
 // Dictionary
-import { getAlternates, getDictionary, LOCALE_HEADER_KEY } from '@dictionary';
+import { getAlternates, getClientLocales, getDictionary, LOCALE_HEADER_KEY } from '@dictionary';
 
 // Services
 import { InternalServices, StringServices } from '@utils/services';
 
 // Components
-import { TagListing } from '@components';
+import { Actions, TagListing } from '@components';
 
 interface Props {
     params: { lang: string; id: string };
@@ -215,6 +215,7 @@ async function generatePage({ params }: Props) {
                 </div>
             </section>
             <section className='blog__content'>
+                <Actions dictionary={dictionary} locales={getClientLocales()} />
                 <div className='markdown'>
                     <Markdown rehypePlugins={[rehypeRaw]}>{markdownData}</Markdown>
                 </div>

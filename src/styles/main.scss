@@ -37,13 +37,6 @@ body {
     -o-transition:      background-color ease-in-out 0.2s, opacity ease-in-out 0.2s;
     transition:         background-color ease-in-out 0.2s, opacity ease-in-out 0.2s;
 
-    header {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        z-index: 2;
-    }
-
     footer {
         position: absolute;
         width: 100%;
@@ -54,19 +47,6 @@ body {
 
 @media only screen and (min-width: $--min-desktop-width) {
     body {
-        display: flex;
-        flex-direction: row;
-        position: relative;
-        justify-content: center;
-        gap: calc($--home-margin / 6);
-
-        header {
-            position: relative;
-            bottom: initial;
-            top: initial;
-            margin-left: -2em;
-        }
-
         footer {
             top: initial;
             bottom: calc(calc($--home-margin / 2) - 0.5em);
