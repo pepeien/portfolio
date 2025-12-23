@@ -73,7 +73,7 @@ async function generatePage({ params }: Props) {
             <section id='content' className='home__content --flex-column'>
                 <section id='PROJECTS_TITLE'>
                     <h3 className='--color-ease-in'>{dictionary['PROJECTS_TITLE']}</h3>
-                    <ProjectListing dictionary={dictionary} />
+                    <ProjectListing dictionary={dictionary} maxListing={3} />
                     <Link
                         className='--redirector'
                         href={`/${dictionary['LANGUAGE_LOCALE_URL']}/projects`}

@@ -12,16 +12,15 @@ import { ProjectCard } from '@components';
 
 export interface Props {
     dictionary: Dictionary;
+    maxListing?: number;
 }
 
-const MAX_SHOWCASE_COUNT = 3;
-
-export default async function Component({ dictionary }: Props) {
+export default async function Component({ dictionary, maxListing }: Props) {
     const data = await fetch(`${InternalServices.getBLOB()}/projects/metadata.json`, {
         next: { revalidate: InternalServices.getFetchInterval() },
     })
         .then((_res) => _res.json())
-        .then((_projects: Project[]) => _projects.slice(0, MAX_SHOWCASE_COUNT))
+        .then((_projects: Project[]) => (maxListing ? _projects.slice(0, maxListing) : _projects))
         .catch(() => [] as Project[]);
 
     return (
