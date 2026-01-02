@@ -1,4 +1,4 @@
-[![portfolio](.github/images/project-thumbnail.png)](https://erickfrederick.com)
+[![portfolio](.github/images/project-thumbnail.png)](https://erickcaldeira.com)
 
 # portfolio
 

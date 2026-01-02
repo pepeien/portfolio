@@ -21,20 +21,20 @@ export default {
     DATE_ELAPSED: 'ago',
     DATE_ELAPSED_LOCATION: 'AFTER',
 
-    HOME_PAGE_TITLE: 'Erick Frederick',
+    HOME_PAGE_TITLE: 'Erick Caldeira',
     HOME_PAGE_DESCRIPTION:
-        'Erick Frederick is a software developer who creates robust, responsive and aesthetic applications for users and developers.',
+        'Erick Caldeira is a software developer who creates robust, responsive and aesthetic applications for users and developers.',
 
     NOW_TEXT: 'Present',
     UPCOMING_TEXT: 'Coming Soon',
 
     ABOUT_HERO: 'Software Developer',
-    ABOUT_NAME: 'Erick Frederick',
+    ABOUT_NAME: 'Erick Caldeira',
 
     PROJECTS_TITLE: 'Projects',
     PROJECTS_REDIRECTOR: 'View Full Project Archive',
     PROJECTS_PAGE_TITLE: 'Projects',
-    PROJECTS_PAGE_DESCRIPTION: "Erick Frederick's personal projects.",
+    PROJECTS_PAGE_DESCRIPTION: "Erick Caldeira's personal projects.",
 
     JOB_HISTORY_TITLE: 'Experience',
     JOB_HISTORY_DATE_DIRECTION: 'normal',
@@ -44,7 +44,7 @@ export default {
     BLOG_THEME_GAME_DEV: 'Game Development',
     BLOG_REDIRECTOR: 'View Full Blog Archive',
     BLOG_PAGE_TITLE: 'Blog',
-    BLOG_PAGE_DESCRIPTION: "Erick Frederick's blog posts from software development to travel logs.",
+    BLOG_PAGE_DESCRIPTION: "Erick Caldeira's blog posts from software development to travel logs.",
 
     CONTACT_TITLE: 'Contact me',
     CONTACT_EMAIL_LABEL: 'Email',
@@ -55,7 +55,7 @@ export default {
     CONTACT_FAILURE_MESSAGE: 'Failed to send the message',
 
     FOOTER_TEXT_1: "3rd time's a charm",
-    FOOTER_TEXT_2: 'Made by Erick Frederick',
+    FOOTER_TEXT_2: 'Made by Erick Caldeira',
 
     NOT_FOUND_TEXT: 'Page Not Found',
 } as Dictionary;

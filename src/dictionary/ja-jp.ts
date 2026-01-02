@@ -19,20 +19,20 @@ export default {
     DATE_HOUR_LONG: '時間前',
     DATE_HOUR_LONG_PLURAL: '時間前',
 
-    HOME_PAGE_TITLE: 'Erick Frederick',
+    HOME_PAGE_TITLE: 'Erick Caldeira',
     HOME_PAGE_DESCRIPTION:
-        'Erick Frederick 「エリック・フレデリック」は、ユーザーと開発者のために、堅牢で応答性が高くアプリケーションを作成するソフトウェア・エンジニアである。',
+        'Erick Caldeira 「エリック・フレデリック」は、ユーザーと開発者のために、堅牢で応答性が高くアプリケーションを作成するソフトウェア・エンジニアである。',
 
     NOW_TEXT: '現在',
     UPCOMING_TEXT: '公開予定',
 
     ABOUT_HERO: 'ソフトウエア開発者',
-    ABOUT_NAME: 'Erick Frederick',
+    ABOUT_NAME: 'Erick Caldeira',
 
     PROJECTS_TITLE: 'プロジェクト',
     PROJECTS_REDIRECTOR: 'プロジェクト・アーカイブ',
     PROJECTS_PAGE_TITLE: 'プロジェクト',
-    PROJECTS_PAGE_DESCRIPTION: 'Erick Frederickの個人プロジェク。',
+    PROJECTS_PAGE_DESCRIPTION: 'Erick Caldeiraの個人プロジェク。',
 
     JOB_HISTORY_TITLE: '職歴',
     JOB_HISTORY_DATE_DIRECTION: 'inverse',
@@ -43,7 +43,7 @@ export default {
     BLOG_REDIRECTOR: 'ブログ・アーカイブ',
     BLOG_PAGE_TITLE: 'ブログ',
     BLOG_PAGE_DESCRIPTION:
-        'Erick Frederickのソフトウェア開発から旅行記まで、様々なブログ記事を掲載。',
+        'Erick Caldeiraのソフトウェア開発から旅行記まで、様々なブログ記事を掲載。',
 
     CONTACT_TITLE: '連絡先',
     CONTACT_EMAIL_LABEL: 'メール',
